@@ -1,0 +1,12 @@
+# .gitignore to ignore files for git repository
+#
+# author: P. Guttmann
+
+# ignore local python venv
+/.venv
+
+# ignore vim swap files
+*.swp
+
+# ignore mkdocs documentation builds
+/site/
