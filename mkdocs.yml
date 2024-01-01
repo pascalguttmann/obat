@@ -5,8 +5,6 @@ repo_name: pascalguttmann/obat
 edit_uri: edit/main/docs/
 nav:
   - Home: index.md
-  - 'The Doc':
-    - 'page 2': page2.md
   - About: about.md
 plugins:
   - git-revision-date-localized:
