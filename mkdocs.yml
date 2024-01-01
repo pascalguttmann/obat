@@ -8,7 +8,7 @@ nav:
   - About: about.md
 plugins:
   - git-revision-date-localized:
-      fallback_to_build_date: true
+      fallback_to_build_date: false
       type: datetime
   - git-authors
 markdown_extensions:
