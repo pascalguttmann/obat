@@ -1,6 +1,72 @@
 site_name: Open Battery Tester Docs
-site_url: https://example.com/
+site_url: https://pascalguttmann.github.io/obat/
+repo_url: https://github.com/pascalguttmann/obat
+repo_name: pascalguttmann/obat
+edit_uri: edit/main/docs/
 nav:
   - Home: index.md
+  - 'The Doc':
+    - 'page 2': page2.md
   - About: about.md
-theme: readthedocs
+plugins:
+  - git-revision-date-localized:
+      fallback_to_build_date: true
+      type: datetime
+  - git-authors
+markdown_extensions:
+  - admonition
+  - def_list
+  - footnotes
+  - toc:
+      permalink: #
+  - tables
+  - pymdownx.highlight:
+      anchor_linenums: true
+      use_pygments: true
+      linenums: true
+      linenums_style: pymdownx-inline
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.arithmatex:
+      generic: true
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+theme:
+  name: material
+  icon:
+    edit: material/pencil
+    view: material/eye
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.path
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+    - content.action.edit
+    - content.action.view
+  language: en
+  palette:
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: light mode
+      primary: black
+      accent: green
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: dark mode
+      primary: indigo
+      accent: green
