@@ -18,6 +18,8 @@ markdown_extensions:
   - toc:
       permalink: #
   - tables
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.highlight:
       anchor_linenums: true
       use_pygments: true
