@@ -65,9 +65,11 @@ the GitHub repository.
 ## License
 
 The project including its
-    - software
-    - documentation
-    - and other non software intellectual properties
+
+- software
+- documentation
+- and other non software intellectual properties
+
 are distributed under the [MIT License][license].
 
 [obat-doc]: <https://pascalguttmann.github.io/obat/>
