@@ -12,7 +12,7 @@ title: PSU Design
 flowchart TB
 pc[PC]
 main[230 V @ 50Hz]
-relay[Emergency Stop Unit]
+bat[Battery]
 
 subgraph psu[PSU]
     direction TB
@@ -25,6 +25,7 @@ subgraph psu[PSU]
     end
     limiter[Limiting Logic]
     amp[Linear non-switchting amplifier]
+    relay[Emergency Stop Unit]
     esd_out[ESD Protection]
 
     esd_main[ESD Protection Main]
@@ -34,7 +35,7 @@ end
 
 main --> esd_main --> emc_main --> rect --> amp & dac & limiter
 pc --> esd_in --> dac --> limiter
-limiter --> amp <--> esd_out <--> relay
+limiter --> amp <--> relay <--> esd_out <--> bat
 ```
 
 ## Design Choices Reasoning

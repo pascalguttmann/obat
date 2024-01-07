@@ -32,12 +32,14 @@ title: System Architecture Overview
 flowchart LR
 
 pc[PC]
-psu[Power Supply Unit]
-relay[Emergency Stop Unit]
+subgraph psu[Power Supply Unit]
+    psu-internal[2 Quadrant Power supplysink]
+    relay[Emergency Stop Unit]
+end
 meas[U/I/T measurement]
 bat[Battery]
 
-pc --- psu --- relay --- bat
+pc --- psu-internal --- relay --- bat
 pc --- meas --- bat
 ```
 
