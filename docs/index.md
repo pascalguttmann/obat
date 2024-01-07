@@ -1,9 +1,11 @@
 # Welcome to Open Battery Tester
 
 Open Battery Tester is a battery tester project with the goal of providing a
-    - low cost
-    - modifiable
-    - easy to use
+
+- low cost
+- modifiable
+- easy to use
+
 battery testing system.
 The goal is to make the entry into battery testing easy, while being able to
 meet future requirements by enhancing parts of the system as required.
