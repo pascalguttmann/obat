@@ -25,7 +25,8 @@ subgraph psu[PSU]
     end
     limiter[Limiting Logic]
     amp[Linear non-switchting amplifier]
-    relay[Emergency Stop Unit]
+    relay[On-Off relay]
+    esu[Emergency Stop Unit]
     esd_out[ESD Protection]
 
     esd_main[ESD Protection Main]
@@ -35,7 +36,7 @@ end
 
 main --> esd_main --> emc_main --> rect --> amp & dac & limiter
 pc --> esd_in --> dac --> limiter
-limiter --> amp <--> relay <--> esd_out <--> bat
+limiter --> amp <--> relay <--> esu <--> esd_out <--> bat
 ```
 
 ## Design Choices Reasoning
