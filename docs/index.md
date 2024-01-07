@@ -19,7 +19,14 @@ To read the full documentation please visit the [obat documentation][obat-doc].
 The documentation is provided in `Markdown` files, which are compiled and
 deployed to the [obat documentation][obat-doc] using [MkDocs][mkdocs].
 
-#### Setting up the Environment
+#### Editing on Local Machine
+
+To edit the documentation on your local machine you should download the obat
+repository and make changes on your local copy. This yields the benefit to be
+able to check how the documentation will look after your changes, before merging
+them into the main documentation.
+
+##### Setting up the Environment
 
 !!! info "Prerequisites"
     To set up the environment this guide assumes you have installed on your
@@ -57,6 +64,12 @@ documentation server, which will by default bind to <http://127.0.0.1:8000/obat/
 ```bash
 mkdocs serve
 ```
+
+##### Changing the Documentation
+
+The documentation is stored in the directory `./docs/`. Apply the desired
+changes to the files in the `./docs/` directory and observe the changes on the
+local documentation server with live preview.
 
 #### Editing on GitHub
 
