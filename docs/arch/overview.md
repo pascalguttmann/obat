@@ -5,8 +5,8 @@
 - General
     - [ ] Output Voltage $0V$ to $5V$
     - [ ] Output Current $-20A$ to $+20A$
-    - [ ] Voltage Measurement (triggered)
-    - [ ] Current Measurement (triggered)
+    - [ ] Voltage Measurement (triggered) (accuracy wish 1mV / 5V)
+    - [ ] Current Measurement (triggered) (accuracy wish 1mA / 20A)
     - [ ] Temperature Measurement (triggered)
     - [ ] Voltage Controlled Mode
     - [ ] Current Controlled Mode
