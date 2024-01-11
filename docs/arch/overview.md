@@ -17,9 +17,9 @@
 - Safety
     - [ ] Temperature range emergency stop
     - [ ] Voltage range emergency stop
+    - [ ] [DGUV 203-049][dguv] test
 - Security
     - [ ] ESD Protection
-    - [ ] [DGUV 203-049][dguv] test
 
 [dguv]: (https://publikationen.dguv.de/widgets/pdf/download/article/829)
 
