@@ -106,7 +106,7 @@ in Chapter 4.1 [^TSHST] and Chapter 12.4 [^TSHST].
 
 The main disadvantages are:
 
-- The voltage "gain" of current mirros is generally not constant. Therefore no
+- The voltage "gain" of current mirrors is generally not constant. Therefore no
     feedback of the voltage at the DUT can be measured by the SMU, when a
     current is forced.
 - A current mirror is controlled by an input current and cannot be controlled by
@@ -123,7 +123,7 @@ mirrors](#complementary-current-mirrors). As they cannot easily be used with a
 voltage input.
 
 
-[^1]: As state of Jan 16th, 2024
+[^1]: As state of Jan 16, 2024
 
 [^TSEC]: 1991, Tietze, U. and Schenk, Ch.,
     "Electronic Circuits Design and Applications", Vol. 9,
