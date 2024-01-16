@@ -63,8 +63,8 @@ Disadvantages:
 The SMU `Keysight U2722A` offers current and voltage source control with
 concurrent measurement with 4 Quadrant operation in the ranges of:
 
-- $$ \pm 20 V $$
-- $$ \pm 120 mA $$
+- $\pm 20 V$
+- $\pm 120 mA$
 
 As the current of the SMU is far to low for the considered application with
 obat, if the SMU shall be used as a "driving" component in obat the output
