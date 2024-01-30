@@ -51,6 +51,7 @@ measurement accuracy requirements][obat-overview] can be fulfilled.
         !!! info
             Therefore it follows, that if no current is flowing the output
             voltage should be $2.5V$.
+
     - [ ] The connection between `I_MEAS+` and `I_MEAS-` shall be fused with a
         thermal fuse or a thermal switch for currents exceeding $I_{fuse} =
         25A$, within a time of $t_{fuse} <= 60sec$. (E.g. Car Fuse)
@@ -59,6 +60,7 @@ measurement accuracy requirements][obat-overview] can be fulfilled.
             The connection `I_MEAS+` and `I_MEAS-` is the only galvanic coupled
             connection of the transducer with a direct path for the current to
             flow.
+
     - [ ] Connection `GLOBAL_REF` shall be galvanic decoupled from all other
         connections with $Z > 1M \Omega$, except for `V_OUT_REF` and `I_OUT_REF`
         if the corresponding switch is set. Then the galvanic connection shall
