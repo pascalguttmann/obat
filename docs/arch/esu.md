@@ -37,6 +37,7 @@ disconnect the battery.
     - [ ] Limit set `T_HIGH`
     - [ ] Limit set `X_LOW`
     - [ ] Limit set `X_HIGH`
+    - [ ] State Indicator `connected` (e.g. LED)
 
 !!! info
     The `X` connection is at the moment unused, but is included for the ability
@@ -56,6 +57,8 @@ disconnect the battery.
 - [ ] The connections `OUT+`, `OUT-`, `IN+` and `IN-` must be isolated from all
     other terminals and electronics in ESU.
 - [ ] The state after power on must be `disconnected`.
+- [ ] If and only if the state is `connected` the state indicator `connected`
+    must indicate, that the state is `connected`.
 
 ### State Transitions
 
