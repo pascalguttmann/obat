@@ -58,6 +58,7 @@ subgraph sub-obat [ ]
     esu --> bat
     bat --> transducer
     meas --> pc
+    pc -. optional disconnect by software .-> esu
 
     transducer --> esu
 end
