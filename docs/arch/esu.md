@@ -93,7 +93,8 @@ disconnect the battery.
     `*_MEAS` is a voltage in the interval  [`*_MEAS`, `*_MEAS`+5V].
 
     !!! info
-        The voltage from `*_MEAS` to `*_REF` is the `input voltage` for the given measured quantity (voltage, current, temperature, X at battery).
+        The voltage from `*_MEAS` to `*_REF` is the `input voltage` for the
+        given measured quantity (voltage, current, temperature, X at battery).
 
     - [ ] The pairs must be galvanic isolated from all other connections of the
         ESU. (E.g. by using an optocoupler). With an impedance $Z > 1M \Omega$.
