@@ -44,10 +44,14 @@ subgraph sub-obat [ ]
 
     subgraph sub-meas [Measurement Electronics]
         direction RL
-        transducer[U/I/T Transducer]
+        transducer[U/I Transducer]
         meas[U/I/T measurement]
 
-        transducer --> meas
+        transducer -- 0..5V interface --> meas
+    end
+
+    subgraph sub-extT [Temperature Measurement]
+        transducer_T[T Transducer]
     end
 
     subgraph sub-dut [Device Under Test]
@@ -57,10 +61,12 @@ subgraph sub-obat [ ]
     pc --> psu-internal
     esu --> bat
     bat --> transducer
+    bat --> transducer_T
     meas --> pc
     pc -. optional disconnect by software .-> esu
 
-    transducer --> esu
+    transducer_T -- 0..5V interface --> meas
+    transducer -- 0..5V interface --> esu
 end
 ```
 
