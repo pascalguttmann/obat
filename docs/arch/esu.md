@@ -68,7 +68,7 @@ disconnect the battery.
     `connected` state is entered.  (E.g. The energy storage to switch of is
     charged.)
 
-    !!! note
+    !!! info
         Because the transition to the `disconnected` state has the highest
         precedence, a transition to `connected` state can only occur, if all
         `input voltages` of the measured quantities (voltage, current,
@@ -92,7 +92,7 @@ disconnect the battery.
     `*_REF` connection acts as the reference for the electric potential, and
     `*_MEAS` is a voltage in the interval  [`*_MEAS`, `*_MEAS`+5V].
 
-    !!! note
+    !!! info
         The voltage from `*_MEAS` to `*_REF` is the `input voltage` for the given measured quantity (voltage, current, temperature, X at battery).
 
     - [ ] The pairs must be galvanic isolated from all other connections of the
