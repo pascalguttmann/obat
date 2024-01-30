@@ -31,21 +31,43 @@ title: System Architecture Overview
 ---
 flowchart LR
 
-pc[PC]
-subgraph psu[Power Supply Unit]
-    psu-internal[2 Quadrant Power supplysink]
-    relay[Emergency Stop Unit]
-end
-meas[U/I/T measurement]
-bat[Battery]
+subgraph sub-obat [ ]
+    direction LR
+    pc[PC]
 
-pc --- psu-internal --- relay --- bat
-pc --- meas --- bat
+    subgraph sub-power [Power Electronics]
+        psu-internal[2 Quadrant Power supplysink]
+        esu[Emergency Stop Unit]
+
+        psu-internal --> esu
+    end
+
+    subgraph sub-meas [Measurement Electronics]
+        direction RL
+        transducer[U/I/T Transducer]
+        meas[U/I/T measurement]
+
+        transducer --> meas
+    end
+
+    subgraph sub-dut [Device Under Test]
+        bat[Battery]
+    end
+
+    pc --> psu-internal
+    esu --> bat
+    bat --> transducer
+    meas --> pc
+    pc -. optional disconnect by software .-> esu
+
+    transducer --> esu
+end
 ```
 
-| Component           | Description                                |
-|:--------------------|:-------------------------------------------|
-| PC                  | Raspberry Pi                               |
-| Power Supply Unit   | 2 Quadrant Bus Programmable                |
-| U/I/T measurement   | tbd                                        |
-| Emergency Stop Unit | Relay with Voltage and Temperature Control |
+| Component           | Description                                             |
+|:--------------------|:--------------------------------------------------------|
+| PC                  | Raspberry Pi                                            |
+| Power Supply Unit   | 2 Quadrant Bus Programmable                             |
+| Emergency Stop Unit | Relay with Voltage and Temperature Control              |
+| U/I/T measurement   | tbd                                                     |
+| Transducer          | Transducer of Voltage, Current and Temperature to "TBD" |

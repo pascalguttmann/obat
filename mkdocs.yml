@@ -8,6 +8,7 @@ nav:
   - Architecture:
     - arch/overview.md
     - arch/psu.md
+    - arch/esu.md
 plugins:
   - git-revision-date-localized:
       fallback_to_build_date: false
