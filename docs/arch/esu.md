@@ -148,5 +148,6 @@ disconnect the battery.
 ## Internals
 
 - TTL or CMOS logic ?
-- Bi- or Monostable relay?
+- Bi- or Monostable relay? Redundancy of relay?
+- Redundancy? on level of electronics? or entire ESU duplicated?
 - Setting process? Process to set the desired internal limits.
