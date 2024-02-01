@@ -23,6 +23,15 @@
 
 [dguv]: (https://publikationen.dguv.de/widgets/pdf/download/article/829)
 
+## Open Points
+
+- PC software supervision?
+    - e.g. WDOG functionality?
+    - Which component should be supervising?
+    - PC is not safety relevant at the moment. (Note from PaGu point of view: It
+      is not planned to be safety relevant in the future. Is it worth adding the
+      feature? Team discussion + decision is desired.)
+
 ## System Design
 
 ```mermaid
