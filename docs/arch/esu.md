@@ -3,7 +3,7 @@
 The Emergency Stop Unit (ESU) is responsible to disconnect the battery from the
 power supply unit in the case that specified operating conditions are violated.
 The ESU should not rely in software to disconnect the battery from the power
-supply. Analog circuitry for example with a logic family like `78xx` or others
+supply. Analog circuitry for example with a logic family like `74xx` or others
 is possible.
 It uses 0V to 5V inputs from the measurement transducer to evaluate when to
 disconnect the battery.
