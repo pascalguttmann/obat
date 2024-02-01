@@ -31,6 +31,7 @@
     - PC is not safety relevant at the moment. (Note from PaGu point of view: It
       is not planned to be safety relevant in the future. Is it worth adding the
       feature? Team discussion + decision is desired.)
+- How much redundancy is required for safety relevant parts?
 
 ## System Design
 
@@ -79,10 +80,12 @@ subgraph sub-obat [ ]
 end
 ```
 
-| Component           | Description                                             |
-|:--------------------|:--------------------------------------------------------|
-| PC                  | Raspberry Pi                                            |
-| Power Supply Unit   | 2 Quadrant Bus Programmable                             |
-| Emergency Stop Unit | Relay with Voltage and Temperature Control              |
-| U/I/T measurement   | tbd                                                     |
-| Transducer          | Transducer of Voltage, Current and Temperature to "TBD" |
+| Component           | Safety Relevant | Description                                             |
+|:--------------------|:----------------|:--------------------------------------------------------|
+| PC                  | No              | Raspberry Pi                                            |
+| Power Supply Unit   | No              | 2 Quadrant Bus Programmable                             |
+| Emergency Stop Unit | Yes             | Relay with Voltage and Temperature Control              |
+| T Transducer        | Yes             | Transduces Temperature to voltage signal                |
+| U/I Transducer      | Yes             | Transduces U/I to voltage signal                        |
+| U/I/T measurement   | No              | Measurement of voltage signals                          |
+| Transducer          | Yes             | Transducer of Voltage, Current and Temperature to "TBD" |
