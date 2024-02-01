@@ -25,6 +25,8 @@ disconnect the battery.
     - [ ] T_REF
     - [ ] X_MEAS
     - [ ] X_REF
+    - [ ] ST_A
+    - [ ] ST_B
 - [ ] Additionally, the ESU might have a power connection.
 - [ ] The ESU shall have the following user interfaces:
     - [ ] Button `connect`
@@ -38,6 +40,8 @@ disconnect the battery.
     - [ ] Limit set `X_LOW`
     - [ ] Limit set `X_HIGH`
     - [ ] State Indicator `connected` (e.g. LED)
+    - [ ] Visual Indicator `FAIL_SELFTEST_VIS` (e.g. LED)
+    - [ ] Audible Indicator `FAIL_SELFTEST_AUD` (e.g. Piezobuzzer)
 
 !!! info
     The `X` connection is at the moment unused, but is included for the ability
@@ -65,8 +69,8 @@ disconnect the battery.
 - [ ] The ESU shall transition from `disconnected` to `connected` state if and
     only if the physical button `connect` is pressed and the ESU is able to
     transition back to the `disconnected` state at any time after the
-    `connected` state is entered.  (E.g. The energy storage to switch of is
-    charged.)
+    `connected` state is entered. (E.g. The energy storage to switch of is
+    charged.) And the selftest is passed.
 
     !!! info
         Because the transition to the `disconnected` state has the highest
@@ -122,6 +126,24 @@ disconnect the battery.
 - [ ] The operation of the ESU must not depend software execution.
     - [ ] Software must not be able to influence the internal `limits` or
         perform a transition to the `connected` state.
+- [ ] On startup the ESU must perform a selftest. The selftest must check, that
+    the relay is able to perform the transition from `connected` to
+    `disconnected` state.
+- [ ] During the selftest, the state must not be changed to `connected`. (E.g. a
+    secondary relay can be used.
+- [ ] If the selftest is not passed
+    - [ ] the visual indicator `FAIL_SELFTEST_VIS` shall activate
+    - [ ] the audible indicator `FAIL_SELFTEST_AUD` shall activate
+    - [ ] the connections `ST_A` and `ST_B` must be galvanic isolated with
+        $Z > 1M \Omega$.
+- [ ] If the selftest is passed
+    - [ ] the visual indicator `FAIL_SELFTEST_VIS` shall deactivate
+    - [ ] the audible indicator `FAIL_SELFTEST_AUD` shall deactivate
+    - [ ] the connections `ST_A` and `ST_B` shall be galvanic connected with
+        $Z < 1 \Omega$.
+- [ ] Connections `ST_A` and `ST_B` must be galvanic isolated from all other
+    connections with $Z > 1M \Omega$.
+
 
 ## Internals
 
