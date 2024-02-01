@@ -37,6 +37,13 @@
       feature? Team discussion + decision is desired.)
 - How much redundancy is required for safety relevant parts?
     - Redundant battery temperature measurement?
+- Limiting Logic of PSU, "soft" vs "hard" limiting? (Note from PaGu: Consult Mr.
+    Rumschinski for opinion, see paper notes from PaGu -> Team decision desired)
+    - "soft" limit: change reference value (ger.: Führungsgröße) to limited
+        value, if limit is reached. Control circuit experiences jump in
+        reference value and controls output accordingly.
+    - "hard" limit: reference value of controller is unchanged if limit is
+        reached. Output of control circuit is overridden if limit is reached.
 
 ## System Design
 
