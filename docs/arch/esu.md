@@ -162,6 +162,7 @@ disconnect the battery.
     - [ ] `ST_A` and `ST_B`
     - [ ] `STATE_CON_A` and `STATE_CON_B`
     - [ ] `STATE_DIS_A` and `STATE_DIS_B`
+- [ ] The relay must be able to break currents up to $I_{break} = 50A$.
 
 ## Internals
 
