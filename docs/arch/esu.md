@@ -27,6 +27,10 @@ disconnect the battery.
     - [ ] X_REF
     - [ ] ST_A
     - [ ] ST_B
+    - [ ] STATE_CON_A
+    - [ ] STATE_CON_B
+    - [ ] STATE_DIS_A
+    - [ ] STATE_DIS_B
 - [ ] Additionally, the ESU might have a power connection.
 - [ ] The ESU shall have the following user interfaces:
     - [ ] Button `connect`
@@ -61,8 +65,20 @@ disconnect the battery.
 - [ ] The connections `OUT+`, `OUT-`, `IN+` and `IN-` must be isolated from all
     other terminals and electronics in ESU.
 - [ ] The state after power on must be `disconnected`.
-- [ ] If and only if the state is `connected` the state indicator `connected`
-    must indicate, that the state is `connected`.
+- [ ] If and only if the state is `connected`
+    - [ ] the state indicator `connected` must indicate, that the state is
+        `connected`.
+    - [ ] the connections `STATE_CON_A` and `STATE_CON_B` must be galvanic
+        connected with $Z < 1 \Omega$.
+    - [ ] the connections `STATE_DIS_A` and `STATE_DIS_B` must be galvanic
+        isolated with $Z > 1M \Omega$.
+- [ ] If and only if the state is `disconnected`
+    - [ ] the state indicator `connected` must NOT indicate, to show that the
+        state is `disconnected`.
+    - [ ] the connections `STATE_DIS_A` and `STATE_DIS_B` must be galvanic
+        connected with $Z < 1 \Omega$.
+    - [ ] the connections `STATE_CON_A` and `STATE_CON_B` must be galvanic
+        isolated with $Z > 1M \Omega$.
 
 ### State Transitions
 
@@ -141,9 +157,11 @@ disconnect the battery.
     - [ ] the audible indicator `FAIL_SELFTEST_AUD` shall deactivate
     - [ ] the connections `ST_A` and `ST_B` shall be galvanic connected with
         $Z < 1 \Omega$.
-- [ ] Connections `ST_A` and `ST_B` must be galvanic isolated from all other
+- [ ] Following connections must be galvanic isolated from all other
     connections with $Z > 1M \Omega$.
-
+    - [ ] `ST_A` and `ST_B`
+    - [ ] `STATE_CON_A` and `STATE_CON_B`
+    - [ ] `STATE_DIS_A` and `STATE_DIS_B`
 
 ## Internals
 
