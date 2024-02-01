@@ -37,6 +37,8 @@
       feature? Team discussion + decision is desired.)
 - How much redundancy is required for safety relevant parts?
     - Redundant battery temperature measurement?
+- CMOS or TTL logic level?
+    - choose logic family used for all components
 - Limiting Logic of PSU, "soft" vs "hard" limiting? (Note from PaGu: Consult Mr.
     Rumschinski for opinion, see paper notes from PaGu -> Team decision desired)
     - "soft" limit: change reference value (ger.: Führungsgröße) to limited
