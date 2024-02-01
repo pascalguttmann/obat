@@ -38,7 +38,9 @@
 - How much redundancy is required for safety relevant parts?
     - Redundant battery temperature measurement?
 - CMOS or TTL logic level?
-    - choose logic family used for all components
+    - choose logic [family][7400-families] used for all components
+    - Note from PaGu: choose CMOS logic (supply voltage not limited to 5V)? E.g.
+        HC or HCT series.
 - Limiting Logic of PSU, "soft" vs "hard" limiting? (Note from PaGu: Consult Mr.
     Rumschinski for opinion, see paper notes from PaGu -> Team decision desired)
     - "soft" limit: change reference value (ger.: Führungsgröße) to limited
@@ -46,6 +48,8 @@
         reference value and controls output accordingly.
     - "hard" limit: reference value of controller is unchanged if limit is
         reached. Output of control circuit is overridden if limit is reached.
+
+[7400-families]: https://en.wikipedia.org/wiki/7400-series_integrated_circuits#Families
 
 ## System Design
 
