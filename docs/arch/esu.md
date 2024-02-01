@@ -170,3 +170,4 @@ disconnect the battery.
 - Bi- or Monostable relay? Redundancy of relay?
 - Redundancy? on level of electronics? or entire ESU duplicated?
 - Setting process? Process to set the desired internal limits.
+- use same voltage level as other components

@@ -84,5 +84,6 @@ measurement accuracy requirements][obat-overview] can be fulfilled.
 
 - Hall sensor based I/V transduction? e.g. product form [ACS Hall Transducer Family][ACS712]
 - Trimming adjustment of output with potentiometer to compensate offsets?
+- use same voltage level as other components
 
 [ACS712]: https://www.allegromicro.com/en/Products/Sense/Current-Sensor-ICs/Zero-To-Fifty-Amp-Integrated-Conductor-Sensor-ICs/ACS712
