@@ -25,6 +25,10 @@
 
 ## Open Points
 
+- Which component should measure ambient temperature?
+    - Include in U/I Transducer?
+    - Include in T measurement of Battery?
+    - Create new component?
 - PC software supervision?
     - e.g. WDOG functionality?
     - Which component should be supervising?
@@ -32,6 +36,7 @@
       is not planned to be safety relevant in the future. Is it worth adding the
       feature? Team discussion + decision is desired.)
 - How much redundancy is required for safety relevant parts?
+    - Redundant battery temperature measurement?
 
 ## System Design
 
