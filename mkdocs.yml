@@ -10,6 +10,8 @@ nav:
     - arch/psu.md
     - arch/esu.md
     - arch/ui_transducer.md
+  - Standard Parts:
+    - parts/parts.md
 plugins:
   - git-revision-date-localized:
       fallback_to_build_date: false
