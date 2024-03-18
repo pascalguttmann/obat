@@ -25,8 +25,8 @@ disconnect the battery.
     - [ ] T_REF
     - [ ] X_MEAS
     - [ ] X_REF
-    - [ ] ST_A
-    - [ ] ST_B
+    - [ ] SELFTEST_A
+    - [ ] SELFTEST_B
     - [ ] STATE_CON_A
     - [ ] STATE_CON_B
     - [ ] STATE_DIS_A
@@ -150,16 +150,16 @@ disconnect the battery.
 - [ ] If the selftest is not passed
     - [ ] the visual indicator `FAIL_SELFTEST_VIS` shall activate
     - [ ] the audible indicator `FAIL_SELFTEST_AUD` shall activate
-    - [ ] the connections `ST_A` and `ST_B` must be galvanic isolated with
+    - [ ] the connections `SELFTEST_A` and `SELFTEST_B` must be galvanic isolated with
         $Z > 1M \Omega$.
 - [ ] If the selftest is passed
     - [ ] the visual indicator `FAIL_SELFTEST_VIS` shall deactivate
     - [ ] the audible indicator `FAIL_SELFTEST_AUD` shall deactivate
-    - [ ] the connections `ST_A` and `ST_B` shall be galvanic connected with
+    - [ ] the connections `SELFTEST_A` and `SELFTEST_B` shall be galvanic connected with
         $Z < 1 \Omega$.
 - [ ] Following connections must be galvanic isolated from all other
     connections with $Z > 1M \Omega$.
-    - [ ] `ST_A` and `ST_B`
+    - [ ] `SELFTEST_A` and `SELFTEST_B`
     - [ ] `STATE_CON_A` and `STATE_CON_B`
     - [ ] `STATE_DIS_A` and `STATE_DIS_B`
 - [ ] The relay must be able to break currents up to $I_{break} = 50A$.
