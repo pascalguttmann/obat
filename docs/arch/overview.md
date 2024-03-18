@@ -103,12 +103,14 @@ subgraph sub-obat [OBAT]
 end
 ```
 
-| Component           | Safety Relevant | Description                                             |
-|:--------------------|:----------------|:--------------------------------------------------------|
-| PC                  | No              | Raspberry Pi                                            |
-| Power Supply Unit   | No              | 2 Quadrant Bus Programmable                             |
-| Emergency Stop Unit | Yes             | Relay with Voltage and Temperature Control              |
-| T Transducer        | Yes             | Transduces Temperature to voltage signal                |
-| U/I Transducer      | Yes             | Transduces U/I to voltage signal                        |
-| U/I/T measurement   | No              | Measurement of voltage signals                          |
-| Transducer          | Yes             | Transducer of Voltage, Current and Temperature to "TBD" |
+## Safety Relevance Table
+
+| Component           | Safety Relevant | Description                                      |
+|:--------------------|:----------------|:-------------------------------------------------|
+| PC                  | No              | Raspberry Pi                                     |
+| Power Supply Unit   | No              | 2 Quadrant Bus Programmable                      |
+| Emergency Stop Unit | Yes             | Relay with Voltage and Temperature Control       |
+| T Transducer        | Yes             | Transduces Temperature to voltage signal         |
+| U/I Transducer      | No              | Transduces U/I to voltage signal                 |
+| sec. U/I Transducer | Yes             | Transduce U/I to voltage signal for ESU (robust) |
+| U/I/T measurement   | No              | Measurement of voltage signals                   |
