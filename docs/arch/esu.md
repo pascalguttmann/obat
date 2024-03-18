@@ -10,6 +10,11 @@ disconnect the battery.
 
 ## Requirements and Interface to other Components
 
+The following picture gives a schematic overview of the ESU for better
+understanding. It is not part of the specification. Textual requirements are
+always of precedence.
+![ESU Overview Schematic](./esu.png)
+
 ### Interfaces
 
 - [ ] The ESU shall have the following connection:
