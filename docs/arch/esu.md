@@ -123,12 +123,12 @@ disconnect the battery.
 - [ ] The ESU shall have for each measurement input pair internally the `limits`
     -  `*_LOW`
     -  `*_HIGH`
-    - [ ] The interval [`*_LOW`, `*_HIGH`] is the `operating
-        interval` for the corresponding measured quantity (voltage, current,
-        temperature, X).
-    - [ ] The `limits` must be constant during operation.
-    - [ ] The `limits` shall be physically adjustable independent of each other.
-        (E.g with a potentiometer).
+- [ ] The interval [`*_LOW`, `*_HIGH`] is the `operating
+    interval` for the corresponding measured quantity (voltage, current,
+    temperature, X).
+- [ ] The `limits` must be constant during operation.
+- [ ] The `limits` shall be physically adjustable independent of each other.
+    (E.g with a potentiometer).
 - [ ] The transition to the `disconnect` state must be of higher precedence than
     the transition to the `connected` state. If criteria for both transitions
     are met, the transition to the `disconnected` state must be performed.
