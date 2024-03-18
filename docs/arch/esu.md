@@ -100,8 +100,9 @@ disconnect the battery.
     (Therefore the ESU must store enough energy to transition to the
     `disconnected` state, when the main power is not available.)
 - [ ] The buttons `connect` and `disconnect` must be momentary and return by
-    itself to the original position if not pressed.  [ ] The ESU must transition
-- from `connected` to `disconnected` state if one or
+    itself to the original position if not pressed.
+
+- [ ] The ESU must transition from `connected` to `disconnected` state if one or
     more of the following criteria are met:
     - [ ] The measured voltage is not in the `operation interval`.
     - [ ] The measured current is not in the `operation interval`.
