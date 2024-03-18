@@ -93,6 +93,7 @@ subgraph sub-obat [OBAT]
     bat --> transducer
     bat --> transducer2
     bat --> transducer_T
+    transducer2 -. optional redundancy check .-> pc
     meas --> pc
     pc -. optional disconnect by software .-> esu
 
