@@ -59,42 +59,47 @@ title: System Architecture Overview
 ---
 flowchart LR
 
-subgraph sub-obat [ ]
+subgraph sub-dut [Device Under Test]
+    bat[Battery]
+end
+
+subgraph sub-obat [OBAT]
     direction LR
     pc[PC]
 
     subgraph sub-power [Power Electronics]
         psu-internal[2 Quadrant Power supplysink]
-        esu[Emergency Stop Unit]
 
-        psu-internal --> esu
+        subgraph sub-esu [ESU Integration]
+            esu[Emergency Stop Unit]
+            transducer2[secondary U/I Transducer]
+        end
+
     end
 
     subgraph sub-meas [Measurement Electronics]
         direction RL
         transducer[U/I Transducer]
         meas[U/I/T measurement]
-
-        transducer -- 0..5V interface --> meas
     end
 
     subgraph sub-extT [Temperature Measurement]
         transducer_T[T Transducer]
     end
 
-    subgraph sub-dut [Device Under Test]
-        bat[Battery]
-    end
-
     pc --> psu-internal
+    psu-internal --> esu
     esu --> bat
     bat --> transducer
+    bat --> transducer2
     bat --> transducer_T
     meas --> pc
     pc -. optional disconnect by software .-> esu
 
+    transducer -- 0..5V interface --> meas
     transducer_T -- 0..5V interface --> meas
-    transducer -- 0..5V interface --> esu
+    transducer_T -- 0..5V interface --> esu
+    transducer2 -- 0..5V interface --> esu
 end
 ```
 
