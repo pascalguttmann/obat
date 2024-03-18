@@ -13,7 +13,7 @@ disconnect the battery.
 The following picture gives a schematic overview of the ESU for better
 understanding. It is not part of the specification. Textual requirements are
 always of precedence.
-![ESU Overview Schematic](./esu.png)
+![ESU Overview Schematic](./img/esu.png)
 
 ### Interfaces
 
