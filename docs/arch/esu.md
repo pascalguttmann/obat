@@ -146,7 +146,7 @@ disconnect the battery.
     - [ ] Software must not be able to influence the internal `limits` or
         perform a transition to the `connected` state.
 - [ ] On startup the ESU must perform a selftest. The selftest must check, that
-    the relay is able to perform the transition from `connected` to
+    the ESU is able to perform the transition from `connected` to
     `disconnected` state.
 - [ ] During the selftest, the state must not be changed to `connected`. (for
     example a secondary relay can be used.
@@ -164,7 +164,7 @@ disconnect the battery.
     - [ ] `SELFTEST_A` and `SELFTEST_B`
     - [ ] `STATE_CON_A` and `STATE_CON_B`
     - [ ] `STATE_DIS_A` and `STATE_DIS_B`
-- [ ] The relay must be able to break currents up to $I_{break} = 50A$.
+- [ ] The ESU must be able to break currents up to $I_{break} = 50A$.
 
 ## Internals
 
