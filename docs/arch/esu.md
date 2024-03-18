@@ -84,15 +84,13 @@ disconnect the battery.
 ### State Transitions
 
 - [ ] The ESU shall transition from `disconnected` to `connected` state if and
-    only if the physical button `connect` is pressed and the ESU is able to
-    transition back to the `disconnected` state at any time after the
-    `connected` state is entered. (for example The energy storage to switch of
-    is charged.) And the selftest is passed.
-
-    !!! info
-        Because the transition to the `disconnected` state has the highest
-        precedence, a transition to `connected` state can only occur, if all
-        `input voltages` of the measured quantities (voltage, current,
+    only if the following criteria are met:
+    - physical button `connect` is pressed
+    - the ESU is able to transition back to the `disconnected` state at any time
+        after the `connected` state is entered. (for example The energy storage
+        to switch of is charged.)
+    - The selftest is passed
+    - all `input voltages` of the measured quantities (voltage, current,
         temperature) are in the `operation interval`.
 
 - [ ] The ESU shall transition from `connected` to `disconnected` state if the
