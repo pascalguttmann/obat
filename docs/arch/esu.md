@@ -163,6 +163,11 @@ disconnect the battery.
     - [ ] `STATE_CON_A` and `STATE_CON_B`
     - [ ] `STATE_DIS_A` and `STATE_DIS_B`
 - [ ] The ESU must be able to break currents up to $I_{break} = 50A$.
+- [ ] The ESU shall contain a thermal fuse which will break the connection
+    between the two corresponding connections, if the current exceeds
+    $I_{break}$ between the connections:
+    - `IN+` and `OUT+`
+    - `IN-` and `OUT-`
 
 ## Internals
 
