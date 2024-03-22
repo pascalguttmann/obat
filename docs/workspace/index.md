@@ -1,4 +1,14 @@
-# Standard Parts
+# Workspace Site
+
+Intended for use as:
+  - Shared workspace size to collaborate for system integration
+  - documentation for inter-team agreements
+
+## Standard Parts
+
+!!! warning
+    The below standardparts are *NOT* agreed in the team. It is not recommended
+    to use the Parts listed below without more detailed investigation.
 
 This site gives a short overview of parts that have been selected and share
 potential for reuse in other circuits.
