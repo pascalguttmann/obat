@@ -1,0 +1,2 @@
+Here are some changes in root dir.
+A new line as requested.
