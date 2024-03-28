@@ -59,9 +59,6 @@ title: System Architecture Overview
 ---
 flowchart LR
 
-subgraph sub-dut [Device Under Test]
-    bat[Battery]
-end
 
 subgraph sub-obat [OBAT]
     direction LR
@@ -71,6 +68,7 @@ subgraph sub-obat [OBAT]
         pss-internal[2 Quadrant Power supplysink]
 
         subgraph sub-esu [ESU Integration]
+            stop-button[Stop Button]
             esu[Emergency Stop Unit]
             measurement2[secondary U/I Measurement]
         end
@@ -83,12 +81,17 @@ subgraph sub-obat [OBAT]
         meas[U/I/T measurement]
     end
 
-    subgraph sub-extT [Temperature Measurement]
+    subgraph sub-enclosure [Enclosure]
         measurement_T[T Measurement]
+        control_T[T Control]
+        subgraph sub-dut [Device Under Test]
+            bat[Battery]
+        end
     end
 
     pc --> pss-internal
-    pss-internal --> esu
+    pss-internal --> stop-button
+    stop-button --> esu
     esu --> bat
     bat --> measurement
     bat --> measurement2
@@ -96,6 +99,7 @@ subgraph sub-obat [OBAT]
     measurement2 -. optional redundancy check .-> pc
     meas --> pc
     pc -. optional disconnect by software .-> esu
+    pc --> control_T
 
     measurement -- 0..5V interface --> meas
     measurement_T -- 0..5V interface --> meas
