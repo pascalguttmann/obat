@@ -5,7 +5,7 @@
 /docs/workspace/ @pascalguttmann
 
 # Workspace team codeowners
-/docs/workspace/esu/ @pascalguttmann-testing # esu team members
+/docs/workspace/esu/ @KovarthananS # esu team members
 /docs/workspace/meas/ @pascalguttmann-testing # meas team members
 /docs/workspace/pss/ @pascalguttmann
 /docs/workspace/safety/ @pascalguttmann-testing # safety team members
