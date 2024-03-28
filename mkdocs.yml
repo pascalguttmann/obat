@@ -7,7 +7,7 @@ nav:
   - Home: index.md
   - Architecture:
     - arch/overview.md
-    - arch/psu.md
+    - arch/pss.md
     - arch/esu.md
     - arch/ui_transducer.md
   - Workspace:

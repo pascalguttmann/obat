@@ -41,7 +41,7 @@
     - choose logic [family][7400-families] used for all components
     - Note from PaGu: choose CMOS logic (supply voltage not limited to 5V)? E.g.
         HC or HCT series.
-- Limiting Logic of PSU, "soft" vs "hard" limiting? (Note from PaGu: Consult Mr.
+- Limiting Logic of PSS, "soft" vs "hard" limiting? (Note from PaGu: Consult Mr.
     Rumschinski for opinion, see paper notes from PaGu -> Team decision desired)
     - "soft" limit: change reference value (ger.: Führungsgröße) to limited
         value, if limit is reached. Control circuit experiences jump in
@@ -68,7 +68,7 @@ subgraph sub-obat [OBAT]
     pc[PC]
 
     subgraph sub-power [Power Electronics]
-        psu-internal[2 Quadrant Power supplysink]
+        pss-internal[2 Quadrant Power supplysink]
 
         subgraph sub-esu [ESU Integration]
             esu[Emergency Stop Unit]
@@ -87,8 +87,8 @@ subgraph sub-obat [OBAT]
         transducer_T[T Transducer]
     end
 
-    pc --> psu-internal
-    psu-internal --> esu
+    pc --> pss-internal
+    pss-internal --> esu
     esu --> bat
     bat --> transducer
     bat --> transducer2
@@ -109,7 +109,7 @@ end
 | Component           | Safety Relevant | Description                                      |
 |:--------------------|:----------------|:-------------------------------------------------|
 | PC                  | No              | Raspberry Pi                                     |
-| Power Supply Unit   | No              | 2 Quadrant Bus Programmable                      |
+| Power Supply Sink   | No              | 2 Quadrant Bus Programmable                      |
 | Emergency Stop Unit | Yes             | Relay with Voltage and Temperature Control       |
 | T Transducer        | Yes             | Transduces Temperature to voltage signal         |
 | U/I Transducer      | No              | Transduces U/I to voltage signal                 |
