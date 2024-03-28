@@ -65,6 +65,17 @@ documentation server, which will by default bind to <http://127.0.0.1:8000/obat/
 mkdocs serve
 ```
 
+To allow for a faster more convenient way to check the documentation build
+locally in the shell the script `go_mkdocs_serve.sh` combines the steps
+1. activating the venv with `go_venv.sh` and
+2. running the local documentation server with `mkdocs serve`
+3. opening a webbrowser at <http://127.0.0.1:8000/obat/>
+
+So the only command necessary to run when using this convenience script is:
+```bash
+./go_mkdocs_serve.sh
+```
+
 ##### Changing the Documentation
 
 The documentation is stored in the directory `./docs/`. Apply the desired
