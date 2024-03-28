@@ -57,28 +57,20 @@
 ---
 title: System Architecture Overview
 ---
-flowchart LR
-
-
-subgraph sub-obat [OBAT]
-    direction LR
+flowchart TD
     pc[PC]
 
-    subgraph sub-power [Power Electronics]
-        pss-internal[2 Quadrant Power supplysink]
+    pss-internal[2 Quadrant Power supplysink]
 
-        subgraph sub-esu [ESU Integration]
-            stop-button[Stop Button]
-            esu[Emergency Stop Unit]
-            measurement2[secondary U/I Measurement]
-        end
-
+    subgraph sub-esu [ESU Integration]
+        stop-button[Stop Button]
+        esu[Emergency Stop Unit]
+        measurement2[secondary U/I Measurement]
     end
 
     subgraph sub-meas [Measurement Electronics]
-        direction RL
         measurement[U/I Measurement]
-        meas[U/I/T measurement]
+        meas[U/I/T digitalization]
     end
 
     subgraph sub-enclosure [Enclosure]
@@ -87,6 +79,11 @@ subgraph sub-obat [OBAT]
         subgraph sub-dut [Device Under Test]
             bat[Battery]
         end
+    end
+
+    subgraph sub-supply [Power Source]
+        ac-outlet[AC Outlet]
+        acdc-conv[AC/DC Converter]
     end
 
     pc --> pss-internal
@@ -105,7 +102,14 @@ subgraph sub-obat [OBAT]
     measurement_T -- 0..5V interface --> meas
     measurement_T -- 0..5V interface --> esu
     measurement2 -- 0..5V interface --> esu
-end
+
+    ac-outlet ==> pc & acdc-conv
+    acdc-conv ==> pss-internal
+    acdc-conv ==> esu
+    acdc-conv ==> measurement
+    acdc-conv ==> measurement2
+    acdc-conv ==> control_T
+    acdc-conv -. optional power delivery .-> measurement_T
 ```
 
 ## Safety Relevance Table
