@@ -12,6 +12,8 @@ nav:
     - arch/ui_measurement.md
   - Workspace:
     - workspace/index.md
+    - Team Enclosure:
+      - workspace/enclosure/index.md
     - Team Emergency Stop Unit:
       - workspace/esu/index.md
     - Team Measurement Electronics:
