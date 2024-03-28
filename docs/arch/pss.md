@@ -1,20 +1,20 @@
-# Power Supply Unit
+# Power Supply Sink
 
-The Power Supply Unit is controlled from the PC via a programmable bus interface
+The Power Supply Sink is controlled from the PC via a programmable bus interface
 to set the desired voltage, current or power.
 
 ## Block Diagram
 
 ```mermaid
 ---
-title: PSU Design
+title: PSS Design
 ---
 flowchart TB
 pc[PC]
 main[230 V @ 50Hz]
 bat[Battery]
 
-subgraph psu[PSU]
+subgraph pss[PSS]
     direction TB
     esd_in[ESD Protection]
     subgraph dac[DAC]

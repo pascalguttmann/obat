@@ -1,5 +1,66 @@
 # Overview
 
+## System Design
+
+```mermaid
+---
+title: System Architecture Overview
+---
+flowchart TD
+    pc[PC]
+
+    pss-internal[2 Quadrant Power supplysink]
+
+    subgraph sub-esu [ESU Integration]
+        stop-button[Stop Button]
+        esu[Emergency Stop Unit]
+        measurement2[secondary U/I Measurement]
+    end
+
+    subgraph sub-meas [Measurement Electronics]
+        measurement[U/I Measurement]
+        meas[U/I/T digitalization]
+    end
+
+    subgraph sub-enclosure [Enclosure]
+        measurement_T[T Measurement]
+        control_T[T Control]
+        subgraph sub-dut [Device Under Test]
+            bat[Battery]
+        end
+    end
+
+    subgraph sub-supply [Power Source]
+        ac-outlet[AC Outlet]
+        acdc-conv[AC/DC Converter]
+    end
+
+    pc --> pss-internal
+    pss-internal --> stop-button
+    stop-button --> esu
+    esu --> bat
+    bat --> measurement
+    bat --> measurement2
+    bat --> measurement_T
+    measurement2 -. optional redundancy check .-> pc
+    meas --> pc
+    pc -. optional disconnect by software .-> esu
+    pc --> control_T
+
+    measurement -- 0..5V interface --> meas
+    measurement_T -- 0..5V interface --> meas
+    measurement_T -- 0..5V interface --> esu
+    measurement2 -- 0..5V interface --> esu
+
+    ac-outlet ==> pc & acdc-conv
+    acdc-conv ==> pss-internal
+    acdc-conv ==> esu
+    acdc-conv ==> measurement
+    acdc-conv ==> measurement2
+    acdc-conv ==> control_T
+    acdc-conv -. optional power delivery .-> measurement_T
+```
+
 ## Requirements
 
 - General
@@ -26,7 +87,7 @@
 ## Open Points
 
 - Which component should measure ambient temperature?
-    - Include in U/I Transducer?
+    - Include in U/I Measurement?
     - Include in T measurement of Battery?
     - Create new component?
 - PC software supervision?
@@ -41,7 +102,7 @@
     - choose logic [family][7400-families] used for all components
     - Note from PaGu: choose CMOS logic (supply voltage not limited to 5V)? E.g.
         HC or HCT series.
-- Limiting Logic of PSU, "soft" vs "hard" limiting? (Note from PaGu: Consult Mr.
+- Limiting Logic of PSS, "soft" vs "hard" limiting? (Note from PaGu: Consult Mr.
     Rumschinski for opinion, see paper notes from PaGu -> Team decision desired)
     - "soft" limit: change reference value (ger.: Führungsgröße) to limited
         value, if limit is reached. Control circuit experiences jump in
@@ -51,67 +112,3 @@
 
 [7400-families]: https://en.wikipedia.org/wiki/7400-series_integrated_circuits#Families
 
-## System Design
-
-```mermaid
----
-title: System Architecture Overview
----
-flowchart LR
-
-subgraph sub-dut [Device Under Test]
-    bat[Battery]
-end
-
-subgraph sub-obat [OBAT]
-    direction LR
-    pc[PC]
-
-    subgraph sub-power [Power Electronics]
-        psu-internal[2 Quadrant Power supplysink]
-
-        subgraph sub-esu [ESU Integration]
-            esu[Emergency Stop Unit]
-            transducer2[secondary U/I Transducer]
-        end
-
-    end
-
-    subgraph sub-meas [Measurement Electronics]
-        direction RL
-        transducer[U/I Transducer]
-        meas[U/I/T measurement]
-    end
-
-    subgraph sub-extT [Temperature Measurement]
-        transducer_T[T Transducer]
-    end
-
-    pc --> psu-internal
-    psu-internal --> esu
-    esu --> bat
-    bat --> transducer
-    bat --> transducer2
-    bat --> transducer_T
-    transducer2 -. optional redundancy check .-> pc
-    meas --> pc
-    pc -. optional disconnect by software .-> esu
-
-    transducer -- 0..5V interface --> meas
-    transducer_T -- 0..5V interface --> meas
-    transducer_T -- 0..5V interface --> esu
-    transducer2 -- 0..5V interface --> esu
-end
-```
-
-## Safety Relevance Table
-
-| Component           | Safety Relevant | Description                                      |
-|:--------------------|:----------------|:-------------------------------------------------|
-| PC                  | No              | Raspberry Pi                                     |
-| Power Supply Unit   | No              | 2 Quadrant Bus Programmable                      |
-| Emergency Stop Unit | Yes             | Relay with Voltage and Temperature Control       |
-| T Transducer        | Yes             | Transduces Temperature to voltage signal         |
-| U/I Transducer      | No              | Transduces U/I to voltage signal                 |
-| sec. U/I Transducer | Yes             | Transduce U/I to voltage signal for ESU (robust) |
-| U/I/T measurement   | No              | Measurement of voltage signals                   |

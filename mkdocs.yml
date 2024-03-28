@@ -7,11 +7,14 @@ nav:
   - Home: index.md
   - Architecture:
     - arch/overview.md
-    - arch/psu.md
+    - arch/pss.md
     - arch/esu.md
-    - arch/ui_transducer.md
+    - arch/ui_measurement.md
+    - arch/enclosure.md
   - Workspace:
     - workspace/index.md
+    - Team Enclosure:
+      - workspace/enclosure/index.md
     - Team Emergency Stop Unit:
       - workspace/esu/index.md
     - Team Measurement Electronics:

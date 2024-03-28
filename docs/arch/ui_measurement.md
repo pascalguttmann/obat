@@ -1,6 +1,6 @@
-# U / I Transducer
+# U / I Measurement
 
-The U / I Transducer is used to transduce the voltage and current at the battery
+The U / I measurement is used to transduce the voltage and current at the battery
 terminals to a voltages of defined magnitude. The measured voltage and current
 at the battery terminal shall be mapped linearly to the corresponding output
 voltage. The smallest value shall be mapped to 0V and the biggest value to 5V.
