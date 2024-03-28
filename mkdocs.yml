@@ -10,6 +10,7 @@ nav:
     - arch/pss.md
     - arch/esu.md
     - arch/ui_measurement.md
+    - arch/enclosure.md
   - Workspace:
     - workspace/index.md
     - Team Enclosure:
