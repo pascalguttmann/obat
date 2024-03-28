@@ -9,7 +9,7 @@
 /docs/workspace/esu/ @pascalguttmann-testing # esu team members
 /docs/workspace/meas/ @pascalguttmann-testing # meas team members
 /docs/workspace/pss/ @pascalguttmann
-/docs/workspace/safety/ @pascalguttmann-testing # safety team members
+/docs/workspace/safety/ @Kirtan-1315 # safety team members
 
 # Architecture codeowners
 /docs/arch/enclosure.md @pascalguttmann-testing # enclosure team members
