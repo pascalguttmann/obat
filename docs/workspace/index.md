@@ -4,35 +4,28 @@ Intended for use as:
   - Shared workspace size to collaborate for system integration
   - documentation for inter-team agreements
 
-## Standard Parts
+## Meeting Agreements
 
-!!! warning
-    The below standardparts are *NOT* agreed in the team. It is not recommended
-    to use the Parts listed below without more detailed investigation.
+### 27. Mar 2024
 
-This site gives a short overview of parts that have been selected and share
-potential for reuse in other circuits.
+- No switch/sensor at mechnical enclosure to check if enclosure is open or
+    closed, which has to be read by other components.
+    - Safety can be ensured using a concept similar to a "unloosable screw"
+        (ger. unverlierbare Schraube)
+- Connections from Measurement and PowerSupplySink into enclosure
+  - Connected and disconnected mechanically by opening and closing the enclosure
+  - Connections for 4 Wire sensing:
+    - `+` and `-` connections with high current capability for power delivery
+    - `+` and `-` connections in parallel with normal current capability
+- Heating and Cooling
+  - Power for heating cooling is considered part of the enclosure. Other
+      components must only provide "information" for heating and cooling.
+- Temperature sensing
+  - [0V 5V] interface with linear mapping to temperature interval [T_min T_max]
+- Stop Button
+  - ESU has `connect` and `disconnect` button for "normal" operation
+  - Before ESU is a stop button/lever disconnecting the ESU + DUT
+  - Cooling, Heating & Ventilation is not stopped by the stop button
+  - Color, size and type of button/lever must be investigated to be in
+      accordance with regulations. (CE Examination)
 
-- [AD8531/AD8532/AD8534][AD8531]
-  Opamp, Rail-to-Rail, No-Phase-Reversal, Single suppy, high output current
-
-!!! info
-    Observe maximum ratings, especially the rated power and output current.
-    Output is not shortcircuit protected.
-
-- [IL300][IL300]
-  Linear Optocoupler
-  check if appropriate for usage of galvanic isolation
-
-- [AMC1100][AMC1100]
-  Differential Isolation Amplifier
-  check if appropriate for usage of galvanic isolation
-
-Tutorial from Analog Devices for [Analog Isolation Techniques]
-[tutorial_isolation]. Should be evaluated for decision on galvanic isolation
-parts.
-
-[AD8531]: https://www.analog.com/media/en/technical-documentation/data-sheets/ad8531_8532_8534.pdf
-[IL300]: https://www.mouser.com/datasheet/2/427/il300-67299.pdf
-[AMC1100]: https://www.ti.com/lit/ds/symlink/amc1100.pdf?ts=1708934315934
-[tutorial_isolation]: https://www.analog.com/media/en/training-seminars/tutorials/mt-071.pdf
