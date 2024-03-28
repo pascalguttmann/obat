@@ -26,7 +26,7 @@
 ## Open Points
 
 - Which component should measure ambient temperature?
-    - Include in U/I Transducer?
+    - Include in U/I Measurement?
     - Include in T measurement of Battery?
     - Create new component?
 - PC software supervision?
@@ -72,46 +72,46 @@ subgraph sub-obat [OBAT]
 
         subgraph sub-esu [ESU Integration]
             esu[Emergency Stop Unit]
-            transducer2[secondary U/I Transducer]
+            measurement2[secondary U/I Measurement]
         end
 
     end
 
     subgraph sub-meas [Measurement Electronics]
         direction RL
-        transducer[U/I Transducer]
+        measurement[U/I Measurement]
         meas[U/I/T measurement]
     end
 
     subgraph sub-extT [Temperature Measurement]
-        transducer_T[T Transducer]
+        measurement_T[T Measurement]
     end
 
     pc --> pss-internal
     pss-internal --> esu
     esu --> bat
-    bat --> transducer
-    bat --> transducer2
-    bat --> transducer_T
-    transducer2 -. optional redundancy check .-> pc
+    bat --> measurement
+    bat --> measurement2
+    bat --> measurement_T
+    measurement2 -. optional redundancy check .-> pc
     meas --> pc
     pc -. optional disconnect by software .-> esu
 
-    transducer -- 0..5V interface --> meas
-    transducer_T -- 0..5V interface --> meas
-    transducer_T -- 0..5V interface --> esu
-    transducer2 -- 0..5V interface --> esu
+    measurement -- 0..5V interface --> meas
+    measurement_T -- 0..5V interface --> meas
+    measurement_T -- 0..5V interface --> esu
+    measurement2 -- 0..5V interface --> esu
 end
 ```
 
 ## Safety Relevance Table
 
-| Component           | Safety Relevant | Description                                      |
-|:--------------------|:----------------|:-------------------------------------------------|
-| PC                  | No              | Raspberry Pi                                     |
-| Power Supply Sink   | No              | 2 Quadrant Bus Programmable                      |
-| Emergency Stop Unit | Yes             | Relay with Voltage and Temperature Control       |
-| T Transducer        | Yes             | Transduces Temperature to voltage signal         |
-| U/I Transducer      | No              | Transduces U/I to voltage signal                 |
-| sec. U/I Transducer | Yes             | Transduce U/I to voltage signal for ESU (robust) |
-| U/I/T measurement   | No              | Measurement of voltage signals                   |
+| Component            | Safety Relevant | Description                                      |
+|:---------------------|:----------------|:-------------------------------------------------|
+| PC                   | No              | Raspberry Pi                                     |
+| Power Supply Sink    | No              | 2 Quadrant Bus Programmable                      |
+| Emergency Stop Unit  | Yes             | Relay with Voltage and Temperature Control       |
+| T Measurement        | Yes             | Transduces Temperature to voltage signal         |
+| U/I Measurement      | No              | Transduces U/I to voltage signal                 |
+| sec. U/I Measurement | Yes             | Transduce U/I to voltage signal for ESU (robust) |
+| U/I/T measurement    | No              | Measurement of voltage signals                   |

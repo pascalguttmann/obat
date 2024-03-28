@@ -9,7 +9,7 @@ nav:
     - arch/overview.md
     - arch/pss.md
     - arch/esu.md
-    - arch/ui_transducer.md
+    - arch/ui_measurement.md
   - Workspace:
     - workspace/index.md
     - Team Emergency Stop Unit:
