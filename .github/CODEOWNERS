@@ -11,3 +11,6 @@
 /docs/workspace/pss/ @pascalguttmann
 /docs/workspace/safety/ @pascalguttmann-testing # safety team members
 
+# Architecture codeowners
+/docs/arch/enclosure.md @pascalguttmann-testing # enclosure team members
+
