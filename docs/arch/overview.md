@@ -112,14 +112,3 @@ flowchart TD
     acdc-conv -. optional power delivery .-> measurement_T
 ```
 
-## Safety Relevance Table
-
-| Component            | Safety Relevant | Description                                      |
-|:---------------------|:----------------|:-------------------------------------------------|
-| PC                   | No              | Raspberry Pi                                     |
-| Power Supply Sink    | No              | 2 Quadrant Bus Programmable                      |
-| Emergency Stop Unit  | Yes             | Relay with Voltage and Temperature Control       |
-| T Measurement        | Yes             | Transduces Temperature to voltage signal         |
-| U/I Measurement      | No              | Transduces U/I to voltage signal                 |
-| sec. U/I Measurement | Yes             | Transduce U/I to voltage signal for ESU (robust) |
-| U/I/T measurement    | No              | Measurement of voltage signals                   |
