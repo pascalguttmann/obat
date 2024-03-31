@@ -4,7 +4,9 @@ repo_url: https://github.com/pascalguttmann/obat
 repo_name: pascalguttmann/obat
 edit_uri: edit/main/docs/
 nav:
-  - Home: index.md
+  - Home:
+    - index.md
+    - tutorial-vids.md
   - Architecture:
     - arch/overview.md
     - arch/pss.md
