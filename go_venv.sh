@@ -30,18 +30,20 @@ case "$OSTYPE" in
 esac
 
 if ! [ -f "$venv_activate" ]; then
-    # python venv does not exist, so create it
+    echo python venv does not exist
 
-    # create the python venv locally
+    echo create the python venv locally
     python -m venv --prompt $venv_prompt $venv_dir
 
-    # activate the venv
+    echo activate the venv
     source $venv_activate
 
-    # install dependencies
+    echo install dependencies
     pip install -r $venv_requirements
 else
-    # python venv does exist
+    echo python venv does exist
+
+    echo activate the venv
     source $venv_activate
 fi
 
