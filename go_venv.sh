@@ -16,8 +16,18 @@
 
 venv_dir=./.venv
 venv_prompt=venv
-venv_activate=$venv_dir/Scripts/activate
 venv_requirements=requirements.txt
+
+case "$OSTYPE" in
+  msys* | cygwin*)
+    echo "Operating System: WINDOWS"
+    venv_activate=$venv_dir/Scripts/activate
+    ;;
+  *)
+    echo "Operating System: $OSTYPE"
+    venv_activate=$venv_dir/bin/activate
+    ;;
+esac
 
 if ! [ -f "$venv_activate" ]; then
     # python venv does not exist, so create it
