@@ -4,7 +4,9 @@ repo_url: https://github.com/pascalguttmann/obat
 repo_name: pascalguttmann/obat
 edit_uri: edit/main/docs/
 nav:
-  - Home: index.md
+  - Home:
+    - index.md
+    - tutorial-vids.md
   - Architecture:
     - arch/overview.md
     - arch/pss.md
@@ -28,6 +30,13 @@ plugins:
       fallback_to_build_date: false
       type: datetime
   - git-authors
+  - mkdocs-video:
+      mark: "mkdocs-video"
+      is_video: True
+      video_autoplay: False
+      video_loop: False
+      video_muted: False
+      video_controls: True
 markdown_extensions:
   - admonition
   - def_list
