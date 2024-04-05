@@ -45,5 +45,8 @@ else
 
     echo activate the venv
     source $venv_activate
+
+    echo check and install dependencies
+    pip install -q -r $venv_requirements
 fi
 
