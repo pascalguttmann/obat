@@ -7,7 +7,7 @@
 # Workspace team codeowners
 /docs/workspace/enclosure/ @jannikgeng @yunusclk # enclosure team members
 /docs/workspace/esu/ @pascalguttmann-testing # esu team members
-/docs/workspace/meas/ @ruchik-mahesh # meas team members
+/docs/workspace/meas/ @ruchik-mahesh @pascalguttmann # meas team members
 /docs/workspace/pss/ @pascalguttmann # powersupplysink team members
 /docs/workspace/safety/ @pascalguttmann-testing # safety team members
 
