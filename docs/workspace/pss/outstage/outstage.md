@@ -20,8 +20,8 @@ Interface
     - $+10V$
     - $-5V$
 
-Circuit Selection
------------------
+Circuit Selection and Design
+----------------------------
 
 ### Transistor Technology Selection
 
@@ -55,9 +55,6 @@ emitter resistor can additionally be utilized to deploy short circuit protection
 by current limiting. The current limit can be enforced by lowering the bias
 currents when the voltage drop across the emitter resistors is exceeding a
 predefined threshold.
-
-Circuit Design
---------------
 
 Simulation
 ----------
