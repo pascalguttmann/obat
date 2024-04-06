@@ -23,6 +23,8 @@ nav:
       - workspace/meas/index.md
     - Team PowerSupplySink:
       - workspace/pss/index.md
+      - Output Stage:
+        - workspace/pss/outstage/outstage.md
     - Team Safety Research:
       - workspace/safety/index.md
 plugins:
