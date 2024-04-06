@@ -83,4 +83,4 @@ check_python_version(){
   fi
 }
 
-main "$@"; exit
+main "$@"; return
