@@ -115,6 +115,13 @@ quiescent current to flow.
 
 To reduce the number of devices needed the thermal resistance should be low.
 Therefore only selected well established packages are compared.
+The values for thermal resistance are retrieved from _ROHM Co., Ltd_ [^1].
+
+[^1]: [2023, ROHM Co., Ltd.,
+    "List of Transistor Package Thermal Resistance",
+    accessed at 06.04.2024][thermal-res]
+
+[thermal-res]: https://rohmfs-rohm-com-cn.oss-cn-shanghai.aliyuncs.com/en/products/databook/applinote/common/list_of_transistor_package_thermal_resistance_an-e.pdf
 
 | Package        | Technology | $R_{th,JA} [K/W]$ | $R_{th,JC} [K/W]$ |
 |:---------------|:-----------|:------------------|:------------------|
