@@ -6,10 +6,10 @@
 
 # Workspace team codeowners
 /docs/workspace/enclosure/ @jannikgeng @yunusclk # enclosure team members
-/docs/workspace/esu/ @pascalguttmann-testing # esu team members
+/docs/workspace/esu/ @mohamedshafi07 @Ranjithraj2001 @KovarthananS # esu team members
 /docs/workspace/meas/ @ruchik-mahesh @pascalguttmann # meas team members
 /docs/workspace/pss/ @pascalguttmann # powersupplysink team members
-/docs/workspace/safety/ @pascalguttmann-testing # safety team members
+/docs/workspace/safety/ @Kirtan-1315 # safety team members
 
 # Architecture codeowners
 /docs/arch/enclosure.md @jannikgeng @yunusclk # enclosure team members
