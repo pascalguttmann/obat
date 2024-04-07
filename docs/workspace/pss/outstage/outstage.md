@@ -147,7 +147,23 @@ With $min(R_{th,JA}) = 30 K/W$ in the case of `TO-247` packages this yields an
 uneconomical high number of required components:
 $$ n_{th,JA} \ge \frac{250W \cdot 30K/W}{60K} = 125 $$
 
-TODO: Therefore Heatsink shall be used. Focus on THT to mount externally.
+To reduce the number of required components a heatsink will be employed. For the
+most conductive SMD package `TO-263 (D2PAK)` even with an ideal heatsink
+$R_{th,CA} = 0 K/W$ to the PCB the number of required packages is:
+$$ n_{th,TO-263} \ge \frac{P_{th,max} (R_{th,JC} + R_{th,CA})}{T_{diff}}\
+= \frac{250W \cdot (4.2K/W + 0K/W)}{60K} = 17.5 $$
+For the real application dissipating 250W into the PCB will yield high thermal
+stress and require a significant area on the PCB. Therefore one of the THT
+mounted packages is preferred. With an ideal heatsink the number of components
+is:
+$$ n_{th,TO220AB} \ge \frac{250W \cdot (0.8K/W + 0K/W)}{60K} \approx 3.3 $$
+$$ n_{th,TO247} \ge \frac{250W \cdot (0.6K/W + 0K/W)}{60K} = 2.5 $$
+$$ n_{th,TO3-PF} \ge \frac{250W \cdot (2.1K/W + 0K/W)}{60K} = 8.75 $$
+
+The packages `TO-220AB` and `TO247` promise the least required components.
+Because `TO-220` packages are more widespread and the availability of thermal
+accessories is better, if two otherwise similar transistors are considered the
+`TO-220` packaged one should be preferred.
 
 Simulation
 ----------
