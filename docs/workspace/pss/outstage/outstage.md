@@ -131,6 +131,12 @@ noted otherwise.
 | TO-263 (D2PAK)     | SMD        | 80                | 4.2               |
 | HSOP8              | SMD        | 41.7              | 5.6               |
 
+!!! info
+    Expected thermal resistance for case to heatsink with thermal grease and
+    electrical isolation $R_{th,CH} \approx 1 K/W$.
+    Heatsinks in extruded profile shape (ger. Strangkühlkörper) can provide
+    approximately $R_{th,HA} \approx 1K/W ... 3K/W$ for our use case. [^3]
+
 [^1]: [2023, ROHM Co., Ltd.,
     "List of Transistor Package Thermal Resistance",
     accessed at 06.04.2024][thermal-res]
@@ -138,6 +144,8 @@ noted otherwise.
 [^2]: [2021, Hunter, G.,
     "TO-3 Component Package",
     accessed at 07.04.2024][thermal-res-to3]
+
+[^3]: <https://www.fischerelektronik.de/service/kataloge-up-to-date/>
 
 [thermal-res]: https://rohmfs-rohm-com-cn.oss-cn-shanghai.aliyuncs.com/en/products/databook/applinote/common/list_of_transistor_package_thermal_resistance_an-e.pdf
 [thermal-res-to3]: https://blog.mbedded.ninja/pcb-design/component-packages/to-3-component-package/
