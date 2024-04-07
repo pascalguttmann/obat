@@ -119,22 +119,28 @@ quiescent current to flow.
 
 To reduce the number of devices needed the thermal resistance should be low.
 Therefore only selected well established packages are compared.
-The values for thermal resistance are retrieved from _ROHM Co., Ltd_ [^1].
+The values for thermal resistance are retrieved from _ROHM Co., Ltd_ [^1] unless
+noted otherwise.
+
+| Package            | Technology | $R_{th,JA} [K/W]$ | $R_{th,JC} [K/W]$ |
+|:-------------------|:-----------|:------------------|:------------------|
+| TO-220AB           | THT        | 80                | 0.8               |
+| TO-247             | THT        | 30                | 0.6               |
+| TO-204 (TO-3) [^2] | THT        | 30                | 0.8               |
+| TO-252 (DPAK)      | SMD        | 147               | 4.9               |
+| TO-263 (D2PAK)     | SMD        | 80                | 4.2               |
+| HSOP8              | SMD        | 41.7              | 5.6               |
 
 [^1]: [2023, ROHM Co., Ltd.,
     "List of Transistor Package Thermal Resistance",
     accessed at 06.04.2024][thermal-res]
 
-[thermal-res]: https://rohmfs-rohm-com-cn.oss-cn-shanghai.aliyuncs.com/en/products/databook/applinote/common/list_of_transistor_package_thermal_resistance_an-e.pdf
+[^2]: [2021, Hunter, G.,
+    "TO-3 Component Package",
+    accessed at 07.04.2024][thermal-res-to3]
 
-| Package        | Technology | $R_{th,JA} [K/W]$ | $R_{th,JC} [K/W]$ |
-|:---------------|:-----------|:------------------|:------------------|
-| TO-220AB       | THT        | 80                | 0.8               |
-| TO-247         | THT        | 30                | 0.6               |
-| TO-3PF         | THT        | 40                | 2.1               |
-| TO-252 (DPAK)  | SMD        | 147               | 4.9               |
-| TO-263 (D2PAK) | SMD        | 80                | 4.2               |
-| HSOP8          | SMD        | 41.7              | 5.6               |
+[thermal-res]: https://rohmfs-rohm-com-cn.oss-cn-shanghai.aliyuncs.com/en/products/databook/applinote/common/list_of_transistor_package_thermal_resistance_an-e.pdf
+[thermal-res-to3]: https://blog.mbedded.ninja/pcb-design/component-packages/to-3-component-package/
 
 If at an ambient temperature of $40°C$ the maximum desired junction temperature
 is considered to be $100°C$ (lifespan), a maximum temperature difference of
@@ -158,12 +164,7 @@ mounted packages is preferred. With an ideal heatsink the number of components
 is:
 $$ n_{th,TO220AB} \ge \frac{250W \cdot (0.8K/W + 0K/W)}{60K} \approx 3.3 $$
 $$ n_{th,TO247} \ge \frac{250W \cdot (0.6K/W + 0K/W)}{60K} = 2.5 $$
-$$ n_{th,TO3-PF} \ge \frac{250W \cdot (2.1K/W + 0K/W)}{60K} = 8.75 $$
-
-The packages `TO-220AB` and `TO247` promise the least required components.
-Because `TO-220` packages are more widespread and the availability of thermal
-accessories is better, if two otherwise similar transistors are considered the
-`TO-220` packaged one should be preferred.
+$$ n_{th,TO204} \ge \frac{250W \cdot (0.8K/W + 0K/W)}{60K} \approx 3.3 $$
 
 Simulation
 ----------
