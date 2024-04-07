@@ -90,18 +90,22 @@ The maximum thermal power dissipation due to output current is approximated by:
 $$ P_{th,max} = U I = (U_{supply} - U_{sc}) I_{max}\
 = (10V - 0V) 1.25 \cdot 20A = 250W $$
 
-This approximation is an upper bound for the power dissipation including the
-thermal dissipation by the control voltage and current at the base, in case the
-base current is also limited by the current limiting circuitry. That is the case
-for the short circuit protection utilizing the voltage drop across the emitter
-resistors, because $I_E = I_C + I_B$ holds.
-If a limiting transistor is used to bypass excess base current this limiting
-transistor must rendered inoperable before the thermal dissipation of the output
-stage transistors is exceeded. It is assumed that the preceding stage does not
-deliver enough power to thermally destroy the current limiting transistors,
-while completely delivering additionally the entire short circuit current
-$I_{max}$. Destruction of the preceding stage is likely before the thermal power
-dissipation limit for the output stage transistors is exceeded.
+This approximation is an upper bound for the power dissipation including
+
+- the thermal dissipation by the control voltage and current at the base, in
+    case the base current is also limited by the current limiting circuitry.
+    That is the case for the short circuit protection utilizing the voltage drop
+    across the emitter resistors, because $I_E = I_C + I_B$ holds.  If a
+    limiting transistor is used to bypass excess base current this limiting
+    transistor must rendered inoperable before the thermal dissipation of the
+    output stage transistors is exceeded. It is assumed that the preceding stage
+    does not deliver enough power to thermally destroy the current limiting
+    transistors, while completely delivering additionally the entire short
+    circuit current $I_{max}$. Destruction of the preceding stage is likely
+    before the thermal power dissipation limit for the output stage transistors
+    is exceeded.
+- the quiescent current. The quiescent current is also contributing to the
+    limited current $I_{max}$, as it flows from the collector to the emitter.
 
 #### Combination of Heatsinks
 
