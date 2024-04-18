@@ -9,6 +9,7 @@
  It can convert the analog voltage signal into a digital value for processing. A suitable ADC would be one with 
  a resolution high enough to achieve your desired accuracy of 1mV in a 0-5V range.
 
+ To achieve galvanic isolation an isolation amplifier or linear optocoupler could be used.
 
 ### Choice for Current measurement:
 
@@ -48,6 +49,9 @@ I_MEAS+ and I_MEAS- and should be able to disconnect the circuit within a specif
 
   5.	BOURNS SC85AAB: This thermal fuse has a functioning temperature of 85°C and a holding temperature of 40°C
 
+  6. Automotive fuses: This fuse is compact, high-quality fuses designed for overcurrent protection in automotive electrical circuits.
+      [[Automotive fuses](https://www.littelfuse.com/products/fuses/automotive-passenger-car/blade-fuses.aspx)]
+
 
  [Datasheet for fuses]
 
@@ -60,7 +64,7 @@ current exceeds a preset value, the control logic turns the FET off, cutting the
 Electronic fuses are not suitable for the current in use, as they are typically designed for very small currents. 
 Therefore, circuit breakers would be a better choice
 
-- **Circuit Breakers:** These are resettable switches that open automatically when the current exceeds a certain threshold. 
+- **Residual Current Circuit Breakers:** These are resettable switches that open automatically when the current exceeds a certain threshold. 
 They can be manual or automatic and are suitable for repeated use.
 
 **Available option:**
@@ -69,7 +73,7 @@ F202 25A-30mA/AC:
 
 [F202 25A-30mA/AC datasheet]
 
-
+**Line safety circuit breaker** 
 
 ### Choice for voltage measurement:
 
