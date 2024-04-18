@@ -6,6 +6,25 @@ Intended for use as:
 
 ## Meeting Agreements
 
+### 18. Apr 2024
+
+- PC / Controller
+    - separation of realtime / non-realtime code into distinct packages, which
+        have a defined interface. This separation shall allow a change of the
+        realtime code for harder realtime constraints. (Port of language, port
+        to other hardware).
+- PowerSupplySink
+    - PI(D) controller for constant current or other controller type is suited
+        better?
+- Enclosure
+    - Temperature control loop should be managed in the PC / Controller
+    - Interface definition of actuators and sensors is required to be shared /
+        agreed
+    - Power for temperature control can be sourced from 24V power source by
+        using isolation DC/DC amplifiers for other voltages.
+    - safety disconnect can be achieved by using a control signal (Steuersignal)
+        to switch a relay.
+
 ### 27. Mar 2024
 
 - No switch/sensor at mechnical enclosure to check if enclosure is open or
