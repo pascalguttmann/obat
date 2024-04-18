@@ -1,19 +1,19 @@
 # Measurement Electronics
 ## Research on components
 
- **Current Measurement:** A current sense amplifier or a shunt resistor in combination with an ADC can be used for 
- current measurement. The shunt resistor is placed in the path of the current to be measured, and the voltage 
+ **Current Measurement:** A current sense amplifier or a shunt resistor in combination with an ADC can be used for
+ current measurement. The shunt resistor is placed in the path of the current to be measured, and the voltage
  drop across it (which is proportional to the current) is measured.
 
 **Voltage Measurement:** A high-precision ADC (Analog-to-Digital Converter) can be used for voltage measurement.
- It can convert the analog voltage signal into a digital value for processing. A suitable ADC would be one with 
+ It can convert the analog voltage signal into a digital value for processing. A suitable ADC would be one with
  a resolution high enough to achieve your desired accuracy of 1mV in a 0-5V range.
 
  To achieve galvanic isolation an isolation amplifier or linear optocoupler could be used.
 
 ### Choice for Current measurement:
 
- - **Hall Effect Sensors:** These devices measure current and voltage through magnetic fields and provide galvanic 
+ - **Hall Effect Sensors:** These devices measure current and voltage through magnetic fields and provide galvanic
  isolation. They are suitable for both AC and DC measurements.
 
 **Available option:**
@@ -29,12 +29,12 @@
 
 [TMCS1100 datasheet]
 
-The ACS712-20A and the ACS714-20A both serve the same purpose, but the ACS714-20A is better suited for harsher 
-environments. Considering the controlled testing environment and cost factors, I recommend opting for the **ACS712-20A** in this case. 
+The ACS712-20A and the ACS714-20A both serve the same purpose, but the ACS714-20A is better suited for harsher
+environments. Considering the controlled testing environment and cost factors, I recommend opting for the **ACS712-20A** in this case.
 
 ### Choice of FUSE:
 
-- Thermal Fuse or Switch: This is used to protect the circuit from excessive currents. It should be connected between 
+- Thermal Fuse or Switch: This is used to protect the circuit from excessive currents. It should be connected between
 I_MEAS+ and I_MEAS- and should be able to disconnect the circuit within a specified time if the current exceeds a certain limit.
 
 **Available option:**
@@ -58,14 +58,14 @@ I_MEAS+ and I_MEAS- and should be able to disconnect the circuit within a specif
 The below two options are preferable because there is ***no need to replace*** them after each time the fuse goes off,
  unlike thermal fuses or switches.
 
-- **Electronic Fuses (eFuses):** These active devices use a sense resistor and a FET to monitor current flow. When the 
+- **Electronic Fuses (eFuses):** These active devices use a sense resistor and a FET to monitor current flow. When the
 current exceeds a preset value, the control logic turns the FET off, cutting the flow of current.
 
-Electronic fuses are not suitable for the current in use, as they are typically designed for very small currents. 
+Electronic fuses are not suitable for the current in use, as they are typically designed for very small currents.
 Therefore, circuit breakers would be a better choice
 
-- **Residual Current Circuit Breakers:** These are resettable switches that open automatically when the current exceeds a certain threshold. 
-They can be manual or automatic and are suitable for repeated use.
+- **Residual Current Circuit Breakers:** These are resettable switches that open automatically when the residual current exceeds a certain threshold typically ($30mA$).
+They are suitable for repeated use.
 
 **Available option:**
 
@@ -73,7 +73,7 @@ F202 25A-30mA/AC:
 
 [F202 25A-30mA/AC datasheet]
 
-**Line safety circuit breaker** 
+**Line safety circuit breaker**
 [Datasheet for Line safety Circuit breaker]
 
 - In the context of measurement electronics, a critical decision has been made to incorporate a thermal fuse into our system. This choice was made after careful consideration of several factors.
