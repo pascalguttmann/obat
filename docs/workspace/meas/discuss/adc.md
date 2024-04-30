@@ -15,10 +15,10 @@ Performance Specification
 
 Parts Investigated
 ------------------
-- ADS7038: [ADS7038 datasheet]
-- MAX1142: [MAX1142 datasheet]
-- LTC2308: [LTC2308 datasheet]
-- LTC2313-12: [LTC2313-12 datasheet]
+- [ADS7038][ADS7038 datasheet]
+- [MAX1142][MAX1142 datasheet]
+- [LTC2308][LTC2308 datasheet]
+- [LTC2313-12][LTC2313-12 datasheet]
 
 [ADS7038 datasheet]: https://www.ti.com/lit/ds/symlink/ads7038.pdf?ts=1713952903321&ref_url=https%253A%252F%252Fwww.google.com%252F
 [MAX1142 datasheet]: https://www.analog.com/en/products/max1143.html
