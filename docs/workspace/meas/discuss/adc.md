@@ -8,10 +8,10 @@ ADCs are crucial in the modern world as they act as a bridge between the analog 
 
 Performance Specification
 -------------------------
-•	Resolution 12/14 bit (or greater)
-•	Supply voltage: 5 V
-•	Sampling rate: 200 kHz (or greater)
-•	Spi interface
+- Resolution 12/14 bit (or greater)
+- Supply voltage: 5 V
+- Sampling rate: 200 kHz (or greater)
+- Spi interface
 
 Parts Investigated
 ------------------
