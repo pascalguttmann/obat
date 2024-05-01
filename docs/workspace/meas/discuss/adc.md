@@ -41,11 +41,35 @@ Parts Investigated
 - [BU79100] Single Sided Input, $U_{in} \in [0V, 5V]$, 1
     Channel, SSOP-6
 
+### SPI Daisychain
+
+To ease the usage at an SPI Interface Daisy Chain capable components will be
+preferable. An SPI - Daisy Chain capable ADC is the [ADS8665]. It does not only
+feature an ADC but an entire data acquisition system _DAQ_, which has an
+internal antialiasing lowpass filter and ADC driver circuit included.
+
+Family Parts
+
+| Part No. | Resolution [bit] | Max. Sample Rate [Msps] |
+|----------|------------------|-------------------------|
+| ADS8661  | 12               | 1.25                    |
+| ADS8665  | 12               | 0.5                     |
+| ADS8671  | 14               | 1                       |
+| ADS8675  | 14               | 0.5                     |
+| ADS8685  | 16               | 0.5                     |
+| ADS8681  | 16               | 1                       |
+| ADS8695  | 18               | 0.5                     |
+| ADS8691  | 18               | 1                       |
+
 #### Recommendation
 
-Select [ADC121], because it fulfills the known specification requirements known
-at this moment in time, is cost efficient. Single-sided Input. SOT-23 package
-easier assembly, Pin compatible family.
+If further investigation shows, that SPI Daisychain is desired choose an SPI
+daisychain capable ADC. Like the [ADS8665], which also provides antialiasing
+filters and driver circuitry.
+
+If daisychaining is not required select [ADC121], because it fulfills the known
+specification requirements known at this moment in time, is cost efficient.
+Single-sided Input. SOT-23 package easier assembly, Pin compatible family.
 
 [ADS7817] Differential Input "more complicated" not pin compatible with
 [ADC121]. VSSOP-8 package is ok, but SOT-23 is preferred.
@@ -65,3 +89,4 @@ at cost of flexibility / simplicity.
 [ADC121]: https://www.ti.com/lit/ds/symlink/adc121s021.pdf?ts=1714380326274&ref_url=https%253A%252F%252Fwww.mouser.fr%252F
 [ADC122]: https://www.ti.com/lit/ds/symlink/adc122s021.pdf?ts=1714381766845&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FADC122S021%253Futm_source%253Dgoogle%2526utm_medium%253Dcpc%2526utm_campaign%253Dasc-null-null-GPN_EN-cpc-pf-google-eu%2526utm_content%253DADC122S021%2526ds_k%253DADC122S021%2526DCM%253Dyes%2526gad_source%253D1%2526gclid%253DEAIaIQobChMI_pDF3InnhQMV7D4GAB2oCw5nEAAYASAAEgLjN_D_BwE%2526gclsrc%253Daw.ds
 [BU79100]: https://fscdn.rohm.com/en/products/databook/datasheet/ic/data_converter/dac/bu79100g-la-e.pdf
+[ADS8665]: https://www.ti.com/lit/ds/symlink/ads8661.pdf?ts=1714606735903&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FADS8661
