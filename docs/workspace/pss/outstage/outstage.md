@@ -247,20 +247,76 @@ $$ n_{th,TO204} \ge \frac{250W \cdot (0.8K/W + 0K/W)}{60K} \approx 3.3 $$
 Simulation
 ----------
 
-Hardware tests in Laboratory (optional)
----------------------------------------
+Hardware tests in Laboratory
+----------------------------
 
-Layout Considerations
----------------------
+Layout and Assembly Considerations
+----------------------------------
 
-Assembly Considerations
------------------------
+### PCB Layout
 
-The power transistors should be mounted thermally coupled on the same heatsink
-to reduce thermal drift of individual transistors.
-Additionally one heatsink can be shared by the npn and pnp power transistor,
-because they are not subject to simultaneous heating.
+- Add testpins for ballast resistor voltage measurement (measurement)
+- Add testpins for input voltages (measurement, test source)
+- Add testpin for output (measurement, load) [^4]
+
+[^4]: Screw terminal can be used for up to $|I| = 20 A$
+
+### Assembly
+
+- The power transistors should be mounted thermally coupled on the same heatsink
+    to reduce thermal drift of individual transistors.
+- Additionally one heatsink can be shared by the npn and pnp power transistor,
+    because they are not subject to simultaneous heating.
+- Apply thermal grease and electrical insulation from transistors to heatsink.
 
 Commissioning and Testing
 -------------------------
+
+### Load Distribution
+
+Test ID: `pss/outstage/load-distribution/<suffix>`
+
+1. Connect
+    1. Positive Rail (test id suffix: `positive`)
+        - Output with $R = 100 m \Omega$ to _GND_ ($P = 10W$)
+        - positive Input $U_{IN+} = 2V$
+        - negative Input $U_{IN-} = 0V$
+    2. Negative Rail (test id suffix: `negative`)
+        - Output with $R = 100 m \Omega$ to _GND_ ($P = 10W$)
+        - positive Input $U_{IN+} = 0V$
+        - negative Input $U_{IN-} = -2V$
+2. Power on supply voltage
+3. Measure Voltages
+    1. Positive Rail
+        - Voltage across positive ballast resistors $U_{RE+}$
+    2. Negative Rail
+        - Voltage across negative ballast resistors $U_{RE-}$
+4. Power off supply voltage
+5. Test passed if
+    - $U_{RE} \neq 0V \quad \wedge \quad U_{RE} \in \overline{U_{RE}} ( 1 \pm 10 \%) \quad \forall \quad U_{RE}$
+
+### Short Circuit Test
+
+Test ID: `pss/outstage/short-circuit/<suffix>`
+
+1. Connect
+    1. Positive Rail (test id suffix: `positive`)
+        - Output with $R \to 0 \Omega$ to _GND_ ($I = 20A$)
+        - positive Input $U_{IN+} = 2V$
+        - negative Input $U_{IN-} = 0V$
+    2. Negative Rail (test id suffix: `negative`)
+        - Output with $R \to 0 \Omega$ to _5V_ ($I = 20A$)
+        - positive Input $U_{IN+} = 0V$
+        - negative Input $U_{IN-} = -2V$
+2. Power on supply voltage
+3. Measure
+    1. Positive Rail
+        - Voltage across positive ballast resistors $U_{RE+}$
+        - Output current $I_{Output}$
+    2. Negative Rail
+        - Voltage across negative ballast resistors $U_{RE-}$
+        - Output current $I_{Output}$
+4. Power off supply voltage
+    - $U_{RE} \neq 0V \quad \wedge \quad U_{RE} \in \overline{U_{RE}} ( 1 \pm 10 \%) \quad \forall \quad U_{RE}$
+    - $20A \leq |I_{Output}| \leq 25 A$
 
