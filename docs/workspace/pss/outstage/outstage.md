@@ -56,6 +56,67 @@ by current limiting. The current limit can be enforced by lowering the bias
 currents when the voltage drop across the emitter resistors is exceeding a
 predefined threshold.
 
+#### Emitter (Ballast) Resistor
+
+Considering a single npn transistor of the multiple paralleled transistors as
+system $S$ the thermal evolution of the system can be approximated by:
+$$ \frac{dQ}{dt} = P_{el} - P_{th} $$
+The thermal power dissipation $P_{th}$ can be approximated from the stored
+thermal energy $Q$ as follows:
+$$ P_{th} \approx \frac{C_{th} Q}{R_{th}} = \frac{T}{R_{th}}  $$
+Where $C_{th}$ is the thermal mass of the system $S$, $R_{th}$ is the thermal
+resistance in $[\frac{K}{W}]$ and $T$ is the absolute temperature.
+The delivered electrical power converted to thermal power in $S$ is described
+by:
+$$ P_{el} = U_{CE} I_{C} + U_{BE} I_{B} $$
+
+The temperature coefficient $\gamma \quad [\frac{mV}{K}]$ of a given npn
+transistor describes the change of $U_{BE}$ at a certain operating point for a
+given temperature change, for constant $I_C$. [It is mainly derived from the
+temperature dependence of the _reverse bias current_
+$I_S$.](https://web.mit.edu/klund/www/Dphysics.pdf)
+The electrical power can therefore be described depending on the temperature by:
+$$
+    I_B =
+    \underbrace{
+    \left[ I_S \exp \left( \frac{U_{BE} - \gamma \Delta T}{U_T} \right) \right]
+    }_{I_B}
+$$
+
+$$
+    P_{el} = I_B \left\{
+    \underbrace{
+        U_{BE} - \gamma \Delta T
+    }_{U_{BE}} +
+    \underbrace{
+        \beta_0
+    }_{I_{C}}
+    \underbrace{
+        \left( U_C - R_E (\beta_0 + 1) I_S \exp \left( \frac{U_{BE} - \gamma \Delta T}{U_T} \right) \right)
+    }_{U_{CE}}
+    \right\}
+$$
+
+Thermal runaway of the transistor is can be avoided by $\frac{dQ}{dt} < P_{el} -
+P_{th}$ and therefore:
+$$
+    R_E > \frac{1}{I_B} \left(
+        U_C + \frac{U_{BE} - \gamma \Delta T}{\beta_0}
+        - \frac{T}{R_{th}} \frac{1}{\beta_0 I_B} \right)
+$$
+
+For the worst case of $R_{th} \to \infty$ and with $U_C >> \frac{U_BE - \gamma
+\Delta T}{\beta_0}$ and $(\beta_0 + 1) \approx \beta_0$ the expression can be simplified to:
+$$
+    R_E \gtrapprox \frac{U_C}{\beta_0^2 I_B} =
+    \frac{U_C}{\beta_0^2 I_S \exp \left( \frac{U_{BE} - \gamma \Delta T}{U_T} \right)}
+$$
+
+For $U_C = 15V$, $\beta_0 = 25$, $I_S = 10^{-15} A$, $U_{BE} = 700 mV$, $U_T =
+26mV$, $\Delta T = 100K$ and $\gamma = -2 \frac{mV}{K}$ the constrained for the
+ballast resistor is
+$$ R_E \gtrapprox 22 m \Omega $$
+
 ### Thermal Resistance Consideration
 
 The current and thermal load distribution are the factors significantly
