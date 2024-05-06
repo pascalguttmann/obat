@@ -256,6 +256,11 @@ Layout Considerations
 Assembly Considerations
 -----------------------
 
+The power transistors should be mounted thermally coupled on the same heatsink
+to reduce thermal drift of individual transistors.
+Additionally one heatsink can be shared by the npn and pnp power transistor,
+because they are not subject to simultaneous heating.
+
 Commissioning and Testing
 -------------------------
 
