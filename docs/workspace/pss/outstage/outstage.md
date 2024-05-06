@@ -117,6 +117,15 @@ For $U_C = 15V$, $\beta_0 = 25$, $I_S = 10^{-15} A$, $U_{BE} = 700 mV$, $U_T =
 ballast resistor is
 $$ R_E \gtrapprox 22 m \Omega $$
 
+#### Short Circuit Protection
+
+To limit the current in case of a short circuit a current limiting transistor
+can be connected from the base of each power transistor over the ballast
+resistor. When the voltage across the ballast resistor $U_{RE}$ rises to
+$U_{BE}$ of the limiting transistor the base current of the power transistor
+will be limited. The current limiting is applied separately for each power
+transistor.
+
 ### Thermal Resistance Consideration
 
 The current and thermal load distribution are the factors significantly
