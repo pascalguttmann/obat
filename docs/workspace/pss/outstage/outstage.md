@@ -296,6 +296,25 @@ See table below with results, which are exported from excel.
 | [MJ802, MJ4502G](https://www.mouser.de/datasheet/2/308/1/MJ4502_D-2316036.pdf)         | TO-3    | 200              | 200           | 44.2             | 30              | 7.5              | 25        | 0.8               | 1.3             | 12  | 7.43                         | 89.16                      |
 | [MJL4281AG, MJL4302AG](https://www.mouser.de/datasheet/2/308/1/MJL4281A_D-2315934.pdf) | TO-264  | 150              | 230           | 32.2             | 15              | 8                | 50        | 0.4               | 1.5             | 16  | 5.59                         | 89.44                      |
 
+#### Heatsink
+
+The heatsink is searched in catalogue of company _Fischer Elektronik_.
+
+- Low thermal resistance $R_{th} < 4 K/W$, smaller is better as it reduces cost
+    by not needing more transistors.
+- Mounting style, clip mounting for assembly of heatsink after soldering and
+    easier repair.
+- "Double sided mounting" at PCB for reduction of size. (PNP and NPN can be
+    mounted on same heatsink)
+
+##### Result
+
+1. 2x `SK662 100` with $2 K/W$
+2. 2x `SK593 100` with $2 K/W$ (bigger)
+3. `SK50` (mounting with custom CNC, probably expensive)
+
+Isolation washer: `WS 220`
+Mounting clip: `THFU 2`
 
 Simulation
 ----------
