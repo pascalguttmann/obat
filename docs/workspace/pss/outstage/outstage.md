@@ -244,6 +244,59 @@ $$ n_{th,TO220AB} \ge \frac{250W \cdot (0.8K/W + 0K/W)}{60K} \approx 3.3 $$
 $$ n_{th,TO247} \ge \frac{250W \cdot (0.6K/W + 0K/W)}{60K} = 2.5 $$
 $$ n_{th,TO204} \ge \frac{250W \cdot (0.8K/W + 0K/W)}{60K} \approx 3.3 $$
 
+### Component Selection
+
+#### Complementary Power Transistors
+
+##### Search on Mouser with filters
+
+- $I_{C,max} > 4 A$
+- $V_{CE,max} > 20 V$
+- $P_{tot} > 30 W$
+- THT-Package
+
+##### Procedure
+
+- Get data from datasheet
+- Calculate the power which can be dissipated $P_{real} [W]$ at
+    - $R_{CA} = 2.4 K/W$, ($0.4 K/W$ from isolation `WS 220`, $2 K/W$ from `SK662 200`)
+    - $T_{J,safety} = 30K $
+    - $T_{amb} = 25°C$
+- Get sensible collector current $I_{C,real} [A]$ and corresponding dc gain $\beta_0$ from datasheet
+- Calculate minimum number of required components (NPN and PNP) with
+    - $n = 2 \cdot \max ( \lceil P_{th,max} / P_{real} \rceil, \lceil I_{max} / I_{C,real} \rceil)$
+- Calculate the total price $\text{Price total} = n \cdot \text{Price p. unit}$
+
+##### Result
+
+See table below with results, which are exported from excel.
+
+- _BD433/5/7, BD434/6/8_ is rejected in favor of a _TO-220_ package, because for
+    high number of components it is easier to mount.
+- _MJE3055T, MJE2955T_ is rejected in favor of _TIP42C, TIP42C_, because the
+    price for the complementary part is higher with approx 1 Eur than visible in
+    the list.
+
+- _TIP41C, TIP42C_ is favored for the design.
+
+| Part Number                                                                            | Package | $T_{J,max} [°C]$ | $P_{tot} [W]$ | $P_{real} [W]$   | $I_{C,max} [A]$ | $I_{C,real} [A]$ | $\beta_0$ | $I_{B,total} [A]$ | $U_{BE,on} [V]$ | $n$ | $\text{Price p. unit} [Eur]$ | $\text{Price total} [Eur]$ |
+|:---------------------------------------------------------------------------------------|---------|------------------|---------------|------------------|-----------------|------------------|-----------|-------------------|-----------------|-----|------------------------------|----------------------------|
+| [MJE3055T, MJE2955T](https://www.mouser.de/datasheet/2/308/1/MJE2955T_D-2315820.pdf)   | TO-220  | 150              | 75            | 23.3606557377049 | 10              | 4                | 20        | 1                 | 1.8             | 22  | 0.69                         | 15.18                      |
+| [BD433/5/7, BD434/6/8](https://www.mouser.de/datasheet/2/389/bd437-1848935.pdf)        | SOT-32  | 150              | 36            | 16.1             | 4               | 2                | 40        | 0.5               | 1.2             | 32  | 0.502                        | 16.064                     |
+| [TIP41C, TIP42C](https://www.mouser.de/datasheet/2/389/tip41c-1852274.pdf)             | TO-220  | 150              | 65            | 21.9             | 6               | 4                | 30        | 0.6               | 2               | 24  | 0.72                         | 17.28                      |
+| [2N5191G, 2N5194](https://www.mouser.de/datasheet/2/308/2N5191_D-2309067.pdf)          | TO-225  | 150              | 40            | 17.1             | 4               | 2                | 20        | 1                 | 1.2             | 30  | 0.577                        | 17.31                      |
+| [D44VH10, D45VH10](https://www.mouser.de/datasheet/2/308/1/D44VH_D-2310858.pdf)        | TO-220  | 150              | 83            | 24.3             | 15              | 4                | 20        | 1                 | 1.2             | 22  | 0.83                         | 18.26                      |
+| [D44H8, D45H8](https://www.mouser.de/datasheet/2/389/d44h8-1848919.pdf)                | TO-220  | 150              | 50            | 19.3             | 10              | 4                | 40        | 0.5               | 1.5             | 26  | 0.772                        | 20.072                     |
+| [TIP35CW, TIP36CW](https://www.mouser.de/datasheet/2/389/tip35cw-1852306.pdf)          | TO-247  | 150              | 125           | 27.9             | 25              | 3                | 30        | 0.6               | 2               | 18  | 1.87                         | 33.66                      |
+| [NJW3281G, NJW1302G](https://www.mouser.de/datasheet/2/308/1/NJW3281_D-2318020.pdf)    | TO-3P   | 150              | 200           | 31.4             | 15              | 8                | 45        | 0.4               | 1.5             | 16  | 3.65                         | 58.4                       |
+| [MJW21196, MJW21195](https://www.mouser.de/datasheet/2/308/1/MJW21195_D-2315975.pdf)   | TO-247  | 150              | 200           | 31.4             | 16              | 8                | 20        | 1                 | 2               | 16  | 4.11                         | 65.76                      |
+| [MJ15022, MJ15023](https://www.mouser.de/datasheet/2/308/1/MJ15022_D-2316114.pdf)      | TO-3    | 200              | 250           | 46.7             | 16              | 10               | 15        | 1.3               | 2.2             | 12  | 6.29                         | 75.48                      |
+| [MJW21194, MJW21193](https://www.mouser.de/datasheet/2/308/1/MJW21193_D-2315789.pdf)   | TO-247  | 150              | 200           | 31.4             | 16              | 8                | 20        | 1                 | 2.2             | 16  | 4.81                         | 76.96                      |
+| [MJL21196, MJL21195](https://www.mouser.de/datasheet/2/308/1/MJL21195_D-2316291.pdf)   | TO-264  | 150              | 200           | 31.4             | 16              | 8                | 25        | 0.8               | 2.2             | 16  | 4.9                          | 78.4                       |
+| [MJ802, MJ4502G](https://www.mouser.de/datasheet/2/308/1/MJ4502_D-2316036.pdf)         | TO-3    | 200              | 200           | 44.2             | 30              | 7.5              | 25        | 0.8               | 1.3             | 12  | 7.43                         | 89.16                      |
+| [MJL4281AG, MJL4302AG](https://www.mouser.de/datasheet/2/308/1/MJL4281A_D-2315934.pdf) | TO-264  | 150              | 230           | 32.2             | 15              | 8                | 50        | 0.4               | 1.5             | 16  | 5.59                         | 89.44                      |
+
+
 Simulation
 ----------
 
