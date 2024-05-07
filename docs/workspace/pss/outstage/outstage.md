@@ -319,6 +319,10 @@ Mounting clip: `THFU 2`
 Simulation
 ----------
 
+See `./outstage.asc` and `./outstage.asy`.
+
+TODO: Add short circuit protection
+
 Hardware tests in Laboratory
 ----------------------------
 

@@ -11,5 +11,9 @@
 # ignore office backup files
 ~$*.*
 
+# ignore LT Spice Simulation files
+*.log
+*.raw
+
 # ignore mkdocs documentation builds
 /site/
