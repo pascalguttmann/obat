@@ -20,7 +20,9 @@ Parts Investigated
 ### 5V Reference Compatible
 
 #### Search
+
 [Mouser ADC Search] with Filters:
+
 - ADC
 - Resolution >= 12-bit
 - Interface: SPI supported
