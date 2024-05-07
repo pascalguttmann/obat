@@ -21,6 +21,8 @@ nav:
       - workspace/esu/index.md
     - Team Measurement Electronics:
       - workspace/meas/index.md
+      - Discussion:
+        - workspace/meas/discuss/isoamp.md
     - Team PowerSupplySink:
       - workspace/pss/index.md
     - Team Safety Research:
