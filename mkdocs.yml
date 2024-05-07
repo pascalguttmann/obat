@@ -22,6 +22,7 @@ nav:
     - Team Measurement Electronics:
       - workspace/meas/index.md
       - Discussion:
+        - workspace/meas/discuss/adc.md
         - workspace/meas/discuss/isoamp.md
     - Team PowerSupplySink:
       - workspace/pss/index.md
