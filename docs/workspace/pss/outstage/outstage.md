@@ -126,6 +126,40 @@ $U_{BE}$ of the limiting transistor the base current of the power transistor
 will be limited. The current limiting is applied separately for each power
 transistor.
 
+The base resistor $R_B$ cannot exceed a certain resistance, because it will
+increase the input resistance until the preceeding stage cannot drive enough
+current into the base of the power transistors.
+
+For an expected maximum voltage $U_{in,max} = U_{SUP+} - 2V = 8V$ of the
+preceeding stage the maximum tolerable $R_B$ is for an maximum required base
+current $I_{b,pwr} = I_{out,max} / n / \beta_0$ of the power transistor.
+$$
+    R_B < \frac{U_{in,max} - U_{outmax} - 2* U_{BE,on}}{I_{b,pwr}} =
+    \frac{8V - 2 \cdot 1V - 5V}{\frac{20A}{12 \cdot 40}} \approx 24 \Omega \\
+$$
+
+By using $R_B$ from E12, it can be chosen.
+$$
+    R_B = 22 \Omega
+$$
+
+The maximum collector current of the $I_{C,lmt}$ of the current limiting
+transistor can be calculated depending on the collector voltage $U_{C,lmt} =
+U_{B,pwr}$.
+$$ I_{C,lmt} = \frac{U_{in,max} - U_{C,lmt}}{R_B} - I_{b,pwr} $$
+$$ U_{in,max} \leq 8V \quad \wedge \quad U_{C,lmt} > 2 \cdot U_{BE,on} $$
+$$ \implies I_{C,lmt} \leq \frac{8V - 2 \cdot 1V}{22 \Omega} - \frac{20A}{12
+\cdot 40} \approx 230mA $$
+
+The thermal power requirement on the limiting transisor can be approximated by
+neglecting base current and base-emitter voltage as follows.
+$$ P_{lmt} \approx I_{C,lmt} \cdot U_{C,lmt} = - \frac{1}{R_B} U_{C,lmt}^2 +
+(\frac{U_{in,max}}{R_B} - I_{b,pwr}) U_{C,lmt}$$
+With $$ \frac{\partial P_{lmt}}{\partial U_{C,lmt}} = 0 \implies U_{C,lmt} = 3.56 V$$ the $U_{C,lmt}$ for
+maximum power dissipation in the limiting transistor can be found from which the
+maximum power dissipation in the limiting transistor can be calculated:
+$$ P_{lmt} < I_{C,lmt}(3.56V) \cdot 3.56V \approx 580mW $$
+
 ### Thermal Resistance Consideration
 
 The current and thermal load distribution are the factors significantly
@@ -316,12 +350,37 @@ The heatsink is searched in catalogue of company _Fischer Elektronik_.
 Isolation washer: `WS 220`
 Mounting clip: `THFU 2`
 
+#### Current Limiting Transistor
+
+##### Search on Mouser with filters
+
+- $I_{C,max} > 2 A$
+- $P_{tot} > 1 W$
+- Sort by price ascending
+- Check that complementary type is available
+
+##### Results
+
+| Part. No               | Package | Info                                                          |
+|------------------------|---------|---------------------------------------------------------------|
+| [DNLS350, DPLS350E]    | SOT223  | Provides the desired performance for low price                |
+| [PBSS4350X, PBSS5350X] | SOT89   | Power dissipation, critical for SOT89, big footprint required |
+| [PBSS5350D, PBSS4350D] | SOT4547 | Power dissipation to high                                     |
+
+Select [DNLS350, DPLS350E] for easier thermal management in favor of the other
+options.
+
+[DNLS350, DPLS350E]: <https://www.diodes.com/assets/Datasheets/ds31231.pdf>
+[PBSS4350X, PBSS5350X]: <https://www.mouser.de/datasheet/2/916/PBSS4350X-2938389.pdf>
+[PBSS5350D, PBSS4350D]: <https://www.mouser.de/datasheet/2/916/PBSS5350D-2909976.pdf>
+
 Simulation
 ----------
 
 See `./outstage.asc` and `./outstage.asy`.
 
 TODO: Add short circuit protection
+TODO: Add screenshot of schematic at top
 
 Hardware tests in Laboratory
 ----------------------------
@@ -334,6 +393,7 @@ Layout and Assembly Considerations
 - Add testpins for ballast resistor voltage measurement (measurement)
 - Add testpins for input voltages (measurement, test source)
 - Add testpin for output (measurement, load) [^4]
+- Current limiting Transistor footprint, include bigger pad as thermal relieve
 
 [^4]: Screw terminal can be used for up to $|I| = 20 A$
 
