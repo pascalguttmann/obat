@@ -8,5 +8,8 @@
 # ignore vim swap files
 *.swp
 
+# ignore office backup files
+~$*.*
+
 # ignore mkdocs documentation builds
 /site/
