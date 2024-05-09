@@ -26,6 +26,12 @@ Interface
 Circuit Selection and Design
 ----------------------------
 
+### Overview
+
+![Outstage Schematic with N2 parallel transistors](./outstage_schematic_n2.png)
+Outstage Schematic Simulation with N2 parallel transistors, $n = 12$ is used for
+total schematic.
+
 ### Transistor Technology Selection
 
 To realize the power amplification complementary bjt transistors are chosen,
@@ -429,9 +435,6 @@ Simulation
 ----------
 
 See `./outstage.asc` and `./outstage.asy`.
-
-TODO: Add short circuit protection
-TODO: Add screenshot of schematic at top
 
 Hardware tests in Laboratory
 ----------------------------
