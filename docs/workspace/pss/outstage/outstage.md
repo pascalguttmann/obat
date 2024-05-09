@@ -120,6 +120,28 @@ For $U_C = 15V$, $\beta_0 = 25$, $I_S = 10^{-15} A$, $U_{BE} = 700 mV$, $U_T =
 ballast resistor is
 $$ R_E \gtrapprox 22 m \Omega $$
 
+The selected current limiting transistor of the short circuit protection
+`DNLS350` has an base-emitter turn on voltage
+$$ V_{BE,on} \approx 700mV | I_{C} = 300mA, T = 25°C $$
+$$ V_{BE,on} \approx 600mV | I_{C} = 300mA, T = 85°C $$
+
+Therefore the range of the ballast resistor is further restricted by
+
+1. A minimum value which is required to still limit the current below the
+   allowed $I_{max} / n$ even at room temperature, where $n = 12$ is the number
+   of used power transistors paralleled.
+   $$ R_E > \frac{700mV}{25A / 12} = 330 m \Omega $$
+2. A maximum value which is must not be exceeded to allow the nominal current
+   flow $I_{out} / n$ even at high temperature, where $n = 12$ is the number of
+   used power transistors paralleled.
+   $$ R_E < \frac{600mV}{20A / 12} = 360 m \Omega $$
+
+The power rating of the resistor shall be
+$$ P_{RE} = \frac{I_{max}}{n}^2 \cdot R_E $$
+or better. In the case of the ballast resistor being limited by the nominal
+current flow at low $V_{BE,on}$ this would be:
+$$ P_{RE} > \frac{25A}{12}^2 \cdot 360m \Omega \approx 1.6 W $$
+
 #### Short Circuit Protection
 
 To limit the current in case of a short circuit a current limiting transistor
@@ -376,6 +398,32 @@ options.
 [DNLS350, DPLS350E]: <https://www.diodes.com/assets/Datasheets/ds31231.pdf>
 [PBSS4350X, PBSS5350X]: <https://www.mouser.de/datasheet/2/916/PBSS4350X-2938389.pdf>
 [PBSS5350D, PBSS4350D]: <https://www.mouser.de/datasheet/2/916/PBSS5350D-2909976.pdf>
+
+#### Ballast Resistor
+
+##### Search on Mouser
+
+To achieve $R_E \approx 330 m \Omega$ with $P_{RE} = 3W >> 1.6 W$ the following
+options have been found through mouser search:
+
+| Part. No.    | Resistance $[m \Omega]$ | Power Rating $[W]$ | Price p. P. [Eur] |
+|--------------|-------------------------|--------------------|-------------------|
+| [RR03JR33TB] | 330                     | 3                  | 0.157             |
+| [RR02JR68TB] | 680                     | 2                  | 0.14              |
+
+##### Result
+
+[RR02JR68TB]
+
+While the _RR03JR33TB_ is cheaper in total, because only one component is
+required per transistor except two as for _RR02JR68TB_, _RR02JR68TB_ is
+preferred as for the parallel expected value $R = 680 / 2 m \Omega$ is expected
+to be better in the desired range of $330 m \Omega$ to $350 m \Omega$, when the
+tolerance is also of concern. For quantities $100$ or bigger the price drops
+also to $0.07 Eur$.
+
+[RR03JR33TB]: <https://www.mouser.de/ProductDetail/TE-Connectivity-Holsworthy/RR03JR33TB?qs=sGAEpiMZZMtlubZbdhIBIL1jfe5%2FyPTLGVSKJynZY2s%3D>
+[RR02JR68TB]: <https://www.mouser.de/ProductDetail/TE-Connectivity-Holsworthy/RR02JR68TB?qs=sGAEpiMZZMtlubZbdhIBIJxdTG9LhrplYzQM53Fdd2M%3D>
 
 Simulation
 ----------
