@@ -313,14 +313,14 @@ $$ n_{th,TO204} \ge \frac{250W \cdot (0.8K/W + 0K/W)}{60K} \approx 3.3 $$
 
 #### Complementary Power Transistors
 
-##### Search on Mouser with filters
+*Search on Mouser with filters*
 
 - $I_{C,max} > 4 A$
 - $V_{CE,max} > 20 V$
 - $P_{tot} > 30 W$
 - THT-Package
 
-##### Procedure
+*Procedure*
 
 - Get data from datasheet
 - Calculate the power which can be dissipated $P_{real} [W]$ at
@@ -332,7 +332,7 @@ $$ n_{th,TO204} \ge \frac{250W \cdot (0.8K/W + 0K/W)}{60K} \approx 3.3 $$
     - $n = 2 \cdot \max ( \lceil P_{th,max} / P_{real} \rceil, \lceil I_{max} / I_{C,real} \rceil)$
 - Calculate the total price $\text{Price total} = n \cdot \text{Price p. unit}$
 
-##### Result
+*Result*
 
 See table below with results, which are exported from excel.
 
@@ -372,7 +372,7 @@ The heatsink is searched in catalogue of company _Fischer Elektronik_.
 - "Double sided mounting" at PCB for reduction of size. (PNP and NPN can be
     mounted on same heatsink)
 
-##### Result
+*Result*
 
 1. 2x `SK662 100` with $2 K/W$
 2. 2x `SK593 100` with $2 K/W$ (bigger)
@@ -383,14 +383,14 @@ Mounting clip: `THFU 2`
 
 #### Current Limiting Transistor
 
-##### Search on Mouser with filters
+*Search on Mouser with filters*
 
 - $I_{C,max} > 2 A$
 - $P_{tot} > 1 W$
 - Sort by price ascending
 - Check that complementary type is available
 
-##### Results
+*Results*
 
 | Part. No               | Package | Info                                                          |
 |------------------------|---------|---------------------------------------------------------------|
@@ -407,7 +407,7 @@ options.
 
 #### Ballast Resistor
 
-##### Search on Mouser
+*Search on Mouser*
 
 To achieve $R_E \approx 330 m \Omega$ with $P_{RE} = 3W >> 1.6 W$ the following
 options have been found through mouser search:
@@ -417,7 +417,7 @@ options have been found through mouser search:
 | [RR03JR33TB] | 330                     | 3                  | 0.157             |
 | [RR02JR68TB] | 680                     | 2                  | 0.14              |
 
-##### Result
+*Result*
 
 [RR02JR68TB]
 
@@ -436,14 +436,14 @@ also to $0.07 Eur$.
 The base resistor faces voltage drop up to $6V$ therefore its power rating
 should be $P >> (6V)^2 / 22 \Omega \approx 1.6 W$.
 
-##### Search
+*Search*
 
 Searching on Mouser for:
 
 - $R = 22 \Omega$
 - $P > 3W$
 
-##### Result
+*Result*
 
 [RR03J22RTB] for $0.157 Eur p. P.$
 
