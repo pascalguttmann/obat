@@ -8,13 +8,16 @@ Requirements
 
 - [ ] $U_{out} \in [0V, +5V]$
 - [ ] $I_{out} \in [-20A, +20A]$
-- [ ] Short circuit I limit $I_{max} = [1.25 min(I_{out}), 1.25 max(I_{out})]$
-- [ ] $I_{in} < 200mA \quad \forall \quad U_{out} \times I_{out}$
+- [ ] Short circuit I limit $| max(I_{out}) \leq |I_{max}| \leq |1.25 max(I_{out})|$
+- [ ] $I_{in} < 1A \quad \forall \quad U_{out} \times I_{out}$
 
 Interface
 ---------
 
-- Voltage controlled input
+- Voltage controlled input should be $V_{IN+} (t) = V_{IN-} (t) + V_{offset}
+    \quad | V_{offset} \in \mathbb{R}_+$
+    - `V_IN+`
+    - `V_IN-`
 - Voltage controlled output
 - Supply Voltages
     - $+10V$
