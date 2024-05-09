@@ -431,6 +431,24 @@ also to $0.07 Eur$.
 [RR03JR33TB]: <https://www.mouser.de/ProductDetail/TE-Connectivity-Holsworthy/RR03JR33TB?qs=sGAEpiMZZMtlubZbdhIBIL1jfe5%2FyPTLGVSKJynZY2s%3D>
 [RR02JR68TB]: <https://www.mouser.de/ProductDetail/TE-Connectivity-Holsworthy/RR02JR68TB?qs=sGAEpiMZZMtlubZbdhIBIJxdTG9LhrplYzQM53Fdd2M%3D>
 
+#### Base Resistor
+
+The base resistor faces voltage drop up to $6V$ therefore its power rating
+should be $P >> (6V)^2 / 22 \Omega \approx 1.6 W$.
+
+##### Search
+
+Searching on Mouser for:
+
+- $R = 22 \Omega$
+- $P > 3W$
+
+##### Result
+
+[RR03J22RTB] for $0.157 Eur p. P.$
+
+[RR03J22RTB]: <https://www.mouser.de/ProductDetail/TE-Connectivity-Holsworthy/RR03J22RTB?qs=sGAEpiMZZMtlubZbdhIBIIenWIH7rhEv%252B4gI1ku6TGs%3D>
+
 Simulation
 ----------
 
