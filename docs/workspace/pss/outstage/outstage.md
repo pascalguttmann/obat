@@ -374,12 +374,19 @@ The heatsink is searched in catalogue of company _Fischer Elektronik_.
 
 *Result*
 
-1. 2x `SK662 100` with $2 K/W$
-2. 2x `SK593 100` with $2 K/W$ (bigger)
-3. `SK50` (mounting with custom CNC, probably expensive)
+- 2x `SK499 120` available at [AudioTube](https://www.audiotube24.de/product_id-00017850)
+- 30x [THFU2](https://www.audiotube24.de/product_id-00017487) Clip
+- 30x [Phase Change Insulator](https://mou.sr/4ak0pEy)
+- Fan for forced convection: <https://mou.sr/3yeFHsr>
 
-Isolation washer: `WS 220`
+Alternatives:
+
+- 2x `SK662 100` with $2 K/W$
+- 2x `SK593 100` with $2 K/W$ (bigger)
+- `SK50` (mounting with custom CNC, probably expensive)
+
 Mounting clip: `THFU 2`
+Isolation washer: `WS 220`
 
 #### Current Limiting Transistor
 
