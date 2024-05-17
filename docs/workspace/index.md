@@ -1,6 +1,7 @@
 # Workspace Site
 
 Intended for use as:
+
   - Shared workspace size to collaborate for system integration
   - documentation for inter-team agreements
 
