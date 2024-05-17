@@ -376,7 +376,7 @@ The heatsink is searched in catalogue of company _Fischer Elektronik_.
 
 - 2x `SK499 120` available at [AudioTube](https://www.audiotube24.de/product_id-00017850)
 - 30x [THFU2](https://www.audiotube24.de/product_id-00017487) Clip
-- 30x [Phase Change Insulator](https://mou.sr/4ak0pEy)
+- 30x [Silicon Insulator](https://mou.sr/3K4ou7F)
 - Fan for forced convection: <https://mou.sr/3yeFHsr>
 
 Alternatives:
