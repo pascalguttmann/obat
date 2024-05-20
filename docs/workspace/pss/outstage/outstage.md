@@ -3,21 +3,20 @@ Output Stage
 
 Output stage class AB for driving the load of the powersupplysink.
 
-Requirements
-------------
+Interface & Requirements
+------------------------
 
-- [ ] $U_{out} \in [0V, +5V]$
-- [ ] $I_{out} \in [-20A, +20A]$
-- [ ] Short circuit I limit $| max(I_{out}) \leq |I_{max}| \leq |1.25 max(I_{out})|$
-- [ ] $I_{in} < 1A \quad \forall \quad U_{out} \times I_{out}$
-
-Interface
----------
-
+- $U_{out} \in [0V, +5V]$
+- $I_{out} \in [-20A, +20A]$
+- Short circuit I limit $| max(I_{out}) \leq |I_{max}| \leq |1.25 max(I_{out})|$
+- $I_{in} \approx 500mA < 1A \quad \forall \quad U_{out} \times I_{out}$
 - Voltage controlled input should be $V_{IN+} (t) = V_{IN-} (t) + V_{offset}
     \quad | V_{offset} \in \mathbb{R}_+$
     - `V_IN+`
     - `V_IN-`
+    - $V_{offset} \approx 1V to 1.5V$ according to simulation for low crossover
+        distortion operation.
+    - Required input voltage swing: $V_{IN} \in [-3V, +8V]$
 - Voltage controlled output
 - Supply Voltages
     - $+10V$
@@ -325,7 +324,7 @@ $$ n_{th,TO204} \ge \frac{250W \cdot (0.8K/W + 0K/W)}{60K} \approx 3.3 $$
 - Get data from datasheet
 - Calculate the power which can be dissipated $P_{real} [W]$ at
     - $R_{CA} = 2.4 K/W$, ($0.4 K/W$ from isolation `WS 220`, $2 K/W$ from `SK662 200`)
-    - $T_{J,safety} = 30K $
+    - $T_{J,safety} = 30K$
     - $T_{amb} = 25°C$
 - Get sensible collector current $I_{C,real} [A]$ and corresponding dc gain $\beta_0$ from datasheet
 - Calculate minimum number of required components (NPN and PNP) with
