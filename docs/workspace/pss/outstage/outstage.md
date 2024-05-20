@@ -324,7 +324,7 @@ $$ n_{th,TO204} \ge \frac{250W \cdot (0.8K/W + 0K/W)}{60K} \approx 3.3 $$
 - Get data from datasheet
 - Calculate the power which can be dissipated $P_{real} [W]$ at
     - $R_{CA} = 2.4 K/W$, ($0.4 K/W$ from isolation `WS 220`, $2 K/W$ from `SK662 200`)
-    - $T_{J,safety} = 30K $
+    - $T_{J,safety} = 30K$
     - $T_{amb} = 25°C$
 - Get sensible collector current $I_{C,real} [A]$ and corresponding dc gain $\beta_0$ from datasheet
 - Calculate minimum number of required components (NPN and PNP) with
