@@ -16,8 +16,8 @@ Interface & Requirements
     - $V_{offset} \in [+0.73V, +1.8V]$
 - $V_{offset}$ adjustable via trimmer
 - Supply Voltages
-    - $+10V$
-    - $-5V$
+    - $+10V$ @ $?W$
+    - $-5V$ @ $?W$
 
 Circuit Selection and Design
 ----------------------------

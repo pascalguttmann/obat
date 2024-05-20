@@ -19,8 +19,8 @@ Interface & Requirements
     - Required input voltage swing: $V_{IN} \in [-3V, +8V]$
 - Voltage controlled output
 - Supply Voltages
-    - $+10V$
-    - $-5V$
+    - $+10V$ @ $250W$ ($25A$)
+    - $-5V$ @ $125W$ ($25A$)
 
 Circuit Selection and Design
 ----------------------------
