@@ -3,21 +3,20 @@ Output Stage
 
 Output stage class AB for driving the load of the powersupplysink.
 
-Requirements
-------------
+Interface & Requirements
+------------------------
 
-- [ ] $U_{out} \in [0V, +5V]$
-- [ ] $I_{out} \in [-20A, +20A]$
-- [ ] Short circuit I limit $| max(I_{out}) \leq |I_{max}| \leq |1.25 max(I_{out})|$
-- [ ] $I_{in} < 1A \quad \forall \quad U_{out} \times I_{out}$
-
-Interface
----------
-
+- $U_{out} \in [0V, +5V]$
+- $I_{out} \in [-20A, +20A]$
+- Short circuit I limit $| max(I_{out}) \leq |I_{max}| \leq |1.25 max(I_{out})|$
+- $I_{in} \approx 500mA < 1A \quad \forall \quad U_{out} \times I_{out}$
 - Voltage controlled input should be $V_{IN+} (t) = V_{IN-} (t) + V_{offset}
     \quad | V_{offset} \in \mathbb{R}_+$
     - `V_IN+`
     - `V_IN-`
+    - $V_{offset} \approx 1V to 1.5V$ according to simulation for low crossover
+        distortion operation.
+    - Required input voltage swing: $V_{IN} \in [-3V, +8V]$
 - Voltage controlled output
 - Supply Voltages
     - $+10V$
