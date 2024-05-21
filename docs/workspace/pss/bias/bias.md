@@ -64,6 +64,7 @@ avoiding extreme outputs with high impedance input.
 ### Overview
 
 ![image](./overview.png)
+
 Overview of the used circuit.
 
 ### Current Boost Transistors
@@ -104,14 +105,14 @@ By using $VBE$ of the current limiting transistor the required base voltage of
 the transistor can be set by a voltage divider with a total current of
 approximately $2.5 mA$ for a negligible influence of the required base current
 as:
-$$ R_1 = 8.2k \Omega \quad \and \quad R_2 = 1k \Omega $$
+$$ R_1 = 8.2k \Omega \quad \land \quad R_2 = 1k \Omega $$
 
 ### Current Source Highside
 
 The highside current source is designed complementary to the lowside current
 source and for the slighty changed VBE of the complementary transistor the
 voltage divider is calculated as:
-$$ R_1 = 8.2k \Omega \quad \and \quad R_2 = 1.2k \Omega $$
+$$ R_1 = 8.2k \Omega \quad \land \quad R_2 = 1.2k \Omega $$
 
 ### Transistor Biasing
 
