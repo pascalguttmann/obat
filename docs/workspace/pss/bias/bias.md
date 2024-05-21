@@ -120,6 +120,15 @@ the outstage as well. The cheaper and smaller SMD transistors _DNLS350E_ and
 _DPLS350E_ can be chosen, as the maximum expected power is below
 $$ P < (U_{SUP+} - U_{SUP-}) \cdot I_{src} = 375 mW $$
 
+### Operational Point for High Impedance Input
+
+_R1_ in the overview image controls the operational point, when no input voltage
+is supplied. For the current $25mA$ of the current source and a desired voltage
+$U_{R1} = 2V$, which will approximately bias the output symmetrically around
+$2.5V$ the resistor is calculated:
+$$ R1 = \frac{U_{R1} - U_{sup-}}{I_{src}} = \frac{2V - (-5V)}{25mA} \approx 270
+\Omega $$
+
 Simulation
 ----------
 
