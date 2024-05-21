@@ -489,7 +489,7 @@ Commissioning and Testing
 
 ### Load Distribution
 
-Test ID: `pss/outstage/load-distribution/<suffix>`
+Test ID: `v1.0.0/pss/outstage/load-distribution/<suffix>`
 
 1. Connect
     1. Positive Rail (test id suffix: `positive`)
@@ -512,7 +512,7 @@ Test ID: `pss/outstage/load-distribution/<suffix>`
 
 ### Short Circuit Test
 
-Test ID: `pss/outstage/short-circuit/<suffix>`
+Test ID: `v1.0.0/pss/outstage/short-circuit/<suffix>`
 
 1. Connect
     1. Positive Rail (test id suffix: `positive`)
