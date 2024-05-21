@@ -113,6 +113,13 @@ source and for the slighty changed VBE of the complementary transistor the
 voltage divider is calculated as:
 $$ R_1 = 8.2k \Omega \quad \and \quad R_2 = 1.2k \Omega $$
 
+### Transistor Biasing
+
+The biasing transistors _Q1_ and _Q2_ of the overview image can be reused from
+the outstage as well. The cheaper and smaller SMD transistors _DNLS350E_ and
+_DPLS350E_ can be chosen, as the maximum expected power is below
+$$ P < (U_{SUP+} - U_{SUP-}) \cdot I_{src} = 375 mW $$
+
 Simulation
 ----------
 
