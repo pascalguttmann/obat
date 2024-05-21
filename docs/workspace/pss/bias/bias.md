@@ -130,6 +130,27 @@ $2.5V$ the resistor is calculated:
 $$ R1 = \frac{U_{R1} - U_{sup-}}{I_{src}} = \frac{2V - (-5V)}{25mA} \approx 270
 \Omega $$
 
+### Rubber Diode / VBE Multiplier
+
+![image](./rubber_diode.png)
+
+The rubber diode shall be ajustable from VBE of the transistor to approximately
+$1.8V$. Therefore _R1_ is selected as a trimmer. When _R1_ is selected to be $0
+\Omega$ the voltage accros _R2_ shall still be at least VBE of the transistor
+therefore forcing a constraint
+$$ R_2 > \frac{VBE}{I_{src}} \approx 30 \Omega $$
+
+To ease the trimmer selection the trimmer can be fixed to $R_1 = 1k \Omega$.
+By reusing the transistor _DNLS350E_ from the outstage with $VBE(I_C=25mA) \approx 730mV$
+resulting in
+$$ R_2 \approx 680 \Omega $$
+
+- which satisfies the contraint of $R_2$
+- at the maximum offset voltage approximately $1mA$ of current flows through the
+    resistive path, allowing to neglect the base current of the transistor
+- with $1mA << I_{src} = 25mA$ the transistor is conduction most of the current
+    and is therefore operating in forward mode.
+
 Simulation
 ----------
 
