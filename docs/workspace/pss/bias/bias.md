@@ -17,8 +17,8 @@ Interface & Requirements
     - Output current $I_{out \pm} \geq \pm 800 mA$
 - $V_{offset}$ adjustable via trimmer
 - Supply Voltages
-    - $+10V$ @ $?W$
-    - $-5V$ @ $?W$
+    - $+10V$ @ $7W$ ($700mA$)
+    - $-5V$ @ $3.5W$ ($700mA$)
 
 Circuit Selection and Design
 ----------------------------
