@@ -29,7 +29,7 @@ Research in _Electronic Circuits_ by _Tietze, U. and Schenk, Ch._.[^1]
 Chapter _15.2.3 Generation of Bias Voltage_ [^1] shows the following
 possibilities to generate the bias voltages:
 
-![image](./ts-bias-generation.png)
+![image](./ts_bias_generation.png)
 
 1. Bias voltage generation by diodes
     - symmetric
