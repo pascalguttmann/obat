@@ -5,6 +5,43 @@ Intended for use as:
   - Shared workspace size to collaborate for system integration
   - documentation for inter-team agreements
 
+## Agreements / Decisions
+
+### ECAD
+
+As the used ECAD Tooling the following options are investigated and KiCAD 8 is
+decided to be used as the ECAD tool for obat. Mainly because it is more suitable
+for the future as it is a thriving open source project and not discontinued as
+EAGLE. Also by its FOSS nature and the ecosystem "data ownership" is placed at
+obat project and not a third party company.
+With EAGLE being discontinued officially by 7th of June 2026 it is not seen as a
+future safe option for a new project.
+
+- AUTODESK Eagle
+    - Disadvantages:
+        - discontinued (announced by Autodesk to be discontinued by 7th June 2026)
+        - little to no updates
+        - Not free, license required (educational license available)
+        - proprietary software (Autodesk might enforce online storage)
+        - licensing might change at any time
+        - footprints and symbols are "linked" atomically in library (depending
+            on opinion this can be good)
+    - Advantages:
+        - used at by others at HFU
+        - good library support
+        - nice part search bulk editing for big projects
+- KiCAD 8
+    - Disadvantes:
+        - Currently not used by many other at HFU
+    - Advantages:
+        - Free (no license) and free as in freedom
+        - Open Source
+        - Active Project, Regular Updates and new versions
+        - good library support
+        - Footprint and Schematic symbols separated in libraries
+        - EAGLE project importer
+        - (softpoint) handy tools and calculators, it just works
+
 ## Meeting Agreements
 
 ### 18. Apr 2024
