@@ -66,6 +66,21 @@ avoiding extreme outputs with high impedance input.
 ![image](./overview.png)
 Overview of the used circuit.
 
+### Current Boost Transistors
+
+The Transistors _Q3_ and _Q4_ are referred to as the current boost transistors
+and to reuse parts it is desired to reuse the already used parts _TIP41C_ and
+_TIP42C_ from the outstage.
+
+The critical condition of the current boost transistors is the dissipated power.
+The maximum power is estimated in the worst case by a short connection of the
+output through the outstage to the other voltage rail with maximum bias current.
+Therefore the power will be
+$$ P = U I = 10V 0.5A = 5W $$
+Thus a heatsink with thermal resistance of $R_{th} < 15 K/W$ is required, which
+can potentially be shared between the two transistors as they will not dissipate
+the maximum power at the same time.
+
 ### Current Source Lowside
 
 ![image](./current_source.png)
@@ -106,6 +121,8 @@ Hardware tests in Laboratory
 
 Layout and Assembly Considerations
 ----------------------------------
+
+- Heatsink for current boost transistors can be shared.
 
 Commissioning and Testing
 -------------------------
