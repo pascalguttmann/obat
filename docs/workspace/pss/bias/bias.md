@@ -154,6 +154,13 @@ $$ R_2 \approx 680 \Omega $$
 Simulation
 ----------
 
+See `./*.asc` files. Simulations available for:
+
+- current source highside
+- current source lowside
+- rubber diode
+- bias circuit
+
 Hardware tests in Laboratory
 ----------------------------
 
