@@ -151,6 +151,62 @@ $$ R_2 \approx 680 \Omega $$
 - with $1mA << I_{src} = 25mA$ the transistor is conduction most of the current
     and is therefore operating in forward mode.
 
+### Component Selection
+
+#### Current Boost Transistors
+
+- 1x [TIP41C]
+- 1x [TIP42C]
+
+#### Current Boost Transistors Heatsink
+
+Mouser Search: $R_{th} < 15 K/W$ (natural convection), In Stock, Sort by Price
+
+- 2x [575002B00000G] Heatsink, Boardlevel
+- 2x [A15037106] Phase Change Thermal Conductor
+- 2x Screw M3
+- 2x Spring Washer M3
+- 2x Nut M3
+
+#### Current Sources
+
+- 3x [RC1210FR-078K2L], 8k2 1210
+- 1x [RC1210FR-071KL], 1k 1210
+- 2x [RC1210FR-071K2L], 1k2 1210
+- 3x [RC1210FR-0733RL], 33 1210
+- 1x [DNLS350], NPN SOT223
+- 2x [DPLS350], PNP SOT223
+
+#### Biasing Transistors
+
+- 1x [DNLS350], NPN SOT223
+- 1x [DPLS350], PNP SOT223
+
+#### Operational Point Setting Resistor
+
+- 1x [RC1210FR-07270RL], 270 1210
+
+#### Rubber Diode / VBE Multiplier
+
+- 1x [DNLS350], NPN SOT223
+- 1x [RC1210FR-07680RL], 680 1210
+- 1x [3362P-1-102RLF], 1k Trimmer
+
+
+[TIP41C]: <https://mou.sr/3QXTwSz>
+[TIP42C]: <https://mou.sr/3K8d0js>
+[DNLS350]: <https://mou.sr/4c47rij>
+[DPLS350]: <https://mou.sr/3KbWnUoY>
+[575002B00000G]: <https://mou.sr/3V7xv6a>
+[A15037106]: <https://mou.sr/4ak0pEy>
+[3362P-1-102RLF]: <https://mou.sr/3UN76tb>
+[RC1210FR-078K2L]: <https://mou.sr/3wyuvql>
+[RC1210FR-071KL]: <https://mou.sr/3wyuvql>
+[RC1210FR-071K2L]: <https://mou.sr/4bOvLUT>
+[RC1210FR-0733RL]: <https://mou.sr/3V66hgr>
+[RC1210FR-07270RL]: <https://mou.sr/4bM9JSN>
+[RC1210FR-07680RL]: <https://mou.sr/3ysyLYV>
+
 Simulation
 ----------
 
