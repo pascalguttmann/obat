@@ -96,6 +96,12 @@ To edit a page directly on GitHub click the edit icon on the top of the page.
 The link will redirect you directly to the editing view of the source file on
 the GitHub repository.
 
+## ECAD
+
+Obat uses [KiCAD 8] as an ECAD tool, a free and open source tool.
+
+[KiCAD 8]: <https://www.kicad.org/download/>
+
 ## License
 
 The project including its
