@@ -161,7 +161,53 @@ Layout and Assembly Considerations
 ----------------------------------
 
 - Heatsink for current boost transistors can be shared.
+- Add testpin for input and output
+- Add disconnect option for input and outputs (solder bridge / jumper)
 
 Commissioning and Testing
 -------------------------
+
+### Transfer Characteristic
+
+Test ID: `v1.0.0/pss/bias/transfer/<suffix>`
+
+1. Connect
+    1. -2V (test id suffix: `-2V`)
+        - Input $U_{IN} = -2V$
+    2. 2V (test id suffix: `+2V`)
+        - Input $U_{IN} = 2V$
+    3. 6V (test id suffix: `+6V`)
+        - Input $U_{IN} = 6V$
+2. Turn offset trimmer to $R = 0 \Omega$, verify by measurement
+3. Power on supply voltage
+4. Measure Voltages
+    1. Negative output voltage
+        - Voltage at negative output $U_{out-}$
+    2. Positive output voltage
+        - Voltage at positive output $U_{out+}$
+4. Power off supply voltage
+5. Test passed if
+    - $U_{IN} - 1V < U_{out-} < U_{IN} + 0.5V$
+    - $U_{IN} + 0.5V < U_{out+} < U_{IN} + 2V$
+
+### Offset Adjustment
+
+Test ID: `v1.0.0/pss/bias/offset-adjust/<suffix>`
+
+1. Connect
+    - Input $U_{IN} = 2V$
+2. Turn offset trimmer to $R = 0 \Omega$, verify by measurement
+3. Power on supply voltage
+4. Measure Output Voltages
+    - Voltage at negative output $U_{out-,0}$
+    - Voltage at positive output $U_{out+,0}$
+5. Turn offset trimmer to $R = 1k \Omega$
+6. Measure Output Voltages
+    - Voltage at negative output $U_{out-,1}$
+    - Voltage at positive output $U_{out+,1}$
+7. Power off supply voltage
+8. Test passed if
+    - Let $U_{offset,0} = U_{out+,0} - U_{out-,0}$
+    - Let $U_{offset,1} = U_{out+,1} - U_{out-,1}$
+    - $U_{offset,0} + 0.5V < U_{offset,1} < U_{offset,0} + 1.5V$
 
