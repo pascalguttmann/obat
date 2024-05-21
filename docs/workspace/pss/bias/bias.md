@@ -69,7 +69,7 @@ Overview of the used circuit.
 
 ### Current Boost Transistors
 
-The Transistors _Q3_ and _Q4_ are referred to as the current boost transistors
+The Transistors $Q_3$ and $Q_4$ are referred to as the current boost transistors
 and to reuse parts it is desired to reuse the already used parts _TIP41C_ and
 _TIP42C_ from the outstage.
 
@@ -86,11 +86,11 @@ the maximum power at the same time.
 
 ![image](./current_source.png)
 
-The required output current is approximately $500mA$, by _Q4_ in the overview
-image the current is boosted and there fore a smaller base current of _Q4_ is
+The required output current is approximately $500mA$, by $Q_4$ in the overview
+image the current is boosted and there fore a smaller base current of $Q_4$ is
 required. For a guaranteed $\beta_0 \ge 40$ of the transistors the base current
 is $Q_{B4} = 500mA / 40 = 12.5mA$.
-To drive the transistor _Q2_ even at high current demand with a forward current
+To drive the transistor $Q_2$ even at high current demand with a forward current
 through the collector emitter path the current source is constructed to have
 $$ I_{src} = 2 \cdot Q_{B4} = 25mA $$
 To achieve the maximum voltage swing at the output with an $VBE_{Q4} \approx 1V$
@@ -116,14 +116,14 @@ $$ R_1 = 8.2k \Omega \quad \land \quad R_2 = 1.2k \Omega $$
 
 ### Transistor Biasing
 
-The biasing transistors _Q1_ and _Q2_ of the overview image can be reused from
+The biasing transistors $Q_1$ and $Q_2$ of the overview image can be reused from
 the outstage as well. The cheaper and smaller SMD transistors _DNLS350E_ and
 _DPLS350E_ can be chosen, as the maximum expected power is below
 $$ P < (U_{SUP+} - U_{SUP-}) \cdot I_{src} = 375 mW $$
 
 ### Operational Point for High Impedance Input
 
-_R1_ in the overview image controls the operational point, when no input voltage
+$R_1$ in the overview image controls the operational point, when no input voltage
 is supplied. For the current $25mA$ of the current source and a desired voltage
 $U_{R1} = 2V$, which will approximately bias the output symmetrically around
 $2.5V$ the resistor is calculated:
@@ -135,8 +135,8 @@ $$ R1 = \frac{U_{R1} - U_{sup-}}{I_{src}} = \frac{2V - (-5V)}{25mA} \approx 270
 ![image](./rubber_diode.png)
 
 The rubber diode shall be ajustable from VBE of the transistor to approximately
-$1.8V$. Therefore _R1_ is selected as a trimmer. When _R1_ is selected to be $0
-\Omega$ the voltage accros _R2_ shall still be at least VBE of the transistor
+$1.8V$. Therefore $R_1$ is selected as a trimmer. When $R_1$ is selected to be $0
+\Omega$ the voltage accros $R_2$ shall still be at least VBE of the transistor
 therefore forcing a constraint
 $$ R_2 > \frac{VBE}{I_{src}} \approx 30 \Omega $$
 
