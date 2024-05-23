@@ -2,7 +2,6 @@
 
 Open Battery Tester is a battery tester project with the goal of providing a
 
-- low cost
 - modifiable
 - easy to use
 
