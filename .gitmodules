@@ -1,0 +1,3 @@
+[submodule "hw/ecad/pss"]
+	path = hw/ecad/pss
+	url = https://github.com/pascalguttmann/obat-powersupplysink.git
