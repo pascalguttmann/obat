@@ -2,7 +2,6 @@
 
 Open Battery Tester is a battery tester project with the goal of providing a
 
-- low cost
 - modifiable
 - easy to use
 
@@ -48,6 +47,14 @@ machine.
 ```bash
 git clone https://github.com/pascalguttmann/obat.git
 ```
+
+!!! info "Git Submodules"
+    To work with Git submodules you can update the contents of the submodules by
+    running `git submodule update --init --recursive` after `git clone` in the
+    git repository. [Further information how git submodules are used in
+    obat.][submodules]
+
+[submodules]: <./git-submodules/>
 
 You can edit the documentation which is located in the `./docs/` directory of
 the repository and create a pull request to merge your changes.

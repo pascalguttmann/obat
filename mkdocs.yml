@@ -6,6 +6,7 @@ edit_uri: edit/main/docs/
 nav:
   - Home:
     - index.md
+    - git-submodules.md
     - tutorial-vids.md
   - Architecture:
     - arch/overview.md
