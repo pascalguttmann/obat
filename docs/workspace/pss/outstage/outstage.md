@@ -125,6 +125,14 @@ For $U_C = 15V$, $\beta_0 = 25$, $I_S = 10^{-15} A$, $U_{BE} = 700 mV$, $U_T =
 ballast resistor is
 $$ R_E \gtrapprox 22 m \Omega $$
 
+!!! info
+    The thermal voltage $U_T$ is not temperature independent as assumed in this
+    calculation. The effect of the thermal voltage change on the base current is
+    rather small compared to the effect of $\gamma$. Additionally the thermal
+    voltage is increased with temperature reducing the base current thus the
+    effect counteracts the thermal runaway. Therefore when neglected the
+    inequality constraint is not violated.
+
 The selected current limiting transistor of the short circuit protection
 `DNLS350` has an base-emitter turn on voltage
 $$ V_{BE,on} \approx 700mV | I_{C} = 300mA, T = 25°C $$
