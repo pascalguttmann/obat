@@ -105,8 +105,8 @@ $$
     \right\}
 $$
 
-Thermal runaway of the transistor is can be avoided by $\frac{dQ}{dt} < P_{el} -
-P_{th}$ and therefore:
+Thermal runaway of the transistor is can be avoided by $\frac{dQ}{dt} = P_{el} -
+P_{th} < 0$ and therefore:
 $$
     R_E > \frac{1}{I_B} \left(
         U_C + \frac{U_{BE} - \gamma \Delta T}{\beta_0}
