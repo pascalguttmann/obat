@@ -139,21 +139,34 @@ $$ R1 = \frac{U_{R1} - U_{sup-}}{I_{src}} = \frac{2V - (-5V)}{25mA} \approx 270
 ![image](./rubber_diode.png)
 
 The rubber diode shall be ajustable from VBE of the transistor to approximately
-$1.8V$. Therefore $R_1$ is selected as a trimmer. When $R_1$ is selected to be $0
-\Omega$ the voltage accros $R_2$ shall still be at least VBE of the transistor
-therefore forcing a constraint
-$$ R_2 > \frac{VBE}{I_{src}} \approx 30 \Omega $$
+$1.8V$. Therefore a trimmer is selected to adjust the voltage drop. To avoid
+excessive voltage drop in case of mechanical failure in the trimmer $R_2$ is
+chosen to be adjustable.
+For the two failure cases the following holds:
 
-To ease the trimmer selection the trimmer can be fixed to $R_1 = 1k \Omega$.
+- $R_2 \to \infty$ the voltage drop of the rubber diode is reduced to the
+    intrinsic _VBE_ of the transistor.
+- $R_2 = 0 \Omega$ the voltage increases up to $v = \frac{U_{dropoff}}{VBE} =
+    \frac{R_1}{R_3} + 1$. Therefore by chosing $R_3$ the maximum dropoff voltage
+    can be set. At the cost of not being able to reach as low as _VBE_ during
+    normal operation.
+
 By reusing the transistor _DNLS350E_ from the outstage with $VBE(I_C=25mA) \approx 730mV$
-resulting in
-$$ R_2 \approx 680 \Omega $$
+the interval required for $v$ can be estimated.
+To achieve $v \in [1.1, 2.5]$, with an $R_2 = 1k \Omega$ trimmer the following
+equations can be used to derive the values for the resistors:
+$$ v_{max} = 2.5 = \frac{R_1}{R_{2,min} + R_3} + 1 $$
+$$ v_{min} = 1.1 = \frac{R_1}{R_{2,max} + R_3} + 1 $$
+$$ R_{2,max} = 1k \Omega \quad \land \quad R_{2,min} = 0 \Omega $$
+$$ \implies R_1 \approx 100 \Omega \quad \land \quad R_3 \approx 68 \Omega $$
 
-- which satisfies the contraint of $R_2$
-- at the maximum offset voltage approximately $1mA$ of current flows through the
-    resistive path, allowing to neglect the base current of the transistor
-- with $1mA << I_{src} = 25mA$ the transistor is conduction most of the current
-    and is therefore operating in forward mode.
+Which satisfies:
+
+- $I_{R2,max} \approx \frac{VBE}{R_{2,min} + R_3} = 10.7mA < 25mA$, which allows
+    the transistor to stay in forward mode.
+- $I_{R2,min} \approx \frac{VBE}{R_{2,max} + R_3} = 680 \mu A < 25mA$, which
+    allows at the maximum offset voltage to still supply enough current to the
+    base of the transistor.
 
 ### Component Selection
 
