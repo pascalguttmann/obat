@@ -1,0 +1,30 @@
+* D:\240318_HFU_SMA_scientific-project\obat\docs\workspace\pss\bias\sim_current_source_lowside.asc
+V1 N001 0 10
+V2 0 N003 5
+V3 N002 0 5
+XX2 N001 N003 N002 current_source_lowside
+
+* block symbol definitions
+.subckt current_source_lowside V_SUP+ V_SUP- I_IN
+Q1 I_IN B E 0 DI_DNLS350E
+R1 V_SUP+ B 8k2
+R2 B V_SUP- 1k
+R3 E V_SUP- 33
+.MODEL DI_DNLS350E  NPN (IS=11.7f NF=1.00 BF=388 VAF=127
++ IKF=2.97 ISE=8.95f NE=2.00 BR=4.00 NR=1.00
++ VAR=20.0 IKR=4.50 RE=23.8m RB=95.3m RC=9.53m
++ XTB=1.5 CJE=341p VJE=1.10 MJE=0.500 CJC=45.4p VJC=0.300
++ MJC=0.300 TF=574p TR=111n EG=1.12 )
+.MODEL DI_DPLS350E  PNP (IS=9.40f NF=1.00 BF=382 VAF=127
++ IKF=2.48 ISE=8.14f NE=2.00 BR=4.00 NR=1.00
++ VAR=24.0 IKR=3.75 RE=25.8m RB=0.103 RC=10.3m
++ XTB=1.5 CJE=337p VJE=1.10 MJE=0.500 CJC=76.7p VJC=0.300
++ MJC=0.300 TF=645p TR=122n EG=1.12 )
+.ends current_source_lowside
+
+.model NPN NPN
+.model PNP PNP
+.lib C:\Users\Pascal_Guttmann\AppData\Local\LTspice\lib\cmp\standard.bjt
+.dc V3 -5 10 0.1
+.backanno
+.end

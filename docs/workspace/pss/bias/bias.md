@@ -98,8 +98,12 @@ the current source shall require only approximately $U_{src,min} = - U_{sup-} +
 U_{out,min} + VBE_{Q4} = +5V -3V -1V = 1V$ of voltage drop to function.
 
 When neglecting the collector emitter voltage of the current limiting transistor
-the resistor $R_{3}$ can be calculated as follows:
-$$ R_{3} \approx \frac{U_{src,min}}{I_{src}} \approx 47 \Omega $$
+the resistor $R_{3}$ can be calculated as follows to allow operation with a
+voltage lower than $U_{src,min}$:
+$$ R_{3} \lessapprox \frac{U_{src,min}}{I_{src}} \approx 47 \Omega $$
+Trough simulation and optimization of the resistor value $R_3$ is determined
+as:
+$$ R_{3} = 33 \Omega $$
 
 By using $VBE$ of the current limiting transistor the required base voltage of
 the transistor can be set by a voltage divider with a total current of
