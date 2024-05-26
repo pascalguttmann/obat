@@ -105,8 +105,8 @@ $$
     \right\}
 $$
 
-Thermal runaway of the transistor is can be avoided by $\frac{dQ}{dt} < P_{el} -
-P_{th}$ and therefore:
+Thermal runaway of the transistor is can be avoided by $\frac{dQ}{dt} = P_{el} -
+P_{th} < 0$ and therefore:
 $$
     R_E > \frac{1}{I_B} \left(
         U_C + \frac{U_{BE} - \gamma \Delta T}{\beta_0}
@@ -124,6 +124,14 @@ For $U_C = 15V$, $\beta_0 = 25$, $I_S = 10^{-15} A$, $U_{BE} = 700 mV$, $U_T =
 26mV$, $\Delta T = 100K$ and $\gamma = -2 \frac{mV}{K}$ the constrained for the
 ballast resistor is
 $$ R_E \gtrapprox 22 m \Omega $$
+
+!!! info
+    The thermal voltage $U_T$ is not temperature independent as assumed in this
+    calculation. The effect of the thermal voltage change on the base current is
+    rather small compared to the effect of $\gamma$. Additionally the thermal
+    voltage is increased with temperature reducing the base current thus the
+    effect counteracts the thermal runaway. Therefore when neglected the
+    inequality constraint is not violated.
 
 The selected current limiting transistor of the short circuit protection
 `DNLS350` has an base-emitter turn on voltage
