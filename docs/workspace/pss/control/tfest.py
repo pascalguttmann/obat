@@ -24,7 +24,7 @@ def tfest(order, frd, num0=None, den0=None, orderNum=None):
         halfIndex = len(p)//2
         return p[:orderNum+1], p[orderNum+1:]
 
-    def residuals(p, frd, order):
+    def residuals(p, frd):
         """Wrapper function to adhere to function definition of
         scipy.optimize.least_squares function definition
 
@@ -45,7 +45,7 @@ def tfest(order, frd, num0=None, den0=None, orderNum=None):
         num0[-1] = 1.0
 
     if den0 is None:
-        den0 = [0.0] * (order + 1)
+        den0 = [1.0] * (order + 1)
         den0[-1] = 1.0
 
 
@@ -53,7 +53,7 @@ def tfest(order, frd, num0=None, den0=None, orderNum=None):
 
     p = least_squares(residuals, p0, method='trf', loss='soft_l1', max_nfev=1e4,
                       xtol=1e-15, ftol=1e-15,
-                      verbose=2, args=(frd, order))
+                      verbose=2, args=(frd,))
 
     num, den = unpackArg(p["x"])
 
@@ -65,9 +65,9 @@ if __name__=="__main__":
     import numpy as np
     from math import e
 
-    omega = np.logspace(-1, 1, num=50)
+    omega = np.logspace(-1, 1, num=500)
     print(omega)
-    sys = ct.tf([0, 0, 1], [1, 0, 1.01])
+    sys = ct.tf([0, 1, 1], [1, 0, 1.01])
     mag, phase, omega = ct.frequency_response(sys, omega)
 
     H = mag * e**(1j * phase)
@@ -81,6 +81,6 @@ if __name__=="__main__":
     ct.pzmap([sys, sys_model], plot=True)
     plt.show()
 
-    ct.bode_plot([sys, sys_model], plot=True)
+    ct.bode_plot([sys, sys_model], plot=True, wrap_phase=True)
     plt.show()
 
