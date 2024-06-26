@@ -1,5 +1,14 @@
+import csv
 import control as ct
 import matplotlib.pyplot as plt
+from math import pi
+
+frd = {"omega": [], "H": []}
+with open('sim_bias+outstage_ac.txt', newline='') as f:
+    reader = csv.reader(f, delimiter=',', quoting=csv.QUOTE_NONNUMERIC)
+    for row in reader:
+        frd["omega"].append(2*pi*row[0])
+        frd["H"].append(complex(row[1], row[2]))
 
 sysOmega = 10e6
 sysPowerElectronics = ct.zpk([],[-sysOmega], sysOmega)
