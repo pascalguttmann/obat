@@ -7,8 +7,8 @@ def tfest(order, frd):
 
     Arguments:
         - order : The order of the system to estimate
-        - frd   : Tuple of frequency ressponse data in the form
-                  (omega, complex)
+        - frd   : Dict of frequency response data in the form
+                  {"omega": [...], "H": [...]}
 
     Returns:
         - num   : A list representing a polynomial of degree 'order', which zeros
@@ -24,7 +24,7 @@ def tfest(order, frd):
         halfIndex = len(p)//2
         return p[:halfIndex], p[halfIndex:]
 
-    def tfWrap(p, omega, H, order):
+    def residuals(p, frd, order):
         """Wrapper function to adhere to function definition of
         scipy.optimize.least_squares function definition
 
@@ -32,39 +32,47 @@ def tfest(order, frd):
         """
         num, den = unpackArg(p)
         sys = ct.tf(num, den)
-        mag, phase, omega = ct.frequency_response(sys)
+        mag, phase, omega = ct.frequency_response(sys, frd["omega"])
         H_calc = mag * e**(1j * phase)
-
-        residuals = [abs(H_calc - H) for H_calc, H in zip(H_calc, H)]
-
+        residuals = [abs(a - b) for a, b in zip(H_calc, frd["H"])]
         return residuals
 
-    num = [0.0] * order
+    num = [0.0] * (order + 1)
     num[-1] = 1.0
-    den = [0.0] * order
+    den = [0.0] * (order + 1)
     den[-1] = 1.0
-
-
     p0 = packArg(num, den)
-    print(f"{num=} {den=} {p0=}")
 
-    p = least_squares(tfWrap, p0, method='trf', ftol=None,
-                      args=(frd[0], frd[1], order))
-    print(f"{p=}")
+    p = least_squares(residuals, p0, method='trf', loss='soft_l1', max_nfev=1e5,
+                      xtol=1e-15, ftol=1e-15,
+                      verbose=2, args=(frd, order))
 
-    return (p)
+    num, den = unpackArg(p["x"])
 
-print("running")
+    return num, den
 
 if __name__=="__main__":
     import control as ct
+    import matplotlib.pyplot as plt
+    import numpy as np
     from math import e
 
-    sys = ct.tf([0, 0, 1], [1, 0, 1])
-    mag, phase, omega = ct.frequency_response(sys)
+    omega = np.logspace(-1, 1, num=50)
+    print(omega)
+    sys = ct.tf([0, 0, 1], [1, 0, 1.01])
+    mag, phase, omega = ct.frequency_response(sys, omega)
 
     H = mag * e**(1j * phase)
-    frd = (list(omega), list(H))
+    frd = {"omega": list(omega), "H": list(H)}
 
-    tfest(3, frd)
+    num, den = tfest(2, frd)
+    sys_model = ct.tf(num, den)
+
+    print(f"{num=} {den=}")
+
+    ct.pzmap([sys, sys_model], plot=True)
+    plt.show()
+
+    ct.bode_plot([sys, sys_model], plot=True)
+    plt.show()
 
