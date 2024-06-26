@@ -17,16 +17,6 @@ def tfest(order, frd):
                   are the poles of the estimated system.
     """
 
-    def tf(order, num, den, omega):
-        s = [complex(0, w) for w in omega]
-
-        def evalPoly(coef, x):
-            return sum((x**power) * factor
-                       for power, factor
-                       in enumerate(reversed(coef)))
-
-        return [evalPoly(num, sx) / evalPoly(den, sx) for sx in s]
-
     def packArg(num, den):
         return list(num) + list(den)
 
