@@ -1,4 +1,5 @@
 import control as ct
+from math import e
 from scipy.optimize import least_squares
 
 def tfest(order, frd, num0=None, den0=None, orderNum=None):
@@ -63,7 +64,6 @@ if __name__=="__main__":
     import control as ct
     import matplotlib.pyplot as plt
     import numpy as np
-    from math import e
 
     omega = np.logspace(-1, 1, num=500)
     print(omega)
