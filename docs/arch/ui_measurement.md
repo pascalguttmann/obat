@@ -1,12 +1,10 @@
 # U / I Measurement
 
-The U / I measurement is used to transduce the voltage and current at the battery
-terminals to a voltages of defined magnitude. The measured voltage and current
-at the battery terminal shall be mapped linearly to the corresponding output
-voltage. The smallest value shall be mapped to 0V and the biggest value to 5V.
-Because the achievable measurement accuracy depends on the transducer. The
-transducer shall map the values with an accuracy, so that the [general
-measurement accuracy requirements][obat-overview] can be fulfilled.
+The U / I measurement is used to measure the voltage and current at the battery
+terminals. The measured voltage and current at the battery terminal shall be
+converted to a digital signal, which can be read by the PC.
+The required accuracy shall be in accordance to achieve the desired measurement
+accuracy given in the [overview][obat-overview].
 
 [obat-overview]: ./overview.md
 
@@ -14,18 +12,15 @@ measurement accuracy requirements][obat-overview] can be fulfilled.
 
 ### Interfaces
 
-- [ ] The transducer shall have the following connections:
+- [ ] The measurement electronics shall have the following connections:
     - [ ] `V_MEAS+`
     - [ ] `V_MEAS-`
     - [ ] `I_MEAS+`
     - [ ] `I_MEAS-`
-    - [ ] `V_OUT_TCV`
-    - [ ] `V_OUT_REF`
-    - [ ] `I_OUT_TCV`
-    - [ ] `I_OUT_REF`
     - [ ] `GLOBAL_REF`
-- [ ] Additionally the transducer might have a power connection.
-- [ ] The transducer shall have the following user interfaces:
+    - [ ] Connections for the digital interface
+- [ ] Additionally the measurement electronics might have a power connection.
+- [ ] The measurement electronics shall have the following user interfaces:
     - [ ] Setting for each output to (dis)connect the output reference
         `*_OUT_REF` from or to `GLOBAL_REF`. (e.g. with a "jumper", solder
         bridge or switch)
@@ -58,27 +53,11 @@ measurement accuracy requirements][obat-overview] can be fulfilled.
 
         !!! info
             The connection `I_MEAS+` and `I_MEAS-` is the only galvanic coupled
-            connection of the transducer with a direct path for the current to
+            connection of the measurement electronics with a direct path for the current to
             flow.
 
     - [ ] Connection `GLOBAL_REF` shall be galvanic decoupled from all other
-        connections with $Z > 1M \Omega$, except for `V_OUT_REF` and `I_OUT_REF`
-        if the corresponding switch is set. Then the galvanic connection shall
-        have a impedance $Z < 1 \Omega$.
-
-    - [ ] The connections `*_OUT_TCV` and `*_OUT_REF` shall form a differential
-        pair to output the transduced voltage.
-        - [ ] The differential pair shall be galvanic decoupled from other
-            connections with $Z > 1M \Omega$ and have a differential impedance
-            $Z_{diff} < 1.25 \Omega$. (Calculated for load of $100 \mu A$ at $5V$
-            for maximum voltage drop of $125 \mu V$, to achieve $\frac{1mA}{2
-            \cdot 20A}$).
-        - [ ] The mapped voltage shall be the output at the connection
-            `*_OUT_TCV` with respect to `*_OUT_REF`.
-
-    - [ ] The transducer shall map the values with an accuracy, so that the
-        [general measurement accuracy requirements][obat-overview] can be
-        fulfilled.
+        connections with $Z > 1M \Omega$, except for the power connector.
 
 ## Internals
 
