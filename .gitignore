@@ -5,6 +5,9 @@
 # ignore local python venv
 /.venv
 
+# ignore python caches
+__pycache__/
+
 # ignore vim swap files
 *.swp
 
