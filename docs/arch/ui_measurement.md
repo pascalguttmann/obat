@@ -1,6 +1,6 @@
-# U / I Measurement
+# U / I / T Measurement
 
-The U / I measurement is used to measure the voltage and current at the battery
+The U / I / T measurement is used to measure the voltage and current at the battery
 terminals. The measured voltage and current at the battery terminal shall be
 converted to a digital signal, which can be read by the PC.
 The required accuracy shall be in accordance to achieve the desired measurement
