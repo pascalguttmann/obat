@@ -12,7 +12,7 @@ nav:
     - arch/overview.md
     - arch/pss.md
     - arch/esu.md
-    - arch/ui_measurement.md
+    - arch/meas.md
     - arch/enclosure.md
   - Workspace:
     - workspace/index.md

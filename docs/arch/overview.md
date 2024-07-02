@@ -66,9 +66,9 @@ flowchart TD
 - General
     - [ ] Output Voltage $0V$ to $5V$
     - [ ] Output Current $-20A$ to $+20A$
-    - [ ] Voltage Measurement (triggered) (accuracy wish 1mV / 5V)
-    - [ ] Current Measurement (triggered) (accuracy wish 1mA / 20A)
-    - [ ] Temperature Measurement (triggered)
+    - [ ] Voltage Measurement (triggered or simultaneous) (accuracy wish 1mV / 5V)
+    - [ ] Current Measurement (triggered or simultaneous) (accuracy wish 1mA / 20A)
+    - [ ] Temperature Measurement (triggered or simultaneous)
     - [ ] Voltage Controlled Mode
     - [ ] Current Controlled Mode
     - [ ] Power Controlled Mode
