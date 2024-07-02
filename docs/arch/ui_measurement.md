@@ -17,6 +17,8 @@ accuracy given in the [overview][obat-overview].
     - [ ] `V_MEAS-`
     - [ ] `I_MEAS+`
     - [ ] `I_MEAS-`
+    - [ ] `T_MEAS+`
+    - [ ] `T_MEAS-`
     - [ ] `GLOBAL_REF`
     - [ ] Connections for the digital interface
 - [ ] Additionally the measurement electronics might have a power connection.
