@@ -82,6 +82,10 @@ at cost of flexibility / simplicity.
 
 [BU79100] comparable to [ADC121], but SSOP-6 package
 
+ADC cofiguration:
+================
+This code is generated taking into consideration the OPCODE and various settings from the [datasheet](./ads8661 with marking.pdf)
+
 ```c
 #include <SPI.h>
 const int CS_PIN = 10;
