@@ -1,0 +1,52 @@
+﻿|***************************|
+    REFERENZ-INFORMATIONEN    
+|***************************|
+ Referenz Nr. 1 aus 1 
+
+Referenz:
+   TYP   : ACHSE
+
+Status   : nicht in Geometrie
+
+
+Referenz-Besitzer:
+ Modell  :
+   NAME   : E22338A6X50 
+   TYP   : Teil
+ KE :
+
+    KE-Nummer       1
+    INTERNE KE-ID 4
+    Kinder = 46(#2) 44(#3) 58(#4) 99(*) 125(#5) 126(#6) 
+
+
+ ERSTES KE: Drehen
+
+  NR.     ELEMENTNAME         INFORMATIONEN                                     
+  ---     -------------       -------------                                     
+   1      KE-Name             Definiert                                         
+   2      KE-Typ Profil       Volumenkörper                                     
+   3      Körper              Definiert                                         
+   3.1    Körper verwenden    Ausgewählt                                        
+   3.2    Ausgewählte Körper  Körper 1                                          
+   4      Skizze              Definiert                                         
+   5      KE-Form             Volumenkörper                                     
+   6      Winkel              Definiert                                         
+   6.1    Seite Eins          Definiert                                         
+   6.1.1  SeiteEins Wink      Variable                                          
+   6.1.2  Wert                360.00                                            
+
+    Schnittname = S2D0001 
+
+    FEATURE Ist in Folie(n) :
+      KONSTRUKTIONSELEMENTE - Operation = Angezeigt
+
+    Bemaßungen des KE:
+    Laenge = (  Angezeigt:) 50 General_Dims
+             (Gespeichert:) 50.0 ( 0.3, -0.3 ) 
+    Nenndurchmesser = (  Angezeigt:) 6 General_Dims Dia
+                      (Gespeichert:) 6.0 ( 0.1, -0.1 ) 
+Beziehung                           Parameter                 Neuer Wert
+--------                           ---------                 --- -----
+
+*** Von diesesm KE gesteuerte Teilebeziehungen:
