@@ -1,5 +1,5 @@
 # Default codeowner for all files
-* @pascalguttmann-testing
+* @pascalguttmann
 
 # Workspace default codeowners
 /docs/workspace/ @pascalguttmann
