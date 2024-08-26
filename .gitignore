@@ -10,6 +10,7 @@ __pycache__/
 
 # ignore vim swap files
 *.swp
+*.swa
 
 # ignore office backup files
 ~$*.*
