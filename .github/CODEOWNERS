@@ -14,3 +14,5 @@
 # Architecture codeowners
 /docs/arch/enclosure.md @jannikgeng @yunusclk # enclosure team members
 
+# Ruleset Test
+/ruleset-test.md @pascalguttmann-testing
