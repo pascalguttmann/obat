@@ -36,7 +36,7 @@ main() {
     echo python venv does not exist
 
     echo create the python venv locally
-    python3 -m venv --prompt $venv_prompt $venv_dir
+    python -m venv --prompt $venv_prompt $venv_dir
 
     echo activate the venv
     source $venv_activate
@@ -63,7 +63,7 @@ main() {
 # example to test for version 3.12.1
 #   check_python_version 3 12 1
 check_python_version() {
-  local version_info="$(python3 -c 'import sys; print(sys.version_info[:])')"
+  local version_info="$(python -c 'import sys; print(sys.version_info[:])')"
   local version_major=$(echo $version_info | sed -n 's/^(\([0-9]*\), \([0-9].*\), \([0-9]*\), \(.*\), \([0-9]*\))$/\1/p')
   local version_minor=$(echo $version_info | sed -n 's/^(\([0-9]*\), \([0-9].*\), \([0-9]*\), \(.*\), \([0-9]*\))$/\2/p')
   local version_patch=$(echo $version_info | sed -n 's/^(\([0-9]*\), \([0-9].*\), \([0-9]*\), \(.*\), \([0-9]*\))$/\3/p')
