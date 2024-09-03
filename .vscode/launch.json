@@ -11,7 +11,8 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "cwd": "${fileDirname}"
+            "cwd": "${fileDirname}",
+            "stopOnEntry": false,
             //"args": [
             //    "${command:pickArgs}"
             //]
@@ -23,7 +24,8 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "cwd": "${fileDirname}"
+            "cwd": "${fileDirname}",
+            "stopOnEntry": false
             //"args": [
             //    "${command:pickArgs}"
             //]
