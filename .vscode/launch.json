@@ -12,6 +12,7 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "cwd": "${fileDirname}",
+            "stopOnEntry": false
             //"args": [
             //    "${command:pickArgs}"
             //]
@@ -24,9 +25,10 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "cwd": "${fileDirname}",
+            "stopOnEntry": false
             //"args": [
             //    "${command:pickArgs}"
             //]
-        },
+        }
     ]
 }
