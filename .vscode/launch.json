@@ -12,7 +12,7 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "cwd": "${fileDirname}",
-            "stopOnEntry": false,
+            "stopOnEntry": false
             //"args": [
             //    "${command:pickArgs}"
             //]
