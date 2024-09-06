@@ -1,5 +1,5 @@
-Control Circuit
-===============
+Controller Design
+=================
 
 Power Electronics Model
 -----------------------
