@@ -1,8 +1,6 @@
-from contextlib import AsyncContextDecorator
 import control as ct
 import numpy as np
 from numpy.typing import NDArray
-from scipy.linalg import find_best_blas_type
 
 
 def lqi(
@@ -38,7 +36,6 @@ def lqi(
             -D
         \end{bmatrix}
     $$
-
     """
 
     AAugment = np.array(
