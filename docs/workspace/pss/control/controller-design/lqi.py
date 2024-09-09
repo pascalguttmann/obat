@@ -3,6 +3,14 @@ import numpy as np
 from numpy.typing import NDArray
 
 
+def ss2ABCD(sys: ct.StateSpace):
+    A: NDArray[np.number] = np.array(sys.A)
+    B: NDArray[np.number] = np.array(sys.B)
+    C: NDArray[np.number] = np.array(sys.C)
+    D: NDArray[np.number] = np.array(sys.D)
+    return A, B, C, D
+
+
 def lqi(
     A: NDArray[np.number],
     B: NDArray[np.number],
