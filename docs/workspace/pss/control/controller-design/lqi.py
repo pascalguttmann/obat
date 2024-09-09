@@ -38,13 +38,13 @@ def lqi(
     $$
     """
 
-    AAugment = np.array(
+    AAugment = np.block(
         [
             [A, 0.0],
             [-C, 0.0],
         ]
     )
-    BAugment = np.array(
+    BAugment = np.block(
         [
             [B],
             [-D],
