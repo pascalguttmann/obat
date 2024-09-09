@@ -55,35 +55,51 @@ sysIntegrator: ct.StateSpace = ct.StateSpace(
 )
 # print(sysIntegrator)
 
-sysSummingJunction: ct.StateSpace = ct.summing_junction(
+sysSummingJunctionInt: ct.StateSpace = ct.summing_junction(
     inputs=["r", "-y"],
     output="e",
-    name="summingJunction",
+    name="sumJunctionInt",
 )
-# print(sysSummingJunction)
+# print(sysSummingJunctionInt)
+
+sysSummingJunctionProportional: ct.StateSpace = ct.summing_junction(
+    inputs=["-r", "y"],
+    output="e",
+    name="sumJunctionProportional",
+)
+# print(sysSummingJunctionProportional)
+
+sysInputBuffer: ct.StateSpace = ct.StateSpace(
+    ct.ss([0], [0], [0], [1], inputs="in", outputs="out", name="inputbuf")
+)
 
 sysClosedLoop: ct.StateSpace = ct.interconnect(
     syslist=[
-        sysSummingJunction,
+        sysInputBuffer,
+        sysSummingJunctionInt,
+        sysSummingJunctionProportional,
         sysIntegrator,
         sysController,
         sysPowerElectronics,
     ],
     connections=[
         ["plant.u", "controller.u"],
-        ["controller.plantStates", "plant.y"],
+        ["controller.plantStates", "sumJunctionProportional.e"],
+        ["sumJunctionProportional.y", "plant.y"],
+        ["sumJunctionProportional.r", "inputbuf.out"],
         ["controller.performanceMeasure", "integrator.performanceMeasure"],
-        ["integrator.e", "summingJunction.e"],
-        ["summingJunction.y", "plant.y"],
+        ["integrator.e", "sumJunctionInt.e"],
+        ["sumJunctionInt.y", "plant.y"],
+        ["sumJunctionInt.r", "inputbuf.out"],
     ],
-    inplist=["summingJunction.r"],
+    inplist=[["inputbuf.in"]],
     outlist=[["plant.y"], ["controller.u"]],
     inputs=["r"],
     outputs=["y", "u"],
     name="closeLoop",
     check_unused=True,
     warn_duplicate=True,
-    debug=False,
+    debug=True,
 )
 # print(sysClosedLoop)
 
