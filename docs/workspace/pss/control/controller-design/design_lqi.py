@@ -106,6 +106,7 @@ sysClosedLoop: ct.StateSpace = ct.interconnect(
 ct.step_response(sysClosedLoop).plot(
     overlay_signals=True,
 )
+plt.gca().grid(True, which="both")
 plt.show()
 # ct.pzmap(sysClosedLoop, plot=True)
 # plt.show()
