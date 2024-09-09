@@ -1,7 +1,8 @@
 import csv
+from math import pi
+
 import control as ct
 import matplotlib.pyplot as plt
-from math import pi
 
 frd = {"omega": [], "H": []}
 with open("sim_bias+outstage_ac.txt", newline="") as f:
