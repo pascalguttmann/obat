@@ -57,3 +57,25 @@ def lqi(
         K, S, E = ct.lqr(AAugment, BAugment, Q, R)
 
     return K, S, E
+
+
+if __name__ == "__main__":
+    A = np.array(
+        [
+            [1],
+        ]
+    )
+    B = np.array(
+        [
+            [1],
+        ]
+    )
+    C = np.array([[1]])
+    D = np.array([[0]])
+
+    Q = np.eye(A.shape[0] + 1)
+    R = np.eye(B.shape[1])
+
+    K, S, E = lqi(A, B, C, D, Q, R)
+
+    print(f"{K=}\n{S=}\n{E=}\n")
