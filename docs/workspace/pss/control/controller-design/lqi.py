@@ -15,16 +15,20 @@ def lqi(
     r"""
     Linear Quadratic Integral Compensator
 
-    Computes the optimal linear state feedback controller `K`, that minimizes
-    the quadratic cost `J` for the continous linear time invariant system `sys`
-    with respect to the cost weight matrices `Q`, `R` and the cost cross weight
-    matrix `N`.
-    System `sys` is given in statespace representation `A`, `B`, `C` and `D`.
+    Computes the optimal linear state feedback controller `u = -Kx`, that
+    minimizes the quadratic cost `J` for the continous linear time invariant
+    system `sys` with respect to the cost weight matrices `Q`, `R` and the cost
+    cross weight matrix `N`. System `sys` is given in statespace representation
+    `A`, `B`, `C` and `D`.
 
     $$ J = \int_0^\infty (x' Q x + u' R u + 2 x' N u) dt $$
 
     The optimization problem is solved by solving the `lqr` problem for the
-    augmented system. (Integrating performance output `x_i`)
+    augmented system. The augmented system adds a performance output for each
+    output of the system by integrating the inverse of of the output.
+    Negation of output signal is applied before the integrator, such that a
+    non-inverted reference signal can be superimposed to realize tracking
+    control.
 
     $$ A^* =\begin{bmatrix}
             A & 0 \\
@@ -38,10 +42,13 @@ def lqi(
     $$
     """
 
+    noStates: int = A.shape[0]
+    noOutputs: int = C.shape[0]
+
     AAugment = np.block(
         [
-            [A, 0.0],
-            [-C, 0.0],
+            [A, np.zeros((noStates, noOutputs))],
+            [-C, np.zeros((noOutputs, noOutputs))],
         ]
     )
     BAugment = np.block(
