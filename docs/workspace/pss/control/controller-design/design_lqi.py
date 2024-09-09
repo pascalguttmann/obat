@@ -99,7 +99,7 @@ sysClosedLoop: ct.StateSpace = ct.interconnect(
     name="closeLoop",
     check_unused=True,
     warn_duplicate=True,
-    debug=True,
+    debug=False,
 )
 # print(sysClosedLoop)
 
