@@ -2,7 +2,7 @@ import control as ct
 import matplotlib.pyplot as plt
 import numpy as np
 
-from lqi import lqi, ss2ABCD
+from lqi import ss2ABCD
 
 plantOmega = 10e6
 sysPlant: ct.StateSpace = ct.StateSpace(
@@ -19,20 +19,18 @@ sysPlant: ct.StateSpace = ct.StateSpace(
 bwOmega = 1e9
 proportional = ct.ss([], [], [], [1], inputs="e", outputs="u", name="p")
 integral = ct.ss([0], [1], [1], [0], inputs="e", outputs="u", name="i")
-derivative = ct.ss(
-    [-bwOmega], [1], [-(bwOmega**2)], [bwOmega], inputs="e", outputs="u", name="d"
-)
+delay = ct.ss([-bwOmega], [bwOmega], [1], [0], inputs="e", outputs="u", name="d")
 
 sysInputBuffer: ct.StateSpace = ct.StateSpace(
     ct.ss([], [], [], [1], inputs="r", outputs="r", name="inbuf")
 )
 
 sysAugment: ct.StateSpace = ct.interconnect(
-    syslist=[sysPlant, proportional, integral, derivative],
+    syslist=[sysPlant, proportional, integral, delay],
     connections=[
-        ["p.e", "-plant.y"],
-        ["i.e", "-plant.y"],
-        ["d.e", "-plant.y"],
+        ["p.e", "plant.y"],
+        ["i.e", "plant.y"],
+        ["d.e", "plant.y"],
     ],
     inplist=[
         ["plant.u"],
@@ -47,7 +45,7 @@ sysAugment: ct.StateSpace = ct.interconnect(
     warn_duplicate=True,
     debug=False,
 )
-print(sysAugment)
+# print(sysAugment)
 
 A, B, _, _ = ss2ABCD(sysAugment)
 
@@ -66,27 +64,38 @@ stateWeight = np.array(
         [x_d_weight, i_d_weight, d_d_weight],
     ]
 )
-inputWeight = np.eye(1) * 1e-9
+inputWeight = np.eye(1) * 1e5
 crossWeight = None
 
+print(f"{inputWeight=} {stateWeight=}")
 K, S, E = ct.lqr(A, B, stateWeight, inputWeight)
+
 print(f"{K=}")
+K_D = -K[0][2]
+K_P = K[0][0] - K_D
+K_I = K[0][1]
+T_I = K_P / K_I
+T_D = K_D / K_P
+
+print(f"{K_P=} {K_I=} {T_I=}s {K_D=} {T_D=}s")
 print(f"{E=}")
 
-
 sysClosedLoop: ct.StateSpace = ct.interconnect(
-    syslist=[sysPlant, proportional, integral, derivative, sysInputBuffer],
+    syslist=[sysPlant, proportional, integral, delay, sysInputBuffer],
     connections=[
-        ["p.e", "-plant.y", "inbuf.r"],
-        ["i.e", "-plant.y", "inbuf.r"],
-        ["d.e", "-plant.y", "inbuf.r"],
-        ["plant.u", "p.u", "i.u", "d.u"],
+        ["p.e", ("plant", "-y"), "inbuf.r"],
+        ["i.e", ("plant", "-y"), "inbuf.r"],
+        ["d.e", ("plant", "-y"), "inbuf.r"],
+        ["plant.u", ("p", "u", K[0][0]), ("i", "u", K[0][1]), ("d", "u", K[0][2])],
     ],
     inplist=[
         ["inbuf.r"],
     ],
     outlist=[
-        ["plant.y"],
+        [
+            "plant.y",
+            # "plant.u",
+        ],
     ],
     inputs=["r"],
     outputs=["y"],
@@ -96,3 +105,10 @@ sysClosedLoop: ct.StateSpace = ct.interconnect(
     debug=False,
 )
 # print(sysClosedLoop)
+ct.step_response(sysClosedLoop).plot(
+    overlay_signals=True,
+    plot_inputs=True,
+)
+for ax in plt.gcf().get_axes():
+    ax.grid(True, which="both")
+plt.show()
