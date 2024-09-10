@@ -70,6 +70,8 @@ inputWeight = np.eye(1) * 1e-9
 crossWeight = None
 
 K, S, E = ct.lqr(A, B, stateWeight, inputWeight)
+print(f"{K=}")
+print(f"{E=}")
 
 
 sysClosedLoop: ct.StateSpace = ct.interconnect(
