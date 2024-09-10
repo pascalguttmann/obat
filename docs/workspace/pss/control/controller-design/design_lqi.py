@@ -14,8 +14,17 @@ sysPowerElectronics: ct.StateSpace = ct.StateSpace(
     )
 )
 
-stateWeight = np.eye(2) * 1
-inputWeight = np.eye(1) * 1
+x_weight = 1e6
+int_weight = 1e-9
+x_int_weight = 0e0
+
+stateWeight = np.array(
+    [
+        [x_weight, x_int_weight],
+        [x_int_weight, int_weight],
+    ]
+)
+inputWeight = np.eye(1) * 1e-3
 crossWeight = None
 
 
@@ -105,8 +114,10 @@ sysClosedLoop: ct.StateSpace = ct.interconnect(
 
 ct.step_response(sysClosedLoop).plot(
     overlay_signals=True,
+    plot_inputs=True,
 )
-plt.gca().grid(True, which="both")
+for ax in plt.gcf().get_axes():
+    ax.grid(True, which="both")
 plt.show()
 # ct.pzmap(sysClosedLoop, plot=True)
 # plt.show()
