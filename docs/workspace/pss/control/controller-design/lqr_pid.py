@@ -33,7 +33,6 @@ sysAugment: ct.StateSpace = ct.interconnect(
         ["p.e", "-plant.y"],
         ["i.e", "-plant.y"],
         ["d.e", "-plant.y"],
-        ["plant.u", "p.u", "i.u", "d.u"],
     ],
     inplist=[
         ["plant.u"],
