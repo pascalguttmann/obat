@@ -5,13 +5,13 @@ import numpy as np
 plantOmega = 1
 plant = ct.zpk([], [-plantOmega], plantOmega)
 
-zero = [-plantOmega * 0.9, -plantOmega * 0.4]
+zero = [-plantOmega * 0.9, -plantOmega * 0.8]
 neutralGain = 1 / np.prod(zero)
 pid = ct.zpk([zero[0], zero[1]], [0], neutralGain)
 
 rUtoI = ct.zpk([], [], 1)
-lUtoI = ct.zpk([], [-0.75 * plantOmega], [0.75 * plantOmega])
-cUtoI = ct.zpk([0], [-0.75 * plantOmega], 1)
+lUtoI = ct.zpk([], [-0.6 * plantOmega], [0.6 * plantOmega])
+cUtoI = ct.zpk([0], [-0.6 * plantOmega], 1)
 admittance = [rUtoI, lUtoI, cUtoI]
 
 openLoop = [pid * plant * Y for Y in admittance]
