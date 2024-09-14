@@ -10,7 +10,7 @@ neutralGain = 1 / np.prod(zero)
 pid = ct.zpk([zero[0], zero[1]], [0], neutralGain)
 
 rUtoI = ct.zpk([], [], 1)
-lUtoI = ct.zpk([], [-0.75 * plantOmega], [-0.75 * plantOmega])
+lUtoI = ct.zpk([], [-0.75 * plantOmega], [0.75 * plantOmega])
 cUtoI = ct.zpk([0], [-0.75 * plantOmega], 1)
 admittance = [rUtoI, lUtoI, cUtoI]
 
