@@ -17,15 +17,31 @@ admittance = [rUtoI, lUtoI, cUtoI]
 openLoop = [pid * plant * Y for Y in admittance]
 sysOpenLoop = [ct.ss(tf) for tf in openLoop]
 
-print(f"{sysOpenLoop=}\n{type(sysOpenLoop)=}")
+fig, axes = plt.subplots(3, 2)
+ct.rlocus(sysOpenLoop[0], ax=axes[0][0], grid=False)
+axes[0][0].set_title("rlocus for R")
+ct.rlocus(sysOpenLoop[1], ax=axes[1][0], grid=False)
+axes[1][0].set_title("rlocus for L")
+ct.rlocus(sysOpenLoop[2], ax=axes[2][0], grid=False)
+axes[2][0].set_title("rlocus for C")
 
-fig, axes = plt.subplots(3, 1)
-ct.rlocus(sysOpenLoop[0], ax=axes[0], grid=False)
-axes[0].set_title("rlocus for R")
-ct.rlocus(sysOpenLoop[1], ax=axes[1], grid=False)
-axes[1].set_title("rlocus for L")
-ct.rlocus(sysOpenLoop[2], ax=axes[2], grid=False)
-axes[2].set_title("rlocus for C")
+sysClosedLoop = [ct.feedback(sys, 10) for sys in sysOpenLoop]
+ct.step_response(sysClosedLoop[0]).plot(
+    ax=np.array([[axes[0][1]]]),
+    title="",
+)
+axes[0][1].set_title("step response for R")
+ct.step_response(sysClosedLoop[1]).plot(
+    ax=np.array([[axes[1][1]]]),
+    title="",
+)
+axes[1][1].set_title("step response for L")
+ct.step_response(sysClosedLoop[2]).plot(
+    ax=np.array([[axes[2][1]]]),
+    title="",
+)
+axes[2][1].set_title("step response for C")
+
 
 plt.get_current_fig_manager().window.state("zoomed")  # pyright: ignore
 plt.show()
