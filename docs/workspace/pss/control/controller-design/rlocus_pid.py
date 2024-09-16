@@ -2,7 +2,7 @@ import control as ct
 import matplotlib.pyplot as plt
 import numpy as np
 
-plantOmega = 1
+plantOmega = 10e6
 plant = ct.zpk([], [-plantOmega], plantOmega)
 
 zero = [-plantOmega * 0.9, -plantOmega * 0.8]
