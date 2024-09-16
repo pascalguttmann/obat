@@ -7,7 +7,7 @@ plant = ct.zpk([], [-plantOmega], plantOmega)
 
 zero = [-plantOmega * 0.9, -plantOmega * 0.8]
 neutralGain = 1 / np.prod(zero)
-pid = ct.zpk([zero[0], zero[1]], [0], neutralGain)
+pid = ct.zpk([zero[0], zero[1]], [0], 10 * neutralGain)
 
 rUtoI = ct.zpk([], [], 1)
 lUtoI = ct.zpk([], [-0.6 * plantOmega], [0.6 * plantOmega])
@@ -25,7 +25,7 @@ axes[1][0].set_title("rlocus for L")
 ct.rlocus(sysOpenLoop[2], ax=axes[2][0], grid=False)
 axes[2][0].set_title("rlocus for C")
 
-sysClosedLoop = [ct.feedback(sys, 10) for sys in sysOpenLoop]
+sysClosedLoop = [ct.feedback(sys) for sys in sysOpenLoop]
 ct.step_response(sysClosedLoop[0]).plot(
     ax=np.array([[axes[0][1]]]),
     title="",
