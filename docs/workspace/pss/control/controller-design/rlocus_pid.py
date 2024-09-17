@@ -26,18 +26,29 @@ axes[1][0].set_title("rlocus for L")
 ct.rlocus(sysOpenLoop[2], ax=axes[2][0], grid=False)
 axes[2][0].set_title("rlocus for C")
 
+
+simulationTime = 1e-6
 sysClosedLoop = [ct.feedback(sys) for sys in sysOpenLoop]
-ct.step_response(sysClosedLoop[0]).plot(
+ct.step_response(
+    sysClosedLoop[0],
+    T=simulationTime,
+).plot(
     ax=np.array([[axes[0][1]]]),
     title="",
 )
 axes[0][1].set_title("step response for R")
-ct.step_response(sysClosedLoop[1]).plot(
+ct.step_response(
+    sysClosedLoop[1],
+    T=simulationTime,
+).plot(
     ax=np.array([[axes[1][1]]]),
     title="",
 )
 axes[1][1].set_title("step response for L")
-ct.step_response(sysClosedLoop[2]).plot(
+ct.step_response(
+    sysClosedLoop[2],
+    T=simulationTime,
+).plot(
     ax=np.array([[axes[2][1]]]),
     title="",
 )
