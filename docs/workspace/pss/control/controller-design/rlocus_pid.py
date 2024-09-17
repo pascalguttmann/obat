@@ -78,7 +78,8 @@ axes[1][2].set_title("pzmap for L")
 ct.pzmap(sysClosedLoop[2], ax=axes[2][2], grid=False)
 axes[2][2].set_title("pzmap for C")
 
-Kd, Kp, Ki = pid.num[0][0].tolist()
+pidNum = pid.num[0][0].tolist()
+Kd, Kp, Ki = pidNum[0] / scale, pidNum[1], pidNum[2] * scale
 Ti = float(Kp) / float(Ki)
 Td = float(Kd) / float(Kp)
 
