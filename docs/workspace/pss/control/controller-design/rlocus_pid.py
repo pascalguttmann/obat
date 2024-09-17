@@ -12,13 +12,16 @@ def firstOrderHighPass(omega: float) -> ct.StateSpace:
 
 
 plantOmega = 10e6
-plant = firstOrderLowPass(plantOmega)
+# scale numerical values (pzmap will calculate wrong poles and zeros)
+scale = 1e3
+plantOmegaScaled = plantOmega / scale
+plant = firstOrderLowPass(plantOmegaScaled)
 
-zero = [-plantOmega * 0.9, -plantOmega * 0.8]
+zero = [-plantOmegaScaled * 0.9, -plantOmegaScaled * 0.8]
 neutralGain = -1 / np.sum(zero)
 pid = ct.zpk([zero[0], zero[1]], [0], 10 * neutralGain)
 
-outerCircuitOmega = 0.5 * plantOmega
+outerCircuitOmega = 0.5 * plantOmegaScaled
 rUtoI = ct.ss([], [], [], [1])
 lUtoI = firstOrderLowPass(outerCircuitOmega)
 cUtoI = firstOrderHighPass(outerCircuitOmega)
@@ -36,32 +39,37 @@ ct.rlocus(sysOpenLoop[2], ax=axes[2][0], grid=False)
 axes[2][0].set_title("rlocus for C")
 
 
-simulationTime = 1e-6
+simulationTime = 500e-9
+simulationTimeScaled = simulationTime * scale
+
 sysClosedLoop = [ct.feedback(sys) for sys in sysOpenLoop]
 ct.step_response(
     sysClosedLoop[0],
-    T=simulationTime,
+    T=simulationTimeScaled,
 ).plot(
     ax=np.array([[axes[0][1]]]),
     title="",
 )
 axes[0][1].set_title("step response for R")
+axes[0][1].set_xlabel(f"Time [{1/scale}s]")
 ct.step_response(
     sysClosedLoop[1],
-    T=simulationTime,
+    T=simulationTimeScaled,
 ).plot(
     ax=np.array([[axes[1][1]]]),
     title="",
 )
 axes[1][1].set_title("step response for L")
+axes[1][1].set_xlabel(f"Time [{1/scale}s]")
 ct.step_response(
     sysClosedLoop[2],
-    T=simulationTime,
+    T=simulationTimeScaled,
 ).plot(
     ax=np.array([[axes[2][1]]]),
     title="",
 )
 axes[2][1].set_title("step response for C")
+axes[2][1].set_xlabel(f"Time [{1/scale}s]")
 
 ct.pzmap(sysClosedLoop[0], ax=axes[0][2], grid=False)
 axes[0][2].set_title("pzmap for R")
