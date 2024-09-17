@@ -9,9 +9,10 @@ zero = [-plantOmega * 0.9, -plantOmega * 0.8]
 neutralGain = -1 / np.sum(zero)
 pid = ct.zpk([zero[0], zero[1]], [0], 10 * neutralGain)
 
+outerCircuitOmega = 0.5 * plantOmega
 rUtoI = ct.zpk([], [], 1)
-lUtoI = ct.zpk([], [-0.6 * plantOmega], [0.6 * plantOmega])
-cUtoI = ct.zpk([0], [-0.6 * plantOmega], 1)
+lUtoI = ct.zpk([], [-outerCircuitOmega], [outerCircuitOmega])
+cUtoI = ct.zpk([0], [-outerCircuitOmega], 1)
 admittance = [rUtoI, lUtoI, cUtoI]
 
 openLoop = [pid * plant * Y for Y in admittance]
