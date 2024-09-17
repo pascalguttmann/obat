@@ -18,7 +18,7 @@ admittance = [rUtoI, lUtoI, cUtoI]
 openLoop = [pid * plant * Y for Y in admittance]
 sysOpenLoop = [ct.ss(tf) for tf in openLoop]
 
-fig, axes = plt.subplots(3, 2)
+fig, axes = plt.subplots(3, 3, sharex="col", sharey="col")
 ct.rlocus(sysOpenLoop[0], ax=axes[0][0], grid=False)
 axes[0][0].set_title("rlocus for R")
 ct.rlocus(sysOpenLoop[1], ax=axes[1][0], grid=False)
@@ -43,6 +43,12 @@ ct.step_response(sysClosedLoop[2]).plot(
 )
 axes[2][1].set_title("step response for C")
 
+ct.pzmap(sysClosedLoop[0], ax=axes[0][2], grid=False)
+axes[0][2].set_title("pzmap for R")
+ct.pzmap(sysClosedLoop[1], ax=axes[1][2], grid=False)
+axes[1][2].set_title("pzmap for L")
+ct.pzmap(sysClosedLoop[2], ax=axes[2][2], grid=False)
+axes[2][2].set_title("pzmap for C")
 
 plt.get_current_fig_manager().window.state("zoomed")  # pyright: ignore
 plt.show()
