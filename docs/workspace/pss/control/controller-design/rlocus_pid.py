@@ -2,21 +2,30 @@ import control as ct
 import matplotlib.pyplot as plt
 import numpy as np
 
+
+def firstOrderLowPass(omega: float) -> ct.StateSpace:
+    return ct.StateSpace([-omega], [omega], [1], [0])
+
+
+def firstOrderHighPass(omega: float) -> ct.StateSpace:
+    return ct.StateSpace([-omega], [omega], [-1], [1])
+
+
 plantOmega = 10e6
-plant = ct.zpk([], [-plantOmega], plantOmega)
+plant = firstOrderLowPass(plantOmega)
 
 zero = [-plantOmega * 0.9, -plantOmega * 0.8]
 neutralGain = -1 / np.sum(zero)
 pid = ct.zpk([zero[0], zero[1]], [0], 10 * neutralGain)
 
 outerCircuitOmega = 0.5 * plantOmega
-rUtoI = ct.zpk([], [], 1)
-lUtoI = ct.zpk([], [-outerCircuitOmega], [outerCircuitOmega])
-cUtoI = ct.zpk([0], [-outerCircuitOmega], 1)
+rUtoI = ct.ss([], [], [], [1])
+lUtoI = firstOrderLowPass(outerCircuitOmega)
+cUtoI = firstOrderHighPass(outerCircuitOmega)
 admittance = [rUtoI, lUtoI, cUtoI]
 
-openLoop = [pid * plant * Y for Y in admittance]
-sysOpenLoop = [ct.ss(tf) for tf in openLoop]
+openLoop = [ct.series(pid, ct.ss2tf(plant), ct.ss2tf(Y)) for Y in admittance]
+sysOpenLoop = [ct.ss(ct.tf2ss(tf)) for tf in openLoop]
 
 fig, axes = plt.subplots(3, 3, sharex="col", sharey="col")
 ct.rlocus(sysOpenLoop[0], ax=axes[0][0], grid=False)
