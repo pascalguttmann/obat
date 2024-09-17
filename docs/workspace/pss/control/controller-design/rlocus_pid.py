@@ -6,7 +6,7 @@ plantOmega = 10e6
 plant = ct.zpk([], [-plantOmega], plantOmega)
 
 zero = [-plantOmega * 0.9, -plantOmega * 0.8]
-neutralGain = 1 / np.prod(zero)
+neutralGain = -1 / np.sum(zero)
 pid = ct.zpk([zero[0], zero[1]], [0], 10 * neutralGain)
 
 rUtoI = ct.zpk([], [], 1)
