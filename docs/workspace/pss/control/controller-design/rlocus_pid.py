@@ -50,5 +50,8 @@ axes[1][2].set_title("pzmap for L")
 ct.pzmap(sysClosedLoop[2], ax=axes[2][2], grid=False)
 axes[2][2].set_title("pzmap for C")
 
+for ax in axes.reshape(-1):
+    ax.grid()
+
 plt.get_current_fig_manager().window.state("zoomed")  # pyright: ignore
 plt.show()
