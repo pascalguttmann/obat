@@ -50,6 +50,15 @@ axes[1][2].set_title("pzmap for L")
 ct.pzmap(sysClosedLoop[2], ax=axes[2][2], grid=False)
 axes[2][2].set_title("pzmap for C")
 
+Kd, Kp, Ki = pid.num[0][0].tolist()
+Ti = float(Kp) / float(Ki)
+Td = float(Kd) / float(Kp)
+
+print(f"pid {pid}")
+print(f"{Kp=}")
+print(f"{Ti=} {Ki=}")
+print(f"{Td=} {Kd=}")
+
 for ax in axes.reshape(-1):
     ax.grid()
 
