@@ -4,6 +4,8 @@ Control
 Interface & Requirements
 ------------------------
 
+TODO: Add Requirements and Interface
+
 Circuit Selection and Design
 ----------------------------
 
@@ -46,7 +48,12 @@ Layout and Assembly Considerations
 
 ### PCB Layout
 
+- Low impedance decoupling of opamp
+- Low impedance feedback of opamp (avoid parasitic capacitance)
+
 ### Assembly
 
 Commissioning and Testing
 -------------------------
+
+TODO: Add tests
