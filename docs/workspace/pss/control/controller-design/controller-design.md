@@ -1,6 +1,11 @@
 Controller Design
 =================
 
+This page describes the derivation of the mathematical description of the
+controller, which is used to control the power electronics. For the
+circuit implementation please see `../controller.md`.
+
+
 Power Electronics Model
 -----------------------
 
