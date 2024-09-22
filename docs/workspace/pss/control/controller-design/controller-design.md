@@ -1,6 +1,9 @@
 Controller Design
 =================
 
+!!! info "TL;DR"
+    PID Controller with: $K_P = 10$, $T_i = 236 ns$, $T_d = 58.8 ns$
+
 This page describes the derivation of the mathematical description of the
 controller, which is used to control the power electronics. For the
 circuit implementation please see `../controller.md`.
@@ -109,3 +112,13 @@ for a gain $K_P = 10$.
     The shown pole zero map and root locus plot show scaled frequencies
     $f' = f / 1000$ to avoid limitations of python control, when using `scipy`
     instead of `slycot` for computations.
+
+### Obtained PID Parameters
+
+The parameters of the pid controller are:
+$$ Kp = 10 $$
+$$ Ti = 2.36e-7 \quad \wedge \quad Ki = 4.23e7 $$  
+$$ Td = 5.88e-8 \quad \wedge \quad Kd = 5.88e-7 $$
+
+Which in turn yields the following transfer function:
+$$ G_{PID} = \frac{0.0005882 s^2 + 10 s + 4.235e+04}{s} $$
