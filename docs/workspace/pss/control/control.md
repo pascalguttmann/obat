@@ -31,7 +31,8 @@ The PID controller is implemented using a standard circuit from literature[^TB]:
 
 #### Analog Bidirectional Switch
 
-[CD4066BM96][CD4066BM96] Selection (sort by Price): 4x SPST, SMD, 15V VCC, $R_{on} <= 250 \Omega$
+[CD4066BM96][CD4066BM96] Selection (sort by Price): 4x SPST, SMD, 15V VCC,
+$R_{on} <= 250 \Omega$
 
 [CD4066BM96]: https://mou.sr/3MQOnJI
 
