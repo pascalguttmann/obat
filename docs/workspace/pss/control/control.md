@@ -47,7 +47,7 @@ $$ C_{K2} = 100pF = C_{K1} \implies
 R_{K1} || R_{K2} = \frac{T_d}{C_K2} = 588 \Omega \approx 0.5 (R_{K1}+R_{K2}) $$
 
 Thus we can select $$ R_{K1} = R_{K2} = 1.2 k \Omega $$
-$$ \implies R_1 = \frac{R_{K1}+R_{K2}}{K_P} = 120 \Omega $$.
+$$ \implies R_1 = \frac{R_{K1}+R_{K2}}{K_P} = 240 \Omega $$.
 
 [^TB]: Europa-Lehrmittel, Tabellenbuch Elektrotechnik, 2018
 
