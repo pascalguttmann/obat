@@ -15,8 +15,13 @@ TODO: Add feed forward, offset
 
 As the circuit a classical control loop is selected with a reference that should
 be tracked by minimizing the error.
-The PID controller is implemented using a standard circuit from literature[^TB]:
+The PID controller is implemented using a standard circuit from literature [^TB]:
 ![PID Controller Circuit](./pid_circuit.png)
+
+The difference junction is implemented using a standard subtraction circuit from literature [^TB]:
+![Subtraction Circuit](./subtraction_circuit.png)
+
+[^TB]: Europa-Lehrmittel, Tabellenbuch Elektrotechnik, 2018
 
 #### PID Controller Component Values
 
@@ -49,7 +54,17 @@ R_{K1} || R_{K2} = \frac{T_d}{C_K2} = 588 \Omega \approx 0.5 (R_{K1}+R_{K2}) $$
 Thus we can select $$ R_{K1} = R_{K2} = 1.2 k \Omega $$
 $$ \implies R_1 = \frac{R_{K1}+R_{K2}}{K_P} = 240 \Omega $$.
 
-[^TB]: Europa-Lehrmittel, Tabellenbuch Elektrotechnik, 2018
+#### Difference Junction
+
+To minimize the number of different components at unity gain for each channel
+of the subtraction circuit we choose R_{e1} = R_{e2} = R_K = R_Q$.
+The same restrictions apply for the feedback resistance as in the PID
+controller, because the input resistance of the PID with
+$$ R_{in,PID} \approx R_1 = 240 \Omega \implies I_{in,PID,max} \approx
+\frac{u_{e,max}}{R_{in,PID}} = 20 mA $$.
+
+Therefore we can select
+$$ R_{e1} = R_{e2} = R_K = R_Q = 2.2 k \Omega $$
 
 ### Component Selection
 
