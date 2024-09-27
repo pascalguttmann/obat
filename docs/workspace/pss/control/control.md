@@ -121,7 +121,7 @@ Test ID: `v1.0.0/pss/control/sign-propagation/<suffix>`
 1. Connections
     - Output `out` disconnected
     - Input `meas` connected to $U_{meas} = 0V$
-    - Input `ref` connected to $U_{meas} = +500mV$
+    - Input `ref` connected to $U_{ref} = +500mV$
 2. Power on supply voltage
 3. Wait for steady state $t_{wait} \gtrapprox 1ms$
 4. Measure Voltages
@@ -135,3 +135,28 @@ Test ID: `v1.0.0/pss/control/sign-propagation/<suffix>`
         - $U_{e} \in 500mV (1 \pm 10\%)$
     2. Output Signal (test id suffix: `output`)
         - $U_{out} \in 10V (1 \pm 10\%)$
+
+### Closed Loop Stability for Unity Plant
+
+Test ID: `v1.0.0/pss/control/stability-unity-plant/<suffix>`
+
+1. Connections
+    - Output `out` disconnected from following stage
+    - Input `meas` connected to output `out` of PID controller
+    - Input `ref` connected to $U_{ref} = 2.5V$
+2. Power on supply voltage
+3. Wait for steady state $t_{wait} \gtrapprox 1ms$
+4. Measure Voltages
+      - Voltage series $u_{out}(t) at PID controller output with oscilloscope
+      for $t = 1s$
+5. Power off supply voltage
+6. Test passed if
+    1. Mean Value (test id suffix: `mean`)
+        - $\overline{u_{out}(t)} \in 2.5V (1 \pm 1\%)$
+    2. Output Signal Boundedness (test id suffix: `bounds`)
+        - $\forall t u_{out}(t) \in 2.5V (1 \pm 1\%)$
+
+!!! note
+    Passing test `bounds` implies, that test `mean` is passed. Separation of
+    test is conducted to make information of instability visible in test report,
+    even when the mean is accurately tracked.
