@@ -11,8 +11,6 @@ Circuit Selection and Design
 
 ### Circuit
 
-TODO: Add feed forward, offset
-
 As the circuit a classical control loop is selected with a reference that should
 be tracked by minimizing the error.
 The PID controller is implemented using a standard circuit from literature [^TB]:
