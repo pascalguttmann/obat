@@ -154,7 +154,8 @@ Test ID: `v1.0.0/pss/control/stability-unity-plant/<suffix>`
       - Voltage series $u_{out}(t) at PID controller output with oscilloscope
       for $t = 1s$
 5. Power off supply voltage
-6. Test passed if
+6. Disconnect input `meas` from output `out` of PID controller
+7. Test passed if
     1. Mean Value (test id suffix: `mean`)
         - $\overline{u_{out}(t)} \in 2.5V (1 \pm 1\%)$
     2. Output Signal Boundedness (test id suffix: `bounds`)
