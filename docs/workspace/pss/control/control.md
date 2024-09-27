@@ -118,6 +118,10 @@ Layout and Assembly Considerations
 Commissioning and Testing
 -------------------------
 
+1. Pass all tests for `control`.
+2. If all tests for _powerelectronics_ are passed connect _control_ and
+   _powerelectronics_.
+
 ### Sign Propagation
 
 Test ID: `v1.0.0/pss/control/sign-propagation/<suffix>`
