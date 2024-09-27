@@ -109,6 +109,7 @@ Layout and Assembly Considerations
 - (Dis-) connector between _controller_ and _powerelectronics_, (solderbridge /
   jumper) Label with testname hint
 - Add optional connectors from `out` to `meas` for unity plant test.
+- Pull up/down for inputs, when stage is isolated, to run other tests.
 - Add test pins for: `out`, `ref`, `meas`, `error`
 
 [OPA2810 Datasheet]: <../../../datasheet/opa2810.pdf>
