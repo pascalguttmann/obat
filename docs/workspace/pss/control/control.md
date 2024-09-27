@@ -103,8 +103,11 @@ Layout and Assembly Considerations
 
 ### PCB Layout
 
+- Consider [OPA2810 Datasheet] Section _11 Layout_
 - Low impedance decoupling of opamp
 - Low impedance feedback of opamp (avoid parasitic capacitance)
+
+[OPA2810 Datasheet]: <../../../datasheet/opa2810.pdf>
 
 ### Assembly
 
