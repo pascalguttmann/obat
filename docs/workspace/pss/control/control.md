@@ -106,6 +106,10 @@ Layout and Assembly Considerations
 - Consider [OPA2810 Datasheet] Section _11 Layout_
 - Low impedance decoupling of opamp
 - Low impedance feedback of opamp (avoid parasitic capacitance)
+- (Dis-) connector between _controller_ and _powerelectronics_, (solderbridge /
+  jumper) Label with testname hint
+- Add optional connectors from `out` to `meas` for unity plant test.
+- Add test pins for: `out`, `ref`, `meas`, `error`
 
 [OPA2810 Datasheet]: <../../../datasheet/opa2810.pdf>
 
