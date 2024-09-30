@@ -25,8 +25,8 @@ be tracked by minimizing the error.
 The PID controller is implemented using a standard circuit from literature [^TB]:
 ![PID Controller Circuit](./pid_circuit.png)
 
-The difference junction is implemented using a standard subtraction circuit from literature [^TB]:
-![Subtraction Circuit](./subtraction_circuit.png)
+The difference junction is implemented using a standard subtraction circuit
+from literature [^TB]: ![Subtraction Circuit](./subtraction_circuit.png)
 
 [^TB]: Europa-Lehrmittel, Tabellenbuch Elektrotechnik, 2018
 
@@ -41,8 +41,9 @@ $C_{parasitic} \approx C_{in} + C_{diff} = 3 pF$. For a operating frequency $f
 feddback resistance is limited by:
 $$ R_{K1} + R_{K2} < \frac{1}{2 \pi f' C_{parasitic}} = 2.65 k \Omega $$
 
-A lower limit of the feedback resistance is imposed by the maximum output current of the [OPA2810IDR].
-The maximum continous output current is $40mA$, but to limit the thermal stress
+A lower limit of the feedback resistance is imposed by the maximum output
+current of the [OPA2810IDR]. The maximum continous output current is $40mA$,
+but to limit the thermal stress
 of the device the output current is desired to not exceed $30mA$. The current
 available for the feedback path is the remaining current, which is not used for
 the following bias stage.
