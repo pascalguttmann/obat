@@ -480,6 +480,7 @@ Layout and Assembly Considerations
 - Add testpins for input voltages (measurement, test source)
 - Add testpin for output (measurement, load) [^4]
 - Current limiting Transistor footprint, include bigger pad as thermal relieve
+- Pull up/down for inputs, when stage is isolated, to run other tests.
 
 [^4]: Screw terminal can be used for up to $|I| = 20 A$
 

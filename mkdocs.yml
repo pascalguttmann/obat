@@ -30,7 +30,9 @@ nav:
       - Power Electronics:
         - workspace/pss/outstage/outstage.md
         - workspace/pss/bias/bias.md
-      - workspace/pss/control/control.md
+      - Control:
+        - workspace/pss/control/control.md
+        - workspace/pss/control/controller-design/controller-design.md
     - Team Safety Research:
       - workspace/safety/index.md
 plugins:
