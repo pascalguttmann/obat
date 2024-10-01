@@ -28,6 +28,9 @@ nav:
           - design/pss/control-logic/control/control.md
           - Controller Design:
             - design/pss/control-logic/control/controller-design/controller-design.md
+        - Limit Logic:
+          - design/pss/control-logic/limit-logic/limit-logic.md
+          - design/pss/control-logic/limit-logic/statemachine.md
       - Power Electronics:
         - design/pss/power-electronics/power-electronics.md
         - Output Stage:
