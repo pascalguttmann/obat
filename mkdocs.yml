@@ -8,33 +8,34 @@ nav:
     - index.md
     - git-submodules.md
     - tutorial-vids.md
-  - Architecture:
-    - arch/overview.md
-    - arch/pss.md
-    - arch/esu.md
-    - arch/meas.md
-    - arch/enclosure.md
-  - Workspace:
-    - workspace/index.md
-    - Team Enclosure:
-      - workspace/enclosure/index.md
-    - Team Emergency Stop Unit:
-      - workspace/esu/index.md
-    - Team Measurement Electronics:
-      - workspace/meas/index.md
+  - Design:
+    - design/overview.md
+    - design/meeting-agreements.md
+    - Enclosure:
+      - design/enclosure/enclosure.md
+    - Emergency Stop Unit:
+      - design/esu/esu.md
+    - Measurement Electronics:
+      - design/meas/meas.md
       - Discussion:
-        - workspace/meas/discuss/adc.md
-        - workspace/meas/discuss/isoamp.md
-    - Team PowerSupplySink:
-      - workspace/pss/index.md
+        - design/meas/discuss/adc.md
+        - design/meas/discuss/isoamp.md
+    - PowerSupplySink:
+      - design/pss/pss.md
+      - Control Logic:
+        - design/pss/control-logic/control-logic.md
+        - Controller:
+          - design/pss/control-logic/control/control.md
+          - Controller Design:
+            - design/pss/control-logic/control/controller-design/controller-design.md
       - Power Electronics:
-        - workspace/pss/outstage/outstage.md
-        - workspace/pss/bias/bias.md
-      - Control:
-        - workspace/pss/control/control.md
-        - workspace/pss/control/controller-design/controller-design.md
-    - Team Safety Research:
-      - workspace/safety/index.md
+        - design/pss/power-electronics/power-electronics.md
+        - Output Stage:
+          - design/pss/power-electronics/outstage/outstage.md
+        - Bias Stage:
+          - design/pss/power-electronics/bias/bias.md
+    - Safety Research:
+      - design/safety/safety.md
 plugins:
   - git-revision-date-localized:
       fallback_to_build_date: false
