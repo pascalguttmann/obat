@@ -133,7 +133,7 @@ Commissioning and Testing
 
 ### Sign Propagation
 
-Test ID: `v1.0.0/pss/control/sign-propagation/<suffix>`
+Test ID: `v1.0.0/pss/control-logic/control/sign-propagation/<suffix>`
 
 1. Connections
     - Output `out` disconnected
@@ -155,7 +155,7 @@ Test ID: `v1.0.0/pss/control/sign-propagation/<suffix>`
 
 ### Closed Loop Stability for Unity Plant
 
-Test ID: `v1.0.0/pss/control/stability-unity-plant/<suffix>`
+Test ID: `v1.0.0/pss/control-logic/control/stability-unity-plant/<suffix>`
 
 1. Connections
     - Output `out` disconnected from following stage

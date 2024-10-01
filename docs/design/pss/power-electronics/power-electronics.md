@@ -1,28 +1,26 @@
-# PowerSupplySink
+# Power Electronics
 
-## Power Electronics
-
-### Interface & Requirements
+## Interface & Requirements
 
 See input interface of [bias](./bias/bias.md) and output interface of
 [outstage](./outstage/outstage.md).
 
-### Circuit Selection and Design
+## Circuit Selection and Design
 
 ![image](./power_electronics.png)
 
-### Simulation
+## Simulation
 
 See `./sim_bias+outstage.asc` for simulation.
 
-### Hardware Tests in Laboratory
+## Hardware Tests in Laboratory
 
-### Layout and Assembly Considerations
+## Layout and Assembly Considerations
 
 - (Dis-) connector between _bias_ and _outstage_, (solderbridge / jumper)
     Label with testname hint
 
-### Commissioning and Testing
+## Commissioning and Testing
 
 1. Pass all tests for _bias_
 2. Pass all tests for _outstage_
@@ -38,4 +36,3 @@ See `./sim_bias+outstage.asc` for simulation.
    Therefore measure voltage across a single ballast resistor and calculate $I =
    U/R$
 9. Power off supply voltage
-

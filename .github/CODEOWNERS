@@ -1,16 +1,13 @@
 # Default codeowner for all files
 * @pascalguttmann
 
-# Workspace default codeowners
-/docs/workspace/ @pascalguttmann
+# Design default codeowners
+/docs/design/ @pascalguttmann
 
-# Workspace team codeowners
-/docs/workspace/enclosure/ @jannikgeng @yunusclk # enclosure team members
-/docs/workspace/esu/ @mohamedshafi07 @Ranjithraj2001 @KovarthananS # esu team members
-/docs/workspace/meas/ @ruchik-mahesh @pascalguttmann @Bardia788 # meas team members
-/docs/workspace/pss/ @pascalguttmann # powersupplysink team members
-/docs/workspace/safety/ @Kirtan-1315 # safety team members
-
-# Architecture codeowners
-/docs/arch/enclosure.md @jannikgeng @yunusclk # enclosure team members
+# Team codeowners
+/docs/design/enclosure/ @jannikgeng @yunusclk # enclosure team members
+/docs/design/esu/ @mohamedshafi07 @Ranjithraj2001 @KovarthananS # esu team members
+/docs/design/meas/ @ruchik-mahesh @pascalguttmann @Bardia788 # meas team members
+/docs/design/pss/ @pascalguttmann # powersupplysink team members
+/docs/design/safety/ @Kirtan-1315 # safety team members
 

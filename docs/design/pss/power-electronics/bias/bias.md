@@ -209,7 +209,6 @@ Mouser Search: $R_{th} < 15 K/W$ (natural convection), In Stock, Sort by Price
 - 1x [RC1210FR-07680RL], 680 1210
 - 1x [3362P-1-102RLF], 1k Trimmer
 
-
 [TIP41C]: <https://mou.sr/3QXTwSz>
 [TIP42C]: <https://mou.sr/3K8d0js>
 [DNLS350]: <https://mou.sr/4c47rij>
@@ -249,7 +248,7 @@ Commissioning and Testing
 
 ### Transfer Characteristic
 
-Test ID: `v1.0.0/pss/bias/transfer/<suffix>`
+Test ID: `v1.0.0/pss/power-electronics/bias/transfer/<suffix>`
 
 1. Connect
     1. -2V (test id suffix: `-2V`)
@@ -272,7 +271,7 @@ Test ID: `v1.0.0/pss/bias/transfer/<suffix>`
 
 ### Offset Adjustment
 
-Test ID: `v1.0.0/pss/bias/offset-adjust/<suffix>`
+Test ID: `v1.0.0/pss/power-electronics/bias/offset-adjust/<suffix>`
 
 1. Connect
     - Input $U_{IN} = 2V$
@@ -290,4 +289,3 @@ Test ID: `v1.0.0/pss/bias/offset-adjust/<suffix>`
     - Let $U_{offset,0} = U_{out+,0} - U_{out-,0}$
     - Let $U_{offset,1} = U_{out+,1} - U_{out-,1}$
     - $U_{offset,0} + 0.5V < U_{offset,1} < U_{offset,0} + 1.5V$
-
