@@ -497,7 +497,7 @@ Commissioning and Testing
 
 ### Load Distribution
 
-Test ID: `v1.0.0/pss/outstage/load-distribution/<suffix>`
+Test ID: `v1.0.0/pss/power-electronics/outstage/load-distribution/<suffix>`
 
 1. Connect
     1. Positive Rail (test id suffix: `positive`)
@@ -520,7 +520,7 @@ Test ID: `v1.0.0/pss/outstage/load-distribution/<suffix>`
 
 ### Short Circuit Test
 
-Test ID: `v1.0.0/pss/outstage/short-circuit/<suffix>`
+Test ID: `v1.0.0/pss/power-electronics/outstage/short-circuit/<suffix>`
 
 1. Connect
     1. Positive Rail (test id suffix: `positive`)
@@ -542,4 +542,3 @@ Test ID: `v1.0.0/pss/outstage/short-circuit/<suffix>`
 4. Power off supply voltage
     - $U_{RE} \neq 0V \quad \wedge \quad U_{RE} \in \overline{U_{RE}} ( 1 \pm 10 \%) \quad \forall \quad U_{RE}$
     - $20A \leq |I_{Output}| \leq 25 A$
-
