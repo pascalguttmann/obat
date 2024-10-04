@@ -27,7 +27,18 @@ TODO: Add circuit description
 
 ### Component Selection
 
-TODO: Add component selection
+#### R/S Latches
+
+[CD4044BDR] Quad R/S Latch from 4000 series. Search on Mouser, sort by price.
+
+[CD4044BDR]: https://mou.sr/3XPJrtv
+
+#### Analog Bidirectional Switch
+
+[CD4066BM96] Selection (sort by Price): 4x SPST, SMD, 15V VCC,
+$R_{on} <= 250 \Omega$
+
+[CD4066BM96]: https://mou.sr/3MQOnJI
 
 Simulation
 ----------
