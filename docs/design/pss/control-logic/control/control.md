@@ -91,13 +91,6 @@ $$ R_{e1} = R_{e2} = R_K = R_Q = 2.2 k \Omega $$
 
 [OPA2810IDR]: https://mou.sr/3X9Oofi
 
-#### Analog Bidirectional Switch
-
-[CD4066BM96] Selection (sort by Price): 4x SPST, SMD, 15V VCC,
-$R_{on} <= 250 \Omega$
-
-[CD4066BM96]: https://mou.sr/3MQOnJI
-
 Simulation
 ----------
 
