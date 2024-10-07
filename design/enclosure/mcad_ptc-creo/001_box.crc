@@ -1,0 +1,67 @@
+﻿  Modell 001_BOX: 
+ 
+
+  4 Zirkulärer-Bezug-Schleifen gefunden
+ 
+
+   Schleife Nr. 1
+
+   Schleifentiefe beträgt 4
+
+KE-Nummer 22 (KOMPONENTE, ID = 86) 
+  in Modell 001_BOX verweist auf:
+
+KE-Nummer 32 (KOMPONENTE, ID = 142) 
+  in Modell 001_BOX muss folgen nach:
+
+KE-Nummer 30 (KOMPONENTE, ID = 137) 
+  in Modell 001_BOX verweist auf:
+
+KE-Nummer 22 (KOMPONENTE, ID = 86) 
+  in Modell 001_BOX - Kreis geschlossen.
+
+
+   Schleife Nr. 2
+
+   Schleifentiefe beträgt 3
+
+KE-Nummer 32 (KOMPONENTE, ID = 142) 
+  in Modell 001_BOX muss folgen nach:
+
+KE-Nummer 30 (KOMPONENTE, ID = 137) 
+  in Modell 001_BOX verweist auf:
+
+KE-Nummer 32 (KOMPONENTE, ID = 142) 
+  in Modell 001_BOX - Kreis geschlossen.
+
+
+   Schleife Nr. 3
+
+   Schleifentiefe beträgt 3
+
+KE-Nummer 32 (KOMPONENTE, ID = 142) 
+  in Modell 001_BOX muss folgen nach:
+
+KE-Nummer 29 (KOMPONENTE, ID = 121) 
+  in Modell 001_BOX verweist auf:
+
+KE-Nummer 32 (KOMPONENTE, ID = 142) 
+  in Modell 001_BOX - Kreis geschlossen.
+
+
+   Schleife Nr. 4
+
+   Schleifentiefe beträgt 4
+
+KE-Nummer 32 (KOMPONENTE, ID = 142) 
+  in Modell 001_BOX muss folgen nach:
+
+KE-Nummer 30 (KOMPONENTE, ID = 137) 
+  in Modell 001_BOX verweist auf:
+
+KE-Nummer 23 (KOMPONENTE, ID = 89) 
+  in Modell 001_BOX verweist auf:
+
+KE-Nummer 32 (KOMPONENTE, ID = 142) 
+  in Modell 001_BOX - Kreis geschlossen.
+
