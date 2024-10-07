@@ -1,5 +1,3 @@
 config:
-  MD003:
-    style: setext_with_atx
   MD007:
     indent: 4
