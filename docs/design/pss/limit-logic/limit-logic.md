@@ -1,5 +1,7 @@
 # Limit Logic
 
+TODO: Add visual State indication?
+
 ## Interface & Requirements
 
 TODO: Add Input specs
@@ -19,24 +21,91 @@ TODO: Add Power Consumption
 
 ## Circuit Selection and Design
 
+The limit logic implements the limit behavior of the powersupplysink. When the
+regulated desired target measure is
+
+- voltage, an upper and lower current limit are enforced by the limit logic.
+- current, an upper and lower voltage limit are enforced by the limit logic.
+
+The limit logic achieves this by observing the configured limits and references
+together with the current measured output quantity and selecting one of six
+states:
+
+- `VC` voltage control
+- `CC` current control
+- `LVLC` lower voltage limit control
+- `UVLC` upper voltage limit control
+- `LCLC` lower current limit control
+- `UCLC` upper current limit control
+
+The states of the limit logic are used to connect the corresponding reference
+of the configuration and the corresponding measured output quantity from the
+power electronics to the controller.
+
+A transition between states is initiated, when the sub circuit `mode-transition`
+detects an event, that is specified to change the mode. An event could be for
+example, that the output current exceeds the configured upper current limit and
+thus a transition from `VC` voltage control to `UCLC` upper current limit
+control is initiated. By design only a maximum of one state can be active at
+the same time. The transitions of states can be observed in the
+[statemachine](./mode-transition/statemachine.md), which is implemented by the
+limit-logic. The transition between states is implemented in a _gapping_
+manner, thus for a short duration during the transition none of the states is
+active. As `mode-transition` implements an activation of exactly one state for
+each possible event this duration during the transition is unstable and not
+considered as a separate state.
+
+!!! info "Gapping Mode Transition"
+    The _gapping_ mode transition is the opposite of _bridging_ mode transition.
+    Gapping mode transition allows to use multiple _SPST_ single pole single
+    throw switches to implement a multiplexer for connection of configuration
+    and measurement signals to the controller without connecting actively driven
+    outputs of the multiplexed sources.
+    On the other hand during the gapping period the inputs of the controller sub
+    circuit are not connected and left floating, if no default input is provided
+    by for example pull up/down resistors.
+
+Events are combinations of _digital_ signals indicating when limits are
+exceeded and the relation of the measured output quantity to the configured
+reference quantity. To obtain those _digital_ signals from the _analog_
+configuration voltages and the measured output quantities the `compare logic`
+is used.
+
 ### Circuit
 
-TODO: Add circuit description
+The states are represented and stored by using R/S Latches. The state is
+considered active, when the output `Q` of the RS-Latch is at high voltage
+level. Using an OR gate an active state is detected and used to block other
+states from being activated due to the logic of the `mode-transition`.
+When an event requires a state transition the `mode-transition` circuit
+
+1. First, resets the active state
+2. Second, when no active state is detected the next state is activated by
+   setting it.
+
+In case of power/start up or an malformed configuration all the states are
+reset and the RS-Latches are disabled (Tri-State).
+Thus for all sub circuits the default values set by pull ups/downs takes effect
+until start up is completed and the configuration setting is not malformed.
 
 ### Component Selection
 
 #### R/S Latches
 
-[CD4044BDR] Quad R/S Latch from 4000 series. Search on Mouser, sort by price.
+[CD4043BDR] Quad R/S Latch from 4000 series. Search on Mouser, sort by price.
 
-[CD4044BDR]: https://mou.sr/3XPJrtv
+[CD4043BDR]: https://mou.sr/40mZDFB
 
-#### Analog Bidirectional Switch
+#### Or Gate
 
-[CD4066BM96] Selection (sort by Price): 4x SPST, SMD, 15V VCC,
-$R_{on} <= 250 \Omega$
+[CD4078BM96] 8-Input CMOS or Gate from 4000 series. Search on Mouser, sort by
+price.
 
-[CD4066BM96]: https://mou.sr/3MQOnJI
+[CD4078BM96]: https://www.ti.com/lit/ds/symlink/cd4078b.pdf
+
+#### Decoupling Capacitor
+
+Reuse of already implemented ceramic X7R 100nF cap.
 
 ## Simulation
 
