@@ -22,16 +22,14 @@ nav:
         - design/meas/discuss/isoamp.md
     - PowerSupplySink:
       - design/pss/pss.md
-      - Control Logic:
-        - design/pss/control-logic/control-logic.md
-        - Controller:
-          - design/pss/control-logic/control/control.md
-          - Controller Design:
-            - design/pss/control-logic/control/controller-design/controller-design.md
-        - Limit Logic:
-          - design/pss/control-logic/limit-logic/limit-logic.md
-          - design/pss/control-logic/limit-logic/statemachine.md
-          - design/pss/control-logic/limit-logic/compare-logic.md
+      - Controller:
+        - design/pss/control/control.md
+        - Controller Design:
+          - design/pss/control/controller-design/controller-design.md
+      - Limit Logic:
+        - design/pss/limit-logic/limit-logic.md
+        - design/pss/limit-logic/statemachine.md
+        - design/pss/limit-logic/compare-logic.md
       - Power Electronics:
         - design/pss/power-electronics/power-electronics.md
         - Output Stage:
