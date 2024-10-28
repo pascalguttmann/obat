@@ -1,7 +1,6 @@
 # Compare Logic
 
-Interface & Requirements
-------------------------
+## Interface & Requirements
 
 TODO: Add Input specs
 TODO: Add Output specs
@@ -18,8 +17,7 @@ TODO: Add Power Consumption
     - $+10V$ @ $1W$ ($100mA$)
     - $-5V$ @ $0.5W$ ($50mA$)
 
-Circuit Selection and Design
-----------------------------
+## Circuit Selection and Design
 
 ### Circuit
 
@@ -40,16 +38,13 @@ TODO: Add circuit description
 - $I_{out} \geq 20mA$
 - Price sort on Mouser
 
-Simulation
-----------
+## Simulation
 
 TODO: link to simulation files
 
-Hardware tests in Laboratory
-----------------------------
+## Hardware tests in Laboratory
 
-Layout and Assembly Considerations
-----------------------------------
+## Layout and Assembly Considerations
 
 ### PCB Layout
 
@@ -61,8 +56,7 @@ TODO: Add (dic-)connector note, with testcase required for connecting
 
 TODO: Add special hints for Assembly or remove
 
-Commissioning and Testing
--------------------------
+## Commissioning and Testing
 
 TODO: add tests
 
