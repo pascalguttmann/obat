@@ -131,7 +131,11 @@ TODO: link to simulation files
 
 ## Commissioning and Testing
 
-TODO: add tests
+1. Pass tests for `compare-logic`
+2. Pass tests for `mode-transition`
+3. Pass tests for `limit-logic` itself
+4. Connect `compare-logic` to `mode-transition`
+5. Connect `mode-transition` to RS-Latches
 
 ### Mode Setting
 
