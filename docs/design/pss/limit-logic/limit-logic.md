@@ -154,3 +154,15 @@ Available suffixes: `vc`, `lclc`, `uclc`, `cc`, `lvlc`, `uvlc`
 7. Test passed if
     - $U_{reset} < -3V$
     - $U_{set} > 8V$
+
+### Or Gate
+
+Test ID: `v1.0.0/pss/limit-logic/or-gate`
+
+1. Connections
+    - Enable connected to $-5V$
+2. Power on supply voltage
+3. Measure Voltage $U_{\overline{mode}}$
+4. Power off supply voltage
+5. Test passed if
+    - $U_{\overline{mode}} < -3V$
