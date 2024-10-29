@@ -146,32 +146,26 @@ TODO: link to simulation files
     - `!enable_ok` signal
     - `power_ok` signal
 
-### Assembly
+## Commissioning and Testing
 
 1. Pass tests for `mode-transition`
 
-## Commissioning and Testing
+### State Reset
 
-TODO: add tests
-
-### Testheading
-
-Test ID: `v1.0.0/pss/control-logic/control/sign-propagation/<suffix>`
+Test ID: `v1.0.0/pss/limit-logic/mode-transition/state-reset`
 
 1. Connections
-    - Output `out` disconnected
-    - Input `meas` connected to $U_{meas} = 0V$
-    - Input `ref` connected to $U_{ref} = +500mV$
+    - `conf_ok` $U = -5V$
+    - `power_ok` $U = 10V$
 2. Power on supply voltage
-3. Wait for steady state $t_{wait} \gtrapprox 1ms$
-4. Measure Voltages
-    1. Error Signal (test id suffix: `error`)
-        - Voltage at subtraction output $U_{e}$
-    2. Output Signal (test id suffix: `output`)
-        - Voltage at PID controller output $U_{out}$
-5. Power off supply voltage
-6. Test passed if
-    1. Error Signal (test id suffix: `error`)
-        - $U_{e} \in 500mV (1 \pm 10\%)$
-    2. Output Signal (test id suffix: `output`)
-        - $U_{out} \in 10V (1 \pm 10\%)$
+3. Measure Voltage
+    - $U_{s\_mode\_*}$
+    - $U_{r\_mode\_*}$
+    - $U_{enable\_ok}$
+    - $U_{\overline{enable\_ok}}$
+4. Power off supply voltage
+5. Test passed if
+    - $U_{s\_mode\_*} < -3V$
+    - $U_{r\_mode\_*} > 8V$
+    - $U_{enable\_ok} < -3V$
+    - $U_{\overline{enable\_ok}} > 8V$
