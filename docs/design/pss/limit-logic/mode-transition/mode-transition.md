@@ -40,9 +40,47 @@
 !!! info "Power Consumption"
     Power consumption at the supply voltages includes $\approx 1mA$ for the
     internal discrete inverter. A reuse of another integrated inverter from a
-    subcircuit could reduce the power consumption.
+    sub circuit could reduce the power consumption.
 
 ## Circuit Selection and Design
+
+The mode-transition sub circuit implements a boolean function. Boolean input
+arguments are the comparator outputs of the `compare-logic`, which indicate the
+events mentioned in `limit-logic`, for which a state transition should be
+performed. Additionally, boolean configuration is used as an input to the sub
+circuit.
+The outputs indicate with a set and reset signal, which states represented by
+the RS-Latches should be set and reset.
+
+To ensure that only one of the RS-Latches is active at maximum the gapping
+transition is implemented by only allowing to set any state, when the
+_transition is ready_, implying that no RS-Latch is active at the moment.
+Because every transition has a short duration in which all the RS-Latches are
+not set, for every possible event at the inputs exactly one state should be set
+to uniquely determine which state should be set during the transition.
+Exceptions can be made for events which are excluded by design of the circuit
+to optimize the logic circuit for cost efficiency.
+Because a transition can only be started with a reset of the currently active
+state the transition can also be constrained to only start from certain states,
+by only applying a reset to some states for a given event.
+
+!!! info "State Transition Example"
+    A transition from state A to B can be performed by
+    1. Reset State A
+    2. Detect, that all states are inactive
+    3. Set State B
+
+    For Robustness State B can be set for multiple possible events, to activate
+    the state, when all states are inactive. A transition from starting from a
+    state C, from which the transition to A should *not* be started can be
+    prohibited, by *not* applying a reset to state C.
+
+During startup or when the configuration is not consistent all states in the
+RS-Latches are reset at the same time ensuring a consistent state in the
+RS-Latches.
+
+The encoded mode-transitions are documented in
+[`./truth-table-mode-set-reset.xlsx`](./truth-table-mode-set-reset.xlsx).
 
 ### Circuit
 
