@@ -133,24 +133,24 @@ TODO: link to simulation files
 
 TODO: add tests
 
-### Testheading
+### Mode Setting
 
-Test ID: `v1.0.0/pss/control-logic/control/sign-propagation/<suffix>`
+Test ID: `v1.0.0/pss/limit-logic/mode-setting/<suffix>`
+
+Available suffixes: `vc`, `lclc`, `uclc`, `cc`, `lvlc`, `uvlc`
 
 1. Connections
-    - Output `out` disconnected
-    - Input `meas` connected to $U_{meas} = 0V$
-    - Input `ref` connected to $U_{ref} = +500mV$
+    - Enable connected to $10V$
+    - `r_mode_<suffix>` connected to $-5V$
+    - `s_mode_<suffix>` connected to $-5V$
 2. Power on supply voltage
-3. Wait for steady state $t_{wait} \gtrapprox 1ms$
-4. Measure Voltages
-    1. Error Signal (test id suffix: `error`)
-        - Voltage at subtraction output $U_{e}$
-    2. Output Signal (test id suffix: `output`)
-        - Voltage at PID controller output $U_{out}$
-5. Power off supply voltage
-6. Test passed if
-    1. Error Signal (test id suffix: `error`)
-        - $U_{e} \in 500mV (1 \pm 10\%)$
-    2. Output Signal (test id suffix: `output`)
-        - $U_{out} \in 10V (1 \pm 10\%)$
+3. Connect `r_mode_<suffix>` to $10V$
+4. Connect `r_mode_<suffix>` to $-5V$
+5. Measure Voltage $U_{reset}$ for `mode_<suffix>`
+3. Connect `s_mode_<suffix>` to $10V$
+4. Connect `s_mode_<suffix>` to $-5V$
+5. Measure Voltage $U_{set}$ for `mode_<suffix>`
+6. Power off supply voltage
+7. Test passed if
+    - $U_{reset} < -3V$
+    - $U_{set} > 8V$
