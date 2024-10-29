@@ -2,20 +2,45 @@
 
 ## Interface & Requirements
 
-TODO: Add Input specs
-TODO: Add Output specs
-TODO: Add Power Consumption
-
-1. Voltage Input `ref` & `meas`
-    - Voltage Input Swing $V_{in} \in [0V, +5V]$
-    - Input Current $| \pm I_{in} | \leq 2.3mA$
-2. Voltage output `out`
-    - In phase with $V_{ref}$
-    - $V_{out} \in [-5V, 10V]$
-    - Output current $I_{out \pm} \geq \pm 800 mA$
+1. Voltage inputs
+    - digital positive logic with $U \in [-5V, 10V]$, driving up to $I = 1 mA$
+    load
+        - `conf_refselect_v`, signal that the desired reference is voltage
+        - `conf_refselect_i`, signal that the desired reference is current
+        - `power_ok`, signal that the internal power lines of the pss are
+        operating
+        - `conf_ok`, signal that the configured signals are consistent
+        - `!mode`, signal that no mode is active (all RS-Latches are reset)
+        - `comp_lcle`, signal that lower current limit exceeded
+        - `comp_ucle`, signal that upper current limit exceeded
+        - `comp_lvle`, signal that lower voltage limit exceeded
+        - `comp_uvle`, signal that upper voltage limit exceeded
+        - `comp_mstt`, signal that measured is smaller than target reference
+        - `comp_mgtt`, signal that measured is greater than target reference
+2. Voltage output, digital positive logic $U \in [-5V, 10V]$ driving up to $I =
+   2.5mA$
+   - `enable_ok`, signal that RS-Latches can be enabled and actively drive the
+   output
+   - `s_mode_vc`, signal set mode voltage control
+   - `s_mode_lclc`, signal set mode lower current limit control
+   - `s_mode_uclc`, signal set mode upper current limit control
+   - `s_mode_cc`, signal set mode current control
+   - `s_mode_lvlc`, signal set mode lower voltage limit control
+   - `s_mode_uvlc`, signal set mode upper voltage limit control
+   - `r_mode_vc`, signal reset mode voltage control
+   - `r_mode_lclc`, signal reset mode lower current limit control
+   - `r_mode_uclc`, signal reset mode upper current limit control
+   - `r_mode_cc`, signal reset mode current control
+   - `r_mode_lvlc`, signal reset mode lower voltage limit control
+   - `r_mode_uvlc`, signal reset mode upper voltage limit control
 3. Supply Voltages
-    - $+10V$ @ $1W$ ($100mA$)
-    - $-5V$ @ $0.5W$ ($50mA$)
+    - $+10V$ @ $15mW$ ($1.5mA$)
+    - $-5V$ @ $7.5mW$ ($1.5mA$)
+
+!!! info "Power Consumption"
+    Power consumption at the supply voltages includes $\approx 1mA$ for the
+    internal discrete inverter. A reuse of another integrated inverter from a
+    subcircuit could reduce the power consumption.
 
 ## Circuit Selection and Design
 
