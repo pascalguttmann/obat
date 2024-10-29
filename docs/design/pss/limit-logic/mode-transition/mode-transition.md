@@ -113,7 +113,21 @@ TODO: config-checker, implemnt config-checker
 
 ### Component Selection
 
-TODO: Add component selection
+#### Logic Gates
+
+The logic gates are selected from the 4000 series with a search on mouser,
+preferred SOIC packaging and sorted by price.
+
+| Gate               | IC      |
+| :----------------- | :------ |
+| Quad 2-input AND   | CD4081B |
+| Triple 3-input AND | CD4073B |
+| Triple 3-input OR  | CD4075B |
+| Hex inverter       | CD4069B |
+
+#### Decoupling Capacitor
+
+Reuse of already implemented ceramic X7R 100nF cap.
 
 ## Simulation
 
