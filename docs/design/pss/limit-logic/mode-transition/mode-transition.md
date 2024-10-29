@@ -148,7 +148,7 @@ TODO: link to simulation files
 
 ### Assembly
 
-TODO: Add special hints for Assembly or remove
+1. Pass tests for `mode-transition`
 
 ## Commissioning and Testing
 
