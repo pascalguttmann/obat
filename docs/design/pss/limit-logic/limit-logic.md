@@ -4,17 +4,35 @@ TODO: Add visual State indication?
 
 ## Interface & Requirements
 
-TODO: Add Input specs
-TODO: Add Output specs
 TODO: Add Power Consumption
 
-1. Voltage Input `ref` & `meas`
-    - Voltage Input Swing $V_{in} \in [0V, +5V]$
-    - Input Current $| \pm I_{in} | \leq 2.3mA$
-2. Voltage output `out`
-    - In phase with $V_{ref}$
-    - $V_{out} \in [-5V, 10V]$
-    - Output current $I_{out \pm} \geq \pm 800 mA$
+1. Voltage inputs
+    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 1mA$
+        - `conf_vref`, signal of configured reference voltage
+        - `conf_iref`, signal of configured reference current
+        - `conf_lcl`, signal of configured lower current limit
+        - `conf_ucl`, signal of configured upper current limit
+        - `conf_lvl`, signal of configured lower voltage limit
+        - `conf_uvl`, signal of configured upper voltage limit
+    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 20mA$
+        - `meas_out_v`, signal of measured output voltage
+        - `meas_out_i`, signal of measured output current
+    - digital positive logic with $U \in [-5V, 10V]$, driving up to $I = 1 mA$
+    load
+        - `conf_refselect_v`, signal that the desired reference is voltage
+        - `conf_refselect_i`, signal that the desired reference is current
+        - `power_ok`, signal that the internal power lines of the pss are
+        operating
+        - `conf_ok`, signal that the configured signals are consistent
+2. Voltage output, digital positive logic $U \in [-5V, 10V]$ driving up to $I =
+   2.5mA$
+    - `mode_vc`, voltage control
+    - `mode_lclc`, lower current limit control
+    - `mode_uclc`, upper current limit control
+    - `mode_cc`, current control
+    - `mode_lvlc`, lower voltage level control
+    - `mode_uvlc`, upper voltage level control
+
 3. Supply Voltages
     - $+10V$ @ $1W$ ($100mA$)
     - $-5V$ @ $0.5W$ ($50mA$)
