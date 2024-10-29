@@ -84,7 +84,32 @@ The encoded mode-transitions are documented in
 
 ### Circuit
 
-TODO: Add circuit description
+The boolean function can be implemented using a memory IC with parallel
+interface. The inputs of the function can address a stored word, which contains
+in the bits the states of the outputs. While this approach offers flexibility
+and implementation of arbitrary functions it is more costly for the
+implementation of the desired transitions, because by applying boolean algebra
+the function can also be represented by using a few standard logic gates.
+Additionally, the programming step of the memory can be avoided by providing
+the logic function through the wiring of the logic gates.
+
+The logic is implemented using `AND`, `OR` and `INVERTER` gates. The cost is
+optimized manually by combining multiple input signals with a single gate and
+reusing the signal. The combination introduces some events, which for example
+set multiple states, which is not desired. Therefore it is ensured by the
+circuit design, that those events can never occur:
+
+- `MSTT` and `MGTT` are mutually excluded by the design of the
+`window-comparator`.
+- `LCLE` and `UCLE`, `LVLE` and `UVLE` are mutually excluded by the
+`config-checker`, which checks that the lower limit is always below the upper
+limit, if the configuration does not obey this constraints the entire state
+machine is reset. The `window-comparator` ensures for correctly configured
+limits, that not both are active at the same time.
+- `conf_refselect_v` and `conf_refselect_i` are mutually excluded by the check
+of the `config-checker`.
+
+TODO: config-checker, implemnt config-checker
 
 ### Component Selection
 
