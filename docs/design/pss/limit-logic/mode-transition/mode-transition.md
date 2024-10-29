@@ -65,6 +65,7 @@ by only applying a reset to some states for a given event.
 
 !!! info "State Transition Example"
     A transition from state A to B can be performed by
+
     1. Reset State A
     2. Detect, that all states are inactive
     3. Set State B
