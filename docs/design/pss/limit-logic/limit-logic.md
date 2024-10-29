@@ -4,8 +4,6 @@ TODO: Add visual State indication?
 
 ## Interface & Requirements
 
-TODO: Add Power Consumption
-
 1. Voltage inputs
     - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 1mA$
         - `conf_vref`, signal of configured reference voltage
@@ -32,10 +30,14 @@ TODO: Add Power Consumption
     - `mode_cc`, current control
     - `mode_lvlc`, lower voltage level control
     - `mode_uvlc`, upper voltage level control
-
 3. Supply Voltages
-    - $+10V$ @ $1W$ ($100mA$)
-    - $-5V$ @ $0.5W$ ($50mA$)
+    - $+10V$ @ $250mW$ ($25mA$)
+    - $-5V$ @ $125mW$ ($25mA$)
+
+!!! info "Power Consumption"
+    Power consumption at the supply voltages includes $\approx 15mA$ for output
+    drive, $\approx 8mA$ for `compare-logic`, $\approx 1.5mA$ for
+    `mode-transition`
 
 ## Circuit Selection and Design
 
