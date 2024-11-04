@@ -19,12 +19,12 @@
         - `conf_refselect_i`, signal that the desired reference is current
 2. Voltage output, digital positive logic $U \in [-5V, 10V]$ driving up to $I =
    2.5mA$
-   - `comp_mgtt`, measured greater than target
-   - `comp_mstt`, measured smaller than target
-   - `comp_lvle`, lower voltage level exceeded
-   - `comp_uvle`, upper voltage level exceeded
-   - `comp_lcle`, lower current level exceeded
-   - `comp_ucle`, upper current level exceeded
+    - `comp_mgtt`, measured greater than target
+    - `comp_mstt`, measured smaller than target
+    - `comp_lvle`, lower voltage level exceeded
+    - `comp_uvle`, upper voltage level exceeded
+    - `comp_lcle`, lower current level exceeded
+    - `comp_ucle`, upper current level exceeded
 3. Supply Voltages
     - $+10V$ @ $80mW$ ($8mA$)
     - $-5V$ @ $40mW$ ($8mA$)
