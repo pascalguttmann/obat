@@ -2,12 +2,23 @@
 
 ## Interface & Requirements
 
-TODO: Add Input specs
 TODO: Add Output specs
 
-1. Voltage Input `ref` & `meas`
-    - Voltage Input Swing $V_{in} \in [0V, +5V]$
-    - Input Current $| \pm I_{in} | \leq 2.3mA$
+1. Voltage inputs
+    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 1mA$
+        - `conf_vref`, signal of configured reference voltage
+        - `conf_iref`, signal of configured reference current
+        - `conf_lcl`, signal of configured lower current limit
+        - `conf_ucl`, signal of configured upper current limit
+        - `conf_lvl`, signal of configured lower voltage limit
+        - `conf_uvl`, signal of configured upper voltage limit
+    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 20mA$
+        - `meas_out_v`, signal of measured output voltage
+        - `meas_out_i`, signal of measured output current
+    - digital positive logic with $U \in [-5V, 10V]$, driving up to $I = 1 mA$
+    load
+        - `conf_refselect_v`, signal that the desired reference is voltage
+        - `conf_refselect_i`, signal that the desired reference is current
 2. Voltage output `out`
     - In phase with $V_{ref}$
     - $V_{out} \in [-5V, 10V]$
