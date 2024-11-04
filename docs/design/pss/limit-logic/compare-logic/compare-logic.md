@@ -31,24 +31,45 @@
 
 ## Circuit Selection and Design
 
+The compare-logic is used to compare the measured output voltage and current
+with the configured limits and reference to generate digital signals used by
+the `mode-transition`. The digital output signals indicate, that a configured
+level of voltage or current is exceeded. Additionally the outputs indicate,
+whether the measured quantity is greater or smaller than the set target
+reference.
+
+In order to compare the measured quantities with the configured limit the
+`window-comparator` sub circuit is used for analog comparison. To convert all
+signals to positive logic an inverter gate is used for the desired signals.
+
+Depending on the configuration of `conf_refselect_*` the quantity (voltage or
+current) used for comparison of the measured  quantity and the set target
+reference is different. Both combinations are compared in parallel and the
+digital signal is selected depending on the configuration of
+`conf_refselect_*`.
+
 ### Circuit
 
-TODO: Add circuit description
+The selection of the digital signals used to provide `comp_mgtt` and
+`comp_mstt` is performed by utilizing an _and/or select gate_. A inconsistent
+configuration of `conf_refselect_*` is not checked in this sub circuit. The
+output of `comp_mstt` and `comp_mgtt` will be the logical _OR_ combination of
+both selectable comparison results. circuit using the `compare-logic` should
+tolerate this behavior, avoid inconsistent configuration and/or perform
+additional consistency checks if required.
 
 ### Component Selection
 
-#### Comparator / Opamp
+#### AND/OR Select Gate
 
-[TLV9352](https://mou.sr/3BJsKZm)
+[CD4078BM96] 8-Input CMOS or Gate from 4000 series. Search on Mouser, sort by
+price.
 
-- 2 or 4 channels
-- SMD Mount, SOIC preferred
-- rail-to-rail preferred
-- $\text{SR} > 5V / \mu s$
-- $V_{off} \leq 1mV$
-- $I_{bias, in} \leq 1nA$ (To allow neglect of input current for high feedback resistance)
-- $I_{out} \geq 20mA$
-- Price sort on Mouser
+[CD4078BM96]: https://www.ti.com/lit/ds/symlink/cd4019b.pdf
+
+#### Inverter
+
+Reuse of already implemented hex inverter from `mode-transition`
 
 ## Simulation
 
