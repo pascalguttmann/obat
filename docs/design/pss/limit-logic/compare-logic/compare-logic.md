@@ -2,8 +2,6 @@
 
 ## Interface & Requirements
 
-TODO: Add Output specs
-
 1. Voltage inputs
     - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 1mA$
         - `conf_vref`, signal of configured reference voltage
@@ -19,10 +17,14 @@ TODO: Add Output specs
     load
         - `conf_refselect_v`, signal that the desired reference is voltage
         - `conf_refselect_i`, signal that the desired reference is current
-2. Voltage output `out`
-    - In phase with $V_{ref}$
-    - $V_{out} \in [-5V, 10V]$
-    - Output current $I_{out \pm} \geq \pm 800 mA$
+2. Voltage output, digital positive logic $U \in [-5V, 10V]$ driving up to $I =
+   2.5mA$
+   - `comp_mgtt`, measured greater than target
+   - `comp_mstt`, measured smaller than target
+   - `comp_lvle`, lower voltage level exceeded
+   - `comp_uvle`, upper voltage level exceeded
+   - `comp_lcle`, lower current level exceeded
+   - `comp_ucle`, upper current level exceeded
 3. Supply Voltages
     - $+10V$ @ $80mW$ ($8mA$)
     - $-5V$ @ $40mW$ ($8mA$)
