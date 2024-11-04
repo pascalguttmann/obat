@@ -4,7 +4,6 @@
 
 TODO: Add Input specs
 TODO: Add Output specs
-TODO: Add Power Consumption
 
 1. Voltage Input `ref` & `meas`
     - Voltage Input Swing $V_{in} \in [0V, +5V]$
@@ -14,8 +13,8 @@ TODO: Add Power Consumption
     - $V_{out} \in [-5V, 10V]$
     - Output current $I_{out \pm} \geq \pm 800 mA$
 3. Supply Voltages
-    - $+10V$ @ $1W$ ($100mA$)
-    - $-5V$ @ $0.5W$ ($50mA$)
+    - $+10V$ @ $80mW$ ($8mA$)
+    - $-5V$ @ $40mW$ ($8mA$)
 
 ## Circuit Selection and Design
 
