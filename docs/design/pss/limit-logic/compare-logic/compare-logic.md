@@ -91,26 +91,70 @@ TODO: Add special hints for Assembly or remove
 
 ## Commissioning and Testing
 
-TODO: add tests
+1. Pass tests for `compare-logic`
+    - This will also test the functionality of the sub circuits
+    `window-comparator` to avoid unnecessary usage of connectors.
 
-### Testheading
+### Upper Voltage Limit
 
-Test ID: `v1.0.0/pss/control-logic/control/sign-propagation/<suffix>`
+Test ID: `v1.0.0/pss/limit-logic/compare-logic/upper-voltage-limit/<suffix>`
+
+Available suffixes: `window-comparator0`, `window-comparator1`,
+`window-comparator2`, `window-comparator3`
 
 1. Connections
-    - Output `out` disconnected
-    - Input `meas` connected to $U_{meas} = 0V$
-    - Input `ref` connected to $U_{ref} = +500mV$
+    - Input `meas` of the window-comparator $U=5V$
+    - Input `ul` and `ll` of the window-comparator $U=0V$
 2. Power on supply voltage
-3. Wait for steady state $t_{wait} \gtrapprox 1ms$
+3. Measure Voltages
+    - $V_{ule}$ at net `ule` of the window-comparator
+    - $V_{!lle}$ at net `!lle` of the window-comparator
+4. Power off supply voltage
+5. Test passed if
+    - $V_{ule} > 8V$ at net `ule` of the window-comparator
+    - $V_{!lle} > 8V$ at net `!lle` of the window-comparator
+
+### Lower Voltage Limit
+
+Test ID: `v1.0.0/pss/limit-logic/compare-logic/lower-voltage-limit/<suffix>`
+
+Available suffixes: `window-comparator0`, `window-comparator1`,
+`window-comparator2`, `window-comparator3`
+
+1. Connections
+    - Input `meas` of the window-comparator $U=0V$
+    - Input `ul` and `ll` of the window-comparator $U=5V$
+2. Power on supply voltage
+3. Measure Voltages
+    - $V_{ule}$ at net `ule` of the window-comparator
+    - $V_{!lle}$ at net `!lle` of the window-comparator
+4. Power off supply voltage
+5. Test passed if
+    - $V_{ule} < -3V$ at net `ule` of the window-comparator
+    - $V_{!lle} < -3V$ at net `!lle` of the window-comparator
+
+### AND OR Select Gate
+
+Test ID: `v1.0.0/pss/limit-logic/compare-logic/and-or-select-gate/<suffix>`
+
+Available suffixes: `conf_refselect_v`, `conf_refselect_i`
+
+1. Connections
+    - Input `meas` of the window-comparator0 $U=0V$
+    - Input `meas` of the window-comparator1 $U=5V$
+    - Input `ul` and `ll` of the window-comparator0 $U=5V$
+    - Input `ul` and `ll` of the window-comparator1 $U=0V$
+    - `conf_refselect_*` $U=-5V$
+2. Power on supply voltage
+3. Connect `<suffix>` _conf_refselect_ signal to $U=10V$
 4. Measure Voltages
-    1. Error Signal (test id suffix: `error`)
-        - Voltage at subtraction output $U_{e}$
-    2. Output Signal (test id suffix: `output`)
-        - Voltage at PID controller output $U_{out}$
+    - $U_{comp_mgtt}$
+    - $U_{comp_mstt}$
 5. Power off supply voltage
 6. Test passed if
-    1. Error Signal (test id suffix: `error`)
-        - $U_{e} \in 500mV (1 \pm 10\%)$
-    2. Output Signal (test id suffix: `output`)
-        - $U_{out} \in 10V (1 \pm 10\%)$
+    - `<suffix>` is `conf_refselect_v`
+        - $U_{comp_mgtt} < -3V$
+        - $U_{comp_mstt} > 8V$
+    - `<suffix>` is `conf_refselect_i`
+        - $U_{comp_mgtt} > 8V$
+        - $U_{comp_mstt} < -3V$
