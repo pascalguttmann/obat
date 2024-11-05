@@ -25,7 +25,18 @@ TODO: Add circuit description
 
 ### Component Selection
 
-TODO: Add component selection
+#### Comparator / Opamp
+
+[TLV9352](https://mou.sr/3BJsKZm)
+
+- 2 or 4 channels
+- SMD Mount, SOIC preferred
+- rail-to-rail preferred
+- $\text{SR} > 5V / \mu s$
+- $V_{off} \leq 1mV$
+- $I_{bias, in} \leq 1nA$ (To allow neglect of input current for high feedback resistance)
+- $I_{out} \geq 20mA$
+- Price sort on Mouser
 
 ## Simulation
 
