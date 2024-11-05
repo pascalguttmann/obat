@@ -87,8 +87,6 @@ TODO: link to simulation files
 
 ### Assembly
 
-TODO: Add special hints for Assembly or remove
-
 ## Commissioning and Testing
 
 1. Pass tests for `compare-logic`
