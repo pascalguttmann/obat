@@ -6,7 +6,7 @@
     - analog with $U \in [0V, 5V]$ with $R < 1 \Omega \forall I < 1mA$
         - `ul` upper limit
         - `ll` lower limit
-    - analog with $U \in [0V, 5V]$ with $R < 10 \Omega \forall I < 10mA$
+    - analog with $U \in [0V, 5V]$ with $R < 10 \Omega \forall I < 250\mu A$
         - `meas` measured quantity
 2. Voltage output
     - digital positive logic with $U \in [-5V, 10V]$, driving up to $I = 1 mA$
