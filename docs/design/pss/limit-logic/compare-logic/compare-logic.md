@@ -89,47 +89,8 @@ TODO: link to simulation files
 
 ## Commissioning and Testing
 
-1. Pass tests for `compare-logic`
-    - This will also test the functionality of the sub circuits
-    `window-comparator` to avoid unnecessary usage of connectors.
-
-### Upper Voltage Limit
-
-Test ID: `v1.0.0/pss/limit-logic/compare-logic/upper-voltage-limit/<suffix>`
-
-Available suffixes: `window-comparator0`, `window-comparator1`,
-`window-comparator2`, `window-comparator3`
-
-1. Connections
-    - Input `meas` of the window-comparator $U=5V$
-    - Input `ul` and `ll` of the window-comparator $U=0V$
-2. Power on supply voltage
-3. Measure Voltages
-    - $V_{ule}$ at net `ule` of the window-comparator
-    - $V_{!lle}$ at net `!lle` of the window-comparator
-4. Power off supply voltage
-5. Test passed if
-    - $V_{ule} > 8V$ at net `ule` of the window-comparator
-    - $V_{!lle} > 8V$ at net `!lle` of the window-comparator
-
-### Lower Voltage Limit
-
-Test ID: `v1.0.0/pss/limit-logic/compare-logic/lower-voltage-limit/<suffix>`
-
-Available suffixes: `window-comparator0`, `window-comparator1`,
-`window-comparator2`, `window-comparator3`
-
-1. Connections
-    - Input `meas` of the window-comparator $U=0V$
-    - Input `ul` and `ll` of the window-comparator $U=5V$
-2. Power on supply voltage
-3. Measure Voltages
-    - $V_{ule}$ at net `ule` of the window-comparator
-    - $V_{!lle}$ at net `!lle` of the window-comparator
-4. Power off supply voltage
-5. Test passed if
-    - $V_{ule} < -3V$ at net `ule` of the window-comparator
-    - $V_{!lle} < -3V$ at net `!lle` of the window-comparator
+1. Pass tests for all `window-comparators`
+2. Pass tests for `compare-logic`
 
 ### AND OR Select Gate
 
