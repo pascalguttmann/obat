@@ -3,14 +3,14 @@
 ## Interface & Requirements
 
 1. Voltage inputs
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 1mA$
+    - analog with $U \in [0V, 5V]$ with $R < 1 \Omega \forall I < 1mA$
         - `conf_vref`, signal of configured reference voltage
         - `conf_iref`, signal of configured reference current
         - `conf_lcl`, signal of configured lower current limit
         - `conf_ucl`, signal of configured upper current limit
         - `conf_lvl`, signal of configured lower voltage limit
         - `conf_uvl`, signal of configured upper voltage limit
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 20mA$
+    - analog with $U \in [0V, 5V]$ with $R < 10 \Omega \forall I < 20mA$
         - `meas_out_v`, signal of measured output voltage
         - `meas_out_i`, signal of measured output current
     - digital positive logic with $U \in [-5V, 10V]$, driving up to $I = 1 mA$
