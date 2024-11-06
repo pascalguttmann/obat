@@ -2,16 +2,17 @@
 
 ## Interface & Requirements
 
-TODO: Add Input specs
-TODO: Add Output specs
-
-1. Voltage Input `ref` & `meas`
-    - Voltage Input Swing $V_{in} \in [0V, +5V]$
-    - Input Current $| \pm I_{in} | \leq 2.3mA$
-2. Voltage output `out`
-    - In phase with $V_{ref}$
-    - $V_{out} \in [-5V, 10V]$
-    - Output current $I_{out \pm} \geq \pm 800 mA$
+1. Voltage inputs
+    - analog with $U \in [0V, 5V]$ with $R < 1 \Omega \forall I < 1mA$
+        - `ul` upper limit
+        - `ll` lower limit
+    - analog with $U \in [0V, 5V]$ with $R < 10 \Omega \forall I < 10mA$
+        - `meas` measured quantity
+2. Voltage output
+    - digital positive logic with $U \in [-5V, 10V]$, driving up to $I = 1 mA$
+    load
+        - `ule` upper limit exceeded
+        - `!lle` not lower limit exceeded
 3. Supply Voltages
     - $+10V$ @ $20mW$ ($2mA$)
     - $-5V$ @ $10mW$ ($2mA$)
