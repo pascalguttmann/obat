@@ -107,9 +107,7 @@ TODO: link to simulation files
 
 ### PCB Layout
 
-- Pull up/down for inputs, when stage is isolated, to run other tests.
-TODO: Add test pins
-TODO: Add (dic-)connector note, with testcase required for connecting
+- Test pins for `ul`, `ll`, `meas`, `ule`, `lle`
 
 ### Assembly
 
