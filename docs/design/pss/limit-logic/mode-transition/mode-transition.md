@@ -131,7 +131,9 @@ Reuse of already implemented ceramic X7R 100nF cap.
 
 ## Simulation
 
-TODO: link to simulation files
+Simulation example can be found in `./sim_mode-transition.asc`.
+Hirarchical simulation block is available as `./mode-transition.asc` and
+`./mode-transition.asy`.
 
 ## Hardware tests in Laboratory
 
