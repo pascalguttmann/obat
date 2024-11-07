@@ -1,6 +1,6 @@
 Version 4
 SymbolType BLOCK
-RECTANGLE Normal -224 -192 240 208
+RECTANGLE Normal -224 -192 240 256
 TEXT 0 92 VLeft 2 mode-transition
 WINDOW 0 8 -200 Bottom 2
 PIN -224 -16 LEFT 8
@@ -72,3 +72,6 @@ PINATTR SpiceOrder 22
 PIN 240 -144 RIGHT 8
 PINATTR PinName s_mode_vc
 PINATTR SpiceOrder 23
+PIN 240 240 RIGHT 8
+PINATTR PinName enable_ok
+PINATTR SpiceOrder 24
