@@ -43,6 +43,8 @@ nav:
           - design/pss/power-electronics/bias/bias.md
     - Safety Research:
       - design/safety/safety.md
+  - Research Mindmap:
+    - research/mindmap.md
 plugins:
   - git-revision-date-localized:
       fallback_to_build_date: false
