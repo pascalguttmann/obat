@@ -14,7 +14,9 @@ stateDiagram-v2
   state CV {
     [*] --> VoltageControl
     VoltageControl --> LowerCurrentLimitControl : EvLowerCurrentLimitExceeded
+    UpperCurrentLimitControl --> LowerCurrentLimitControl : EvLowerCurrentLimitExceeded
     VoltageControl --> UpperCurrentLimitControl : EvUpperCurrentLimitExceeded
+    LowerCurrentLimitControl --> UpperCurrentLimitControl : EvUpperCurrentLimitExceeded
     LowerCurrentLimitControl --> VoltageControl : EvMeasuredSmallerThanTarget
     UpperCurrentLimitControl --> VoltageControl : EvMeasuredGreaterThanTarget
   }
@@ -23,7 +25,9 @@ stateDiagram-v2
   state CC {
     [*] --> CurrentControl
     CurrentControl --> LowerVoltageLimitControl : EvLowerVoltageLimitExceeded
+    UpperVoltageLimitControl --> LowerVoltageLimitControl : EvLowerVoltageLimitExceeded
     CurrentControl --> UpperVoltageLimitControl : EvUpperVoltageLimitExceeded
+    LowerVoltageLimitControl --> UpperVoltageLimitControl : EvUpperVoltageLimitExceeded
     LowerVoltageLimitControl --> CurrentControl : EvMeasuredSmallerThanTarget
     UpperVoltageLimitControl --> CurrentControl : EvMeasuredGreaterThanTarget
   }
