@@ -20,6 +20,8 @@ nav:
       - Discussion:
         - design/meas/discuss/adc.md
         - design/meas/discuss/isoamp.md
+    - Programmable Controller:
+      - design/pc/pc.md
     - PowerSupplySink:
       - design/pss/pss.md
       - Controller:
