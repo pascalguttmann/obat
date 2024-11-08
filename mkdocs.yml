@@ -37,6 +37,8 @@ nav:
         - Mode Transition:
           - design/pss/limit-logic/mode-transition/mode-transition.md
           - design/pss/limit-logic/mode-transition/statemachine.md
+      - Multiplexer:
+        - design/pss/mux/mux.md
       - Power Electronics:
         - design/pss/power-electronics/power-electronics.md
         - Output Stage:
