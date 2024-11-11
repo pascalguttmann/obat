@@ -78,26 +78,38 @@ TODO: link to simulation files
 
 ## Commissioning and Testing
 
-TODO: add tests
+### On - resistance
 
-### Testheading
+Test ID: `v1.0.0/pss/mux/on-resistance/<suffix>`
 
-Test ID: `v1.0.0/pss/control-logic/control/sign-propagation/<suffix>`
+Available suffixes: `mode_vc`, `mode_lclc`, `mode_uclc`, `mode_cc`,
+`mode_lvlc`, `mode_uvlc`
 
 1. Connections
-    - Output `out` disconnected
-    - Input `meas` connected to $U_{meas} = 0V$
-    - Input `ref` connected to $U_{ref} = +500mV$
+    - Input for `<suffix>` connected to $U_{in} = 10V$
 2. Power on supply voltage
-3. Wait for steady state $t_{wait} \gtrapprox 1ms$
-4. Measure Voltages
-    1. Error Signal (test id suffix: `error`)
-        - Voltage at subtraction output $U_{e}$
-    2. Output Signal (test id suffix: `output`)
-        - Voltage at PID controller output $U_{out}$
-5. Power off supply voltage
-6. Test passed if
-    1. Error Signal (test id suffix: `error`)
-        - $U_{e} \in 500mV (1 \pm 10\%)$
-    2. Output Signal (test id suffix: `output`)
-        - $U_{out} \in 10V (1 \pm 10\%)$
+3. Measure Resistance
+    1. $R_{ref}$ between `conf_*` of mode and `mux_ref`
+    2. $R_{meas}$ between `meas_*` of mode and `mux_meas`
+4. Power off supply voltage
+5. Test passed if
+    1. $R_{ref} < 250 \Omega$
+    2. $R_{meas} < 250 \Omega$
+
+### Off - resistance
+
+Test ID: `v1.0.0/pss/mux/off-resistance/<suffix>`
+
+Available suffixes: `mode_vc`, `mode_lclc`, `mode_uclc`, `mode_cc`,
+`mode_lvlc`, `mode_uvlc`
+
+1. Connections
+    - Input for `<suffix>` connected to $U_{in} = -5V$
+2. Power on supply voltage
+3. Measure Resistance
+    1. $R_{ref}$ between `conf_*` of mode and `mux_ref`
+    2. $R_{meas}$ between `meas_*` of mode and `mux_meas`
+4. Power off supply voltage
+5. Test passed if
+    1. $R_{ref} > 1M \Omega$
+    2. $R_{meas} > 1M \Omega$
