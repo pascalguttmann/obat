@@ -62,7 +62,8 @@ Reuse of already implemented three input or gate from `mode-transition`
 
 ## Simulation
 
-TODO: link to simulation files
+Simulation example can be found in `./sim_mux.asc`.
+Hierarchical simulation block is available as `./mux.asc` and `./mux.asy`.
 
 ## Hardware tests in Laboratory
 
