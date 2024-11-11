@@ -2,8 +2,6 @@
 
 ## Interface & Requirements
 
-TODO: Add Power Consumption
-
 1. Voltage inputs
     - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 3mA$
         - `conf_vref`, signal of configured reference voltage
@@ -27,8 +25,8 @@ TODO: Add Power Consumption
         - `mux_ref`, multiplexer reference output
         - `mux_meas`, multiplexer measurement output
 3. Supply Voltages
-    - $+10V$ @ $1W$ ($100mA$)
-    - $-5V$ @ $0.5W$ ($50mA$)
+    - $+10V$ @ $500 \mu W$ ($50 \mu A$)
+    - $-5V$ @ $250 \mu W$ ($50 \mu A$)
 
 ## Circuit Selection and Design
 
