@@ -30,9 +30,22 @@
 
 ## Circuit Selection and Design
 
+The multiplexer is used to connect one of the given reference signals to the
+reference output and one of the measured signals to the measurement output. The
+selection of the required connections is performed by the digital `mode_*`
+signals. Because multiple modes use the same measured signal an OR-Gate is used
+to connect the measured signal for each of the modes in question.
+
 ### Circuit
 
-TODO: Add circuit description
+The switching is performed using a analog bidirectional switch, because the
+switching time is fast an reasonable low on resistance can be achieved.
+Additionally the switching does not reduce the lifetime of the device as it
+would be the case for a mechanical switch like a relay.
+Because multiple switches could be closed at the same instance of time, if a
+gapping switching behavior is desired, the selection of the modes should also
+be implemented in a gapping manner. This can be used to avoid connecting
+multiple low resistance sources at the multiplexers input.
 
 ### Component Selection
 
@@ -42,6 +55,10 @@ TODO: Add circuit description
 $R_{on} <= 250 \Omega$
 
 [CD4066BM96]: https://mou.sr/3MQOnJI
+
+#### OR-Gate
+
+Reuse of already implemented three input or gate from `mode-transition`
 
 ## Simulation
 
