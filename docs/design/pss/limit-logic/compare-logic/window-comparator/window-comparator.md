@@ -100,7 +100,7 @@ $$ R_7 = 1M\Omega \land R_5 = 130 \Omega $$
 ## Simulation
 
 Simulation example can be found in `./sim_window-comparator.asc`.
-Hirarchical simulation block is available as `./window-comparator.asc` and
+Hierarchical simulation block is available as `./window-comparator.asc` and
 `./window-comparator.asy`.
 
 ## Hardware tests in Laboratory
