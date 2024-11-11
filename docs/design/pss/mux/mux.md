@@ -2,7 +2,6 @@
 
 ## Interface & Requirements
 
-TODO: Add Output specs
 TODO: Add Power Consumption
 
 1. Voltage inputs
@@ -24,10 +23,9 @@ TODO: Add Power Consumption
         - `mode_lvlc`, lower voltage level control
         - `mode_uvlc`, upper voltage level control
 2. Voltage output
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 1mA$
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 20mA$
-    - digital positive logic with $U \in [-5V, 10V]$, driving up to $I = 1 mA$
-    load
+    - analog with $U \in [0V, 5V]$ with $R < 350 \Omega \forall I < 3mA$
+        - `mux_ref`, multiplexer reference output
+        - `mux_meas`, multiplexer measurement output
 3. Supply Voltages
     - $+10V$ @ $1W$ ($100mA$)
     - $-5V$ @ $0.5W$ ($50mA$)
