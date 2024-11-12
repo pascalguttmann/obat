@@ -133,6 +133,23 @@ Because the RC-lowpass is connected and discharged to ground via $R_{e2}$ and
 $R_Q$ of the difference junction after $t \rightarrow \infty$ the reference
 voltage will reach $0V$.
 
+#### Anti Integral Windup
+
+To avoid the integration to high limits during non-linear operation, when e.g.
+the output voltage can not rise to the required level to reduce the controller
+error to zero, diodes are connected antiparallel to the capacitance of the
+integrator.
+A voltage equal to the required offset introduced by the "rubber diode" of the
+`bias` stage in the _powerelectronics_ is expected to be present across the
+integration capacitance. Therefore multiple diodes can be connected in series
+to allow the desired integration voltage.
+$$ n_{diodes} = \left\lceil \frac{max(U_{offset})}{U_f(I_f)} \right\rceil $$
+For $max(U_{offset}) \approx 2V \land U_f(I_f \approx 4mA) \approx 600mV
+\implies n_{diodes} = 4$.
+When the offset is adjusted to a lower value sparse diodes may be bridged by a
+solder bridge. In the reverse direction a single diode is sufficient, because
+no windup is expected due to the bias offset.
+
 ### Component Selection
 
 #### Operational Amplifier
