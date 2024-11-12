@@ -150,6 +150,18 @@ voltage will reach $0V$.
 
 [OPA2810IDR]: https://mou.sr/3X9Oofi
 
+#### Anti Windup Diode
+
+[1N4148W-7-F] Selection (sort by Price) from search on Mouser
+
+- Small Signal Switching Diode
+- in Stock
+- SMD/SMT
+- Forward Current $I_f > 10mA$
+- Recovery Time $\leq 5ns$
+
+[1N4148W-7-F]: https://mou.sr/3Lhk651
+
 Simulation
 ----------
 
