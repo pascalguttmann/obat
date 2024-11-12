@@ -121,4 +121,4 @@ $$ Ti = 2.36e-7 \quad \wedge \quad Ki = 4.23e7 $$
 $$ Td = 5.88e-8 \quad \wedge \quad Kd = 5.88e-7 $$
 
 Which in turn yields the following transfer function:
-$$ G_{PID} = \frac{0.0005882 s^2 + 10 s + 4.235e+04}{s} $$
+$$ G_{PID} = \frac{5.882 \cdot 10^{-7} s^2 + 10 s + 4.235 \cdot 10^4}{s} $$
