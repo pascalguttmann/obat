@@ -74,7 +74,7 @@ Reuse of already implemented hex inverter from `mode-transition`
 ## Simulation
 
 Simulation example can be found in `./sim_compare-logic.asc`.
-Hirarchical simulation block is available as `./compare-logic.asc` and
+Hierarchical simulation block is available as `./compare-logic.asc` and
 `./compare-logic.asy`.
 
 ## Hardware tests in Laboratory

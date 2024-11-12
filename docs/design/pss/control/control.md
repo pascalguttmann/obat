@@ -74,6 +74,65 @@ $$ R_{in,PID} \approx R_1 = 240 \Omega \implies I_{in,PID,max} \approx
 Therefore we can select
 $$ R_{e1} = R_{e2} = R_K = R_Q = 2.2 k \Omega $$
 
+#### High Impedance Input Drive
+
+To drive the inputs in a defined state when no preceding stage is connected
+either during testing or when the `limit-logic` is performing a mode transition
+and the multiplexer is switching in a gapping manner high impedance input drive
+is used. The high impedance makes it possible to override the signal by a low
+impedance source from the multiplexer. The reference `ref` of the controller is
+connected to some voltage which it should follow, and the measurement `meas` of
+the controller is connected to the output of the controller. The feedback path
+from the controller output to the `meas` input can be neglected during the
+normal operation of the controller, because the voltage on both terminals of
+the resistor is driven by low impedance sources. Similarly, the voltage high
+impedance voltage source driving the reference `ref` can be neglected during
+normal operation, because the reference voltage will be driven by a low
+impedance voltage source, which delivers the required current to force the
+voltage across resistance of the high impedance voltage source.This assumes the
+current through the resistance is small enough to be driven by both sources.
+
+The high impedance of the input drive is connected in series to the resistors
+$R_{e1}$ and $R_{e2}$ during gapping operation. Therefore the gain of the
+difference junction is reduced. To obtain equal reduction of gain the impedance
+of the feedback resistance should be equal to that of the voltage source
+connected to the reference.
+
+A value of $$ R = 1 M \Omega $$ can be chosen for the feedback resistor and the
+impedance of the voltage source, which is able to
+
+- neglect the currents required to drive the normal voltages during normal
+operation
+- neglect the input currents required by the operational amplifier during
+gapping operation
+- enable reuse of existing pull up/down resistors and increase the quantity of
+a single component value
+
+To choose an appropriate "default" voltage for the controller reference during
+gapping a constant voltage can be used. This will yield easy implementation,
+but introduces unnecessary voltage swing of the controller, when the default
+voltage is not inside of the interval defined by the voltage before and after
+the switching. To reduce the amount of unnecessary voltage swing a RC-lowpass
+filter is used to obtain the reference voltage during normal operation and keep
+it almost constant during the gapping switching. This requires that the
+switching time is much smaller than the time constant of the filter, which is
+in turn smaller than the time spent in normal operation.
+$$ t_{transition} \approx 330ns << \tau_{RC} << t_{normal} \gtrapprox 1s $$
+
+!!! note "Normal Operation Time"
+    The time used for $t_{normal}$ is based on the expected behavior of
+    connected loads to the powersupplysink. It is therefore tied to the
+    expectations an user might have on the device (requirements) and not based
+    on simulation or of physical meaning.
+
+The time constant be chosen to be approximately $10ms$ which allows to reuse
+the $10nF$ capacitances of the controller with _C0G_ dielectric.
+$$ \tau_{RC} \approx 10ms \implies C = 10nF $$
+
+Because the RC-lowpass is connected and discharged to ground via $R_{e2}$ and
+$R_Q$ of the difference junction after $t \rightarrow \infty$ the reference
+voltage will reach $0V$.
+
 ### Component Selection
 
 #### Operational Amplifier

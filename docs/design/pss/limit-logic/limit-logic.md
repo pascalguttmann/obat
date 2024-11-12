@@ -130,7 +130,7 @@ Reuse of already implemented ceramic X7R 100nF cap.
 ## Simulation
 
 Simulation example can be found in `./sim_limit-logic.asc`.
-Hirarchical simulation block is available as `./limit-logic.asc` and
+Hierarchical simulation block is available as `./limit-logic.asc` and
 `./limit-logic.asy`.
 
 ## Hardware tests in Laboratory
