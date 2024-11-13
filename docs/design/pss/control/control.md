@@ -303,7 +303,7 @@ Hierarchical simulation block is available as `./control.asc` and
 
 ### Sign Propagation
 
-Test ID: `v1.0.0/pss/control/sign-propagation/<suffix>`
+Test ID: `v1.0.1/pss/control/sign-propagation/<suffix>`
 
 1. Connections
     - Output `out` disconnected
@@ -319,7 +319,7 @@ Test ID: `v1.0.0/pss/control/sign-propagation/<suffix>`
 5. Power off supply voltage
 6. Test passed if
     1. Error Signal (test id suffix: `error`)
-        - $U_{e} \in 500mV (1 \pm 10\%)$
+        - $U_{e} \in -500mV (1 \pm 10\%)$
     2. Output Signal (test id suffix: `output`)
         - $U_{out} \in 10V (1 \pm 10\%)$
 
