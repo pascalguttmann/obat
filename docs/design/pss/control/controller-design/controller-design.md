@@ -2,7 +2,7 @@ Controller Design
 =================
 
 !!! info "TL;DR"
-    PID Controller with: $K_P = 10$, $T_i = 236 ns$, $T_d = 58.8 ns$
+    PID Controller with: $K_P = 10$, $T_i = 375 ns$, $T_d = 93.6 ns$
 
 This page describes the derivation of the mathematical description of the
 controller, which is used to control the power electronics. For the
@@ -113,12 +113,20 @@ for a gain $K_P = 10$.
     $f' = f / 1000$ to avoid limitations of python control, when using `scipy`
     instead of `slycot` for computations.
 
+    The shown pole zero map and root locus plot show the entire system without
+    the "high frequency" pole of the plant, because it causes numerical
+    instability. The pole is additionally negligible for current control,
+    because it is ten times faster, than the current sensor. For voltage control
+    the stability is not jeopardized, when the pole is of higher frequency, than
+    estimated in the control simulation. (Source: qualitative observation in
+    pole zero map for load cases "R", "RL", "RC")
+
 ### Obtained PID Parameters
 
 The parameters of the pid controller are:
 $$ Kp = 10 $$
-$$ Ti = 2.36e-7 \quad \wedge \quad Ki = 4.23e7 $$  
-$$ Td = 5.88e-8 \quad \wedge \quad Kd = 5.88e-7 $$
+$$ Ti = 3.75e-7 \quad \wedge \quad Ki = 2.66e7 $$  
+$$ Td = 9.36e-8 \quad \wedge \quad Kd = 9.36e-7 $$
 
 Which in turn yields the following transfer function:
-$$ G_{PID} = \frac{5.882 \cdot 10^{-7} s^2 + 10 s + 4.235 \cdot 10^4}{s} $$
+$$ G_{PID} = \frac{9.36 \cdot 10^{-7} s^2 + 10 s + 2.66 \cdot 10^7}{s} $$
