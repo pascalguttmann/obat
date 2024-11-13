@@ -1,8 +1,6 @@
-Control
-=======
+# Control
 
-Interface & Requirements
-------------------------
+## Interface & Requirements
 
 - Voltage Input `ref` & `meas`
     - Voltage Input Swing $V_{in} \in [0V, +5V]$
@@ -15,8 +13,7 @@ Interface & Requirements
     - $+10V$ @ $1W$ ($100mA$)
     - $-5V$ @ $0.5W$ ($50mA$)
 
-Circuit Selection and Design
-----------------------------
+## Circuit Selection and Design
 
 ### Circuit
 
@@ -273,16 +270,13 @@ no windup is expected due to the bias offset.
 
 [1N4148W-7-F]: https://mou.sr/3Lhk651
 
-Simulation
-----------
+## Simulation
 
 TODO: link to simulation files
 
-Hardware tests in Laboratory
-----------------------------
+## Hardware tests in Laboratory
 
-Layout and Assembly Considerations
-----------------------------------
+## Layout and Assembly Considerations
 
 ### PCB Layout
 
@@ -299,8 +293,7 @@ Layout and Assembly Considerations
 
 ### Assembly
 
-Commissioning and Testing
--------------------------
+## Commissioning and Testing
 
 1. Pass all tests for `control`.
 2. If all tests for _powerelectronics_ are passed connect _control_ and
