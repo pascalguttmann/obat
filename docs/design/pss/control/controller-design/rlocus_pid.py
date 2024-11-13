@@ -17,15 +17,26 @@ plantOmega = 2 * np.pi * 10e6
 plantOmegaScaled = plantOmega / scale
 plant = firstOrderLowPass(plantOmegaScaled)
 
-zero = [-plantOmegaScaled * 0.9, -plantOmegaScaled * 0.8]
+
+currentSensorOmega = 2 * np.pi * 1e6
+currentSensorOmegaScaled = currentSensorOmega / scale
+currentSensorPole = firstOrderLowPass(currentSensorOmegaScaled)
+
+zero = [-currentSensorOmegaScaled * 0.9, -currentSensorOmegaScaled * 0.8]
 neutralGain = -1 / np.sum(zero)
 pid = ct.zpk([zero[0], zero[1]], [0], 10 * neutralGain)
 
-outerCircuitOmega = 0.5 * plantOmegaScaled
+outerCircuitOmega = 0.5 * currentSensorOmegaScaled
 rUtoI = ct.ss([], [], [], [1])
 lUtoI = firstOrderLowPass(outerCircuitOmega)
 cUtoI = firstOrderHighPass(outerCircuitOmega)
-admittance = [rUtoI, lUtoI, cUtoI]
+
+
+admittance = [
+    rUtoI * currentSensorPole,
+    lUtoI * currentSensorPole,
+    cUtoI * currentSensorPole,
+]
 
 openLoop = [ct.series(pid, ct.ss2tf(plant), ct.ss2tf(Y)) for Y in admittance]
 sysOpenLoop = [ct.ss(ct.tf2ss(tf)) for tf in openLoop]
