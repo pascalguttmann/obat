@@ -11,12 +11,16 @@ def firstOrderHighPass(omega: float) -> ct.StateSpace:
     return ct.StateSpace([-omega], [omega], [-1], [1])
 
 
-# scale numerical values (pzmap will calculate wrong poles and zeros)
+# scale numerical values (pzmap will calculate wrong poles and zeros due to
+# numeric computation problems)
 scale = 1e3
-plantOmega = 2 * np.pi * 10e6
-plantOmegaScaled = plantOmega / scale
-plant = firstOrderLowPass(plantOmegaScaled)
 
+# plantOmega = 2 * np.pi * 10e6
+# plantOmegaScaled = plantOmega / scale
+# plant = firstOrderLowPass(plantOmegaScaled)
+plant = ct.StateSpace(
+    [], [], [], [1]
+)  # use plant without high frequency pole for numeric stability
 
 currentSensorOmega = 2 * np.pi * 1e6
 currentSensorOmegaScaled = currentSensorOmega / scale
