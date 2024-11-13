@@ -272,7 +272,9 @@ no windup is expected due to the bias offset.
 
 ## Simulation
 
-TODO: link to simulation files
+Simulation example can be found in `./sim_control_*.asc`.
+Hierarchical simulation block is available as `./control.asc` and
+`./control.asy`.
 
 ## Hardware tests in Laboratory
 
