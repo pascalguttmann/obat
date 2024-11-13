@@ -1,8 +1,6 @@
-Control
-=======
+# Control
 
-Interface & Requirements
-------------------------
+## Interface & Requirements
 
 - Voltage Input `ref` & `meas`
     - Voltage Input Swing $V_{in} \in [0V, +5V]$
@@ -15,14 +13,13 @@ Interface & Requirements
     - $+10V$ @ $1W$ ($100mA$)
     - $-5V$ @ $0.5W$ ($50mA$)
 
-Circuit Selection and Design
-----------------------------
+## Circuit Selection and Design
 
 ### Circuit
 
 As the circuit a classical control loop is selected with a reference that should
 be tracked by minimizing the error.
-The PID controller is implemented using a standard circuit from literature [^TB]:
+The PID controller is implemented using the depicted circuit:
 ![PID Controller Circuit](./pid_circuit.png)
 
 The difference junction is implemented using a standard subtraction circuit
@@ -30,16 +27,87 @@ from literature [^TB]: ![Subtraction Circuit](./subtraction_circuit.png)
 
 [^TB]: Europa-Lehrmittel, Tabellenbuch Elektrotechnik, 2018
 
-#### PID Controller Component Values
+#### PID Controller
 
-The parasitic capacitance together with the resistance of $R_{K1} + R_{K2}$ acts
+##### Circuit Derivation
+
+Considering an ideal operational amplifier in inverting configuration connected
+with two impedances. The positive input terminal of the opamp connected to a
+shared reference voltage (ground).
+
+1. $Z_1$ from input voltage $U_e$ to the negative input terminal of the opamp
+2. $Z_2$ feedback from the output to the negative input terminal of the opamp
+
+the transfer function is then
+
+$$ G = - \frac{Z_2}{Z_1} $$
+
+When the circuit desired should be constructed from RC components only to form
+the impedances $Z$ for cost reasons, the following two fundamental networks can
+be combined. Considering the electrical network at the negative input of the
+opamp, while neglecting the current flow into the opamp input the current flow
+$I_{Z_1} = I_{Z_2}$. Assuming stability of the circuit the voltage at the
+negative input terminal will be $V_{-} = V_{+} = 0V$. Therefore the impedance
+$Z_1 = \frac{1}{Y_1}$ can be viewed as a linear system which takes as an input
+a voltage and transforms it into a current. The impedance $Z_2$ can be viewed
+as a linear system, which transforms this current in a voltage, which will be
+present at the output. The transfer function can therefore be thought of as
+
+$$ G = - Z_2 Y_1 $$
+
+For each of the two fundamental networks two transformations can be associated.
+Those transformations can be combined to select the desired network at the
+desired position to obtain a desired transfer function.
+
+- RC - Series network  
+    - $Z_{series} = \frac{U}{I} = R + \frac{1}{sC} = \frac{1+sRC}{sC}$  
+      Pole at origin, zero at $-RC$
+    - $Y_{series} = \frac{I}{U} = \frac{sC}{1+sRC}$  
+      Zero at origin, pole at $-RC$
+- RC - Parallel network  
+    - $Z_{parallel}=\frac{U}{I} = \frac{1}{\frac{1}{R}+sC} = \frac{R}{1+sRC}$  
+      Pole at $-RC$
+    - $Y_{parallel}=\frac{I}{U} = \frac{1}{R} + sC = \frac{1+sRC}{R}$  
+      Zero at $-RC$
+
+The inverting opamp configuration allows to combine the transfer functions of
+one admittance and one impedance. A PID controller has a single pole at the
+origin and two zeros in the left open plane. Therefore we can select
+
+$$ Z_{series} = Z_2 \quad \land \quad Y_{parallel} = \frac{1}{Z_1} $$
+
+The transfer function of the pid controller circuit is therefore:
+
+$$ G
+  = - \frac{Z_2}{Z_1}
+  = - \left( R_2 + \frac{1}{sC_2} \right) \left( \frac{1}{R_1} + sC_1 \right)
+  = - \frac{R_2}{R_1} - \frac{C_1}{C_2} - s R_2 C_1 - \frac{1}{sR_1C_2}
+$$
+
+Substituting $K_P = \frac{R_2}{R_1} + \frac{C_1}{C_2}$ the standard form of a
+pid controller can be deduced:
+
+$$ G
+  = - K_P \left\{ \frac{1}{s R_1 C_2 K_P} + 1 + s \frac{R_2 C_1}{K_P} \right\}
+$$
+
+By comparing the factors it can be seen that:
+
+$$ K_P = \frac{R_2}{R_1} + \frac{C_1}{C_2} \quad \land \quad
+  T_I = K_P \cdot R_1 C_2 \quad \land \quad
+  T_D = \frac{R_2 C_1}{K_P}
+$$
+
+##### Component Values
+
+The parasitic capacitance together with the resistance of $R_{2}$ acts
 as a low pass filter, which adds a pole to closed loop system. In order to
 neglect the influence of the pole it's frequency should be higher than the
 operating frequency. For the [OPA2810IDR] the parasitic capacitance
 $C_{parasitic} \approx C_{in} + C_{diff} = 3 pF$. For a operating frequency $f
 = 10 MHz$ a higher frequency of $f' = 2 \cdot f = 20 MHz$ is chosen and the
 feddback resistance is limited by:
-$$ R_{K1} + R_{K2} < \frac{1}{2 \pi f' C_{parasitic}} = 2.65 k \Omega $$
+$$ R_{2} < \frac{1}{2 \pi f' C_{parasitic}} = 2.65 k \Omega $$
 
 A lower limit of the feedback resistance is imposed by the maximum output
 current of the [OPA2810IDR]. The maximum continous output current is $40mA$,
@@ -47,20 +115,43 @@ but to limit the thermal stress
 of the device the output current is desired to not exceed $30mA$. The current
 available for the feedback path is the remaining current, which is not used for
 the following bias stage.
-$$ R_{K1} + R_{K2} > \frac{U_{signal,max}}{I_{out,max} - I_{bias}} \approx
+$$ R_{2} > \frac{U_{signal,max}}{I_{out,max} - I_{bias}} \approx
 \frac{10V}{30mA - 20mA} = 1k \Omega $$
 
-Thus the range considering the integration time $T_i$ is
-$$ C_{K1} = \frac{T_i}{R_{K1}+R_{K2}} \in [89 pF, 236 pF] $$
+The values of $K_P$, $T_I$ and $T_D$ are given from the [controller design]. By
+selecting a value for $R_2$ the value of
 
-Choosing from E6 $C_{K1} = 100pF \implies R_{K1}+R_{K2} = 2.36 k \Omega$.
+$$ C_1 = \frac{T_D K_P}{R_2} $$
 
-To reuse same component values we can choose
-$$ C_{K2} = 100pF = C_{K1} \implies
-R_{K1} || R_{K2} = \frac{T_d}{C_K2} = 588 \Omega \approx 0.5 (R_{K1}+R_{K2}) $$
+is implicitly also selected. Equivalently $R_1$ and $C_2$ are connected by
+$T_I$ and $K_P$:
 
-Thus we can select $$ R_{K1} = R_{K2} = 1.2 k \Omega $$
-$$ \implies R_1 = \frac{R_{K1}+R_{K2}}{K_P} = 240 \Omega $$.
+$$ R_1 = \frac{T_I}{K_P C_2} $$
+
+with the knowledge that $T_I$ is defined as
+
+$$ T_I = K_P R_1 C_2 = R_1 C_1 + R_2 C_2 $$
+
+one can derive the quadratic formula for the two solutions that can be used to
+select $C_2$, by substituting $R_1 = \frac{T_I}{K_P C_2}$.
+
+$$ R_2 K_P C_2^2 - K_P T_I C_2 + C_1 T_I = 0 $$
+
+$$ C_2 = T_I \left( \frac{1 \pm \sqrt{1-4\frac{T_D}{T_I}}}{2R_2} \right) $$
+
+For the given values of the controller the two solutions for $C_2$ are
+approximately equal and they are inside the tolerance of capacitances.
+
+When choosing $R_2 = 2.2 k \Omega$ we can find the component values:
+
+$$
+  R_1 = 240 \Omega \land
+  R_2 = 1.2 k \Omega \land
+  C_1 = 470pF \land
+  C_2 = 100pF
+$$
+
+[controller design]: ./controller-design/controller-design.md
 
 #### Difference Junction
 
@@ -133,6 +224,23 @@ Because the RC-lowpass is connected and discharged to ground via $R_{e2}$ and
 $R_Q$ of the difference junction after $t \rightarrow \infty$ the reference
 voltage will reach $0V$.
 
+#### Anti Integral Windup
+
+To avoid the integration to high limits during non-linear operation, when e.g.
+the output voltage can not rise to the required level to reduce the controller
+error to zero, diodes are connected antiparallel to the capacitance of the
+integrator.
+A voltage equal to the required offset introduced by the "rubber diode" of the
+`bias` stage in the _powerelectronics_ is expected to be present across the
+integration capacitance. Therefore multiple diodes can be connected in series
+to allow the desired integration voltage.
+$$ n_{diodes} = \left\lceil \frac{max(U_{offset})}{U_f(I_f)} \right\rceil $$
+For $max(U_{offset}) \approx 2V \land U_f(I_f \approx 4mA) \approx 600mV
+\implies n_{diodes} = 4$.
+When the offset is adjusted to a lower value sparse diodes may be bridged by a
+solder bridge. In the reverse direction a single diode is sufficient, because
+no windup is expected due to the bias offset.
+
 ### Component Selection
 
 #### Operational Amplifier
@@ -150,16 +258,40 @@ voltage will reach $0V$.
 
 [OPA2810IDR]: https://mou.sr/3X9Oofi
 
-Simulation
-----------
+#### Capacitances
 
-TODO: link to simulation files
+Selection from family of capacitors of:
 
-Hardware tests in Laboratory
-----------------------------
+- Ceramic MLCC surface mount
+- Manufacturer: Kemet
+- Dielectric: C0G
+- Size: 0805 (imperial)
+- Tolerance: 5%
+- Voltage: 50V
 
-Layout and Assembly Considerations
-----------------------------------
+Example [470pF](https://mou.sr/4enlBM0) capacitor.
+
+#### Anti Windup Diode
+
+[1N4148W-7-F] Selection (sort by Price) from search on Mouser
+
+- Small Signal Switching Diode
+- in Stock
+- SMD/SMT
+- Forward Current $I_f > 10mA$
+- Recovery Time $\leq 5ns$
+
+[1N4148W-7-F]: https://mou.sr/3Lhk651
+
+## Simulation
+
+Simulation example can be found in `./sim_control_*.asc`.
+Hierarchical simulation block is available as `./control.asc` and
+`./control.asy`.
+
+## Hardware tests in Laboratory
+
+## Layout and Assembly Considerations
 
 ### PCB Layout
 
@@ -176,8 +308,7 @@ Layout and Assembly Considerations
 
 ### Assembly
 
-Commissioning and Testing
--------------------------
+## Commissioning and Testing
 
 1. Pass all tests for `control`.
 2. If all tests for _powerelectronics_ are passed connect _control_ and
@@ -185,7 +316,7 @@ Commissioning and Testing
 
 ### Sign Propagation
 
-Test ID: `v1.0.0/pss/control/sign-propagation/<suffix>`
+Test ID: `v1.0.1/pss/control/sign-propagation/<suffix>`
 
 1. Connections
     - Output `out` disconnected
@@ -201,7 +332,7 @@ Test ID: `v1.0.0/pss/control/sign-propagation/<suffix>`
 5. Power off supply voltage
 6. Test passed if
     1. Error Signal (test id suffix: `error`)
-        - $U_{e} \in 500mV (1 \pm 10\%)$
+        - $U_{e} \in -500mV (1 \pm 10\%)$
     2. Output Signal (test id suffix: `output`)
         - $U_{out} \in 10V (1 \pm 10\%)$
 
