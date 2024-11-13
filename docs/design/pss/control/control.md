@@ -258,6 +258,19 @@ no windup is expected due to the bias offset.
 
 [OPA2810IDR]: https://mou.sr/3X9Oofi
 
+#### Capacitances
+
+Selection from family of capacitors of:
+
+- Ceramic MLCC surface mount
+- Manufacturer: Kemet
+- Dielectric: C0G
+- Size: 0805 (imperial)
+- Tolerance: 5%
+- Voltage: 50V
+
+Example [470pF](https://mou.sr/4enlBM0) capacitor.
+
 #### Anti Windup Diode
 
 [1N4148W-7-F] Selection (sort by Price) from search on Mouser
