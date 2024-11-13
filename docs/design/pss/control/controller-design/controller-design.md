@@ -1,5 +1,4 @@
-Controller Design
-=================
+# Controller Design
 
 !!! info "TL;DR"
     PID Controller with: $K_P = 10$, $T_i = 375 ns$, $T_d = 93.6 ns$
@@ -8,8 +7,7 @@ This page describes the derivation of the mathematical description of the
 controller, which is used to control the power electronics. For the
 circuit implementation please see `../controller.md`.
 
-Power Electronics Model
------------------------
+## Power Electronics Model
 
 The plant model corresponds to the power electronics including the outstage and
 the bias stage. The simulation `../../sim_bias+outstage_ac.asc` is used to
@@ -29,8 +27,7 @@ least square is implemented in `./tfest.py`. The convergence of the estimation
 is very slow and results could only be achieved with initial conditions, which
 are close to the global extreme.
 
-PID Controller
---------------
+## PID Controller
 
 The controller design employed should be using output feedback to make
 implementation in circuit easier. In the case of the first order model the
