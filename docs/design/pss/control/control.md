@@ -4,14 +4,14 @@
 
 - Voltage Input `ref` & `meas`
     - Voltage Input Swing $V_{in} \in [0V, +5V]$
-    - Input Current $| \pm I_{in} | \leq 2.3mA$
+    - Input Current $| \pm I_{in} | \leq 2.5mA$
 - Voltage output `out`
     - In phase with $V_{ref}$
     - $V_{out} \in [-5V, 10V]$
-    - Output current $I_{out \pm} \geq \pm 800 mA$
+    - Output current $I_{out \pm} \geq \pm 20 mA$
 - Supply Voltages
-    - $+10V$ @ $1W$ ($100mA$)
-    - $-5V$ @ $0.5W$ ($50mA$)
+    - $+10V$ @ $300mW$ ($30mA$)
+    - $-5V$ @ $150mW$ ($30mA$)
 
 ## Circuit Selection and Design
 
