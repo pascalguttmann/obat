@@ -11,21 +11,36 @@ def firstOrderHighPass(omega: float) -> ct.StateSpace:
     return ct.StateSpace([-omega], [omega], [-1], [1])
 
 
-plantOmega = 10e6
-# scale numerical values (pzmap will calculate wrong poles and zeros)
+# scale numerical values (pzmap will calculate wrong poles and zeros due to
+# numeric computation problems)
 scale = 1e3
-plantOmegaScaled = plantOmega / scale
-plant = firstOrderLowPass(plantOmegaScaled)
 
-zero = [-plantOmegaScaled * 0.9, -plantOmegaScaled * 0.8]
+# plantOmega = 2 * np.pi * 10e6
+# plantOmegaScaled = plantOmega / scale
+# plant = firstOrderLowPass(plantOmegaScaled)
+plant = ct.StateSpace(
+    [], [], [], [1]
+)  # use plant without high frequency pole for numeric stability
+
+currentSensorOmega = 2 * np.pi * 1e6
+currentSensorOmegaScaled = currentSensorOmega / scale
+currentSensorPole = firstOrderLowPass(currentSensorOmegaScaled)
+
+zero = [-currentSensorOmegaScaled * 0.9, -currentSensorOmegaScaled * 0.8]
 neutralGain = -1 / np.sum(zero)
 pid = ct.zpk([zero[0], zero[1]], [0], 10 * neutralGain)
 
-outerCircuitOmega = 0.5 * plantOmegaScaled
+outerCircuitOmega = 0.5 * currentSensorOmegaScaled
 rUtoI = ct.ss([], [], [], [1])
 lUtoI = firstOrderLowPass(outerCircuitOmega)
 cUtoI = firstOrderHighPass(outerCircuitOmega)
-admittance = [rUtoI, lUtoI, cUtoI]
+
+
+admittance = [
+    rUtoI * currentSensorPole,
+    lUtoI * currentSensorPole,
+    cUtoI * currentSensorPole,
+]
 
 openLoop = [ct.series(pid, ct.ss2tf(plant), ct.ss2tf(Y)) for Y in admittance]
 sysOpenLoop = [ct.ss(ct.tf2ss(tf)) for tf in openLoop]

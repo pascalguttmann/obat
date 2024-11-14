@@ -142,11 +142,11 @@ $$ C_2 = T_I \left( \frac{1 \pm \sqrt{1-4\frac{T_D}{T_I}}}{2R_2} \right) $$
 For the given values of the controller the two solutions for $C_2$ are
 approximately equal and they are inside the tolerance of capacitances.
 
-When choosing $R_2 = 2.2 k \Omega$ we can find the component values:
+When choosing $R_2 = 2 k \Omega$ we can find the component values:
 
 $$
-  R_1 = 240 \Omega \land
-  R_2 = 1.2 k \Omega \land
+  R_1 = 390 \Omega \land
+  R_2 = 2 k \Omega \land
   C_1 = 470pF \land
   C_2 = 100pF
 $$
@@ -156,14 +156,14 @@ $$
 #### Difference Junction
 
 To minimize the number of different components at unity gain for each channel
-of the subtraction circuit we choose R_{e1} = R_{e2} = R_K = R_Q$.
+of the subtraction circuit we choose $R_{e1} = R_{e2} = R_K = R_Q$.
 The same restrictions apply for the feedback resistance as in the PID
 controller, because the input resistance of the PID with
-$$ R_{in,PID} \approx R_1 = 240 \Omega \implies I_{in,PID,max} \approx
-\frac{u_{e,max}}{R_{in,PID}} = 20 mA $$.
+$$ R_{in,PID} \approx R_1 = 390 \Omega \implies I_{in,PID,max} \approx
+\frac{u_{e,max}}{R_{in,PID}} = 13 mA $$
 
 Therefore we can select
-$$ R_{e1} = R_{e2} = R_K = R_Q = 2.2 k \Omega $$
+$$ R_{e1} = R_{e2} = R_K = R_Q = 2 k \Omega $$
 
 #### High Impedance Input Drive
 
