@@ -22,9 +22,26 @@ TODO: Add Power Consumption
 
 ## Circuit Selection and Design
 
+The `measurement` sub circuit measures the output voltage and output current of
+the powersupplysink and outputs an analog voltage signal from $0V$ to $5V$ for
+the measured quantities.
+The output voltage is scaled and the output current is transduced to a voltage.
+
 ### Circuit
 
-TODO: Add circuit description
+#### Output Voltage Measurement
+
+The output voltage is designed to be in the interval $[0V, 5V]$, therefore the
+output voltage can be directly used by a galvanic connection, as a scaling
+factor of $k = 1$ is required.
+
+#### Output Current measurement
+
+The output current is measured by using a magnetic current sensor in an
+integrated circuit. A shunt resistor can in theory also be used, but poses a
+higher resistance in the path of flow of the current. Therefore to reduce the
+power dissipation in the measurement sub circuit a magnetic current sensor is
+preferred.
 
 ### Component Selection
 
