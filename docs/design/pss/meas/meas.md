@@ -164,7 +164,9 @@ the amount of different components.
 
 ## Simulation
 
-TODO: link to simulation files
+Simulation example can be found in `./sim_meas.asc`.
+Hierarchical simulation block is available as `./meas.asc` and
+`./meas.asy`.
 
 ## Hardware tests in Laboratory
 
