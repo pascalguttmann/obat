@@ -2,20 +2,18 @@
 
 ## Interface & Requirements
 
-TODO: Add Input specs
-TODO: Add Output specs
 TODO: Add Power Consumption
 
 1. Voltage inputs
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 1mA$
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 20mA$
-    - digital positive logic with $U \in [-5V, 10V]$, driving up to $I = 1 mA$
-    load
+    - analog with $U \in [0V, 5V]$ with $R < 1 \Omega \forall |I| < 20A$
+        - `in`, current input
 2. Voltage output
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 1mA$
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 20mA$
-    - digital positive logic with $U \in [-5V, 10V]$, driving up to $I = 1 mA$
-    load
+    - analog with $U \in [0V, 5V]$ with $R < 1 \Omega \forall |I| < 20A$
+        - `out`, current output
+    - analog with $U \in [0V, 5V]$ with $R < 10 \Omega \forall I < 20mA$
+        - `meas_out_v`, measured output voltage
+        - `meas_out_i`, measured output current (flow: `in` $\arrow$ `out`)
+          sensitivity: $100 \frac{mV}{A}$
 3. Supply Voltages
     - $+10V$ @ $1W$ ($100mA$)
     - $-5V$ @ $0.5W$ ($50mA$)
