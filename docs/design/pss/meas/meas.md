@@ -45,7 +45,43 @@ preferred.
 
 ### Component Selection
 
-TODO: Add component selection
+#### Current Sensor
+
+Current Sensors from _Allegro MicroSystems_ and _Texas Instruments_ are
+considered, because of high market share and therefore projected long-term
+availability of the component or successor components.
+
+- Current Measurement Range: $I = \pm 20A \lor \pm 25A$
+- Bandwidth $f_{BW} \geq 1 MHz$
+- Supply Voltage $V \geq 5V$
+- Preferred IC Package: SOIC
+- For Allegro MicroSystems: Feature: _Zero Current Reference Voltage Output_
+
+For Allegro MicroSystems_: [ACS730] Isolated Currrent Sensor can be used.
+
+Alternatively in SOICW-16 package `CT430` and `CT432` may be used.
+Texas Instruments offers only `TMCS1133A4A-Q1` with a $1MHz$ bandwidth, but the
+sensor is not available at Mouser (15. Nov. 2024).
+
+[ACS730]: https://mou.sr/3YOkQ98
+
+#### Operational Amplifier
+
+The opamp of the window comparator is reused to lower the amount of different
+components in the design. It features a gain bandwidth product of $3.5MHz$,
+which is enough for the signal with $1MHz$ bandwidth.
+The slew rate is higher, than the slew rate of the current sensor.
+
+[TLV9352](https://mou.sr/3BJsKZm)
+
+- 2 or 4 channels
+- SMD Mount, SOIC preferred
+- rail-to-rail preferred
+- $\text{SR} > 5V / \mu s$
+- $V_{off} \leq 1mV$
+- $I_{bias, in} \leq 1nA$ (To allow neglect of input current for high feedback resistance)
+- $I_{out} \geq 20mA$
+- Price sort on Mouser
 
 ## Simulation
 
