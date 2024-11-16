@@ -2,8 +2,6 @@
 
 ## Interface & Requirements
 
-TODO: Add Power Consumption
-
 1. Voltage inputs
     - analog with $U \in [0V, 5V]$ with $R < 1 \Omega \forall |I| < 20A$
         - `in`, current input
@@ -15,8 +13,8 @@ TODO: Add Power Consumption
         - `meas_out_i`, measured output current (flow: `in` $\arrow$ `out`)
           sensitivity: $100 \frac{mV}{A}$
 3. Supply Voltages
-    - $+10V$ @ $1W$ ($100mA$)
-    - $-5V$ @ $0.5W$ ($50mA$)
+    - $+10V$ @ $300mW$ ($30mA$)
+    - $-5V$ @ $150mW$ ($30mA$)
 
 ## Circuit Selection and Design
 
