@@ -37,6 +37,8 @@ nav:
         - Mode Transition:
           - design/pss/limit-logic/mode-transition/mode-transition.md
           - design/pss/limit-logic/mode-transition/statemachine.md
+      - Measurement:
+        - design/pss/meas/meas.md
       - Multiplexer:
         - design/pss/mux/mux.md
       - Power Electronics:
