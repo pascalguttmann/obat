@@ -179,26 +179,24 @@ thermal resistance.
 
 ## Commissioning and Testing
 
-TODO: add tests
+1. With no current flow through the current sensor, measure `meas_out_i`.
+2. Measure the voltage of the 5V supply
+3. Adjust trimmer until `meas_out_i` $U \in [U_{5V} \cdot 0.5 \pm 50mV]$
+4. Pass tests for `measurement`
 
-### Testheading
+### Current Sensor
 
-Test ID: `v1.0.0/pss/control-logic/control/sign-propagation/<suffix>`
+Test ID: `v1.0.0/pss/meas/current-sensor/<suffix>`
+
+Available suffix: `-3A`, `-1A`, `0A`, `1A`, `3A`
 
 1. Connections
-    - Output `out` disconnected
-    - Input `meas` connected to $U_{meas} = 0V$
-    - Input `ref` connected to $U_{ref} = +500mV$
+    - `in` and `out` connected to external power supply $I_{limit} = suffix$
 2. Power on supply voltage
-3. Wait for steady state $t_{wait} \gtrapprox 1ms$
-4. Measure Voltages
-    1. Error Signal (test id suffix: `error`)
-        - Voltage at subtraction output $U_{e}$
-    2. Output Signal (test id suffix: `output`)
-        - Voltage at PID controller output $U_{out}$
-5. Power off supply voltage
-6. Test passed if
-    1. Error Signal (test id suffix: `error`)
-        - $U_{e} \in 500mV (1 \pm 10\%)$
-    2. Output Signal (test id suffix: `output`)
-        - $U_{out} \in 10V (1 \pm 10\%)$
+3. Measure Voltages
+    - $U_{vzcr}$
+    - $U_{meas\_out\_i}$
+4. Power off supply voltage
+5. Test passed if
+    - $U_{vzcr} \in [2.5V \pm 0.1V]$
+    - $U_{meas\_out\_i} \in [2.5V + I_{limit} \cdot 100 \frac{mV}{A} \pm 0.1V$
