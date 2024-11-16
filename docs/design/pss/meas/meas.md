@@ -172,9 +172,10 @@ TODO: link to simulation files
 
 ### PCB Layout
 
-- Pull up/down for inputs, when stage is isolated, to run other tests.
-TODO: Add test pins
-TODO: Add (dic-)connector note, with testcase required for connecting
+- Add copper planes for input and output pins of current sensor to lower
+thermal resistance.
+- Add testpin for `viout`, `vzcr`, `voff`, subtraction output, `meas_out_v`,
+`meas_out_i`
 
 ### Assembly
 
