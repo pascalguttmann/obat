@@ -177,10 +177,6 @@ thermal resistance.
 - Add testpin for `viout`, `vzcr`, `voff`, subtraction output, `meas_out_v`,
 `meas_out_i`
 
-### Assembly
-
-TODO: Add special hints for Assembly or remove
-
 ## Commissioning and Testing
 
 TODO: add tests
