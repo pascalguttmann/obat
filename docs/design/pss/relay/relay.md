@@ -82,7 +82,7 @@ Reuse of already implemented smd transistor of the `bias` stage.
 
 ## Simulation
 
-TODO: link to simulation files
+A simulation with a model of the relay coil is given in `./relay.asc`.
 
 ## Hardware tests in Laboratory
 
