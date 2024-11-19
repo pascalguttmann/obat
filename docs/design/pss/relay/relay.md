@@ -92,32 +92,30 @@ TODO: link to simulation files
 
 - Add test pins for: `relay_connect`, `in`, `out`
 
-### Assembly
-
-TODO: Add special hints for Assembly or remove
-
 ## Commissioning and Testing
 
-TODO: add tests
+### Switch On
 
-### Testheading
-
-Test ID: `v1.0.0/pss/control-logic/control/sign-propagation/<suffix>`
+Test ID: `v1.0.0/pss/relay/switch/on`
 
 1. Connections
-    - Output `out` disconnected
-    - Input `meas` connected to $U_{meas} = 0V$
-    - Input `ref` connected to $U_{ref} = +500mV$
+    - Input `relay_connect` connected to $U = 10V$
 2. Power on supply voltage
-3. Wait for steady state $t_{wait} \gtrapprox 1ms$
-4. Measure Voltages
-    1. Error Signal (test id suffix: `error`)
-        - Voltage at subtraction output $U_{e}$
-    2. Output Signal (test id suffix: `output`)
-        - Voltage at PID controller output $U_{out}$
-5. Power off supply voltage
-6. Test passed if
-    1. Error Signal (test id suffix: `error`)
-        - $U_{e} \in 500mV (1 \pm 10\%)$
-    2. Output Signal (test id suffix: `output`)
-        - $U_{out} \in 10V (1 \pm 10\%)$
+3. Measure resistance
+    - $R$ from `in` to `out`
+4. Power off supply voltage
+5. Test passed if
+    - $R < 100 m \Omega$
+
+### Switch Off
+
+Test ID: `v1.0.0/pss/relay/switch/off`
+
+1. Connections
+    - Input `relay_connect` connected to $U = -5V$
+2. Power on supply voltage
+3. Measure resistance
+    - $R$ from `in` to `out`
+4. Power off supply voltage
+5. Test passed if
+    - $R > 1 M \Omega$
