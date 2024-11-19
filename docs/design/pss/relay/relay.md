@@ -65,7 +65,25 @@ the voltage induced by the coil, when the transistor is quickly turned off.
 
 ### Component Selection
 
-TODO: Add component selection
+#### Relay
+
+[ALFG2PF12] Electromechanical relay search on Mouser:
+
+- Non-latching, DC coil, normally open SPST
+- Current $>25A$
+- Coil Voltage $12V$
+- Sort by Price
+
+[ALFG2PF12]: https://mou.sr/3UXyMwc
+
+#### Flyback Diode
+
+Reuse of already implemented diode from the `controller` _anti integral windup_
+feature.
+
+#### Transistor
+
+Reuse of already implemented smd transistor of the `bias` stage.
 
 ## Simulation
 
