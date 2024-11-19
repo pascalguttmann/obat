@@ -22,9 +22,46 @@ TODO: Add Power Consumption
 
 ## Circuit Selection and Design
 
+The `relay` sub circuit is used to (dis-)connect the output of the power supply
+sink. A electromechanical relay is used to connect the output, because it when
+the relay is closed the resistance in the path is small $< 100 m \Omega$.
+
 ### Circuit
 
-TODO: Add circuit description
+A non latching (monostable) relay is used in order to avoid inconsistent
+states, when the output is configured to be connected or disconnected and the
+relay might be in a different (bi-)stable state from other configurations.
+The relay is powered by using a NPN transistor to allow the required current
+flow through the relay coil.
+The relay coil requires approximately $I_{coil} \approx 120mA$ of current,
+which will be the collector current of the transistor. With a given current
+gain of $\beta > 200$, the minimum required base current is approximately $I_b
+\frac{I_{coil}}{\beta} \approx 600 \mu A$. To certainly achieve the desired
+current flow, the base current can be further increased to saturate the
+transistor. A factor of $n \approx 2$ is selected by experience. The base
+resistor voltage drop can be calculated from the maximal input voltage
+$U_{relay\_connect} = 10V$ of the digital signal, the minimal input voltage
+$U_{min} = -5V$ of the input signal and the base emitter voltage $V_{BE,on}
+\approx 1V$ from the transistor datasheet. From the voltage drop the resistance
+required to allow a certain base current to flow can easily be deduced by
+
+$$ R_B = \frac{U_{relay\_connect} - V_{BE,on} - U_{min}}{I_b \cdot n} \approx
+10k \Omega $$
+
+The collector resistor is used to reduce the voltage drop at the relay coil
+from $\approx 15V$ to $\approx 12V$ as required per the datasheet. When
+neglecting the collector emitter saturation voltage during the excited state of
+the coil a voltage drop of $U_{RC} = 15V - 12V = 3V$ shall be obtained at the
+collector current $I_{coil}$. Therefore the resistance can be calculated as
+follows
+
+$$ R_C \approx \frac{U_{RC}}{I_{coil}} \approx 22 \Omega $$
+
+A pull down resistor of $R = 1 M \Omega$ is used to keep the transistor in cut
+off in case no input signal is connected to the digital input.
+
+A flyback diode is connected antiparallel to the relay coil in order to limit
+the voltage induced by the coil, when the transistor is quickly turned off.
 
 ### Component Selection
 
