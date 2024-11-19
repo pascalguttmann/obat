@@ -24,6 +24,8 @@ nav:
       - design/pc/pc.md
     - PowerSupplySink:
       - design/pss/pss.md
+      - design/pss/smu.md
+      - design/pss/amp.md
       - Controller:
         - design/pss/control/control.md
         - Controller Design:
