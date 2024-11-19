@@ -11,31 +11,40 @@ title: PSS Design
 ---
 flowchart TB
 pc[PC]
-main[230 V @ 50Hz]
+24V_power[24 V DC]
 bat[Battery]
 
 subgraph pss[PSS]
     direction TB
-    esd_in[ESD Protection]
-    subgraph dac[DAC]
-        dac-u[DAC U]
-        dac-i[DAC I]
-        dac-p[DAC P]
-        dac-m[Mode Selector?]
-    end
-    limiter[Limiting Logic]
-    amp[Linear non-switchting amplifier]
-    relay[On-Off relay]
-    esd_out[ESD Protection]
 
-    esd_main[ESD Protection Main]
-    emc_main[EMC Filter Main]
-    rect[Transformer and Rectifier]
+    power[10V, 5V, -5V]
+    conf[Configuration]
+    checker[Conf Checker and Power On Reset]
+    direction LR
+    mux_ref[Multiplexer Reference]
+    control[PID-Controller]
+    subgraph pe[Power Electronic]
+        bias[Bias Stage]
+        outstage[Linear Power Amplifier]
+    end
+    meas[Output Measurement]
+    mux_meas[Multiplexer Measurement]
+    relay[Relay]
+
+    subgraph limit[Limit-Logic]
+        comp[Compare-Logic]
+        mode-tran[Mode Transition]
+    end
 end
 
-main --> esd_main --> emc_main --> rect --> amp & dac & limiter
-pc --> esd_in --> dac --> limiter
-limiter --> amp <--> relay <--> esd_out <--> bat
+24V_power --> power
+pc --> conf --> checker
+conf --> mux_ref --> control --> bias --> outstage --> meas --> relay --> bat
+meas --> mux_meas --> control
+conf --> comp --> mode-tran
+limit --> mux_meas
+limit --> mux_ref
+
 ```
 
 ## Design Choices Reasoning
@@ -89,12 +98,12 @@ operational amplifiers".
 In any case the following disadvantages are determined:
 
 - The complementary emitter follower acts as a controlled voltage source and the
-    current gain is not constant. No feedback of the drawn or supplied current
-    can be measured by the SMU, when a voltage is forced.
+  current gain is not constant. No feedback of the drawn or supplied current
+  can be measured by the SMU, when a voltage is forced.
 - The complementary emitter follower is voltage controlled and cannot be
-    controlled by an input current in the default case.
+  controlled by an input current in the default case.
 - Additional current limiting circuitry is typically **not** dependent on the
-    input current as desired.
+  input current as desired.
 
 #### Complementary Current Mirrors
 
@@ -106,10 +115,10 @@ in Chapter 4.1 [^TSHST] and Chapter 12.4 [^TSHST].
 The main disadvantages are:
 
 - The voltage "gain" of current mirrors is generally not constant. Therefore no
-    feedback of the voltage at the DUT can be measured by the SMU, when a
-    current is forced.
+  feedback of the voltage at the DUT can be measured by the SMU, when a
+  current is forced.
 - A current mirror is controlled by an input current and cannot be controlled by
-    an input voltage in the default case.
+  an input voltage in the default case.
 
 #### Current - Current Operational Amplifier (CC-Opamp)
 
@@ -121,13 +130,12 @@ CC-Opamps face the same problems as described for the [complementary current
 mirrors](#complementary-current-mirrors). As they cannot easily be used with a
 voltage input.
 
-
 [^1]: As state of Jan 16, 2024
 
 [^TSEC]: 1991, Tietze, U. and Schenk, Ch.,
-    "Electronic Circuits Design and Applications", Vol. 9,
-    Springer-Verlag Berlin Heidelberg
+  "Electronic Circuits Design and Applications", Vol. 9,
+  Springer-Verlag Berlin Heidelberg
 
 [^TSHST]: 2002, Tietze, U. and Schenk, Ch.,
-    "Halbleiter-Schaltungstechnik", 12. Auflage,
-    Springer-Verlag Berlin Heidelberg
+  "Halbleiter-Schaltungstechnik", 12. Auflage,
+  Springer-Verlag Berlin Heidelberg
