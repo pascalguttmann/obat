@@ -7,28 +7,28 @@ result in frequent switching between modes at limiting operation.
 ```mermaid
 stateDiagram-v2
   [*] --> CV
-  CV --> CC : EvSetCCMode
-  CC --> CV : EvSetCVMode
+  CV --> CC : SetCCMode
+  CC --> CV : SetCVMode
 
-  CV: Constant Voltage
+  CV: Voltage Reference
   state CV {
     [*] --> VoltageControl
-    VoltageControl --> LowerCurrentLimitControl : EvLowerCurrentLimitExceeded
-    UpperCurrentLimitControl --> LowerCurrentLimitControl : EvLowerCurrentLimitExceeded
-    VoltageControl --> UpperCurrentLimitControl : EvUpperCurrentLimitExceeded
-    LowerCurrentLimitControl --> UpperCurrentLimitControl : EvUpperCurrentLimitExceeded
-    LowerCurrentLimitControl --> VoltageControl : EvMeasuredSmallerThanTarget
-    UpperCurrentLimitControl --> VoltageControl : EvMeasuredGreaterThanTarget
+    VoltageControl --> LowerCurrentLimitControl : LowerCurrentLimitSubceeded
+    UpperCurrentLimitControl --> LowerCurrentLimitControl : LowerCurrentLimitSubceeded
+    VoltageControl --> UpperCurrentLimitControl : UpperCurrentLimitExceeded
+    LowerCurrentLimitControl --> UpperCurrentLimitControl : UpperCurrentLimitExceeded
+    LowerCurrentLimitControl --> VoltageControl : MeasuredSmallerThanTarget
+    UpperCurrentLimitControl --> VoltageControl : MeasuredGreaterThanTarget
   }
 
-  CC: Constant Current
+  CC: Current Reference
   state CC {
     [*] --> CurrentControl
-    CurrentControl --> LowerVoltageLimitControl : EvLowerVoltageLimitExceeded
-    UpperVoltageLimitControl --> LowerVoltageLimitControl : EvLowerVoltageLimitExceeded
-    CurrentControl --> UpperVoltageLimitControl : EvUpperVoltageLimitExceeded
-    LowerVoltageLimitControl --> UpperVoltageLimitControl : EvUpperVoltageLimitExceeded
-    LowerVoltageLimitControl --> CurrentControl : EvMeasuredSmallerThanTarget
-    UpperVoltageLimitControl --> CurrentControl : EvMeasuredGreaterThanTarget
+    CurrentControl --> LowerVoltageLimitControl : LowerVoltageLimitSubceeded
+    UpperVoltageLimitControl --> LowerVoltageLimitControl : LowerVoltageLimitSubceeded
+    CurrentControl --> UpperVoltageLimitControl : UpperVoltageLimitExceeded
+    LowerVoltageLimitControl --> UpperVoltageLimitControl : UpperVoltageLimitExceeded
+    LowerVoltageLimitControl --> CurrentControl : MeasuredSmallerThanTarget
+    UpperVoltageLimitControl --> CurrentControl : MeasuredGreaterThanTarget
   }
 ```
