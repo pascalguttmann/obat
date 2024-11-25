@@ -1,7 +1,7 @@
 # Controller Design
 
 !!! info "TL;DR"
-    PID Controller with: $K_P = 10$, $T_i = 375 ns$, $T_d = 93.6 ns$
+    PID Controller with: $K_P = 10$, $T_i = 318 \mu s$, $T_d = 80 \mu s$
 
 This page describes the derivation of the mathematical description of the
 controller, which is used to control the power electronics. For the
@@ -122,8 +122,5 @@ for a gain $K_P = 10$.
 
 The parameters of the pid controller are:
 $$ Kp = 10 $$
-$$ Ti = 3.75e-7 \quad \wedge \quad Ki = 2.66e7 $$  
-$$ Td = 9.36e-8 \quad \wedge \quad Kd = 9.36e-7 $$
-
-Which in turn yields the following transfer function:
-$$ G_{PID} = \frac{9.36 \cdot 10^{-7} s^2 + 10 s + 2.66 \cdot 10^7}{s} $$
+$$ Ti = 318e-6 \quad \wedge \quad Ki = 3.14e4 $$  
+$$ Td = 80e-6 \quad \wedge \quad Kd = 8e-4 $$

@@ -58,6 +58,13 @@ the desired offset the following resistances can be obtained:
 $$ \frac{R_1 + R_2}{R_2} = \frac{7.5V}{2.5mV} \implies R_1 \approx 100k \Omega
 \land R_2 \approx 33 \Omega $$
 
+!!! note "Prototype Adjustment"
+    Feedback from Professor Spiegelberg suggested to use a trimmer in order to
+    easily change the window size without desoldering of resistors during
+    prototype stage of the power supply sink. To achieve the adjustment a $R =
+    1k \Omega$ trimmer is connected in series with a $R = 22 \Omega$
+    resistance$.
+
 The tolerance of the offset addition due to tolerances and the offset voltage
 of the comparator should not allow for the window size to shrink below
 $U_{window} < 0V$. For a tolerance of $1\%$ of the resistances the tolerance of
@@ -75,12 +82,19 @@ $U_{off,in} < 2.5mV - 50 \mu V$, but can be chosen smaller to increase the
 accuracy of the comparator.
 
 To add a hysteresis of $U_{hist} \big|_{U_{ll} = U_{ul} = 2.5V} \approx 1mV$.
-Positive feedback is used to create a Schmitt-trigger. This can be achieved by
-selecting $R_5 + R_7 \lessapprox 1M \Omega$ to allow for a large enough
+Positive feedback can be used to create a Schmitt-trigger. This can be achieved
+by selecting $R_5 + R_7 \lessapprox 1M \Omega$ to allow for a large enough
 quiescent current to neglect the comparator input current. And selecting a
 large $R_5$ to neglect parasitic resistances. With $\frac{R_7}{R_5} =
 \frac{7.5V}{1mV}$ the following resistances can be selected:
 $$ R_7 = 1M\Omega \land R_5 = 130 \Omega $$
+
+!!! note "Schmitt-Trigger"
+    Feedback from Professor Spiegelberg suggested to omit the usage of a
+    Schmitt-Trigger due to the high resistance ratio and small hysteresis. The
+    resistors are not populated on the PCB or connected via $0\Omega$ jumpers
+    to retain the possibility of later adaptation without requiring a change of
+    the PCB.
 
 ### Component Selection
 
@@ -97,6 +111,16 @@ $$ R_7 = 1M\Omega \land R_5 = 130 \Omega $$
 - $I_{out} \geq 20mA$
 - Price sort on Mouser
 
+#### Trimmer
+
+[PVG5H102C03B00](https://mou.sr/4957wSw)
+
+- $R = 1k \Omega$
+- Linear Taper
+- SMD Mounting
+- $n_{turns} > 10$
+- Sort by Price on Mouser
+
 ## Simulation
 
 Simulation example can be found in `./sim_window-comparator.asc`.
@@ -110,8 +134,12 @@ Hierarchical simulation block is available as `./window-comparator.asc` and
 ### PCB Layout
 
 - Test pins for `ul`, `ll`, `meas`, `ule`, `lle`
+- Test pins for Pins 1 and 3 of trimmers for resistance measurement
 
 ### Assembly
+
+- Turn trimmer counter clockwise until resistance is zero for initial usage.
+  (Max 11 turns required)
 
 ## Commissioning and Testing
 

@@ -207,7 +207,7 @@ Mouser Search: $R_{th} < 15 K/W$ (natural convection), In Stock, Sort by Price
 
 - 1x [DNLS350], NPN SOT223
 - 1x [RC1210FR-07680RL], 680 1210
-- 1x [3362P-1-102RLF], 1k Trimmer
+- 1x [PVG5H102C03B00], 1k Trimmer
 
 [TIP41C]: <https://mou.sr/3QXTwSz>
 [TIP42C]: <https://mou.sr/3K8d0js>
@@ -215,7 +215,7 @@ Mouser Search: $R_{th} < 15 K/W$ (natural convection), In Stock, Sort by Price
 [DPLS350]: <https://mou.sr/3KbWnUoY>
 [575002B00000G]: <https://mou.sr/3V7xv6a>
 [A15037106]: <https://mou.sr/4ak0pEy>
-[3362P-1-102RLF]: <https://mou.sr/3UN76tb>
+[PVG5H102C03B00]: <https://mou.sr/4957wSw>
 [RC1210FR-078K2L]: <https://mou.sr/3wyuvql>
 [RC1210FR-071KL]: <https://mou.sr/3wyuvql>
 [RC1210FR-071K2L]: <https://mou.sr/4bOvLUT>
