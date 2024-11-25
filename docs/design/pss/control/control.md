@@ -19,17 +19,21 @@
 
 As the circuit a classical control loop is selected with a reference that should
 be tracked by minimizing the error.
-The PID controller is implemented using the depicted circuit:
-![PID Controller Circuit](./pid_circuit.png)
+The PID controller is implemented by using a parallel form by implementing the
+individual components _proportional_, _integral_ and _derivative_ term as
+individual opamp circuits. A summing opamp is used to add the contributions of
+the individual terms to produce the overall controller output signal `out`.
+The controller terms and summing junction can also be implemented using a
+single opamp, but the individual realization of the terms is chosen in order to
+easily vary the controller parameters during the prototyping stage as per
+recommendation of Prof. Spiegelberg.
 
 The difference junction is implemented using a standard subtraction circuit
 from literature [^TB]: ![Subtraction Circuit](./subtraction_circuit.png)
 
 [^TB]: Europa-Lehrmittel, Tabellenbuch Elektrotechnik, 2018
 
-#### PID Controller
-
-##### Circuit Derivation
+#### Circuit Derivation
 
 Considering an ideal operational amplifier in inverting configuration connected
 with two impedances. The positive input terminal of the opamp connected to a
@@ -71,99 +75,135 @@ desired position to obtain a desired transfer function.
       Zero at $-RC$
 
 The inverting opamp configuration allows to combine the transfer functions of
-one admittance and one impedance. A PID controller has a single pole at the
-origin and two zeros in the left open plane. Therefore we can select
+one admittance and one impedance.
 
-$$ Z_{series} = Z_2 \quad \land \quad Y_{parallel} = \frac{1}{Z_1} $$
-
-The transfer function of the pid controller circuit is therefore:
-
-$$ G
-  = - \frac{Z_2}{Z_1}
-  = - \left( R_2 + \frac{1}{sC_2} \right) \left( \frac{1}{R_1} + sC_1 \right)
-  = - \frac{R_2}{R_1} - \frac{C_1}{C_2} - s R_2 C_1 - \frac{1}{sR_1C_2}
-$$
-
-Substituting $K_P = \frac{R_2}{R_1} + \frac{C_1}{C_2}$ the standard form of a
-pid controller can be deduced:
-
-$$ G
-  = - K_P \left\{ \frac{1}{s R_1 C_2 K_P} + 1 + s \frac{R_2 C_1}{K_P} \right\}
-$$
-
-By comparing the factors it can be seen that:
-
-$$ K_P = \frac{R_2}{R_1} + \frac{C_1}{C_2} \quad \land \quad
-  T_I = K_P \cdot R_1 C_2 \quad \land \quad
-  T_D = \frac{R_2 C_1}{K_P}
-$$
-
-##### Component Values
+#### Feedback Impedance Constraints
 
 The parasitic capacitance together with the resistance of $R_{2}$ acts
-as a low pass filter, which adds a pole to closed loop system. In order to
+as a low pass filter, which adds a pole to the closed loop system. In order to
 neglect the influence of the pole it's frequency should be higher than the
-operating frequency. For the [OPA2810IDR] the parasitic capacitance
-$C_{parasitic} \approx C_{in} + C_{diff} = 3 pF$. For a operating frequency $f
-= 10 MHz$ a higher frequency of $f' = 2 \cdot f = 20 MHz$ is chosen and the
-feddback resistance is limited by:
-$$ R_{2} < \frac{1}{2 \pi f' C_{parasitic}} = 2.65 k \Omega $$
+operating frequency. For the [OPA2810IDR] the parasitic capacitance is
+$C_{parasitic} \approx C_{in} + C_{diff} = 5 pF$. For an operating frequency $f
+= 1 MHz$ the feddback resistance is limited by:
+$$ R_{2} \lessapprox \frac{1}{2 \pi f C_{parasitic}} = 32 k \Omega $$
 
 A lower limit of the feedback resistance is imposed by the maximum output
-current of the [OPA2810IDR]. The maximum continous output current is $40mA$,
-but to limit the thermal stress
-of the device the output current is desired to not exceed $30mA$. The current
-available for the feedback path is the remaining current, which is not used for
-the following bias stage.
+current of the [OPA2810IDR]. The maximum continuous output current is $40mA$,
+but to limit the thermal stress of the device the output current is desired to
+not exceed $30mA$. The current available for the feedback path is the remaining
+current, which is not used for the following bias stage.
 $$ R_{2} > \frac{U_{signal,max}}{I_{out,max} - I_{bias}} \approx
 \frac{10V}{30mA - 20mA} = 1k \Omega $$
-
-The values of $K_P$, $T_I$ and $T_D$ are given from the [controller design]. By
-selecting a value for $R_2$ the value of
-
-$$ C_1 = \frac{T_D K_P}{R_2} $$
-
-is implicitly also selected. Equivalently $R_1$ and $C_2$ are connected by
-$T_I$ and $K_P$:
-
-$$ R_1 = \frac{T_I}{K_P C_2} $$
-
-with the knowledge that $T_I$ is defined as
-
-$$ T_I = K_P R_1 C_2 = R_1 C_1 + R_2 C_2 $$
-
-one can derive the quadratic formula for the two solutions that can be used to
-select $C_2$, by substituting $R_1 = \frac{T_I}{K_P C_2}$.
-
-$$ R_2 K_P C_2^2 - K_P T_I C_2 + C_1 T_I = 0 $$
-
-$$ C_2 = T_I \left( \frac{1 \pm \sqrt{1-4\frac{T_D}{T_I}}}{2R_2} \right) $$
-
-For the given values of the controller the two solutions for $C_2$ are
-approximately equal and they are inside the tolerance of capacitances.
-
-When choosing $R_2 = 2 k \Omega$ we can find the component values:
-
-$$
-  R_1 = 390 \Omega \land
-  R_2 = 2 k \Omega \land
-  C_1 = 470pF \land
-  C_2 = 100pF
-$$
-
-[controller design]: ./controller-design/controller-design.md
 
 #### Difference Junction
 
 To minimize the number of different components at unity gain for each channel
-of the subtraction circuit we choose $R_{e1} = R_{e2} = R_K = R_Q$.
-The same restrictions apply for the feedback resistance as in the PID
-controller, because the input resistance of the PID with
-$$ R_{in,PID} \approx R_1 = 390 \Omega \implies I_{in,PID,max} \approx
-\frac{u_{e,max}}{R_{in,PID}} = 13 mA $$
+of the subtraction circuit we choose $R_{e1} = R_{e2} = R_K = R_Q$ and select a
+suitable value meeting the feedback impedance constraints.
 
-Therefore we can select
-$$ R_{e1} = R_{e2} = R_K = R_Q = 2 k \Omega $$
+$$ R_{e1} = R_{e2} = R_K = R_Q = 10 k \Omega $$
+
+#### Proportional Term
+
+The proportional term is constant unity gain and amplified with a factor of
+$K_P$ at the summing junction.
+
+An inverting opamp configuration is selected with $Z_2$ being a RC-parallel
+network and $Z_1$ being a resistance.
+
+The gain of $-1$ can be achieved by selecting
+$$ R_1 = R_2 = 10 k \Omega $$
+
+To facilitate a bandwidth limitation the capacitor $C_2$ is used to introduce a
+pole at $f = 10 M Hz$.
+$$ C_2 = \frac{1}{2 \pi f R_2} \approx 2 nF $$.
+
+#### Derivative Term
+
+The bandwidth limited derivative term is realized using the inverting opamp
+configuration with $Z_1$ as a RC-series network and $Z_2$ as a RC-parallel
+network. Selection of $C_1$ with the defined derivative time $T_D$ yields the
+value for $R_2$:
+$$ C_1 = 10nF \land T_D = 80 \mu s \implies R_2 = \frac{T_D}{C_2} \approx 8.2 k
+\Omega $$
+
+The two poles to limit the bandwidth of the derivative term are placed by the
+values of $R_2 \land C_2$ and $R_1 \land C_1$. To get approximately a cutoff
+frequency of the bandwidth limitation of $f=10MHz$ the following values can be
+selected:
+$$ C_2 = \frac{1}{2 \pi f R_2} \approx 2nF $$
+$$ R_1 = \frac{1}{2 \pi f C_1} \approx 1.6k \Omega $$
+
+##### Variation of $T_D$
+
+To achieve variation of $T_D$ the resistance $R_2$ can be changed by turning the
+trimmer in series with $R_2$. For a value of $R_{trim,d} = 10k \Omega$ the
+derivative time $T_D$ can be tuned in the range:
+$$ R_{trim,d} = 10k \Omega \implies T_D \in [80\mu s, 184 \mu s] $$
+
+The bandwidth limitation of the pole defined by $R_2 \land C_2$ the cutoff
+frequency is reduced as the derivative time is increased. Which will limit the
+overall additional gain of the derivative term to a maximum of:
+$$ A_{d,max} = \frac{R_2}{R_1} \approx 11 \approx 21 dB $$
+
+#### Integral Term
+
+The integral term is realized using an inverting opamp cinfiguration with $Z_1$
+as a resistance and $Z_2$ being a capacitance.
+When selecting $C = 10nF$ the resistance can be derived for a given integration
+time $T_I$.
+$$ C = 10 nF \land T_I = 318 \mu s \implies R = \frac{T_I}{C} \approx 33 k
+\Omega $$
+
+##### Variation of $T_I$
+
+The variation of $T_I$ is achieved by using a trimmer in series with the
+resistance to increase the resistance if desired.
+$$ R_{trim,i} = 100k \Omega \implies T_I \in [318 \mu s, 1.33 ms] $$
+
+##### Anti Integral Windup
+
+To avoid the integration to high limits during non-linear operation, when e.g.
+the output voltage can not rise to the required level to reduce the controller
+error to zero, diodes are connected antiparallel to the capacitance of the
+integrator.
+A voltage equal to the required offset introduced by the "rubber diode" of the
+`bias` stage in the _powerelectronics_ is expected to be present across the
+integration capacitance. Therefore multiple diodes can be connected in series
+to allow the desired integration voltage.
+$$ n_{diodes} = \left\lceil \frac{max(U_{offset})}{U_f(I_f)} \right\rceil $$
+For $max(U_{offset}) \approx 2V \land U_f(I_f \approx 4mA) \approx 600mV
+\implies n_{diodes} = 4$.
+When the offset is adjusted to a lower value sparse diodes may be bridged by a
+solder bridge. In the reverse direction a single diode is sufficient, because
+no windup is expected due to the bias offset.
+
+#### Summing Junction
+
+The summing junction is implemented using a non inverting amplifier
+configuration. By selecting the same input resistances for each input signal
+the voltage is simply the average of the input signals. And can be amplified by
+the non inverting amplifier. The non inverting summing configuration is
+preferred, because of its superior input impedance compared to the inverting
+configuration at higher gain.
+The input resistances can be selected to be equal:
+$$ R_{in,p} = R_{in,i} = R_{in,d} = 10 k \Omega $$
+
+Because the averaging of the signals reduces the influence of each individual
+signal by a factor of $n$ for $n$ individual signals the gain $g$ shall be
+selected to compensate the effect.
+$$ K_P = \frac{g}{n} \implies g = K_P \cdot n = 30 $$
+
+With the gain $g = \frac{R_2}{R_1} + 1$ and a feedback resistance of $R_2 = 10
+k \Omega$, the resistance $R_1$ can be found:
+$$ R_1 = \frac{R_2}{g - 1} \approx 330 \Omega $$
+
+##### Variation of $K_P$
+
+To vary the gain and therefore $K_P$ a trimmer in series with the feedback
+resistance $R_2$ of $R_{trim,p} = 10k \Omega$ is used. Which allows to vary the
+proportional term in the range of:
+$$ R_2' = 4.7k \Omega \land R_{trim,p} = 10k \Omega \implies K_P \in [5, 15] $$
 
 #### High Impedance Input Drive
 
@@ -223,23 +263,6 @@ $$ \tau_{RC} \approx 10ms \implies C = 10nF $$
 Because the RC-lowpass is connected and discharged to ground via $R_{e2}$ and
 $R_Q$ of the difference junction after $t \rightarrow \infty$ the reference
 voltage will reach $0V$.
-
-#### Anti Integral Windup
-
-To avoid the integration to high limits during non-linear operation, when e.g.
-the output voltage can not rise to the required level to reduce the controller
-error to zero, diodes are connected antiparallel to the capacitance of the
-integrator.
-A voltage equal to the required offset introduced by the "rubber diode" of the
-`bias` stage in the _powerelectronics_ is expected to be present across the
-integration capacitance. Therefore multiple diodes can be connected in series
-to allow the desired integration voltage.
-$$ n_{diodes} = \left\lceil \frac{max(U_{offset})}{U_f(I_f)} \right\rceil $$
-For $max(U_{offset}) \approx 2V \land U_f(I_f \approx 4mA) \approx 600mV
-\implies n_{diodes} = 4$.
-When the offset is adjusted to a lower value sparse diodes may be bridged by a
-solder bridge. In the reverse direction a single diode is sufficient, because
-no windup is expected due to the bias offset.
 
 ### Component Selection
 
@@ -302,7 +325,8 @@ Hierarchical simulation block is available as `./control.asc` and
   jumper) Label with testname hint
 - Add optional connectors from `out` to `meas` for unity plant test.
 - Pull up/down for inputs, when stage is isolated, to run other tests.
-- Add test pins for: `out`, `ref`, `meas`, `error`
+- Add test pins for: trimmers, `out`, `ref`, `meas`, `error`, `derivative`,
+  `integral` and `proportional`
 
 [OPA2810 Datasheet]: <../../../datasheet/opa2810.pdf>
 
@@ -310,8 +334,12 @@ Hierarchical simulation block is available as `./control.asc` and
 
 ## Commissioning and Testing
 
-1. Pass all tests for `control`.
-2. If all tests for _powerelectronics_ are passed connect _control_ and
+1. Tune trimmers to
+    - $T_D$ derivative trimmer to $R = 0 \Omega$.
+    - $T_I$ integral trimmer to $R = 0 \Omega$.
+    - $K_P$ proportional trimmer to $R = 5k \Omega$.
+2. Pass all tests for `control`.
+3. If all tests for _powerelectronics_ are passed connect _control_ and
    _powerelectronics_.
 
 ### Sign Propagation
