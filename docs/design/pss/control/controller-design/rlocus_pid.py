@@ -13,7 +13,7 @@ def firstOrderHighPass(omega: float) -> ct.StateSpace:
 
 # scale numerical values (pzmap will calculate wrong poles and zeros due to
 # numeric computation problems)
-scale = 1e3
+scale = 1e0
 
 # plantOmega = 2 * np.pi * 10e6
 # plantOmegaScaled = plantOmega / scale
@@ -26,20 +26,25 @@ currentSensorOmega = 2 * np.pi * 1e6
 currentSensorOmegaScaled = currentSensorOmega / scale
 currentSensorPole = firstOrderLowPass(currentSensorOmegaScaled)
 
-zero = [-currentSensorOmegaScaled * 0.9, -currentSensorOmegaScaled * 0.8]
-neutralGain = -1 / np.sum(zero)
-pid = ct.zpk([zero[0], zero[1]], [0], 10 * neutralGain)
+bwLimitOmega = 2 * np.pi * 10e3
+bwLimitOmegaScaled = bwLimitOmega / scale
+bwLimitPole = firstOrderLowPass(bwLimitOmegaScaled)
 
-outerCircuitOmega = 0.5 * currentSensorOmegaScaled
+zero = [-2 * np.pi * 1e3 / scale, -2 * np.pi * 1e3 / scale]
+neutralGain = -1 / np.sum(zero)
+pid = ct.zpk([zero[0], zero[1]], [0], 10 * neutralGain) * bwLimitPole * bwLimitPole
+
+outerCircuitOmega = 2 * np.pi * 500
+outerCircuitOmegaScaled = outerCircuitOmega / scale
 rUtoI = ct.ss([], [], [], [1])
-lUtoI = firstOrderLowPass(outerCircuitOmega)
-cUtoI = firstOrderHighPass(outerCircuitOmega)
+lUtoI = firstOrderLowPass(outerCircuitOmegaScaled)
+cUtoI = firstOrderHighPass(outerCircuitOmegaScaled)
 
 
 admittance = [
-    rUtoI * currentSensorPole,
-    lUtoI * currentSensorPole,
-    cUtoI * currentSensorPole,
+    rUtoI,
+    lUtoI,
+    cUtoI,
 ]
 
 openLoop = [ct.series(pid, ct.ss2tf(plant), ct.ss2tf(Y)) for Y in admittance]
@@ -54,7 +59,7 @@ ct.rlocus(sysOpenLoop[2], ax=axes[2][0], grid=False)
 axes[2][0].set_title("rlocus for C")
 
 
-simulationTime = 500e-9
+simulationTime = 1e-3
 simulationTimeScaled = simulationTime * scale
 
 sysClosedLoop = [ct.feedback(sys) for sys in sysOpenLoop]
@@ -93,7 +98,7 @@ axes[1][2].set_title("pzmap for L")
 ct.pzmap(sysClosedLoop[2], ax=axes[2][2], grid=False)
 axes[2][2].set_title("pzmap for C")
 
-pidNum = pid.num[0][0].tolist()
+pidNum = np.array(pid.num[0][0].tolist()) / bwLimitOmegaScaled**2
 Kd, Kp, Ki = pidNum[0] / scale, pidNum[1], pidNum[2] * scale
 Ti = float(Kp) / float(Ki)
 Td = float(Kd) / float(Kp)
