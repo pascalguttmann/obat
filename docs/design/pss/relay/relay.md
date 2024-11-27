@@ -5,9 +5,9 @@
 1. Voltage inputs
     - analog with $U \in [0V, 5V]$ with $R < 1 \Omega \forall |I| < 20A$
         - `in`, current input
-    - digital positive logic with $U \in [-5V, 10V]$, driving up to $I = 2 mA$
+    - digital negative logic with $U \in [-5V, 10V]$, driving up to $I = 2 mA$
     load
-        - `relay_connect`, connect relay output
+        - `!relay_connect`, connect relay output
 2. Voltage output
     - analog with $U \in [0V, 5V]$ with $R < 1 \Omega \forall |I| < 20A$
         - `out`, current output
@@ -26,28 +26,28 @@ the relay is closed the resistance in the path is small $< 100 m \Omega$.
 A non latching (monostable) relay is used in order to avoid inconsistent
 states, when the output is configured to be connected or disconnected and the
 relay might be in a different (bi-)stable state from other configurations.
-The relay is powered by using a NPN transistor to allow the required current
+The relay is powered by using a pnp transistor to allow the required current
 flow through the relay coil.
 The relay coil requires approximately $I_{coil} \approx 120mA$ of current,
-which will be the collector current of the transistor. With a given current
+which will be the emitter current of the transistor. With a given current
 gain of $\beta > 200$, the minimum required base current is approximately $I_b
 \frac{I_{coil}}{\beta} \approx 600 \mu A$. To certainly achieve the desired
 current flow, the base current can be further increased to saturate the
 transistor. A factor of $n \approx 2$ is selected by experience. The base
 resistor voltage drop can be calculated from the maximal input voltage
 $U_{relay\_connect} = 10V$ of the digital signal, the minimal input voltage
-$U_{min} = -5V$ of the input signal and the base emitter voltage $V_{BE,on}
+$U_{min} = -5V$ of the input signal and the base collector voltage $V_{BC,on}
 \approx 1V$ from the transistor datasheet. From the voltage drop the resistance
 required to allow a certain base current to flow can easily be deduced by
 
-$$ R_B = \frac{U_{relay\_connect} - V_{BE,on} - U_{min}}{I_b \cdot n} \approx
+$$ R_B = \frac{U_{relay\_connect} - V_{BC,on} - U_{min}}{I_b \cdot n} \approx
 10k \Omega $$
 
-The collector resistor is used to reduce the voltage drop at the relay coil
+The emitter resistor is used to reduce the voltage drop at the relay coil
 from $\approx 15V$ to $\approx 12V$ as required per the datasheet. When
 neglecting the collector emitter saturation voltage during the excited state of
 the coil a voltage drop of $U_{RC} = 15V - 12V = 3V$ shall be obtained at the
-collector current $I_{coil}$. Therefore the resistance can be calculated as
+emitter current $I_{coil}$. Therefore the resistance can be calculated as
 follows
 
 $$ R_C \approx \frac{U_{RC}}{I_{coil}} \approx 22 \Omega $$
@@ -99,7 +99,7 @@ A simulation with a model of the relay coil is given in `./relay.asc`.
 Test ID: `v1.0.0/pss/relay/switch/on`
 
 1. Connections
-    - Input `relay_connect` connected to $U = 10V$
+    - Input `relay_connect` connected to $U = -5V$
 2. Power on supply voltage
 3. Measure resistance
     - $R$ from `in` to `out`
@@ -112,7 +112,7 @@ Test ID: `v1.0.0/pss/relay/switch/on`
 Test ID: `v1.0.0/pss/relay/switch/off`
 
 1. Connections
-    - Input `relay_connect` connected to $U = -5V$
+    - Input `relay_connect` connected to $U = 10V$
 2. Power on supply voltage
 3. Measure resistance
     - $R$ from `in` to `out`
