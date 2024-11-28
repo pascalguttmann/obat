@@ -133,35 +133,96 @@ TODO: link to simulation files
 ### PCB Layout
 
 - Pull up/down for inputs, when stage is isolated, to run other tests.
-TODO: Add test pins
-TODO: Add (dic-)connector note, with testcase required for connecting
+- Test pins for
+    - all DAC outputs
+    - `!limits_ok_v`, `!limits_ok_i`
+    - `conf_refselect_vshift`, `conf_output_vshift`
+    - `conf_ok`, `!relay_connect`
+- disconnector for
+    - `conf_output_dac` to level shifer input
+    - `conf_refselect_dac` to level shifer input
 
 ### Assembly
 
-TODO: Add special hints for Assembly or remove
-
 ## Commissioning and Testing
 
-TODO: add tests
+1. Pass tests
+    - Test ID: `v1.0.0/pss/conf/level-shifter/low/*`
+    - Test ID: `v1.0.0/pss/conf/level-shifter/high/*`
+2. Connect level-shifter with solder jumper
+3. Pass tests
+    - Test ID: `v1.0.0/pss/conf/dac/conf-ok`
 
-### Testheading
+### Level Shifter Low
 
-Test ID: `v1.0.0/pss/control-logic/control/sign-propagation/<suffix>`
+Test ID: `v1.0.0/pss/conf/level-shifter/low/<suffix>`
+
+Available suffix: `output`, `refselect`
 
 1. Connections
-    - Output `out` disconnected
-    - Input `meas` connected to $U_{meas} = 0V$
-    - Input `ref` connected to $U_{ref} = +500mV$
+    - Input of level shifer `suffix` disconnected
 2. Power on supply voltage
-3. Wait for steady state $t_{wait} \gtrapprox 1ms$
-4. Measure Voltages
-    1. Error Signal (test id suffix: `error`)
-        - Voltage at subtraction output $U_{e}$
-    2. Output Signal (test id suffix: `output`)
-        - Voltage at PID controller output $U_{out}$
+3. Measure Voltages
+    - $U_{shift}$ at net `conf_<suffix>_vshift`
 5. Power off supply voltage
 6. Test passed if
-    1. Error Signal (test id suffix: `error`)
-        - $U_{e} \in 500mV (1 \pm 10\%)$
-    2. Output Signal (test id suffix: `output`)
-        - $U_{out} \in 10V (1 \pm 10\%)$
+    - $U_{shift} < -3V$
+
+### Level Shifter High
+
+Test ID: `v1.0.0/pss/conf/level-shifter/high/<suffix>`
+
+Available suffix: `output`, `refselect`
+
+1. Connections
+    - Input of level shifer `suffix` connected to $U = 5V$
+2. Power on supply voltage
+3. Measure Voltages
+    - $U_{shift}$ at net `conf_<suffix>_vshift`
+5. Power off supply voltage
+6. Test passed if
+    - $U_{shift} > 8V$
+
+### DAC - Conf Ok
+
+Test ID: `v1.0.0/pss/conf/dac/conf-ok`
+
+1. Power on supply voltage
+2. Configure DAC with
+    - Channel 0: 0xFFF
+    - Channel 1: 0x000
+    - Channel 2: 0x800
+    - Channel 3: 0x800
+    - Channel 4: 0x100
+    - Channel 5: 0xE00
+    - Channel 6: 0xE00
+    - Channel 7: 0x100
+3. Measure
+    - $U_{conf_ok}$
+    - $U_{!relay_connect}$
+4. Power off supply voltage
+5. Test passed if
+    - $U_{conf_ok} > 8V$
+    - $U_{!relay_connect} < -3V$
+
+### DAC - Conf Not Ok
+
+Test ID: `v1.0.0/pss/conf/dac/conf-not-ok`
+
+1. Power on supply voltage
+2. Configure DAC with
+    - Channel 0: 0xFFF
+    - Channel 1: 0xFFF
+    - Channel 2: 0x800
+    - Channel 3: 0x800
+    - Channel 4: 0x100
+    - Channel 5: 0xE00
+    - Channel 6: 0xE00
+    - Channel 7: 0x100
+3. Measure
+    - $U_{conf_ok}$
+    - $U_{!relay_connect}$
+4. Power off supply voltage
+5. Test passed if
+    - $U_{conf_ok} < -3$
+    - $U_{!relay_connect} > 8V$
