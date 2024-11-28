@@ -77,7 +77,8 @@ sampling rate)
 
 ## Simulation
 
-TODO: link to simulation files
+For the adc sub circuit no simulation is conducted, as the SPI interface is not
+subject to simulation, which focuses on the analog circuit.
 
 ## Hardware tests in Laboratory
 
