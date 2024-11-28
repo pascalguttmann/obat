@@ -35,6 +35,8 @@ nav:
         - design/pss/control/control.md
         - Controller Design:
           - design/pss/control/controller-design/controller-design.md
+      - Digital Interface:
+        - design/pss/digital-interface/digital-interface.md
       - Limit Logic:
         - design/pss/limit-logic/limit-logic.md
         - Compare Logic:
