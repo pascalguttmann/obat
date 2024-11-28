@@ -2,10 +2,8 @@
 
 ## Interface & Requirements
 
-TODO: Add Power Consumption
-
 1. Voltage inputs
-    - analog with $U \in [0V, 5V]$ with $R < 250 \Omega \forall I < 5 \muA$
+    - analog with $U \in [0V, 5V]$ with $R < 50 \Omega \forall I < 5 \mu A$
         - `AIN_P`, analog input
 2. SPI Output Interface
     - digital with $U \in [0V, 5V]$
@@ -14,8 +12,7 @@ TODO: Add Power Consumption
         - `SDI`, input, serial data in
         - `SDO`, output, serial data out
 3. Supply Voltages
-    - $+10V$ @ $1W$ ($100mA$)
-    - $-5V$ @ $0.5W$ ($50mA$)
+    - $+5V$ @ $75mW$ ($15mA$)
 
 ## Circuit Selection and Design
 
