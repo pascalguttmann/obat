@@ -2,9 +2,6 @@
 
 ## Interface & Requirements
 
-TODO: Add Output specs
-TODO: Add Power Consumption
-
 1. SPI Input Interface
     - digital with $U \in [0V, 5V]$
         - `!CS`, input, chip select, low active
@@ -29,8 +26,9 @@ TODO: Add Power Consumption
     load
         - `!relay_connect`, connect relay output
 3. Supply Voltages
-    - $+10V$ @ $1W$ ($100mA$)
-    - $-5V$ @ $0.5W$ ($50mA$)
+    - $+10V$ @ $100mW$ ($10mA$)
+    - $-5V$ @ $50mW$ ($10mA$)
+    - $+5VA$ @ $250mW$ ($50mA$)
 
 ## Circuit Selection and Design
 
