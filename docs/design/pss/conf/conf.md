@@ -97,7 +97,30 @@ $$ \text{!relay_connect} = \overline{\text{conf_ok} \land \text{conf_output}} $$
 
 ### Component Selection
 
-TODO: Add component selection
+#### DAC
+
+Search on Mouser for: [AD5672RBRUZ](https://mou.sr/419AKxw)
+
+- DAC, Voltage Buffered Output
+- 8 channels
+- Resolution >= 2 bit
+- Interface: SPI
+- Package: SMD (hand solderable)
+- sort by price
+
+#### Transistors
+
+Transistors for the level shifter are reused from the bias stage to reduce
+overall number of components.
+
+#### Opamp / Comparator
+
+Opamp is reused from window comparator in order to reduce number of components
+and replicate specification of window-comparator opamp as good as possible.
+
+#### Logic Gates
+
+Appropriate Logic Gates are selected from the 4000B series of CMOS logic gates.
 
 ## Simulation
 
