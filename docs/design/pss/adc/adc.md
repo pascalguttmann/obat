@@ -2,14 +2,11 @@
 
 ## Interface & Requirements
 
-TODO: Add Input specs
 TODO: Add Power Consumption
 
 1. Voltage inputs
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 1mA$
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 20mA$
-    - digital positive logic with $U \in [-5V, 10V]$, driving up to $I = 1 mA$
-    load
+    - analog with $U \in [0V, 5V]$ with $R < 250 \Omega \forall I < 5 \muA$
+        - `AIN_P`, analog input
 2. SPI Output Interface
     - digital with $U \in [0V, 5V]$
         - `!CS`, input, chip select, low active
