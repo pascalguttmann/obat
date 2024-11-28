@@ -13,9 +13,21 @@ TODO: Add Power Consumption
         - `SDO`, output, serial data out
 2. Voltage output
     - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 1mA$
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 20mA$
+    - analog with $U \in [0V, 5V]$ with $R < 200m \Omega \forall I < 20mA$
+        - `conf_vref`, signal of configured reference voltage
+        - `conf_iref`, signal of configured reference current
+        - `conf_lcl`, signal of configured lower current limit
+        - `conf_ucl`, signal of configured upper current limit
+        - `conf_lvl`, signal of configured lower voltage limit
+        - `conf_uvl`, signal of configured upper voltage limit
     - digital positive logic with $U \in [-5V, 10V]$, driving up to $I = 1 mA$
     load
+        - `conf_refselect_v`, signal that the desired reference is voltage
+        - `conf_refselect_i`, signal that the desired reference is current
+        - `conf_ok`, signal that the configured signals are consistent
+    - digital negative logic with $U \in [-5V, 10V]$, driving up to $I = 1 mA$
+    load
+        - `!relay_connect`, connect relay output
 3. Supply Voltages
     - $+10V$ @ $1W$ ($100mA$)
     - $-5V$ @ $0.5W$ ($50mA$)
