@@ -96,26 +96,17 @@ subject to simulation, which focuses on the analog circuit.
 
 ## Commissioning and Testing
 
-TODO: add tests
+### Conversion
 
-### Testheading
+Test ID: `v1.0.0/pss/adc/conversion/<suffix>`
 
-Test ID: `v1.0.0/pss/control-logic/control/sign-propagation/<suffix>`
+Available suffix: `0V`, `3V`, `5V`
 
-1. Connections
-    - Output `out` disconnected
-    - Input `meas` connected to $U_{meas} = 0V$
-    - Input `ref` connected to $U_{ref} = +500mV$
-2. Power on supply voltage
-3. Wait for steady state $t_{wait} \gtrapprox 1ms$
-4. Measure Voltages
-    1. Error Signal (test id suffix: `error`)
-        - Voltage at subtraction output $U_{e}$
-    2. Output Signal (test id suffix: `output`)
-        - Voltage at PID controller output $U_{out}$
-5. Power off supply voltage
-6. Test passed if
-    1. Error Signal (test id suffix: `error`)
-        - $U_{e} \in 500mV (1 \pm 10\%)$
-    2. Output Signal (test id suffix: `output`)
-        - $U_{out} \in 10V (1 \pm 10\%)$
+1. Power on supply voltage
+2. Connections
+    - Input `AIN_P` connected to $U_{in} = <suffix>$
+3. Measure Voltages with ADC via SPI interface
+    - $n_{U_{in}}$
+4. Power off supply voltage
+5. Test passed if
+    - $n_{U_{in}} \in \frac{<suffix>}{5V} 2^{12} \cdot \pm 41$
