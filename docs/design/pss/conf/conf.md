@@ -124,7 +124,11 @@ Appropriate Logic Gates are selected from the 4000B series of CMOS logic gates.
 
 ## Simulation
 
-TODO: link to simulation files
+Simulation example can be found in `./sim_conf.asc`.
+hierarchical simulation block is available as `./conf.asc` and
+`./conf.asy`.
+
+SPI interface is not simulated. DAC is simulated as 8 voltage sources.
 
 ## Hardware tests in Laboratory
 
