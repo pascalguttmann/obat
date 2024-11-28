@@ -87,12 +87,12 @@ subject to simulation, which focuses on the analog circuit.
 ### PCB Layout
 
 - Pull up/down for inputs, when stage is isolated, to run other tests.
-TODO: Add test pins
-TODO: Add (dic-)connector note, with testcase required for connecting
+- Add test pins for:
+    - analog input and analog measurement ground.
+    - Refio
+    - GPO
 
 ### Assembly
-
-TODO: Add special hints for Assembly or remove
 
 ## Commissioning and Testing
 
