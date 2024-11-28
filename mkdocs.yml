@@ -26,6 +26,8 @@ nav:
       - design/pss/pss.md
       - design/pss/smu.md
       - design/pss/amp.md
+      - Configuration:
+        - design/pss/conf/conf.md
       - Controller:
         - design/pss/control/control.md
         - Controller Design:
