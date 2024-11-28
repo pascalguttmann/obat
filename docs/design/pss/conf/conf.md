@@ -32,9 +32,64 @@
 
 ## Circuit Selection and Design
 
+The `conf` sub circuit is used to convert digital serial commands from the `pc`
+to analog or digital signals, which are all present in parallel so they can be
+accessed by the circuits of the `pss`.
+
 ### Circuit
 
-TODO: Add circuit description
+The `conf` sub circuit utilizes a 12-bit digital to analog converter with 8
+channels and SPI interface to produce the desired analog signals. The digital
+signals are obtained by limiting the allowable configuration range of the
+corersponding channels to the maximum and minimum value of the analog
+conversion range. Those signals have a range of $U \in [0V, 5V]$ at the DAC
+output, but shall be converted to $U \in [-5V, 10V]$ for compatibility with
+other sub circuits. The conversion is performed by applying level shifting with
+two transistors as amplifiers in emitter configuration.
+
+#### Level Shifter
+
+The emitter configurations of the level shifter each perform a level shift of
+one of two voltage levels. The first stage shifts from $U_0 \in [0V, 5V]$ to
+$U_1 \in [0V, 10V]$ and the second stage shifts from $U_1$ to $U_2 \in [-5V,
+10V]$.
+
+The collector resistances are calculated to allow an appoximate quiescant
+currentflow of $I_q \approx 1mA$ during maximal voltage swing $U_{max}$.
+$$ R_C = \frac{U_{max}}{I_q} $$
+
+The base resistance is calculated with a large signal current gain of $\beta
+\approx 100$, which already includes overdriving of the transistor into
+saturation. The voltage is given by the preceeding stage $U_{on}$.
+$$ R_B = \frac{U_{on} \beta}{I_q} $$
+
+A pull down resistance of $R = 1 M \Omega$ is added at the input of the first
+stage to define the output voltage, in case the DAC output is in tri-state.
+
+#### Config Checker
+
+The programmed configuration is checked for its correctness by the `conf` sub
+circuit. A correct configuration is indicated by the `conf_ok` signal. The
+correctness of the configuration is determined by:
+
+- If the selected reference is voltage `conf_refselect_v`
+    - The upper current limit `ucl` must be greater than the lower current
+    limit `lcl`
+- If the selected reference is current `conf_refselect_i`
+    - The upper voltage limit `uvl` must be greater than the lower voltage
+    limit `lvl`
+
+The analog comparison is perfomed by an operational amplifier, which is used as
+a comparator. No hysteresis is used, but footprints are provided to place
+resistances for a additional hysteresis if required later on.
+
+#### Relay Connect Masking
+
+If the programmed configuration is evaluated as correct and therefore `conf_ok`
+is set, the configured state of the output relay `conf_output` is forwarded to
+the `relay` sub circuit. If the configuration is not correct, the `relay` sub
+circuit is signaled to disconnect. The logic is implemented using a NAND gate.
+$$ \text{!relay_connect} = \overline{\text{conf_ok} \land \text{conf_output}} $$
 
 ### Component Selection
 
