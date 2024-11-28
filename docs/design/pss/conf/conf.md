@@ -1,5 +1,9 @@
 # Configuration
 
+!!! info "Configuration Options"
+    To obtain information, which DAC channels configures which feature please
+    see [`./channel_map.md`](./channel_map.md).
+
 ## Interface & Requirements
 
 1. SPI Input Interface

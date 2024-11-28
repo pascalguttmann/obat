@@ -28,6 +28,7 @@ nav:
       - design/pss/amp.md
       - Configuration:
         - design/pss/conf/conf.md
+        - design/pss/conf/channel_map.md
       - Controller:
         - design/pss/control/control.md
         - Controller Design:
