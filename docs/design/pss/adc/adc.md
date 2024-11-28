@@ -60,7 +60,20 @@ $$ R = 200 \Omega \quad \land \quad C = 47nF $$
 
 ### Component Selection
 
-TODO: Add component selection
+#### ADC
+
+Search on mouser for: [ADS8665](https://mou.sr/4eQgioK)
+
+- ADC
+- Resolution >= 12-bit
+- sampling rate >= 500kHz
+- SPI interface with daisychain option
+- single ended input $0V$ to $5V$
+- internal voltage reference
+- package: smd handsolderable
+- family: prefer adc with pin compatible "upgrades" (higher resolution and
+sampling rate)
+- Sort by price
 
 ## Simulation
 
