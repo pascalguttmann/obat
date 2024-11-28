@@ -3,7 +3,6 @@
 ## Interface & Requirements
 
 TODO: Add Input specs
-TODO: Add Output specs
 TODO: Add Power Consumption
 
 1. Voltage inputs
@@ -11,11 +10,12 @@ TODO: Add Power Consumption
     - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 20mA$
     - digital positive logic with $U \in [-5V, 10V]$, driving up to $I = 1 mA$
     load
-2. Voltage output
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 1mA$
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 20mA$
-    - digital positive logic with $U \in [-5V, 10V]$, driving up to $I = 1 mA$
-    load
+2. SPI Output Interface
+    - digital with $U \in [0V, 5V]$
+        - `!CS`, input, chip select, low active
+        - `SCLK`, input, serial clock CPHA=0, CPOL=0=`SCKL`, (CPOL=1=`!SCLK`)
+        - `SDI`, input, serial data in
+        - `SDO`, output, serial data out
 3. Supply Voltages
     - $+10V$ @ $1W$ ($100mA$)
     - $-5V$ @ $0.5W$ ($50mA$)
