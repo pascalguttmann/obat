@@ -20,9 +20,22 @@
 
 ## Circuit Selection and Design
 
+The digital-interface sub circuit is used to isolate the external SPI bus from
+the internal SPI bus to achieve isolated operation of the power supply sink.
+
 ### Circuit
 
-TODO: Add circuit description
+A quad channel digital isolator is used to isolate the SPI signals. The
+isolator has the four inputs distributed 3 to 1, so that
+
+- `!CS`, `SCKL` and `SDI` are transferred from the external SPI bus to the
+internal SPI bus
+- `SDO` is transferred from the internal SPI bus to the external SPI bus
+
+To deliver an isolated 5V voltage an isolated regulated 5V to 5V DCDC-converter
+is used.
+
+The components are decoupled by capacitors as described in the datasheets.
 
 ### Component Selection
 
