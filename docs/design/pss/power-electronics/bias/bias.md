@@ -1,27 +1,23 @@
-Bias Stage
-==========
+# Bias Stage
 
 Bias and driver stage for the class AB output stage of the powersupplysink.
 
-Interface & Requirements
-------------------------
+## Interface & Requirements
 
-- Voltage Input
+1. Voltage Input
     - Voltage Input Swing $V_{in} \in [-2V, +6V] \subset [-3V, +8V]$
     - Input Current $| \pm I_{in} | \leq 20mA$
-- Double voltage out with offset voltage
+2. Voltage outputs
     - In phase with $V_{in}$
     - $V_{out-} \approx V_{in} - 0.6V + 1V = V_{in} + 0.4V$
     - $V_{out+} \approx V_{in} + 0.6V - 1V + V_{offset} = V_{in} + V_{offset} - 0.4V$
-    - $V_{offset} \in [+0.73V, +1.8V]$
+    - $V_{offset} \in [+0.73V, +1.8V]$ adjustable via trimmer
     - Output current $I_{out \pm} \geq \pm 800 mA$
-- $V_{offset}$ adjustable via trimmer
-- Supply Voltages
+3. Supply Voltages
     - $+10V$ @ $7W$ ($700mA$)
     - $-5V$ @ $3.5W$ ($700mA$)
 
-Circuit Selection and Design
-----------------------------
+## Circuit Selection and Design
 
 ### Literature Research for Available Options
 
@@ -223,8 +219,7 @@ Mouser Search: $R_{th} < 15 K/W$ (natural convection), In Stock, Sort by Price
 [RC1210FR-07270RL]: <https://mou.sr/4bM9JSN>
 [RC1210FR-07680RL]: <https://mou.sr/3ysyLYV>
 
-Simulation
-----------
+## Simulation
 
 See `./*.asc` files. Simulations available for:
 
@@ -233,18 +228,15 @@ See `./*.asc` files. Simulations available for:
 - rubber diode
 - bias circuit
 
-Hardware tests in Laboratory
-----------------------------
+## Hardware tests in Laboratory
 
-Layout and Assembly Considerations
-----------------------------------
+## Layout and Assembly Considerations
 
 - Heatsink for current boost transistors can be shared.
 - Add testpin for input and output
 - Add disconnect option for input and outputs (solder bridge / jumper)
 
-Commissioning and Testing
--------------------------
+## Commissioning and Testing
 
 ### Transfer Characteristic
 

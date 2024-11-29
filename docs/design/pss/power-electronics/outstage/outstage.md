@@ -1,29 +1,27 @@
-Output Stage
-============
+# Output Stage
 
 Output stage class AB for driving the load of the powersupplysink.
 
-Interface & Requirements
-------------------------
+## Interface & Requirements
 
-- $U_{out} \in [0V, +5V]$
-- $I_{out} \in [-20A, +20A]$
-- Short circuit I limit $| max(I_{out}) \leq |I_{max}| \leq |1.25 max(I_{out})|$
-- $I_{in} \approx 500mA < 1A \quad \forall \quad U_{out} \times I_{out}$
-- Voltage controlled input should be $V_{IN+} (t) = V_{IN-} (t) + V_{offset}
-    \quad | V_{offset} \in \mathbb{R}_+$
-    - `V_IN+`
-    - `V_IN-`
-    - $V_{offset} \approx 1V to 1.5V$ according to simulation for low crossover
-        distortion operation.
-    - Required input voltage swing: $V_{IN} \in [-3V, +8V]$
-- Voltage controlled output
-- Supply Voltages
+1. Voltage Inputs
+    - $I_{in} \approx 500mA < 1A \quad \forall \quad U_{out} \times I_{out}$
+    - Voltage controlled input should be $V_{IN+} (t) = V_{IN-} (t) + V_{offset}
+        \quad | V_{offset} \in \mathbb{R}_+$
+        - `V_IN+`
+        - `V_IN-`
+        - $V_{offset} \approx 1V to 1.5V$ according to simulation for low crossover
+            distortion operation.
+        - Required input voltage swing: $V_{IN} \in [-3V, +8V]$
+2. Voltage Output
+    - $U_{out} \in [0V, +5V]$
+    - $I_{out} \in [-20A, +20A]$
+    - Short circuit I limit $| max(I_{out}) \leq |I_{max}| \leq |1.25 max(I_{out})|$
+3. Supply Voltages
     - $+10V$ @ $250W$ ($25A$)
     - $-5V$ @ $125W$ ($25A$)
 
-Circuit Selection and Design
-----------------------------
+## Circuit Selection and Design
 
 ### Overview
 
@@ -463,16 +461,13 @@ Searching on Mouser for:
 
 [RR03J22RTB]: <https://www.mouser.de/ProductDetail/TE-Connectivity-Holsworthy/RR03J22RTB?qs=sGAEpiMZZMtlubZbdhIBIIenWIH7rhEv%252B4gI1ku6TGs%3D>
 
-Simulation
-----------
+## Simulation
 
 See `./outstage.asc` and `./outstage.asy`.
 
-Hardware tests in Laboratory
-----------------------------
+## Hardware tests in Laboratory
 
-Layout and Assembly Considerations
-----------------------------------
+## Layout and Assembly Considerations
 
 ### PCB Layout
 
@@ -492,8 +487,7 @@ Layout and Assembly Considerations
     because they are not subject to simultaneous heating.
 - Apply thermal grease and electrical insulation from transistors to heatsink.
 
-Commissioning and Testing
--------------------------
+## Commissioning and Testing
 
 ### Load Distribution
 
