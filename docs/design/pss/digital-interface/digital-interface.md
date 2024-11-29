@@ -39,7 +39,27 @@ The components are decoupled by capacitors as described in the datasheets.
 
 ### Component Selection
 
-TODO: Add component selection
+#### Digital Isolator
+
+Search on Mouser for: [Si8641BD-B-IS2](https://mou.sr/3VdrQv2)
+
+- Digital Isolator IC
+- 4 Channel, (3 in, 1 out)
+- propagation delay < 10ns
+- SMD mounting, (hand solderable friendly)
+- Sort by Price
+
+#### DCDC-converter
+
+Search on Mouser for: [R05C05TE05S](https://mou.sr/4eUT3cS)
+
+- DCDC-converter
+- isolated
+- regulated output
+- $5V$ input, $5V$ output
+- output power $P \in [100mW, 1W]
+- SMD mounting, (hand solderable friendly)
+- Sort by Price
 
 ## Simulation
 
