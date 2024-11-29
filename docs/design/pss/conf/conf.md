@@ -9,7 +9,7 @@
 1. SPI Input Interface
     - digital with $U \in [0V, 5V]$
         - `!CS`, input, chip select, low active
-        - `!SCLK`, input, serial clock CPHA=0, CPOL=1=`!SCLK`, (CPOL=0=`SCKL`)
+        - `SCLK`, input, serial clock CPHA=0, CPOL=0=`SCKL`
         - `SDI`, input, serial data in
         - `SDO`, output, serial data out
 2. Voltage output
