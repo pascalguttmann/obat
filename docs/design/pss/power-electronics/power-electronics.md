@@ -30,7 +30,9 @@ outstage.
 
 ## Simulation
 
-See `./sim_bias+outstage.asc` for simulation.
+Simulation example can be found in `./sim_power-electronics.asc`.
+hierarchical simulation block is available as `./power-electronics.asc` and
+`./power-electronics.asy`.
 
 ## Hardware Tests in Laboratory
 
