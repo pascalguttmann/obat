@@ -72,12 +72,13 @@ Not available.
 ### PCB Layout
 
 - Pull up/down for inputs, when stage is isolated, to run other tests.
-TODO: Add test pins
-TODO: Add (dic-)connector note, with testcase required for connecting
+- Add test pins for:
+    - isolated 5V `+5VI`
+    - isolated GND `GNDI`
+    - SPI ISO signals
+    - SPI signals
 
 ### Assembly
-
-TODO: Add special hints for Assembly or remove
 
 ## Commissioning and Testing
 
