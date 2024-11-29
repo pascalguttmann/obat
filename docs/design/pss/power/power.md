@@ -28,7 +28,17 @@ TODO: Add circuit description
 
 ### Component Selection
 
-TODO: Add component selection
+#### Voltage Regulator
+
+Search on Mouser for: [MC7805BDTG](https://mou.sr/4eRkZ1s)
+
+- Linear Voltage Regulator
+- positive Voltage out $+5V$
+- output current $I \in [100mA, 1A]$
+- single channel
+- fixed output type
+- Smd mounting (hand solderable)
+- sort by price
 
 ## Simulation
 
