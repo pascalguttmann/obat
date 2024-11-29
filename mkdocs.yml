@@ -26,10 +26,17 @@ nav:
       - design/pss/pss.md
       - design/pss/smu.md
       - design/pss/amp.md
+      - Analog Digital Converter:
+        - design/pss/adc/adc.md
+      - Configuration:
+        - design/pss/conf/conf.md
+        - design/pss/conf/channel_map.md
       - Controller:
         - design/pss/control/control.md
         - Controller Design:
           - design/pss/control/controller-design/controller-design.md
+      - Digital Interface:
+        - design/pss/digital-interface/digital-interface.md
       - Limit Logic:
         - design/pss/limit-logic/limit-logic.md
         - Compare Logic:

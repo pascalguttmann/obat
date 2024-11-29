@@ -11,15 +11,15 @@ title: PSS Design
 ---
 flowchart TB
 pc[PC]
-24V_power[24 V DC]
+ext_power[10 V DC, -5 V DC]
 bat[Battery]
 
 subgraph pss[PSS]
     direction TB
 
-    power[10V, 5V, -5V]
-    conf[Configuration]
-    checker[Conf Checker and Power On Reset]
+    power[Power: 10V, 5V, -5V]
+    dig_interface[Digital Inteface Isolated]
+    conf[DAC Configuration]
     direction LR
     mux_ref[Multiplexer Reference]
     control[PID-Controller]
@@ -35,14 +35,17 @@ subgraph pss[PSS]
         comp[Compare-Logic]
         mode-tran[Mode Transition]
     end
+
+    adc[ADC Output Readback]
 end
 
-24V_power --> power
-pc --> conf --> checker
+ext_power --> power
+pc <--> dig_interface --> conf
+meas --> adc --> dig_interface
 conf --> mux_ref --> control --> bias --> outstage --> meas --> relay --> bat
 meas --> mux_meas --> control
 conf --> comp --> mode-tran
 limit --> mux_meas
 limit --> mux_ref
-
+conf --> relay
 ```
