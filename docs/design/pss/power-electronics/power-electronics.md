@@ -38,8 +38,13 @@ hierarchical simulation block is available as `./power-electronics.asc` and
 
 ## Layout and Assembly Considerations
 
+### PCB Layout
+
+- Pull up/down for inputs, when stage is isolated, to run other tests.
 - (Dis-) connector between _bias_ and _outstage_, (solderbridge / jumper)
     Label with testname hint
+
+### Assembly
 
 ## Commissioning and Testing
 
