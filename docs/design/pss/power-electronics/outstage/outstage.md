@@ -1,10 +1,8 @@
-Output Stage
-============
+# Output Stage
 
 Output stage class AB for driving the load of the powersupplysink.
 
-Interface & Requirements
-------------------------
+## Interface & Requirements
 
 - $U_{out} \in [0V, +5V]$
 - $I_{out} \in [-20A, +20A]$
@@ -22,8 +20,7 @@ Interface & Requirements
     - $+10V$ @ $250W$ ($25A$)
     - $-5V$ @ $125W$ ($25A$)
 
-Circuit Selection and Design
-----------------------------
+## Circuit Selection and Design
 
 ### Overview
 
@@ -463,16 +460,13 @@ Searching on Mouser for:
 
 [RR03J22RTB]: <https://www.mouser.de/ProductDetail/TE-Connectivity-Holsworthy/RR03J22RTB?qs=sGAEpiMZZMtlubZbdhIBIIenWIH7rhEv%252B4gI1ku6TGs%3D>
 
-Simulation
-----------
+## Simulation
 
 See `./outstage.asc` and `./outstage.asy`.
 
-Hardware tests in Laboratory
-----------------------------
+## Hardware tests in Laboratory
 
-Layout and Assembly Considerations
-----------------------------------
+## Layout and Assembly Considerations
 
 ### PCB Layout
 
@@ -492,8 +486,7 @@ Layout and Assembly Considerations
     because they are not subject to simultaneous heating.
 - Apply thermal grease and electrical insulation from transistors to heatsink.
 
-Commissioning and Testing
--------------------------
+## Commissioning and Testing
 
 ### Load Distribution
 

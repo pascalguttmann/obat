@@ -1,10 +1,8 @@
-Bias Stage
-==========
+# Bias Stage
 
 Bias and driver stage for the class AB output stage of the powersupplysink.
 
-Interface & Requirements
-------------------------
+## Interface & Requirements
 
 - Voltage Input
     - Voltage Input Swing $V_{in} \in [-2V, +6V] \subset [-3V, +8V]$
@@ -20,8 +18,7 @@ Interface & Requirements
     - $+10V$ @ $7W$ ($700mA$)
     - $-5V$ @ $3.5W$ ($700mA$)
 
-Circuit Selection and Design
-----------------------------
+## Circuit Selection and Design
 
 ### Literature Research for Available Options
 
@@ -223,8 +220,7 @@ Mouser Search: $R_{th} < 15 K/W$ (natural convection), In Stock, Sort by Price
 [RC1210FR-07270RL]: <https://mou.sr/4bM9JSN>
 [RC1210FR-07680RL]: <https://mou.sr/3ysyLYV>
 
-Simulation
-----------
+## Simulation
 
 See `./*.asc` files. Simulations available for:
 
@@ -233,18 +229,15 @@ See `./*.asc` files. Simulations available for:
 - rubber diode
 - bias circuit
 
-Hardware tests in Laboratory
-----------------------------
+## Hardware tests in Laboratory
 
-Layout and Assembly Considerations
-----------------------------------
+## Layout and Assembly Considerations
 
 - Heatsink for current boost transistors can be shared.
 - Add testpin for input and output
 - Add disconnect option for input and outputs (solder bridge / jumper)
 
-Commissioning and Testing
--------------------------
+## Commissioning and Testing
 
 ### Transfer Characteristic
 
