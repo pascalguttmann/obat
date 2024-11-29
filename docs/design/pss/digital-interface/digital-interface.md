@@ -2,19 +2,19 @@
 
 ## Interface & Requirements
 
-TODO: Add Input specs
-TODO: Add Output specs
-
-1. Voltage inputs
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 1mA$
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 20mA$
-    - digital positive logic with $U \in [-5V, 10V]$, driving up to $I = 1 mA$
-    load
-2. Voltage output
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 1mA$
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 20mA$
-    - digital positive logic with $U \in [-5V, 10V]$, driving up to $I = 1 mA$
-    load
+1. SPI Input Interface
+    - digital with $U \in [0V, 5V]$ relative to isolated ground `GNDI`
+    isolation voltage max $V_{iso} = 500V$
+        - `!CS_ISO`, input, chip select, low active
+        - `SCLK_ISO`, input, serial clock CPHA=0, CPOL=0=`SCKL`
+        - `SDI_ISO`, input, serial data in
+        - `SDO_ISO`, output, serial data out
+2. SPI Output Interface
+    - digital with $U \in [0V, 5V]$
+        - `!CS`, input, chip select, low active
+        - `SCLK`, input, serial clock CPHA=0, CPOL=0=`SCKL`
+        - `SDI`, input, serial data in
+        - `SDO`, output, serial data out
 3. Supply Voltages
     - $+5V$ @ $500mW$ ($50mA$)
 
