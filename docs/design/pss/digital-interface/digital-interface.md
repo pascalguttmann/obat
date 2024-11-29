@@ -4,7 +4,6 @@
 
 TODO: Add Input specs
 TODO: Add Output specs
-TODO: Add Power Consumption
 
 1. Voltage inputs
     - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 1mA$
@@ -17,8 +16,7 @@ TODO: Add Power Consumption
     - digital positive logic with $U \in [-5V, 10V]$, driving up to $I = 1 mA$
     load
 3. Supply Voltages
-    - $+10V$ @ $1W$ ($100mA$)
-    - $-5V$ @ $0.5W$ ($50mA$)
+    - $+5V$ @ $500mW$ ($50mA$)
 
 ## Circuit Selection and Design
 
