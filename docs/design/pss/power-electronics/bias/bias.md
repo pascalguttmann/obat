@@ -4,17 +4,16 @@ Bias and driver stage for the class AB output stage of the powersupplysink.
 
 ## Interface & Requirements
 
-- Voltage Input
+1. Voltage Input
     - Voltage Input Swing $V_{in} \in [-2V, +6V] \subset [-3V, +8V]$
     - Input Current $| \pm I_{in} | \leq 20mA$
-- Double voltage out with offset voltage
+2. Voltage outputs
     - In phase with $V_{in}$
     - $V_{out-} \approx V_{in} - 0.6V + 1V = V_{in} + 0.4V$
     - $V_{out+} \approx V_{in} + 0.6V - 1V + V_{offset} = V_{in} + V_{offset} - 0.4V$
-    - $V_{offset} \in [+0.73V, +1.8V]$
+    - $V_{offset} \in [+0.73V, +1.8V]$ adjustable via trimmer
     - Output current $I_{out \pm} \geq \pm 800 mA$
-- $V_{offset}$ adjustable via trimmer
-- Supply Voltages
+3. Supply Voltages
     - $+10V$ @ $7W$ ($700mA$)
     - $-5V$ @ $3.5W$ ($700mA$)
 
