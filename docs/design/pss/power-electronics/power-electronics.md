@@ -62,3 +62,19 @@ hierarchical simulation block is available as `./power-electronics.asc` and
    Therefore measure voltage across a single ballast resistor and calculate $I =
    U/R$
 9. Power off supply voltage
+
+### Transfer
+
+Test ID: `v1.0.0/pss/power-electronics/transfer/`
+
+1. Connections
+    - Input connected to $U_{1,in} = 2V$
+2. Power on supply voltage
+3. Measure Voltages
+    - Output voltage $U_1$
+4. Change input voltage to $U_{2,in} = 3V$
+5. Measure Voltages
+    - Output voltage $U_2$
+6. Power off supply voltage
+7. Test passed if
+    - $U_2 - U_1 \in (U_{2,in} - U_{1,in}) \cdot (1 \pm 5%)$
