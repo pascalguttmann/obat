@@ -63,7 +63,7 @@ Search on Mouser for: [R05C05TE05S](https://mou.sr/4eUT3cS)
 
 ## Simulation
 
-TODO: link to simulation files
+Not available.
 
 ## Hardware tests in Laboratory
 
