@@ -10,7 +10,7 @@
         - `out`, current output
     - analog with $U \in [0V, 5V]$ with $R < 10 \Omega \forall I < 20mA$
         - `meas_out_v`, measured output voltage
-        - `meas_out_i`, measured output current (flow: `in` $\arrow$ `out`)
+        - `meas_out_i`, measured output current (flow: `in` $\rightarrow$ `out`)
           sensitivity: $100 \frac{mV}{A}$
 3. Supply Voltages
     - $+10V$ @ $300mW$ ($30mA$)
