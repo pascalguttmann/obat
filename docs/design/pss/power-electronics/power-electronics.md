@@ -15,7 +15,18 @@
 
 ## Circuit Selection and Design
 
+### Circuit
+
+The `power-electronics` sub circuit is the combination of the `bias` and
+`outstage` sub circuit in series.
+
 ![image](./power_electronics.png)
+
+### Component Selection
+
+The sub circuits are designed to work together. The dual inputs with offset are
+produced by the bias stage, which also sets the quiescent current through the
+outstage.
 
 ## Simulation
 
