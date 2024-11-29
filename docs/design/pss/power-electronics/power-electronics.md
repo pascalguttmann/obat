@@ -2,8 +2,16 @@
 
 ## Interface & Requirements
 
-See input interface of [bias](./bias/bias.md) and output interface of
-[outstage](./outstage/outstage.md).
+1. Voltage inputs
+    - Voltage Input Swing $V_{in} \in [-2V, +6V] \subset [-3V, +8V]$
+    - Input Current $| \pm I_{in} | \leq 20mA$
+2. Voltage output
+    - $U_{out} \in [0V, +5V]$
+    - $I_{out} \in [-20A, +20A]$
+    - Short circuit I limit $| max(I_{out}) \leq |I_{max}| \leq |1.25 max(I_{out})|$
+3. Supply Voltages
+    - $+10V$ @ $257W$ ($25.7A$)
+    - $-5V$ @ $128.5W$ ($25.7A$)
 
 ## Circuit Selection and Design
 
