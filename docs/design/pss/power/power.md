@@ -86,8 +86,7 @@ Not available.
 ### PCB Layout
 
 - Pull up/down for inputs, when stage is isolated, to run other tests.
-TODO: Add test pins
-TODO: Add (dic-)connector note, with testcase required for connecting
+- Add test pins for: `10V`, `5V`
 - Place regulator on $A=800mm^2$ of copper fill for thermal relief
     - e.g. square on top and bottom with $d_\square = 20mm$ stitched by thermal
     vias
