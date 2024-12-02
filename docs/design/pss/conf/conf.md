@@ -32,7 +32,7 @@
 3. Supply Voltages
     - $+10V$ @ $100mW$ ($10mA$)
     - $-5V$ @ $50mW$ ($10mA$)
-    - $+5VA$ @ $250mW$ ($50mA$)
+    - $+5VA$ @ $250mW$ ($40mA$)
 
 ## Circuit Selection and Design
 

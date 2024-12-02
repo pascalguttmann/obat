@@ -12,7 +12,7 @@
         - `SDI`, input, serial data in
         - `SDO`, output, serial data out
 3. Supply Voltages
-    - $+5V$ @ $75mW$ ($15mA$)
+    - $+5V$ @ $50mW$ ($10mA$)
 
 ## Circuit Selection and Design
 
