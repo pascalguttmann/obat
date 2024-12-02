@@ -58,6 +58,12 @@ off in case no input signal is connected to the digital input.
 A flyback diode is connected antiparallel to the relay coil in order to limit
 the voltage induced by the coil, when the transistor is quickly turned off.
 
+#### Visual Indication
+
+A low power led is used at the general purpose output for debugging purposes. A
+current of $I_f \approx 500 \mu A$ is set by the series resistance in order to
+not exceed the pins output current specification.
+
 ### Component Selection
 
 #### Relay

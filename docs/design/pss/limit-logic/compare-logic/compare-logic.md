@@ -58,6 +58,12 @@ both selectable comparison results. circuit using the `compare-logic` should
 tolerate this behavior, avoid inconsistent configuration and/or perform
 additional consistency checks if required.
 
+#### Visual Indication
+
+A low power led is used at the general purpose output for debugging purposes. A
+current of $I_f \approx 500 \mu A$ is set by the series resistance in order to
+not exceed the pins output current specification.
+
 ### Component Selection
 
 #### AND/OR Select Gate

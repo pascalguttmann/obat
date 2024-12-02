@@ -95,6 +95,12 @@ the `relay` sub circuit. If the configuration is not correct, the `relay` sub
 circuit is signaled to disconnect. The logic is implemented using a NAND gate.
 $$ \text{!relay_connect} = \overline{\text{conf_ok} \land \text{conf_output}} $$
 
+#### Visual Indication
+
+A low power led is used at the general purpose output for debugging purposes. A
+current of $I_f \approx 500 \mu A$ is set by the series resistance in order to
+not exceed the pins output current specification.
+
 ### Component Selection
 
 #### DAC
