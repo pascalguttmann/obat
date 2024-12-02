@@ -5,6 +5,9 @@
 1. Voltage inputs
     - 10V Power Supply
 2. Voltage output
+    - digital positive logic with $U \in [-5V, 10V]$, driving up to $I = 1 mA$
+    load
+        - `power_ok`, signal that power rails are ok
     - 5V Power Supply
 3. Supply Voltages
     - $+10V$ @ $1W$ ($100mA$)
@@ -60,6 +63,12 @@ achieve the minimum area $A$.
 
 The voltage regulator is decoupled using capacitors as specified in the
 datasheet and protected against reverse currents by a diode.
+
+#### Power Checker
+
+A checker, whether the power rails are present is implemented by a RC low pass
+filter with $\tau = 1ms$. This allows for a short delay, when the power is
+switched on.
 
 ### Component Selection
 
