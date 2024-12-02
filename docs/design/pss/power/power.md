@@ -93,30 +93,30 @@ Not available.
 
 ### Assembly
 
-TODO: Add special hints for Assembly or remove
-
 ## Commissioning and Testing
 
-TODO: add tests
+### Output Voltage
 
-### Testheading
-
-Test ID: `v1.0.0/pss/control-logic/control/sign-propagation/<suffix>`
+Test ID: `v1.0.0/pss/power/output-voltage`
 
 1. Connections
-    - Output `out` disconnected
-    - Input `meas` connected to $U_{meas} = 0V$
-    - Input `ref` connected to $U_{ref} = +500mV$
+    - $U_{in} = 10V$ Input connected to 10V
 2. Power on supply voltage
-3. Wait for steady state $t_{wait} \gtrapprox 1ms$
-4. Measure Voltages
-    1. Error Signal (test id suffix: `error`)
-        - Voltage at subtraction output $U_{e}$
-    2. Output Signal (test id suffix: `output`)
-        - Voltage at PID controller output $U_{out}$
-5. Power off supply voltage
-6. Test passed if
-    1. Error Signal (test id suffix: `error`)
-        - $U_{e} \in 500mV (1 \pm 10\%)$
-    2. Output Signal (test id suffix: `output`)
-        - $U_{out} \in 10V (1 \pm 10\%)$
+3. Measure Voltages
+    - $U_{out}$ Output voltage of regulator
+4. Power off supply voltage
+5. Test passed if
+    - $U_{out} \in 5V \cdot (1 \pm 10\%)$
+
+### Output Voltage Ripple
+
+Test ID: `v1.0.0/pss/power/output-voltage-ripple`
+
+1. Connections
+    - $U_{in} = 10V$ Input connected to 10V
+2. Power on supply voltage
+3. Measure Voltages
+    - $U_{out}$ Output voltage of regulator with oscilloscope for 500ms
+4. Power off supply voltage
+5. Test passed if
+    - $\Delta U_{out} = max(U_{out}) - min(U_{out}) \leq 100mV$
