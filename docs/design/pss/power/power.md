@@ -87,7 +87,7 @@ Search on Mouser for: [MC7805BDTG](https://mou.sr/4eRkZ1s)
 
 ## Simulation
 
-TODO: link to simulation files
+Not available.
 
 ## Hardware tests in Laboratory
 
