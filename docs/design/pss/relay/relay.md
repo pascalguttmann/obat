@@ -64,6 +64,15 @@ A low power led is used at the general purpose output for debugging purposes. A
 current of $I_f \approx 500 \mu A$ is set by the series resistance in order to
 not exceed the pins output current specification.
 
+#### Protection Circuit
+
+For protection from electrostatic discharge (ESD) at the connectors transient
+voltage suppressor diodes are used to limit the voltage in case of an ESD
+event.
+
+Fuses are used to limit the maximum current and break the circuit in case of
+prolonged over current faults.
+
 ### Component Selection
 
 #### Relay
@@ -86,6 +95,27 @@ feature.
 
 Reuse of already implemented smd transistor of the `bias` stage.
 
+#### Fuse (and Socket)
+
+Search on Mouser for: [0287030.PXCN](https://mou.sr/4g1gvqn) and
+[178.6165.0002](https://mou.sr/41i6eSk)
+
+- Thermal Fuse / Fuse Socket
+- Automotive ATO Fuse (for easy replacement option)
+- Nominal Current 30 A
+- Sort by Price
+
+#### TSV Diode
+
+Search on Mouser for: [UDD32C15L01](https://mou.sr/49jd2AR)
+
+- ESD Protection Diode / TVS Diode
+- Bidirectional Polarity
+- Working voltage $U = 15V$
+- Diode Capacitance $C \leq 1pF$
+- SMD mounting (hand solderable)
+- sort by price
+
 ## Simulation
 
 A simulation with a model of the relay coil is given in `./relay.asc`.
@@ -97,6 +127,9 @@ A simulation with a model of the relay coil is given in `./relay.asc`.
 ### PCB Layout
 
 - Add test pins for: `relay_connect`, `in`, `out`
+- TSV diodes shall be placed close (at best without vias) at the ESD source for
+more specific hints see
+[TI-ESD-Layout](https://www.ti.com/lit/an/slva680a/slva680a.pdf?ts=1732384419368)
 
 ## Commissioning and Testing
 
