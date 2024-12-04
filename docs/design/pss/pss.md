@@ -5,8 +5,6 @@ to set the desired voltage, current or power.
 
 ## Interface & Requirements
 
-TODO: Add Output specs
-
 1. SPI Input Interface
     - digital with $U \in [0V, 5V]$ relative to isolated ground `GNDI`
     isolation voltage max $V_{iso} = 500V$
@@ -15,10 +13,9 @@ TODO: Add Output specs
         - `SDI_ISO`, input, serial data in
         - `SDO_ISO`, output, serial data out
 2. Voltage output
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 1mA$
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 20mA$
-    - digital positive logic with $U \in [-5V, 10V]$, driving up to $I = 1 mA$
-    load
+    - $U_{out} \in [0V, +5V]$
+    - $I_{out} \in [-20A, +20A]$
+    - Short circuit I limit $max(|I_{out}|) \leq |I_{max}| \leq |1.25 max(I_{out})|$
 3. Supply Voltages
     - $+10V$ @ $260W$ ($26A$)
     - $-5V$ @ $180W$ ($26A$)
