@@ -7,7 +7,6 @@ to set the desired voltage, current or power.
 
 TODO: Add Input specs
 TODO: Add Output specs
-TODO: Add Power Consumption
 
 1. Voltage inputs
     - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 1mA$
@@ -20,8 +19,13 @@ TODO: Add Power Consumption
     - digital positive logic with $U \in [-5V, 10V]$, driving up to $I = 1 mA$
     load
 3. Supply Voltages
-    - $+10V$ @ $1W$ ($100mA$)
-    - $-5V$ @ $0.5W$ ($50mA$)
+    - $+10V$ @ $260W$ ($26A$)
+    - $-5V$ @ $180W$ ($26A$)
+
+!!! warning "Supply Voltages"
+    In order to achieve galvanic isolation the provided supply voltages must
+    provide galvanic isolation. The `pss` output voltage is *not* isolated
+    internally.
 
 ## Circuit Selection and Design
 
