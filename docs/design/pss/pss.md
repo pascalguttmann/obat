@@ -5,14 +5,15 @@ to set the desired voltage, current or power.
 
 ## Interface & Requirements
 
-TODO: Add Input specs
 TODO: Add Output specs
 
-1. Voltage inputs
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 1mA$
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 20mA$
-    - digital positive logic with $U \in [-5V, 10V]$, driving up to $I = 1 mA$
-    load
+1. SPI Input Interface
+    - digital with $U \in [0V, 5V]$ relative to isolated ground `GNDI`
+    isolation voltage max $V_{iso} = 500V$
+        - `!CS_ISO`, input, chip select, low active
+        - `SCLK_ISO`, input, serial clock CPHA=0, CPOL=0=`SCKL`
+        - `SDI_ISO`, input, serial data in
+        - `SDO_ISO`, output, serial data out
 2. Voltage output
     - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 1mA$
     - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 20mA$
@@ -28,6 +29,18 @@ TODO: Add Output specs
     internally.
 
 ## Circuit Selection and Design
+
+### SPI Configuration
+
+The spi interface gives the possibility to
+
+1. Write configuration from the `pc` to the `pss`
+    - Channel Map available at [`./conf/channel_map.md`](./conf/channel_map.md)
+    - Datasheet for *DAC* and SPI Commands [`../../hw/pss/datasheet/AD5672RBRUZ.pdf`](../../hw/pss/datasheet/AD5672RBRUZ.pdf)
+2. Read output *voltage* from the `pss` to the `pc`
+    - Datasheet for *ADC* and SPI Commands [`../../hw/pss/datasheet/ADS8665IPWR.pdf`](../../hw/pss/datasheet/ADS8665IPWR.pdf)
+3. Read output *current* from the `pss` to the `pc`
+    - Datasheet for *ADC* and SPI Commands [`../../hw/pss/datasheet/ADS8665IPWR.pdf`](../../hw/pss/datasheet/ADS8665IPWR.pdf)
 
 ### Circuit
 
