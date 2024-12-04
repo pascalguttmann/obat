@@ -92,7 +92,18 @@ conf --> relay
 
 ### Component Selection
 
-TODO: Add component selection
+#### Connector Terminal Blocks
+
+Search on Mouser for terminal blocks [TDPT 2,5/ 2-SP-5,08](https://mou.sr/41gzUyX)
+
+- Fixed Terminal Block
+- PCB mounting
+- Nominal current $I \geq 30A$
+- Wire gauge $1.5mm^2 \leq A \leq 4mm^2$
+- Push in type
+- Pitch $5mm \leq d \leq 9mm$
+- Sort by price
+- Prefer family of parts with different multiplicity of connectors available
 
 ## Simulation
 
