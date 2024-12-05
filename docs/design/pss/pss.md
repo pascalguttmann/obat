@@ -125,7 +125,7 @@ Search on Mouser for terminal blocks [TDPT 2,5/ 2-SP-5,08](https://mou.sr/41gzUy
 
 ## Simulation
 
-TODO: link to simulation files
+Simulation is available in `./pss.asc`.
 
 ## Hardware tests in Laboratory
 
