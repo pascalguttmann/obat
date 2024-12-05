@@ -140,9 +140,26 @@ on both sides of pcb without use of adhesive glue
 
 ### Assembly
 
-TODO: Add special hints for Assembly or remove
-
-## Commissioning and Testing
+1. Pass tests for `power`
+2. Connect power for `digital-interface` and pass tests
+3. Connect power for `conf`, `adc`, `adc1`
+4. Pass tests for `conf`
+5. Pass tests for `adc`, `adc1`
+6. Connect power for `relay` and pass tests
+7. Connect power for `measurement` and pass tests
+8. Connect power for `limit-logic` and pass tests
+9. Connect power for `mux` and pass tests
+10. Connect power for `control-var` and pass tests
+11. Connect power for `power-electronics` and pass tests
+12. Connect Solderbridges
+    - JP107 - JP110
+    - JP117 - JP126
+    - JP101 - JP106
+    - JP111 - JP112
+    - JP113
+    - JP116
+    - JP127 - JP129
+13. Pass tests for `pss`
 
 TODO: add tests
 
