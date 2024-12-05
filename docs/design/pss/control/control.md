@@ -192,9 +192,9 @@ $$ R_{in,p} = R_{in,i} = R_{in,d} = 10 k \Omega $$
 Because the averaging of the signals reduces the influence of each individual
 signal by a factor of $n$ for $n$ individual signals the gain $g$ shall be
 selected to compensate the effect.
-$$ K_P = \frac{g}{n} \implies g = K_P \cdot n = 30 $$
+$$ K_P = \frac{g}{n} \implies g = K_P \cdot n = 15 $$
 
-With the gain $g = \frac{R_2}{R_1} + 1$ and a feedback resistance of $R_2 = 10
+With the gain $g = \frac{R_2}{R_1} + 1$ and a feedback resistance of $R_2 = 4.7
 k \Omega$, the resistance $R_1$ can be found:
 $$ R_1 = \frac{R_2}{g - 1} \approx 330 \Omega $$
 
@@ -337,7 +337,7 @@ Hierarchical simulation block is available as `./control.asc` and
 1. Tune trimmers to
     - $T_D$ derivative trimmer to $R = 0 \Omega$.
     - $T_I$ integral trimmer to $R = 0 \Omega$.
-    - $K_P$ proportional trimmer to $R = 5k \Omega$.
+    - $K_P$ proportional trimmer to $R = 0 \Omega$.
 2. Pass all tests for `control`.
 3. If all tests for _powerelectronics_ are passed connect _control_ and
    _powerelectronics_.

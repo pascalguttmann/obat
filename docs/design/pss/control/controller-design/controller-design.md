@@ -118,9 +118,43 @@ for a gain $K_P = 10$.
     estimated in the control simulation. (Source: qualitative observation in
     pole zero map for load cases "R", "RL", "RC")
 
+### Gain Margin and Current Control
+
+When in current control the load and current sensor can be seen as a type of
+gain in the open loop transfer function. For a small load resistance this gain
+gets large. E.g. a small increase of voltage at the `pss` output yields a
+current
+
+$$ I = \frac{U_{out}}{R_{load}} $$
+
+This current is transformed into a voltage by the current measurement sensor
+with a rate $R_{sens} \approx 100 mV / A$. Therefore a reduced load resistance
+will increase the open loop gain and decrease the remaining gain margin of the
+open loop system.
+
+The system will become unstable, when the gain margin is reduced to zero.
+
+The minimum required load resistance to keep the gain margin greater than zero
+can be determined by the controller open loop gain margin $GM_{-180°}$, the
+sensor transformation resistance $R_{sens}$ and the controller gain $K_P$.
+
+$$ R_L > \frac{K_P \cdot R_{sens}}{GM_{-180°}} $$
+
+If the load resistance is close to this value the system will start to
+oscillate with very little dampening. To obtain a reasonable amount of damping
+the open loop gain margin at $-150°$ phase shift $GM_{-150°}$ can be used to
+leave $30°$ of phase margin at the minimum load resistance. $GM_{-150°} \approx
+16.5 \equiv 24 dB$ is obtained by simulation. Considering the output
+resistance of the `outstage` of the `power-electronics` in series with the load
+resistance, the load resistance is limited to a lower limit of $R_L \in
+[30m\Omega, +\inf)$. By rearranging the formula above a controller gain $K_P$
+for which the phase margin of $30°$ is protected can be estimated:
+
+$$ K_P < \frac{R_L \cdot GM_{-150°}}{R_{sens}} \approx 5 $$
+
 ### Obtained PID Parameters
 
 The parameters of the pid controller are:
-$$ Kp = 10 $$
-$$ Ti = 318e-6 \quad \wedge \quad Ki = 3.14e4 $$  
-$$ Td = 80e-6 \quad \wedge \quad Kd = 8e-4 $$
+$$ Kp = 5 $$
+$$ Ti = 318e-6 \quad \wedge \quad Ki = 1.57e4 $$  
+$$ Td = 80e-6 \quad \wedge \quad Kd = 4e-4 $$

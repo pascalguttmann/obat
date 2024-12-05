@@ -37,6 +37,17 @@ is used.
 
 The components are decoupled by capacitors as described in the datasheets.
 
+#### Protection Circuit
+
+For protection from electrostatic discharge (ESD) at the connectors transient
+voltage suppressor diodes are used to limit the voltage in case of an ESD
+event.
+
+The isolated 5V voltage at the output of the DCDC-converter is protected from
+exceeding the specifications of the digital isolator by usage of a zener diode
+to limit the voltage and if necessary provide a small load current to reduce
+the output voltage of the DCDC-converter.
+
 ### Component Selection
 
 #### Digital Isolator
@@ -60,6 +71,26 @@ Search on Mouser for: [R05C05TE05S](https://mou.sr/4eUT3cS)
 - output power $P \in [100mW, 1W]
 - SMD mounting, (hand solderable friendly)
 - Sort by Price
+
+#### Zener Diode
+
+Search on Mouser for: [PDZ5.6B,115](https://mou.sr/3B8nGxS)
+
+- Zener Diode
+- Zener voltage $5.6V \pm 2 \%$
+- SMD mounting, (hand solderable friendly)
+- Sort by Price
+
+#### TSV Diode
+
+Search on Mouser for: [NUP1301,215](https://mou.sr/41gzskh)
+
+- ESD Protection Diode / TVS Diode
+- Unidirectional Polarity
+- Working voltage $U = 15V$
+- Diode Capacitance $C \leq 1pF$
+- SMD mounting (hand solderable)
+- sort by price
 
 ## Simulation
 

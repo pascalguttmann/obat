@@ -4,11 +4,12 @@
 
 1. Voltage inputs
     - 10V Power Supply
+    - -5V Power Supply
 2. Voltage output
+    - 5V Power Supply
     - digital positive logic with $U \in [-5V, 10V]$, driving up to $I = 1 mA$
     load
         - `power_ok`, signal that power rails are ok
-    - 5V Power Supply
 3. Supply Voltages
     - $+10V$ @ $1W$ ($100mA$)
     - $+5V$ @ $500mW$ ($100mA$)
@@ -70,6 +71,15 @@ A checker, whether the power rails are present is implemented by a RC low pass
 filter with $\tau = 1ms$. This allows for a short delay, when the power is
 switched on.
 
+#### Protection Circuit
+
+For protection from electrostatic discharge (ESD) at the connectors transient
+voltage suppressor diodes are used to limit the voltage in case of an ESD
+event.
+
+Fuses are used to limit the maximum current and break the circuit in case of
+prolonged over current faults.
+
 ### Component Selection
 
 #### Voltage Regulator
@@ -82,6 +92,27 @@ Search on Mouser for: [MC7805BDTG](https://mou.sr/4eRkZ1s)
 - single channel
 - fixed output type
 - Smd mounting (hand solderable)
+- sort by price
+
+#### Fuse (and Socket)
+
+Search on Mouser for: [0287030.PXCN](https://mou.sr/4g1gvqn) and
+[178.6165.0002](https://mou.sr/41i6eSk)
+
+- Thermal Fuse / Fuse Socket
+- Automotive ATO Fuse (for easy replacement option)
+- Nominal Current 30 A
+- Sort by Price
+
+#### TSV Diode
+
+Search on Mouser for: [UDD32C15L01](https://mou.sr/49jd2AR)
+
+- ESD Protection Diode / TVS Diode
+- Bidirectional Polarity
+- Working voltage $U = 15V$
+- Diode Capacitance $C \leq 1pF$
+- SMD mounting (hand solderable)
 - sort by price
 
 ## Simulation
@@ -99,6 +130,9 @@ Not available.
 - Place regulator on $A=800mm^2$ of copper fill for thermal relief
     - e.g. square on top and bottom with $d_\square = 20mm$ stitched by thermal
     vias
+- TSV diodes shall be placed close (at best without vias) at the ESD source for
+more specific hints see
+[TI-ESD-Layout](https://www.ti.com/lit/an/slva680a/slva680a.pdf?ts=1732384419368)
 
 ### Assembly
 

@@ -1,7 +1,5 @@
 # Limit Logic
 
-TODO: Add visual State indication?
-
 ## Interface & Requirements
 
 1. Voltage inputs
@@ -122,7 +120,7 @@ not exceed the pins output current specification.
 
 [CD4043BDR]: https://mou.sr/40mZDFB
 
-#### Or Gate
+#### Logic Or Gate
 
 [CD4078BM96] 8-Input CMOS or Gate from 4000 series. Search on Mouser, sort by
 price.
@@ -179,11 +177,11 @@ Available suffixes: `vc`, `lclc`, `uclc`, `cc`, `lvlc`, `uvlc`
 3. Connect `r_mode_<suffix>` to $10V$
 4. Connect `r_mode_<suffix>` to $-5V$
 5. Measure Voltage $U_{reset}$ for `mode_<suffix>`
-3. Connect `s_mode_<suffix>` to $10V$
-4. Connect `s_mode_<suffix>` to $-5V$
-5. Measure Voltage $U_{set}$ for `mode_<suffix>`
-6. Power off supply voltage
-7. Test passed if
+6. Connect `s_mode_<suffix>` to $10V$
+7. Connect `s_mode_<suffix>` to $-5V$
+8. Measure Voltage $U_{set}$ for `mode_<suffix>`
+9. Power off supply voltage
+10. Test passed if
     - $U_{reset} < -3V$
     - $U_{set} > 8V$
 

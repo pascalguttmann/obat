@@ -24,8 +24,6 @@ nav:
       - design/pc/pc.md
     - PowerSupplySink:
       - design/pss/pss.md
-      - design/pss/smu.md
-      - design/pss/amp.md
       - Analog Digital Converter:
         - design/pss/adc/adc.md
       - Configuration:
@@ -56,6 +54,7 @@ nav:
         - design/pss/power-electronics/power-electronics.md
         - Output Stage:
           - design/pss/power-electronics/outstage/outstage.md
+          - design/pss/power-electronics/outstage/outstage-unit.md
         - Bias Stage:
           - design/pss/power-electronics/bias/bias.md
       - Relay:
