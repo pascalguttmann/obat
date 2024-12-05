@@ -161,26 +161,92 @@ on both sides of pcb without use of adhesive glue
     - JP127 - JP129
 13. Pass tests for `pss`
 
-TODO: add tests
+### Open Circuit Test
 
-### Testheading
+Test ID: `v1.0.0/pss/open-circuit/<suffix>`
 
-Test ID: `v1.0.0/pss/control-logic/control/sign-propagation/<suffix>`
+Available suffix:
+
+- `voltage-control0`, `voltage-control3`, `voltage-control5`
+- `lower-voltage-limit-control`, `upper-voltage-limit-control`
 
 1. Connections
-    - Output `out` disconnected
-    - Input `meas` connected to $U_{meas} = 0V$
-    - Input `ref` connected to $U_{ref} = +500mV$
+    - Output disconnected ($R \rightarrow \inf$)
+    - SPI interface connected to `pc`
 2. Power on supply voltage
-3. Wait for steady state $t_{wait} \gtrapprox 1ms$
+3. Program Configuration with conf_output set
+    - For suffix `voltage-control0`  
+      refselect=U, $U=0V$, $I=1A$, $LVL=1V$, $UVL=4V$, $LCL=-10A$, $UCL=10A$
+    - For suffix `voltage-control3`  
+      refselect=U, $U=3V$, $I=1A$, $LVL=1V$, $UVL=4V$, $LCL=-10A$, $UCL=10A$
+    - For suffix `voltage-control5`  
+      refselect=U, $U=5V$, $I=1A$, $LVL=1V$, $UVL=4V$, $LCL=-10A$, $UCL=10A$
+    - For suffix `upper-voltage-limit-control`  
+      refselect=I, $U=3V$, $I=1A$, $LVL=1V$, $UVL=4V$, $LCL=-10A$, $UCL=10A$
+    - For suffix `lower-voltage-limit-control`  
+      refselect=I, $U=3V$, $I=-1A$, $LVL=1V$, $UVL=4V$, $LCL=-10A$, $UCL=10A$
 4. Measure Voltages
-    1. Error Signal (test id suffix: `error`)
-        - Voltage at subtraction output $U_{e}$
-    2. Output Signal (test id suffix: `output`)
-        - Voltage at PID controller output $U_{out}$
+    1. Output Voltage with multimeter $U_{out,multi}$
+    2. Output Voltage with internal adc via spi $U_{out,spi}$
 5. Power off supply voltage
 6. Test passed if
-    1. Error Signal (test id suffix: `error`)
-        - $U_{e} \in 500mV (1 \pm 10\%)$
-    2. Output Signal (test id suffix: `output`)
-        - $U_{out} \in 10V (1 \pm 10\%)$
+    - For suffix `voltage-control0`  
+      $U_{out,multi} \in U_{out,adc} \pm 100mV$
+      $U_{out,multi} \in 0V \pm 100mV$
+    - For suffix `voltage-control3`  
+      $U_{out,multi} \in U_{out,adc} \pm 100mV$
+      $U_{out,multi} \in 3V \pm 100mV$
+    - For suffix `voltage-control5`  
+      $U_{out,multi} \in U_{out,adc} \pm 100mV$
+      $U_{out,multi} \in 5V \pm 100mV$
+    - For suffix `upper-voltage-limit-control`  
+      $U_{out,multi} \in U_{out,adc} \pm 100mV$
+      $U_{out,multi} \in 4V \pm 100mV$
+    - For suffix `lower-voltage-limit-control`  
+      $U_{out,multi} \in U_{out,adc} \pm 100mV$
+      $U_{out,multi} \in 1V \pm 100mV$
+
+### Short Circuit Test
+
+Test ID: `v1.0.0/pss/short-circuit/<suffix>`
+
+Available suffix:
+
+- `current-control0`, `current-control-20`, `current-control+20`
+- `lower-current-limit-control`, `upper-current-limit-control`
+
+1. Connections
+    - Output disconnected ($R \rightarrow \inf$)
+    - SPI interface connected to `pc`
+2. Power on supply voltage
+3. Program Configuration with conf_output set
+    - For suffix `current-control0`  
+      refselect=I, $U=2V$, $I=0A$, $LVL=0V$, $UVL=4V$, $LCL=-10A$, $UCL=10A$
+    - For suffix `current-control-20`  
+      refselect=I, $U=2V$, $I=-20A$, $LVL=0V$, $UVL=4V$, $LCL=-10A$, $UCL=10A$
+    - For suffix `current-control+20`  
+      refselect=I, $U=2V$, $I=+20A$, $LVL=0V$, $UVL=4V$, $LCL=-10A$, $UCL=10A$
+    - For suffix `lower-current-limit-control`  
+      refselect=U, $U=0V$, $I=1A$, $LVL=1V$, $UVL=4V$, $LCL=+1A$, $UCL=+10A$
+    - For suffix `upper-current-limit-control`  
+      refselect=U, $U=4V$, $I=1A$, $LVL=1V$, $UVL=4V$, $LCL=+1A$, $UCL=+10A$
+4. Measure Current
+    1. Output current with multimeter $I_{out,multi}$
+    2. Output current with internal adc via spi $I_{out,spi}$
+5. Power off supply voltage
+6. Test passed if
+    - For suffix `current-control0`  
+      $I_{out,multi} \in I_{out,adc} \pm 1A$
+      $I_{out,multi} \in 0A \pm 1A$
+    - For suffix `current-control-20`  
+      $I_{out,multi} \in I_{out,adc} \pm 1A$
+      $I_{out,multi} \in -20A \pm 1A$
+    - For suffix `current-control+20`  
+      $I_{out,multi} \in I_{out,adc} \pm 1A$
+      $I_{out,multi} \in +20A \pm 1A$
+    - For suffix `lower-current-limit-control`  
+      $I_{out,multi} \in I_{out,adc} \pm 1A$
+      $I_{out,multi} \in +1A \pm 1A$
+    - For suffix `upper-current-limit-control`  
+      $I_{out,multi} \in I_{out,adc} \pm 1A$
+      $I_{out,multi} \in +10A \pm 1A$
