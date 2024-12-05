@@ -134,8 +134,9 @@ TODO: link to simulation files
 ### PCB Layout
 
 - Pull up/down for inputs, when stage is isolated, to run other tests.
-TODO: Add test pins
-TODO: Add (dic-)connector note, with testcase required for connecting
+- Add disconnectors at outputs of sub circuits to obtain isolation for testing
+- Place bulky components on single side of board to allow for reflow soldering
+on both sides of pcb without use of adhesive glue
 
 ### Assembly
 
