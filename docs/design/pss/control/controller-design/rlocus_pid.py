@@ -32,7 +32,7 @@ bwLimitPole = firstOrderLowPass(bwLimitOmegaScaled)
 
 zero = [-2 * np.pi * 1e3 / scale, -2 * np.pi * 1e3 / scale]
 neutralGain = -1 / np.sum(zero)
-pid = ct.zpk([zero[0], zero[1]], [0], 10 * neutralGain) * bwLimitPole * bwLimitPole
+pid = ct.zpk([zero[0], zero[1]], [0], 5 * neutralGain) * bwLimitPole * bwLimitPole
 
 outerCircuitOmega = 2 * np.pi * 500
 outerCircuitOmegaScaled = outerCircuitOmega / scale
