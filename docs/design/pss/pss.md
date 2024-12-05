@@ -41,7 +41,25 @@ The spi interface gives the possibility to
 
 ### Circuit
 
-TODO: Add circuit description
+The overview of the interconnections is given in the block diagram below. The
+`pc` can program a configuration through the isolated spi `digital interface`.
+The configuration is converted to the analog domain by the `DAC` and fed
+through the `multiplexer` to the `controller`. The `controller` controls the
+`power electronics` to achieve the desired reference quantity at the output,
+which is measured by the `output measurement`. Depending on the configuration
+the output is connected to or disconnected from the load by the `relay` sub
+circuit. The measurements of the `output measurement` can also be read via
+the `digital-interface`.
+
+The configuration and output measurements are used by the `limit-logic` to
+determine the control mode. (e.g. voltage control, upper current limit control,
+...) The control mode is used to set the `multiplexe` to pass the correct
+voltage and current of the configuration to the `controller` and provide the
+appropriate measurement for the mode.
+
+The power is provided by external isolated DC power supplies for the -5V and
++10V rail. The +5V rail used for the measurements and analog configuration is
+generated internally.
 
 #### Block Diagram
 
