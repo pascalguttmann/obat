@@ -109,8 +109,6 @@ limits, that not both are active at the same time.
 - `conf_refselect_v` and `conf_refselect_i` are mutually excluded by the check
 of the `config-checker`.
 
-TODO: config-checker, implemnt config-checker
-
 ### Component Selection
 
 #### Logic Gates
