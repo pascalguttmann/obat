@@ -24,6 +24,7 @@ nav:
       - design/pc/pc.md
     - PowerSupplySink:
       - design/pss/pss.md
+      - design/pss/layout.md
       - Analog Digital Converter:
         - design/pss/adc/adc.md
       - Configuration:
