@@ -1,0 +1,40 @@
+Version 4
+SymbolType BLOCK
+RECTANGLE Normal -192 -168 192 168
+WINDOW 0 0 -168 Bottom 2
+PIN -192 -16 LEFT 8
+PINATTR PinName V_SUP+
+PINATTR SpiceOrder 1
+PIN -192 16 LEFT 8
+PINATTR PinName V_SUP-
+PINATTR SpiceOrder 2
+PIN 192 112 RIGHT 8
+PINATTR PinName !relay_connect
+PINATTR SpiceOrder 3
+PIN 192 -112 RIGHT 8
+PINATTR PinName conf_iref
+PINATTR SpiceOrder 4
+PIN 192 -16 RIGHT 8
+PINATTR PinName conf_lcl
+PINATTR SpiceOrder 5
+PIN 192 -80 RIGHT 8
+PINATTR PinName conf_lvl
+PINATTR SpiceOrder 6
+PIN 192 144 RIGHT 8
+PINATTR PinName conf_ok
+PINATTR SpiceOrder 7
+PIN 192 80 RIGHT 8
+PINATTR PinName conf_refselect_i
+PINATTR SpiceOrder 8
+PIN 192 48 RIGHT 8
+PINATTR PinName conf_refselect_v
+PINATTR SpiceOrder 9
+PIN 192 16 RIGHT 8
+PINATTR PinName conf_ucl
+PINATTR SpiceOrder 10
+PIN 192 -48 RIGHT 8
+PINATTR PinName conf_uvl
+PINATTR SpiceOrder 11
+PIN 192 -144 RIGHT 8
+PINATTR PinName conf_vref
+PINATTR SpiceOrder 12
