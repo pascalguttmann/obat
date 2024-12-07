@@ -133,6 +133,9 @@ Simulation is available in `./pss.asc`.
 
 ### PCB Layout
 
+!!! info
+    Detailed Layout Information available under [`./layout.md`](./layout.md).
+
 - Pull up/down for inputs, when stage is isolated, to run other tests.
 - Add disconnectors at outputs of sub circuits to obtain isolation for testing
 - Place bulky components on single side of board to allow for reflow soldering

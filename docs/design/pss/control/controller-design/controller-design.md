@@ -144,7 +144,7 @@ If the load resistance is close to this value the system will start to
 oscillate with very little dampening. To obtain a reasonable amount of damping
 the open loop gain margin at $-150°$ phase shift $GM_{-150°}$ can be used to
 leave $30°$ of phase margin at the minimum load resistance. $GM_{-150°} \approx
-16.5 \equiv 24 dB$ is obtained by simulation. Considering the output
+16.5 \widehat{\approx} 24 dB$ is obtained by simulation. Considering the output
 resistance of the `outstage` of the `power-electronics` in series with the load
 resistance, the load resistance is limited to a lower limit of $R_L \in
 [30m\Omega, +\inf)$. By rearranging the formula above a controller gain $K_P$
