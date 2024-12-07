@@ -87,6 +87,7 @@ locally in the shell the script `go_mkdocs_serve.sh` combines the steps
 3. opening a webbrowser at <http://127.0.0.1:8000/obat/>
 
 So the only command necessary to run when using this convenience script is:
+
 ```bash
 ./go_mkdocs_serve.sh
 ```
@@ -108,6 +109,17 @@ the GitHub repository.
 Obat uses [KiCAD 8] as an ECAD tool, a free and open source tool.
 
 [KiCAD 8]: <https://www.kicad.org/download/>
+
+### HierarchicalPcb
+
+Obat uses KiCAD in conunction with
+[HierarchicalPcb](https://github.com/gauravmm/HierarchicalPcb) a plugin to
+enforce layouts of hierarchical sub sheets. Extra installation step is
+required, which is described in the [Readme][readme-hierarchical-pcb] of
+HierarchicalPcb Plugin.
+
+[readme-hierarchical-pcb]:
+https://github.com/gauravmm/HierarchicalPcb/blob/master/README.md
 
 ## License
 
