@@ -160,8 +160,7 @@ on both sides of pcb without use of adhesive glue
     - JP101 - JP106
     - JP111 - JP112
     - JP113
-    - JP116
-    - JP127 - JP129
+    - JP128 - JP129
 13. Pass tests for `pss`
 
 ### Open Circuit Test
