@@ -121,6 +121,21 @@ HierarchicalPcb Plugin.
 [readme-hierarchical-pcb]:
 https://github.com/gauravmm/HierarchicalPcb/blob/master/README.md
 
+### KiKit
+
+Obat uses KiCAD in conjunction with [KiKit] a plugin for automating KiCAD
+workflows. Including the separation of a multiboard `.kicad_pcb` into separate
+`.kicad_pcb` files. Please follow KiKits [installation guide].
+
+If KiKit is used for board separation in the hardware component typically a
+project specific script is provided separate the boards. An [example
+script][kikit-separate-example] for windows is given in the powersupplysink
+hardware component.
+
+[KiKit]: https://github.com/yaqwsx/KiKit
+[installation guide]: https://yaqwsx.github.io/KiKit/latest/installation/intro/
+[kikit-separate-example]: ./hw/pss/kikit_separate.bat
+
 ## License
 
 The project including its

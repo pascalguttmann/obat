@@ -5,7 +5,7 @@ repo_name: pascalguttmann/obat
 edit_uri: edit/main/docs/
 nav:
   - Home:
-    - index.md
+    - README.md
     - git-submodules.md
     - tutorial-vids.md
   - Design:
