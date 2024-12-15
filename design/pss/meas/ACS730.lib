@@ -1,0 +1,14 @@
+.subckt ACS730 IP+ IP- VCC Viout VZCR DUT_GND
+Rp IP+ IP- 1.2m
+XSet_BW N002 front_end N002 opamp Aol=100K GBW=1MEG
+B§OutputStage front_end DUT_GND V=if({polarity}==2,((V(IP+)-V(IP-))/1.2m*sensitivity)+2.5,((V(IP+)-V(IP-))/1.2m*sensitivity)+0.5)
+B§Set_VZCR VZCR DUT_GND V=if((V(VCC)>=4.5)&(V(VCC)<=5.5), if({polarity}==2, 2.5, 0.5), 0)
+B§VSat_High N001 DUT_GND V=V(VCC)-0.3
+VSat_Low N003 DUT_GND 100mV
+XBuffer N002 Viout N001 N003 Viout level2 Avol=1Meg GBW=10Meg Slew=10Meg ilimit=25m rail=0 Vos=0 phimargin=45 en=0 enk=0 in=0 ink=0 Rin=500Meg
+I1 DUT_GND VCC 17mA
+.lib opamp.sub
+.lib UniversalOpAmp2.lib
+.backanno
+.ends ACS730
+.end
