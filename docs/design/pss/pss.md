@@ -3,6 +3,12 @@
 The Power Supply Sink is controlled from the PC via a programmable bus interface
 to set the desired voltage, current or power.
 
+| TOP | BOT |
+| ------------- | -------------- |
+| ![img](./pss_top.png)  | ![img](./pss_bot.png) |
+| ![img](./pss_3d_top_01.png) | ![img](./pss_3d_bot_01.png) |
+| ![img](./pss_3d_top_02.png) | ![img](./pss_3d_bot_02.png) |
+
 ## Interface & Requirements
 
 1. SPI Input Interface
