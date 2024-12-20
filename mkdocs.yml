@@ -22,7 +22,6 @@ nav:
         - design/meas/discuss/isoamp.md
     - Programmable Controller:
       - design/pc/pc.md
-      - design/pc/ch341.md
     - PowerSupplySink:
       - design/pss/pss.md
       - design/pss/layout.md
