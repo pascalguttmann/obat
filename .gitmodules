@@ -1,6 +1,6 @@
 [submodule "hw/ecad/pss"]
 	path = hw/pss
 	url = https://github.com/pascalguttmann/obat-powersupplysink.git
-[submodule "sw/pc/obat_pc_spi_driver"]
-	path = sw/pc/obat_pc_spi_driver
-	url = https://github.com/pascalguttmann/obat_pc_spi_driver
+[submodule "sw/pc/obat_pc_spi"]
+	path = sw/pc/obat_pc_spi
+	url = https://github.com/pascalguttmann/obat_pc_spi
