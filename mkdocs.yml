@@ -62,6 +62,14 @@ nav:
           - design/pss/relay/relay.md
     - Safety Research:
       - design/safety/safety.md
+  - "Instance #1":
+    - instance_1/instance_1.md
+    - PowerSupplySink:
+      - instance_1/pss/pss.md
+      - Power Electronics:
+        - instance_1/pss/power-electronics/power-electronics.md
+        - Output Stage:
+          - instance_1/pss/power-electronics/outstage/outstage.md
   - Research Mindmap:
     - research/mindmap.md
 plugins:
