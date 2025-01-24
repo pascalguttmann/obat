@@ -491,7 +491,18 @@ See `./outstage.asc` and `./outstage.asy`.
 
 ### Load Distribution
 
-Test ID: `v1.0.0/pss/power-electronics/outstage/load-distribution/<suffix>`
+Test ID: `v1.1.0/pss/power-electronics/outstage/load-distribution/<suffix>`
+
+!!! info "Separation of outstage in individual units"
+    If the output stage is split into multiple equivalent units which will be
+    used in parallel the test can be conducted with proportionally reduced
+    currents.
+
+!!! info "$100 m \Omega"
+    The resistance can be obtained by using a copper wire:
+
+    - $A = 4 mm^2, l \approx 24m$ or
+    - $A = 1.5 mm^2, l \approx 9m$
 
 1. Connect
     1. Positive Rail (test id suffix: `positive`)
@@ -514,7 +525,12 @@ Test ID: `v1.0.0/pss/power-electronics/outstage/load-distribution/<suffix>`
 
 ### Short Circuit Test
 
-Test ID: `v1.0.0/pss/power-electronics/outstage/short-circuit/<suffix>`
+Test ID: `v1.1.0/pss/power-electronics/outstage/short-circuit/<suffix>`
+
+!!! info "Separation of outstage in individual units"
+    If the output stage is split into multiple equivalent units which will be
+    used in parallel the test can be conducted with proportionally reduced
+    currents.
 
 1. Connect
     1. Positive Rail (test id suffix: `positive`)
