@@ -66,6 +66,8 @@ nav:
     - instance_1/instance_1.md
     - PowerSupplySink:
       - instance_1/pss/pss.md
+      - Digital Interface:
+        - instance_1/pss/digital-interface/digital-interface.md
       - Power:
         - instance_1/pss/power/power.md
       - Power Electronics:
