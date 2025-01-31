@@ -1,5 +1,8 @@
 # Digital Interface
 
+TODO: Add 330 Ohm at output to reduce high current spikes at input (lower
+frequency, higher current) 
+
 ## Interface & Requirements
 
 1. SPI Input Interface
