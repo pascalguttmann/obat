@@ -66,6 +66,8 @@ nav:
     - instance_1/instance_1.md
     - PowerSupplySink:
       - instance_1/pss/pss.md
+      - Analog Digital Converter:
+        - instance_1/pss/adc/adc.md
       - Configuration:
         - instance_1/pss/conf/conf.md
       - Digital Interface:
