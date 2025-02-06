@@ -1,7 +1,7 @@
 # Digital Interface
 
-TODO: Add 330 Ohm at output to reduce high current spikes at input (lower
-frequency, higher current) 
+TODO: Add 100 Ohm / 470 pF at output to increase 10-90 rise time to approx
+$2.2RC = 100ns$.
 
 ## Interface & Requirements
 

@@ -1,5 +1,8 @@
 # Configuration
 
+TODO: Add 100 Ohm / 470 pF at output to increase 10-90 rise time to approx
+$2.2RC = 100ns$. (Clock inverter line)
+
 !!! info "Configuration Options"
     To obtain information, which DAC channels configures which feature please
     see [`./channel_map.md`](./channel_map.md).
