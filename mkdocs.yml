@@ -92,6 +92,8 @@ nav:
         - instance_1/pss/power-electronics/power-electronics.md
         - Output Stage:
           - instance_1/pss/power-electronics/outstage/outstage.md
+        - Bias Stage:
+          - instance_1/pss/power-electronics/bias/bias.md
       - Relay:
           - instance_1/pss/relay/relay.md
   - Research Mindmap:
