@@ -80,7 +80,6 @@ nav:
             - instance_1/pss/limit-logic/compare-logic/window-comparator/window-comparator.md
         - Mode Transition:
           - instance_1/pss/limit-logic/mode-transition/mode-transition.md
-          - instance_1/pss/limit-logic/mode-transition/statemachine.md
       - Measurement:
         - instance_1/pss/meas/meas.md
       - Power:
