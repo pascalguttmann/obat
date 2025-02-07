@@ -82,6 +82,8 @@ nav:
           - instance_1/pss/limit-logic/mode-transition/mode-transition.md
       - Measurement:
         - instance_1/pss/meas/meas.md
+      - Multiplexer:
+        - instance_1/pss/mux/mux.md
       - Power:
         - instance_1/pss/power/power.md
       - Power Electronics:
