@@ -3,6 +3,9 @@
 TODO: Add 100 Ohm / 470 pF at output to increase 10-90 rise time to approx
 $2.2RC = 100ns$. (Clock inverter line)
 
+TODO: Fix wrong connection in schematic and pcb for `conf_ok` (U402, switch pins 2 and 13)
+The refselect_v & limits_i (and vice versa: refselect_i & limits_v) must be combined.
+
 !!! info "Configuration Options"
     To obtain information, which DAC channels configures which feature please
     see [`./channel_map.md`](./channel_map.md).
