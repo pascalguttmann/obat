@@ -70,6 +70,8 @@ nav:
         - instance_1/pss/adc/adc.md
       - Configuration:
         - instance_1/pss/conf/conf.md
+      - Controller:
+        - instance_1/pss/control/control.md
       - Digital Interface:
         - instance_1/pss/digital-interface/digital-interface.md
       - Limit Logic:
