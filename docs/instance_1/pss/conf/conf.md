@@ -1,5 +1,9 @@
 # Configuration
 
+!!! warning "Wiring violation from Schematic and Layout"
+    For U402 pins switch 2 and 13 are switched with enameled wire, because of a
+    schematic and layout error.
+
 ## Tests
 
 ### Level Shifter Low
