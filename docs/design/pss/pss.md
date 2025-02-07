@@ -224,7 +224,7 @@ Available suffix:
 - `lower-current-limit-control`, `upper-current-limit-control`
 
 1. Connections
-    - Output disconnected ($R \rightarrow \inf$)
+    - Output short circuited to ground ($R \rightarrow 0 \Omega$)
     - SPI interface connected to `pc`
 2. Power on supply voltage
 3. Program Configuration with conf_output set
