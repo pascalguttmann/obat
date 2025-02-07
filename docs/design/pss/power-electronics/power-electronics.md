@@ -51,7 +51,7 @@ hierarchical simulation block is available as `./power-electronics.asc` and
 1. Pass all tests for _bias_
 2. Pass all tests for _outstage_
 3. Connect _bias_ and _outstage_
-4. Set Offset adjustment trimmer of _bias_ to $R = 0 \Omega$, verify by
+4. Set Offset adjustment trimmer of _bias_ to $R = 1k \Omega$, verify by
    measurement
 5. Connect _bias_ input to $U_{in} = 2V$
 6. Power on supply voltage
@@ -77,4 +77,4 @@ Test ID: `v1.0.0/pss/power-electronics/transfer/`
     - Output voltage $U_2$
 6. Power off supply voltage
 7. Test passed if
-    - $U_2 - U_1 \in (U_{2,in} - U_{1,in}) \cdot (1 \pm 5%)$
+    - $U_2 - U_1 \in (U_{2,in} - U_{1,in}) \cdot (1 \pm 5\%)$
