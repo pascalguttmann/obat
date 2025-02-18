@@ -14,16 +14,13 @@ jobs:
         run: |
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@users.noreply.github.com
-      - uses: actions/setup-python@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5.4.0
         with:
-          python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-      - uses: actions/cache@v3
+          python-version: '3.12'
+      - name: Install Python dependencies
+        uses: py-actions/py-dependency-install@v4
         with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: .cache
-          restore-keys: |
-            mkdocs-material-
-      - run: pip install --upgrade pip
-      - run: pip install -r requirements.txt
-      - run: mkdocs gh-deploy --force
+          path: "./requirements.txt"
+      - name: Deploy Github pages
+        run: mkdocs gh-deploy --force
