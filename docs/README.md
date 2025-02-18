@@ -18,13 +18,6 @@ To read the full documentation please visit the [obat documentation][obat-doc].
 The documentation is provided in `Markdown` files, which are compiled and
 deployed to the [obat documentation][obat-doc] using [MkDocs][mkdocs].
 
-#### Contribution Video Tutorials
-
-[Video tutorials for contributing][tutorial-vid] using git are available for the usage of:
-
-- Command Line Interface of Git
-- VS Code Git Integration
-
 #### Editing on Local Machine
 
 To edit the documentation on your local machine you should download the obat
@@ -149,4 +142,3 @@ are distributed under the [MIT License][license].
 [obat-doc]: <https://pascalguttmann.github.io/obat/>
 [license]: <https://raw.githubusercontent.com/pascalguttmann/obat/main/LICENSE>
 [mkdocs]: <https://www.mkdocs.org/>
-[tutorial-vid]: <./tutorial-vids/>
