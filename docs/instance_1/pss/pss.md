@@ -1,5 +1,9 @@
 # PowerSupplySink
 
+| Front | Back |
+| ------------- | -------------- |
+| ![img](./instance_1_pss_front.jpg)  | ![img](./instance_1_pss_back.jpg) |
+
 Uses schematic version 1.0.0 and board layout version 1.0.0 (git tag sch-1.0.0_brd-1.0.0)
 
 ## Assembly Checklist
