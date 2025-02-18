@@ -1,5 +1,14 @@
 # Measurement
 
+## Instance specific
+
+!!! info "Opamp type U1501"
+    Opamp U1501 is used to add offset compensation to the current measurement. Using
+    the faster OPA2810 instead of the TLV9352 for increased phase margin while
+    in current control modes. The additional phase margin gives enhanced stability.
+    For details why increased stability is needed see `control`, which
+    describes the effect of hysteresis in the `bias` stage on the controller.
+
 ## Tests
 
 ### Current Sensor

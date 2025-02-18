@@ -1,5 +1,14 @@
 # Bias Stage
 
+## Instance specific
+
+!!! info "Increased rubber diode voltage"
+    R1903 is changed from $R = 100 \Omega$ to $R = 270 \Omega$ in order to
+    achieve higher offset voltages to increase the quiescent current.
+    A higher quiescent current reduces the hysteresis by the `outstage`. The hysteresis
+    is undesired as it violates the assumption of linearity, which is assumed
+    for controller synthesis.
+
 ## Tests
 
 # Transfer Characteristic
