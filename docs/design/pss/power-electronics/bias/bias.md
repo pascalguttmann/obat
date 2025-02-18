@@ -240,7 +240,7 @@ See `./*.asc` files. Simulations available for:
 
 ### Transfer Characteristic
 
-Test ID: `v1.0.0/pss/power-electronics/bias/transfer/<suffix>`
+Test ID: `v1.0.1/pss/power-electronics/bias/transfer/<suffix>`
 
 1. Connect
     1. -2V (test id suffix: `-2V`)
@@ -249,7 +249,7 @@ Test ID: `v1.0.0/pss/power-electronics/bias/transfer/<suffix>`
         - Input $U_{IN} = 2V$
     3. 6V (test id suffix: `+6V`)
         - Input $U_{IN} = 6V$
-2. Turn offset trimmer to $R = 0 \Omega$, verify by measurement
+2. Turn offset trimmer to $R = 1k \Omega$, verify by measurement
 3. Power on supply voltage
 4. Measure Voltages
     1. Negative output voltage
@@ -263,7 +263,7 @@ Test ID: `v1.0.0/pss/power-electronics/bias/transfer/<suffix>`
 
 ### Offset Adjustment
 
-Test ID: `v1.0.0/pss/power-electronics/bias/offset-adjust/<suffix>`
+Test ID: `v1.0.1/pss/power-electronics/bias/offset-adjust/<suffix>`
 
 1. Connect
     - Input $U_{IN} = 2V$
@@ -280,4 +280,4 @@ Test ID: `v1.0.0/pss/power-electronics/bias/offset-adjust/<suffix>`
 8. Test passed if
     - Let $U_{offset,0} = U_{out+,0} - U_{out-,0}$
     - Let $U_{offset,1} = U_{out+,1} - U_{out-,1}$
-    - $U_{offset,0} + 0.5V < U_{offset,1} < U_{offset,0} + 1.5V$
+    - $U_{offset,0} - 0.5V > U_{offset,1} > U_{offset,0} - 1.5V$

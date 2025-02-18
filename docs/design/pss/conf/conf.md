@@ -1,8 +1,25 @@
 # Configuration
 
+TODO: Add 100 Ohm / 470 pF at output to increase 10-90 rise time to approx
+$2.2RC = 100ns$. (Clock inverter line)
+
+TODO: Fix wrong connection in schematic and pcb for `conf_ok` (U402, switch pins 2 and 13)
+The refselect_v & limits_i (and vice versa: refselect_i & limits_v) must be combined.
+
 !!! info "Configuration Options"
     To obtain information, which DAC channels configures which feature please
     see [`./channel_map.md`](./channel_map.md).
+
+!!! warning "AD5672R"
+    To daisy chain AD5672R it is necessary to be able to transfer 24-bit data
+    into the device with a *single* spi transfer. This is required to enable
+    daisychain mode. Before daisychain mode is enabled only the first 24-bit of
+    each transfer are used.
+    This can be achieved by prepending a 24-bit shift register in front of the
+    first AD5672R in the chain of consecutive AD5672R. (Setting data into the
+    shift register with longer transfer, followed by a 24-bit transfer).
+    For detailed technical background please refer to:
+    [`./sw/pc/obat_pc_spi/device_implementation/dac/ad5672/functional_operations.py`](https://github.com/pascalguttmann/obat_pc_spi/blob/main/device_implementation/dac/ad5672/functional_operations.py)
 
 ## Interface & Requirements
 

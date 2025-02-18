@@ -62,6 +62,40 @@ nav:
           - design/pss/relay/relay.md
     - Safety Research:
       - design/safety/safety.md
+  - "Instance #1":
+    - instance_1/instance_1.md
+    - PowerSupplySink:
+      - instance_1/pss/pss.md
+      - Analog Digital Converter:
+        - instance_1/pss/adc/adc.md
+      - Configuration:
+        - instance_1/pss/conf/conf.md
+      - Controller:
+        - instance_1/pss/control/control.md
+      - Digital Interface:
+        - instance_1/pss/digital-interface/digital-interface.md
+      - Limit Logic:
+        - instance_1/pss/limit-logic/limit-logic.md
+        - Compare Logic:
+          - instance_1/pss/limit-logic/compare-logic/compare-logic.md
+          - Window Comparator:
+            - instance_1/pss/limit-logic/compare-logic/window-comparator/window-comparator.md
+        - Mode Transition:
+          - instance_1/pss/limit-logic/mode-transition/mode-transition.md
+      - Measurement:
+        - instance_1/pss/meas/meas.md
+      - Multiplexer:
+        - instance_1/pss/mux/mux.md
+      - Power:
+        - instance_1/pss/power/power.md
+      - Power Electronics:
+        - instance_1/pss/power-electronics/power-electronics.md
+        - Output Stage:
+          - instance_1/pss/power-electronics/outstage/outstage.md
+        - Bias Stage:
+          - instance_1/pss/power-electronics/bias/bias.md
+      - Relay:
+          - instance_1/pss/relay/relay.md
   - Research Mindmap:
     - research/mindmap.md
 plugins:

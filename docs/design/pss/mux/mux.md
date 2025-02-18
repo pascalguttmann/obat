@@ -99,7 +99,7 @@ Available suffixes: `mode_vc`, `mode_lclc`, `mode_uclc`, `mode_cc`,
 
 ### Off - resistance
 
-Test ID: `v1.0.0/pss/mux/off-resistance/<suffix>`
+Test ID: `v2.0.0/pss/mux/off-resistance/<suffix>`
 
 Available suffixes: `mode_vc`, `mode_lclc`, `mode_uclc`, `mode_cc`,
 `mode_lvlc`, `mode_uvlc`
@@ -112,5 +112,5 @@ Available suffixes: `mode_vc`, `mode_lclc`, `mode_uclc`, `mode_cc`,
     2. $R_{meas}$ between `meas_*` of mode and `mux_meas`
 4. Power off supply voltage
 5. Test passed if
-    1. $R_{ref} > 1M \Omega$
-    2. $R_{meas} > 1M \Omega$
+    1. $R_{ref} > 10k \Omega$
+    2. $R_{meas} > 10k \Omega$

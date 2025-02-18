@@ -187,7 +187,7 @@ Available suffixes: `vc`, `lclc`, `uclc`, `cc`, `lvlc`, `uvlc`
 
 ### Or Gate
 
-Test ID: `v1.0.0/pss/limit-logic/or-gate`
+Test ID: `v1.0.1/pss/limit-logic/or-gate`
 
 1. Connections
     - Enable connected to $-5V$
@@ -195,4 +195,4 @@ Test ID: `v1.0.0/pss/limit-logic/or-gate`
 3. Measure Voltage $U_{\overline{mode}}$
 4. Power off supply voltage
 5. Test passed if
-    - $U_{\overline{mode}} < -3V$
+    - $U_{\overline{mode}} > 8V$

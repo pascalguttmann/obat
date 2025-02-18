@@ -156,8 +156,8 @@ on both sides of pcb without use of adhesive glue
 5. Pass tests for `adc`, `adc1`
 6. Connect power for `relay` and pass tests
 7. Connect power for `measurement` and pass tests
-8. Connect power for `limit-logic` and pass tests
-9. Connect power for `mux` and pass tests
+8. Connect power for `mux` and pass tests
+9. Connect power for `limit-logic` and pass tests
 10. Connect power for `control-var` and pass tests
 11. Connect power for `power-electronics` and pass tests
 12. Connect Solderbridges
@@ -224,7 +224,7 @@ Available suffix:
 - `lower-current-limit-control`, `upper-current-limit-control`
 
 1. Connections
-    - Output disconnected ($R \rightarrow \inf$)
+    - Output short circuited to ground ($R \rightarrow 0 \Omega$)
     - SPI interface connected to `pc`
 2. Power on supply voltage
 3. Program Configuration with conf_output set

@@ -1,5 +1,8 @@
 # Digital Interface
 
+TODO: Add 100 Ohm / 470 pF at output to increase 10-90 rise time to approx
+$2.2RC = 100ns$.
+
 ## Interface & Requirements
 
 1. SPI Input Interface

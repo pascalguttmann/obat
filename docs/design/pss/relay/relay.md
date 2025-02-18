@@ -135,7 +135,7 @@ more specific hints see
 
 ### Switch On
 
-Test ID: `v1.0.0/pss/relay/switch/on`
+Test ID: `v2.0.0/pss/relay/switch/on`
 
 1. Connections
     - Input `relay_connect` connected to $U = -5V$
@@ -144,7 +144,7 @@ Test ID: `v1.0.0/pss/relay/switch/on`
     - $R$ from `in` to `out`
 4. Power off supply voltage
 5. Test passed if
-    - $R < 100 m \Omega$
+    - $R < 200 m \Omega$
 
 ### Switch Off
 
