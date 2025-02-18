@@ -9,6 +9,13 @@
     For details why increased stability is needed see `control`, which
     describes the effect of hysteresis in the `bias` stage on the controller.
 
+!!! info "Offset adjustment"
+    In order to adjust the current offset for the hall sensor to measure zero
+    when, no current is flowing the voltage divider with R1502 can be used. The
+    coil of the relay generates a stray magnetic field, influencing the measurement
+    of the hall based current sensor. To adjust for that influence, the value of
+    R1502 is changed to $R= 8.2 k \Omega$.
+
 ## Tests
 
 ### Current Sensor

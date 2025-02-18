@@ -1,5 +1,7 @@
 # U / I / T Measurement
 
+TODO: Change R1502 to $R = 8.2 k \Omega$ to allow for wider compensation range. (To compensate magnetic field of relay)
+
 The U / I / T measurement is used to measure the voltage and current at the battery
 terminals. The measured voltage and current at the battery terminal shall be
 converted to a digital signal, which can be read by the PC.
