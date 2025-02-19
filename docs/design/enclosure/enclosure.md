@@ -9,27 +9,22 @@ to the mechanical enclosure.
 Mechanical documentation for the construction of enclosure "box", which is contributed
 by the WING faculty is provided in [./mechanical/](./mechanical/mechanical.md)
 
-## Electrical Documentation
-
 ## Interface & Requirements
 
-TODO: Add Input specs
-TODO: Add Output specs
-TODO: Add Power Consumption
-
-1. Voltage inputs
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 1mA$
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 20mA$
-    - digital positive logic with $U \in [-5V, 10V]$, driving up to $I = 1 mA$
-    load
-2. Voltage output
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 1mA$
-    - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 20mA$
-    - digital positive logic with $U \in [-5V, 10V]$, driving up to $I = 1 mA$
-    load
+1. SPI Input Interface
+    - digital with $U \in [0V, 5V]$ relative to isolated ground `GNDI`
+    isolation voltage max $V_{iso} = 500V$
+        - `!CS_ISO`, input, chip select, low active
+        - `SCLK_ISO`, input, serial clock CPHA=0, CPOL=0=`SCKL`
+        - `SDI_ISO`, input, serial data in
+        - `SDO_ISO`, output, serial data out
+2. Voltage output (non isolated with respect to supply voltages)
+    - Digital PWM output with 24V up to 2.5A current for the heating element
+    - Digital PWM output with 24V up to 6A current for the peltier element,
+    setable polarity for heating and cooling
+    - Digital PWM output with 12V up to 200mA current for the fan
 3. Supply Voltages
-    - $+10V$ @ $1W$ ($100mA$)
-    - $-5V$ @ $0.5W$ ($50mA$)
+    - $+24V$ @ $200W$ ($8.3A$)
 
 ## Circuit Selection and Design
 
