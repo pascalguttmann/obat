@@ -12,6 +12,8 @@ nav:
     - design/meeting-agreements.md
     - Enclosure:
       - design/enclosure/enclosure.md
+      - Mechanical:
+        - design/enclosure/mechanical/mechanical.md
     - Emergency Stop Unit:
       - design/esu/esu.md
     - Measurement Electronics:

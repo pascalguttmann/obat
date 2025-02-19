@@ -7,3 +7,6 @@
 [submodule "sw/pc/arduino_usb_spi_bridge"]
 	path = sw/pc/arduino_usb_spi_bridge
 	url = https://github.com/pascalguttmann/arduino_usb_spi_bridge.git
+[submodule "hw/enclosure"]
+	path = hw/enclosure
+	url = https://github.com/pascalguttmann/obat-enclosure.git
