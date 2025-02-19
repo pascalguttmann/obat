@@ -1,4 +1,4 @@
-# Enclosure
+# Mechanical
 
 The enclosure is the physical container in which the device under test will be
 placed. It shall be portable and give space to store the other electronic
