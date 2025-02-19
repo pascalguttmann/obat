@@ -12,6 +12,8 @@ nav:
     - design/meeting-agreements.md
     - Enclosure:
       - design/enclosure/enclosure.md
+      - Digital Interface:
+        - design/enclosure/digital-interface/digital-interface.md
       - Mechanical:
         - design/enclosure/mechanical/mechanical.md
     - Emergency Stop Unit:
