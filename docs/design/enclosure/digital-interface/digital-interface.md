@@ -1,7 +1,5 @@
 # Digital Interface
 
-TODO: Add 1 Meg Ohm for ESD protection of floating voltage
-
 ## Interface & Requirements
 
 1. SPI Input Interface
@@ -52,6 +50,11 @@ the output voltage of the DCDC-converter.
 To lower switching noise from the DCDC-converter the output of the converter is
 loaded with a resistive load of $R=330 \Omega$, which will load the output with
 approximately $15mA$.
+
+The isolated ground is connected via a $1 M \Omega$ resistor to the ground of
+the rest of the pcb to avoid electrostatic charge to built up on the isolated
+net. This will cause a small current flow in case the voltage at the isolated
+ground is not equal to the ground voltage.
 
 #### Rise Time Limitation
 
