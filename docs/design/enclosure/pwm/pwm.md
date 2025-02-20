@@ -48,35 +48,39 @@ Not available.
 ### PCB Layout
 
 - Pull up/down for inputs, when stage is isolated, to run other tests.
-TODO: Add test pins
-TODO: Add (dic-)connector note, with testcase required for connecting
 
 ### Assembly
 
-TODO: Add special hints for Assembly or remove
-
 ## Commissioning and Testing
 
-TODO: add tests
+### Frequency
 
-### Testheading
-
-Test ID: `v1.0.0/pss/control-logic/control/sign-propagation/<suffix>`
+Test ID: `v1.0.0/enclosure/pwm`
 
 1. Connections
-    - Output `out` disconnected
-    - Input `meas` connected to $U_{meas} = 0V$
-    - Input `ref` connected to $U_{ref} = +500mV$
+    - $U_{mod} = 2.5V$
 2. Power on supply voltage
-3. Wait for steady state $t_{wait} \gtrapprox 1ms$
-4. Measure Voltages
-    1. Error Signal (test id suffix: `error`)
-        - Voltage at subtraction output $U_{e}$
-    2. Output Signal (test id suffix: `output`)
-        - Voltage at PID controller output $U_{out}$
+3. Measure Voltages
+    - $U_{out}$ with oscilloscope
+4. Calculate frequency of oscillation of $f_{u,out}$
 5. Power off supply voltage
 6. Test passed if
-    1. Error Signal (test id suffix: `error`)
-        - $U_{e} \in 500mV (1 \pm 10\%)$
-    2. Output Signal (test id suffix: `output`)
-        - $U_{out} \in 10V (1 \pm 10\%)$
+    - $f_{u,out} \in 7812.5 Hz (1 \pm 5\%)$
+
+### Duty cycle
+
+Test ID: `v1.0.0/enclosure/duty-cycle/<suffix>`
+
+Available suffix: `0V`, `2V`, `5V`
+
+1. Connections
+    - $U_{mod} = <suffix>$
+2. Power on supply voltage
+3. Measure Voltages
+    - $U_{out}$ with oscilloscope
+4. Calculate duty cycle of oscillation of $D_{u,out}$
+5. Power off supply voltage
+6. Test passed if
+    - $D_{u,out} = 0$ for `0V`
+    - $D_{u,out} \in 0.375 (1 \pm 5\%)$ for `2V`
+    - $D_{u,out} = 1 (1 \pm 5\%)$ for `5V`
