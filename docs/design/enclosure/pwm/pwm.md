@@ -15,15 +15,31 @@
 
 ### Circuit
 
-TODO: Add circuit description
+The LTC6992-1 is used to generate a modulated PWM signal. The duty cycle is
+controlled by the input voltage $U_{mod}$, which is divided by a factor of $5$
+by a voltage divider to achieve the input range of $0V .. 1V$ required by the
+LTC6992-1.
+
+The LTC6992-1 clock speed and divisor are set according to the datasheet to a
+frequency of $f_{pwm} = 7812.5 Hz$.
+
+The transfer function for the duty cycle $D$ is:
+
+$$ D = \frac{\frac{1}{5} U_{mod} - 100mV}{800mV} \forall U_{mod} \in [500mV, 4.5V] $$
+
+For voltages $U_{mod} < 500mV \implies D = 0$, i.e. the output is permanently low.
+For voltages $U_{mod} > 4.5V \implies D = 1$, i.e. the output is permanently high.
 
 ### Component Selection
 
-TODO: Add component selection
+The selection of the LTC6992-1 is chosen, because it allows for low development
+effort and easy implementation of a pwm modulator.
+Other approaches would be the usages of a triangle oscillator and a comparator
+to obtain a similar outcome.
 
 ## Simulation
 
-TODO: link to simulation files
+Not available.
 
 ## Hardware tests in Laboratory
 
