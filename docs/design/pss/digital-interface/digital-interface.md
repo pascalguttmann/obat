@@ -1,7 +1,9 @@
 # Digital Interface
 
-TODO: Add 100 Ohm / 470 pF at output to increase 10-90 rise time to approx
-$2.2RC = 100ns$.
+TODO: import applied changes from `hw/enclosure`
+- Add 100 Ohm / 470 pF at output to increase 10-90 rise time to approx $2.2RC = 100ns$.
+- Add 1 Meg Ohm for ESD protection of floating voltage
+- Add load resistor to isolated DCDC-converter output to smooth current draw
 
 ## Interface & Requirements
 
