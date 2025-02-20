@@ -17,6 +17,8 @@ nav:
         - design/enclosure/dac/channel_map.md
       - Digital Interface:
         - design/enclosure/digital-interface/digital-interface.md
+      - Pulse Width Modulator:
+        - design/enclosure/pwm/pwm.md
       - Mechanical:
         - design/enclosure/mechanical/mechanical.md
     - Emergency Stop Unit:
