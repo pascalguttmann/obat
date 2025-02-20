@@ -1,8 +1,5 @@
 # Digital Analog Converter
 
-TODO: Add 100 Ohm / 470 pF at output to increase 10-90 rise time to approx
-$2.2RC = 100ns$. (Clock inverter line)
-
 !!! info "Configuration Options"
     To obtain information, which DAC channels configures which feature please
     see [`./channel_map.md`](./channel_map.md).
@@ -46,6 +43,17 @@ channels and SPI interface to produce the desired analog signals. The digital
 signals are obtained by limiting the allowable configuration range of the
 corresponding channels to the maximum and minimum value of the analog
 conversion range.
+
+#### Rise Time Limitation
+
+In order to avoid high-frequency signal components, that are present in signals
+with short rising time, the outputs of the digital-interface are low pass
+filtered by a first order low pass filter. The filter is realized by a RC
+network. Which is set to give a rise time of of $T_{rise,10-90} \approx 100ns$,
+which results in a required time constant $\tau = \frac{T_{rise,10-90}}{2.2}
+\approx 47 ns$. This time constant can be achieved by setting the values:
+
+$$ R = 100 \Omega \quad \land \quad C = 470 pF $$
 
 ### Component Selection
 
