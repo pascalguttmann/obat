@@ -12,6 +12,9 @@ nav:
     - design/meeting-agreements.md
     - Enclosure:
       - design/enclosure/enclosure.md
+      - Digital Analog Converter:
+        - design/enclosure/dac/dac.md
+        - design/enclosure/dac/channel_map.md
       - Digital Interface:
         - design/enclosure/digital-interface/digital-interface.md
       - Mechanical:
