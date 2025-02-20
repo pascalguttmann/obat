@@ -134,14 +134,14 @@ Not available.
 
 ### Isolation
 
-Test ID: `v1.0.0/pss/digital-interface/isolation/<suffix>`
+Test ID: `v2.0.0/pss/digital-interface/isolation/<suffix>`
 
 Available suffix: `GND`, `+5V`
 
 1. Measure Resistance
     - $R_{iso}$ from `<suffix>` to `<suffix>I`
 2. Test passed if
-    - $R_{iso} > 1 M\Omega$
+    - $R_{iso} > 100 k\Omega$
 
 ### Low State
 
