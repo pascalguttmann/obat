@@ -49,6 +49,9 @@ The isolated 5V voltage at the output of the DCDC-converter is protected from
 exceeding the specifications of the digital isolator by usage of a zener diode
 to limit the voltage and if necessary provide a small load current to reduce
 the output voltage of the DCDC-converter.
+To lower switching noise from the DCDC-converter the output of the converter is
+loaded with a resistive load of $R=330 \Omega$, which will load the output with
+approximately $15mA$.
 
 #### Rise Time Limitation
 
