@@ -2,15 +2,12 @@
 
 ## Interface & Requirements
 
-TODO: Add Input specs
-TODO: Add Output specs
-TODO: Add Power Consumption
-
 1. Voltage inputs
     - analog with $U \in [0V, 5V]$ with $R < 100 \Omega \forall I < 1mA$
       - $U_{mod}$ voltage used to modulate the PWM output
 2. Voltage output
-    - digital positive logic with $U \in [0V, 5V]$, driving up to $I = 20 mA$ load
+    - digital positive logic with $U \in [0V, 5V]$, driving up to $I = 20 mA$
+    load with duty cycle controlled by $U_{mod}$ with $f_{pwm} = 7812.5 Hz$
 3. Supply Voltages
     - $5V$ @ $100mW$ ($20mA$)
 
