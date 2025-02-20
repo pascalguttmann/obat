@@ -1,12 +1,5 @@
 # Digital Interface
 
-TODO: import applied changes from `hw/enclosure`
-
-- Add 100 Ohm / 470 pF at output to increase 10-90 rise time to approx $2.2RC = 100ns$.
-- Add 1 Meg Ohm for ESD protection of floating voltage
-- Add load resistor to isolated DCDC-converter output to smooth current draw
-- Add 1 Meg Ohm input pull down resistors
-
 ## Interface & Requirements
 
 1. SPI Input Interface
@@ -54,6 +47,25 @@ The isolated 5V voltage at the output of the DCDC-converter is protected from
 exceeding the specifications of the digital isolator by usage of a zener diode
 to limit the voltage and if necessary provide a small load current to reduce
 the output voltage of the DCDC-converter.
+To lower switching noise from the DCDC-converter the output of the converter is
+loaded with a resistive load of $R=330 \Omega$, which will load the output with
+approximately $15mA$.
+
+The isolated ground is connected via a $1 M \Omega$ resistor to the ground of
+the rest of the pcb to avoid electrostatic charge to built up on the isolated
+net. This will cause a small current flow in case the voltage at the isolated
+ground is not equal to the ground voltage.
+
+#### Rise Time Limitation
+
+In order to avoid high-frequency signal components, that are present in signals
+with short rising time, the outputs of the digital-interface are low pass
+filtered by a first order low pass filter. The filter is realized by a RC
+network. Which is set to give a rise time of of $T_{rise,10-90} \approx 100ns$,
+which results in a required time constant $\tau = \frac{T_{rise,10-90}}{2.2}
+\approx 47 ns$. This time constant can be achieved by setting the values:
+
+$$ R = 100 \Omega \quad \land \quad C = 470 pF $$
 
 ### Component Selection
 
@@ -122,14 +134,14 @@ Not available.
 
 ### Isolation
 
-Test ID: `v1.0.0/pss/digital-interface/isolation/<suffix>`
+Test ID: `v2.0.0/pss/digital-interface/isolation/<suffix>`
 
 Available suffix: `GND`, `+5V`
 
 1. Measure Resistance
     - $R_{iso}$ from `<suffix>` to `<suffix>I`
 2. Test passed if
-    - $R_{iso} > 1 M\Omega$
+    - $R_{iso} > 100 k\Omega$
 
 ### Low State
 
