@@ -19,6 +19,8 @@ nav:
         - design/enclosure/digital-interface/digital-interface.md
       - Pulse Width Modulator:
         - design/enclosure/pwm/pwm.md
+      - Full Bridge:
+        - design/enclosure/full-bridge/full-bridge.md
       - Mechanical:
         - design/enclosure/mechanical/mechanical.md
     - Emergency Stop Unit:
