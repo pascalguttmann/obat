@@ -21,6 +21,8 @@ nav:
         - design/enclosure/pwm/pwm.md
       - Full Bridge:
         - design/enclosure/full-bridge/full-bridge.md
+      - Power:
+        - design/enclosure/power/power.md
       - Mechanical:
         - design/enclosure/mechanical/mechanical.md
     - Emergency Stop Unit:
