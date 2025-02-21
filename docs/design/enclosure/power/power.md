@@ -1,7 +1,5 @@
 # Power
 
-TODO: Increase output capacitor for enhanced transient response
-
 ## Interface & Requirements
 
 1. Voltage inputs
