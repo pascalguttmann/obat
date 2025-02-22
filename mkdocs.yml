@@ -29,9 +29,6 @@ nav:
       - design/esu/esu.md
     - Measurement Electronics:
       - design/meas/meas.md
-      - Discussion:
-        - design/meas/discuss/adc.md
-        - design/meas/discuss/isoamp.md
     - Programmable Controller:
       - design/pc/pc.md
     - PowerSupplySink:

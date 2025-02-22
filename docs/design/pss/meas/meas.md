@@ -1,5 +1,8 @@
 # Measurement
 
+TODO: Change R1502 to $R = 8.2 k \Omega$ to allow for wider compensation range.
+(To compensate magnetic field of relay)
+
 ## Interface & Requirements
 
 1. Voltage inputs

@@ -59,6 +59,13 @@ always of precedence.
     A possible use case is the initialization to perform a disconnect by
     software from the main PC in obat.
 
+!!! info
+    The connections `I_MEAS` and `I_REF` shall be used with a transducer, which
+    transduces a measured current into a voltage, that is usable by the ESU.
+    The ESU must integrate a transducer either on the PCB or as an external
+    component.
+    A transducer for the temperature measurement is provided externally.
+
 ### States
 
 - [ ] The state of the ESU is `connected` if `IN+` is galvanic connected
@@ -126,8 +133,8 @@ always of precedence.
         $Z > 1M \Omega$.
     - [ ] The differential input impedance must be $Z_{diff} > 1M \Omega$
 - [ ] The ESU shall have for each measurement input pair internally the `limits`
-    -  `*_LOW`
-    -  `*_HIGH`
+    - `*_LOW`
+    - `*_HIGH`
 - [ ] The interval [`*_LOW`, `*_HIGH`] is the `operating
     interval` for the corresponding measured quantity (voltage, current,
     temperature, X).

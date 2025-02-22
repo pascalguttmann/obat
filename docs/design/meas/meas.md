@@ -1,72 +1,141 @@
 # U / I / T Measurement
 
-TODO: Change R1502 to $R = 8.2 k \Omega$ to allow for wider compensation range. (To compensate magnetic field of relay)
+## Interface & Requirements
 
-The U / I / T measurement is used to measure the voltage and current at the battery
-terminals. The measured voltage and current at the battery terminal shall be
-converted to a digital signal, which can be read by the PC.
-The required accuracy shall be in accordance to achieve the desired measurement
-accuracy given in the [overview][obat-overview].
+1. SPI Input Interface
+    - digital with $U \in [0V, 5V]$ relative to isolated ground `GNDI`
+    isolation voltage max $V_{iso} = 500V$
+        - `!CS_ISO`, input, chip select, low active
+        - `SCLK_ISO`, input, serial clock CPHA=0, CPOL=0=`SCKL`
+        - `SDI_ISO`, input, serial data in
+        - `SDO_ISO`, output, serial data out
+2. Measurement Inputs
+    - analog with $U \in [0V, 5V]$ with $R < 1k \Omega \forall I < 1mA$
+        - `V_MEAS+` and `V_MEAS-`, high impedance input measuring the voltage
+        - `T_MEAS+` and `T_MEAS-`, high impedance input measuring the
+        transduced voltage representing the temperature
+        - `I_MEAS+` and `I_MEAS-`, low impedance input measuring the current
+3. Supply Voltages
+    - $+24V$ @ $4.8W$ ($200mA$)
 
-[obat-overview]: ./overview.md
+## Circuit Selection and Design
 
-## Requirements and Interface to other Components
+### Circuit
 
-### Interfaces
+To measure the voltage signals in the range of 0V to 5V an ADC is used to
+convert the analog voltage signal into a digital signal. The current is
+transduced into a voltage by the use of a hall based transducer and the
+transduced voltage is measured with an ADC.
 
-- [ ] The measurement electronics shall have the following connections:
-    - [ ] `V_MEAS+`
-    - [ ] `V_MEAS-`
-    - [ ] `I_MEAS+`
-    - [ ] `I_MEAS-`
-    - [ ] `T_MEAS+`
-    - [ ] `T_MEAS-`
-    - [ ] `GLOBAL_REF`
-    - [ ] Connections for the digital interface
-- [ ] Additionally the measurement electronics might have a power connection.
-- [ ] The measurement electronics shall have the following user interfaces:
-    - [ ] Setting for each output to (dis)connect the output reference
-        `*_OUT_REF` from or to `GLOBAL_REF`. (e.g. with a "jumper", solder
-        bridge or switch)
-- [ ] The connections `V_MEAS+` and `V_MEAS-` shall measure voltages positive
-    from `V_MEAS+` to `V_MEAS-` in the range of 0V to 5V.
-    - [ ] The connections `V_MEAS+` and `V_MEAS-` shall be galvanic decoupled
-        and have an impedance to every other connection $Z > 1M \Omega$. And a
-        differential impedance $Z_{diff} > 1M \Omega$.
+The different measurement "units" are galvanically isolated by employing
+isolated DC/DC converters and digital data isolation.
 
-- [ ] The connections `I_MEAS+` and `I_MEAS-` shall measure voltages positive
-    from `I_MEAS+` to `I_MEAS-` in the range of $-20A$ to $+20A$.
-    - [ ] The connections `I_MEAS+` and `I_MEAS-` shall be galvanic decoupled
-        and have an impedance to every other connection $Z > 1M \Omega$. They
-        should be galvanic coupled to each other and have a differential
-        impedance $Z_{diff} < 5m \Omega$.
-    - [ ] The connection between `I_MEAS+` and `I_MEAS-` shall be able to
-        conduct bidirectional current of $I = \pm 20A$ permanently.
-    - [ ] The minimum current $I_{min} = -20A$ shall be mapped to a
-        voltage of $0V$.
-    - [ ] The maximum current $I_{max} = +20A$ shall be mapped to a voltage of
-        $5V$.
+#### Block Diagram
 
-        !!! info
-            Therefore it follows, that if no current is flowing the output
-            voltage should be $2.5V$.
+```mermaid
+---
+title: Measurement Design
+---
+flowchart TB
+subgraph conn[ ]
+    direction RL
+    ext_power[+24V]
+    pc[PC]
+end
 
-    - [ ] The connection between `I_MEAS+` and `I_MEAS-` shall be fused with a
-        thermal fuse or a thermal switch for currents exceeding $I_{fuse} =
-        25A$, within a time of $t_{fuse} <= 60sec$. (E.g. Car Fuse)
+subgraph meas[Measurement]
+    direction TB
 
-        !!! info
-            The connection `I_MEAS+` and `I_MEAS-` is the only galvanic coupled
-            connection of the measurement electronics with a direct path for the current to
-            flow.
+    dig_interface_spi[Digital Inteface Isolated]
+    power[+5V]
 
-    - [ ] Connection `GLOBAL_REF` shall be galvanic decoupled from all other
-        connections with $Z > 1M \Omega$, except for the power connector.
+    subgraph meas_u[U Measurement]
+        direction TB
+        dig_interface_u[Digital Inteface Isolated]
+        adc_u[ADC]
+        div_u[Optional Voltage Divider]
+    end
+    subgraph meas_t[T Measurement]
+        direction TB
+        dig_interface_t[Digital Inteface Isolated]
+        adc_t[ADC]
+        div_t[Optional Voltage Divider]
+    end
+    subgraph meas_i[I Measurement]
+        direction TB
+        dig_interface_i[Digital Inteface Isolated]
+        adc_i[ADC]
+        transducer[Hall Transducer]
+        fuse[Fuse]
+    end
+end
 
-## Internals
+subgraph ext_source[External Sources]
+    direction TB
+    ext_u[ext. Voltage Source]
+    ext_i[ext. Current Source]
+    ext_t[ext. Voltage Source of transduced Temperature]
+end
 
-- Hall sensor based I/V transduction? e.g. product form [ACS Hall Transducer Family][ACS712]
-- Trimming adjustment of output with potentiometer to compensate offsets?
-- use same voltage level as other components
+pc <-->|SPI ISO| dig_interface_spi
+dig_interface_spi -->|SPI| dig_interface_u -->|SPI| dig_interface_i -->|SPI| dig_interface_t -->|SPI| dig_interface_spi
 
-[ACS712]: https://www.allegromicro.com/en/Products/Sense/Current-Sensor-ICs/Zero-To-Fifty-Amp-Integrated-Conductor-Sensor-ICs/ACS712
+ext_power -->|24V| power
+power-->|5V| dig_interface_u -->|5V ISO| adc_u
+power-->|5V| dig_interface_t -->|5V ISO| adc_t
+power-->|5V| dig_interface_i -->|5V ISO| adc_i
+
+dig_interface_u <-->|SPI ISO| adc_u ---|Analog Voltage| div_u ---|Analog Voltage| ext_u
+
+dig_interface_t <-->|SPI ISO| adc_t ---|Analog Voltage| div_t ---|Analog Voltage| ext_t
+
+dig_interface_i <-->|SPI ISO| adc_i ---|Analog Voltage| transducer ---|Analog Current| fuse ---|Analog Current| ext_i
+```
+
+### Component Selection
+
+TODO: Add component selection
+
+## Simulation
+
+TODO: link to simulation files
+
+## Hardware tests in Laboratory
+
+## Layout and Assembly Considerations
+
+### PCB Layout
+
+- Pull up/down for inputs, when stage is isolated, to run other tests.
+TODO: Add test pins
+TODO: Add (dic-)connector note, with testcase required for connecting
+
+### Assembly
+
+TODO: Add special hints for Assembly or remove
+
+## Commissioning and Testing
+
+TODO: add tests
+
+### Testheading
+
+Test ID: `v1.0.0/pss/control-logic/control/sign-propagation/<suffix>`
+
+1. Connections
+    - Output `out` disconnected
+    - Input `meas` connected to $U_{meas} = 0V$
+    - Input `ref` connected to $U_{ref} = +500mV$
+2. Power on supply voltage
+3. Wait for steady state $t_{wait} \gtrapprox 1ms$
+4. Measure Voltages
+    1. Error Signal (test id suffix: `error`)
+        - Voltage at subtraction output $U_{e}$
+    2. Output Signal (test id suffix: `output`)
+        - Voltage at PID controller output $U_{out}$
+5. Power off supply voltage
+6. Test passed if
+    1. Error Signal (test id suffix: `error`)
+        - $U_{e} \in 500mV (1 \pm 10\%)$
+    2. Output Signal (test id suffix: `output`)
+        - $U_{out} \in 10V (1 \pm 10\%)$
