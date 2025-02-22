@@ -10,3 +10,6 @@
 [submodule "hw/enclosure"]
 	path = hw/enclosure
 	url = https://github.com/pascalguttmann/obat-enclosure.git
+[submodule "hw/meas"]
+	path = hw/meas
+	url = https://github.com/pascalguttmann/obat-meas.git
