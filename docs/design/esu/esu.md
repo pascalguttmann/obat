@@ -10,9 +10,17 @@ disconnect the battery.
 
 ## Requirements and Interface to other Components
 
-The following picture gives a schematic overview of the ESU for better
+The following picture gives an example for a schematic overview of the ESU for better
 understanding. It is not part of the specification. Textual requirements are
-always of precedence.
+always of precedence. The implemented architecture can be altered as required.
+
+!!! note
+    The diagram shows the usage of analog isolation. But the use of digital
+    isolation might be more feasible. For that the entire comparison circuitry can
+    be isolated by employing a isolated DC/DC converter and a digital isolation IC.
+    This will probably be more cost effective and not impose accuracy constraints
+    of the analog isolation.
+
 ![ESU Overview Schematic](./img/esu.png)
 
 ### Interfaces
