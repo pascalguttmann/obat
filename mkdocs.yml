@@ -12,8 +12,17 @@ nav:
     - design/meeting-agreements.md
     - Enclosure:
       - design/enclosure/enclosure.md
+      - Digital Analog Converter:
+        - design/enclosure/dac/dac.md
+        - design/enclosure/dac/channel_map.md
       - Digital Interface:
         - design/enclosure/digital-interface/digital-interface.md
+      - Pulse Width Modulator:
+        - design/enclosure/pwm/pwm.md
+      - Full Bridge:
+        - design/enclosure/full-bridge/full-bridge.md
+      - Power:
+        - design/enclosure/power/power.md
       - Mechanical:
         - design/enclosure/mechanical/mechanical.md
     - Emergency Stop Unit:

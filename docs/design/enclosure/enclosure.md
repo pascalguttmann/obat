@@ -101,11 +101,7 @@ ext_power -->|24V| power
 
 ### Component Selection
 
-TODO: Add component selection
-
 ## Simulation
-
-TODO: Add simulation
 
 ## Layout and Assembly Considerations
 
@@ -113,24 +109,26 @@ TODO: Add simulation
 
 ### Assembly
 
-TODO: Add test pins
-TODO: Add (dic-)connector note, with testcase required for connecting
-
 ## Commissioning and Testing
 
-TODO: Add special hints for Assembly or remove
+1. Pass tests for `power`
+2. Pass tests for `digital-interface`
+3. Pass tests for `dac`
+4. Pass tests for `pwm`
+5. Pass tests for `full-bridge`
+6. Connect Jumpers
+7. Pass tests for `enclosure` from below
 
-### Dummy Test
+### Fan
 
-TODO: add tests
+Test ID: `v1.0.0/enclosure/fan`
 
-Test ID: `v1.0.0/enclosure/dummy/<suffix>`
-
-Available suffix:
-
-- `dummy0`
-- `dummy1`
-
-1. Do this
-2. Do that
-3. Test pass condition
+1. Connect Fan to `enclosure`
+2. Program Fan to 100% duty cycle from `pc`
+3. Measure current through fan
+    - $I_{fan,100}$
+4. Program Fan to 25% duty cycle from `pc`
+5. Measure current through fan
+    - $I_{fan,25}$
+6. Test passed if
+    - $I_{fan,100} > I_{fan,25}$
