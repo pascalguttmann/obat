@@ -29,6 +29,8 @@ nav:
       - design/esu/esu.md
     - Measurement Electronics:
       - design/meas/meas.md
+      - Digital Interface:
+        - design/meas/digital-interface/digital-interface.md
     - Programmable Controller:
       - design/pc/pc.md
     - PowerSupplySink:
