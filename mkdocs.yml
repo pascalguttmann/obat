@@ -31,6 +31,8 @@ nav:
       - design/meas/meas.md
       - Digital Interface:
         - design/meas/digital-interface/digital-interface.md
+      - Isolated DC/DC:
+        - design/meas/iso-dcdc/iso-dcdc.md
     - Programmable Controller:
       - design/pc/pc.md
     - PowerSupplySink:
