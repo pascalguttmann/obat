@@ -35,6 +35,8 @@ nav:
         - design/meas/digital-interface/digital-interface.md
       - Isolated DC/DC:
         - design/meas/iso-dcdc/iso-dcdc.md
+      - Current Transducer:
+        - design/meas/i-transduce/i-transduce.md
     - Programmable Controller:
       - design/pc/pc.md
     - PowerSupplySink:
