@@ -29,6 +29,16 @@ nav:
       - design/esu/esu.md
     - Measurement Electronics:
       - design/meas/meas.md
+      - Analog Digital Converter:
+        - design/meas/adc/adc.md
+      - Digital Interface:
+        - design/meas/digital-interface/digital-interface.md
+      - Isolated DC/DC:
+        - design/meas/iso-dcdc/iso-dcdc.md
+      - Current Transducer:
+        - design/meas/i-transduce/i-transduce.md
+      - Power:
+        - design/meas/power/power.md
     - Programmable Controller:
       - design/pc/pc.md
     - PowerSupplySink:
