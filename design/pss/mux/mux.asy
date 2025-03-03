@@ -1,0 +1,58 @@
+Version 4
+SymbolType BLOCK
+RECTANGLE Normal -160 -256 160 256
+WINDOW 0 0 -264 Bottom 2
+PIN -160 -64 LEFT 8
+PINATTR PinName conf_iref
+PINATTR SpiceOrder 1
+PIN -160 -96 LEFT 8
+PINATTR PinName conf_lcl
+PINATTR SpiceOrder 2
+PIN -160 0 LEFT 8
+PINATTR PinName conf_lvl
+PINATTR SpiceOrder 3
+PIN -160 -128 LEFT 8
+PINATTR PinName conf_ucl
+PINATTR SpiceOrder 4
+PIN -160 -32 LEFT 8
+PINATTR PinName conf_uvl
+PINATTR SpiceOrder 5
+PIN -160 -160 LEFT 8
+PINATTR PinName conf_vref
+PINATTR SpiceOrder 6
+PIN -160 64 LEFT 8
+PINATTR PinName meas_out_i
+PINATTR SpiceOrder 7
+PIN -160 96 LEFT 8
+PINATTR PinName meas_out_v
+PINATTR SpiceOrder 8
+PIN 16 256 VLEFT 8
+PINATTR PinName mode_cc
+PINATTR SpiceOrder 9
+PIN -48 256 VLEFT 8
+PINATTR PinName mode_lclc
+PINATTR SpiceOrder 10
+PIN 48 256 VLEFT 8
+PINATTR PinName mode_lvlc
+PINATTR SpiceOrder 11
+PIN -16 256 VLEFT 8
+PINATTR PinName mode_uclc
+PINATTR SpiceOrder 12
+PIN 80 256 VLEFT 8
+PINATTR PinName mode_uvlc
+PINATTR SpiceOrder 13
+PIN -80 256 VLEFT 8
+PINATTR PinName mode_vc
+PINATTR SpiceOrder 14
+PIN 144 -256 VRIGHT 8
+PINATTR PinName V_SUP+
+PINATTR SpiceOrder 15
+PIN 144 256 VLEFT 8
+PINATTR PinName V_SUP-
+PINATTR SpiceOrder 16
+PIN 160 80 RIGHT 8
+PINATTR PinName mux_meas
+PINATTR SpiceOrder 17
+PIN 160 -80 RIGHT 8
+PINATTR PinName mux_ref
+PINATTR SpiceOrder 18
