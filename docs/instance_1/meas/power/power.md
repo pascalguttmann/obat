@@ -2,7 +2,7 @@
 
 ## Deviation
 
-Resistor $R1001 = 2.6 \Omega$, instead of $5.9 \Omega$ to enhance current sharing.
+Resistor $R1001 = 2.3 \Omega$, instead of $5.9 \Omega$ to enhance current sharing.
 
 ## Tests
 

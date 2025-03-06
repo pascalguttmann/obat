@@ -1,6 +1,6 @@
 # Power
 
-TODO: Adapt $R_{1001} \approx 2.6 \Omega$ for enhanced current sharing
+TODO: Adapt $R_{1001} \approx 2.3 \Omega$ for enhanced current sharing
 
 ## Interface & Requirements
 
