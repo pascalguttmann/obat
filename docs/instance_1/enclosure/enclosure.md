@@ -8,9 +8,9 @@ Uses schematic version 1.1.2 and board layout version 1.0.0 (git tag sch-1.1.2_b
 
 ## Assembly Checklist
 
-- [ ] Test: `power`
-- [ ] Test: `digital-interface`
-- [ ] Test: `dac`
+- [x] Test: `power`
+- [x] Test: `digital-interface`
+- [x] Test: `dac`
 - [ ] Test: `pwm`
 - [ ] Test: `full-bridge`
 
