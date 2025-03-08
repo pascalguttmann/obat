@@ -55,7 +55,7 @@ Not available.
 
 ### Frequency
 
-Test ID: `v1.0.0/enclosure/pwm`
+Test ID: `v1.0.0/enclosure/pwm/frequency`
 
 1. Connections
     - $U_{mod} = 2.5V$
@@ -69,7 +69,7 @@ Test ID: `v1.0.0/enclosure/pwm`
 
 ### Duty cycle
 
-Test ID: `v1.0.0/enclosure/duty-cycle/<suffix>`
+Test ID: `v1.0.0/enclosure/pwm/duty-cycle/<suffix>`
 
 Available suffix: `0V`, `2V`, `5V`
 
