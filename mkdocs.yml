@@ -83,6 +83,18 @@ nav:
       - design/safety/safety.md
   - "Instance #1":
     - instance_1/instance_1.md
+    - Measurement Electronics:
+      - instance_1/meas/meas.md
+      - Analog Digital Converter:
+        - instance_1/meas/adc/adc.md
+      - Digital Interface:
+        - instance_1/meas/digital-interface/digital-interface.md
+      - Isolated DC/DC:
+        - instance_1/meas/iso-dcdc/iso-dcdc.md
+      - Current Transducer:
+        - instance_1/meas/i-transduce/i-transduce.md
+      - Power:
+        - instance_1/meas/power/power.md
     - PowerSupplySink:
       - instance_1/pss/pss.md
       - Analog Digital Converter:
