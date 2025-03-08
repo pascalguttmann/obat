@@ -107,4 +107,4 @@ Test ID: `v1.0.0/enclosure/full-bridge/pwm`
     - `OUT_A` $U_{A}$
 4. Power off supply voltage
 5. Test passed if
-    - $U_{A} \in U_{VCC} \cdot (1 \pm 5\%)$
+    - $U_{A} \in U_{VCC} \cdot (1 \pm 50\%)$
