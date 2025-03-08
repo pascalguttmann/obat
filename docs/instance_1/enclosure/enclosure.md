@@ -11,7 +11,7 @@ Uses schematic version 1.1.2 and board layout version 1.0.0 (git tag sch-1.1.2_b
 - [x] Test: `power`
 - [x] Test: `digital-interface`
 - [x] Test: `dac`
-- [ ] Test: `pwm`
+- [x] Test: `pwm`
 - [ ] Test: `full-bridge`
 
 ## Tests
