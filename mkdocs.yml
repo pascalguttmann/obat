@@ -83,6 +83,18 @@ nav:
       - design/safety/safety.md
   - "Instance #1":
     - instance_1/instance_1.md
+    - Enclosure:
+      - instance_1/enclosure/enclosure.md
+      - Digital Analog Converter:
+        - instance_1/enclosure/dac/dac.md
+      - Digital Interface:
+        - instance_1/enclosure/digital-interface/digital-interface.md
+      - Pulse Width Modulator:
+        - instance_1/enclosure/pwm/pwm.md
+      - Full Bridge:
+        - instance_1/enclosure/full-bridge/full-bridge.md
+      - Power:
+        - instance_1/enclosure/power/power.md
     - Measurement Electronics:
       - instance_1/meas/meas.md
       - Analog Digital Converter:
