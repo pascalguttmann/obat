@@ -132,3 +132,31 @@ Test ID: `v1.0.0/enclosure/fan`
     - $I_{fan,25}$
 6. Test passed if
     - $I_{fan,100} > I_{fan,25}$
+
+### Peltier
+
+Test ID: `v1.0.0/enclosure/peltier`
+
+1. Connect peltier to `enclosure`
+2. Program peltier to 100% duty cycle from `pc`
+3. Measure current through peltier
+    - $I_{peltier,100}$
+4. Program peltier to 25% duty cycle from `pc`
+5. Measure current through peltier
+    - $I_{peltier,25}$
+6. Test passed if
+    - $I_{peltier,100} > I_{peltier,25}$
+
+### Heater
+
+Test ID: `v1.0.0/enclosure/heater`
+
+1. Connect heater to `enclosure`
+2. Program heater to 100% duty cycle from `pc`
+3. Measure current through heater
+    - $I_{heater,100}$
+4. Program heater to 25% duty cycle from `pc`
+5. Measure current through heater
+    - $I_{heater,25}$
+6. Test passed if
+    - $I_{heater,100} > I_{heater,25}$
