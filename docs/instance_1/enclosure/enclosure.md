@@ -6,6 +6,21 @@
 
 Uses schematic version 1.1.2 and board layout version 1.0.0 (git tag sch-1.1.2_brd-1.0.0)
 
+## Heating and Cooling
+
+The maximum heating and cooling capabilities are measured by heating and
+cooling with maximal power for $t \approx 15 min$ with closed lid. The
+temperature is measured using an infrared thermometer at the interior aluminium
+surface of the mechanical enclosure.
+
+For cooling with the peltier element with 144W and full fan speed, the
+temperature is measured as follows:
+$$ \phi_{inside} = 23 °C \quad \land \quad \phi_{outside} = 60 °C $$
+
+For heating with the heater (50W), the peltier element (144W) and full fan speed, the
+temperature is measured as follows:
+$$ \phi_{inside} = 72 °C \quad \land \quad \phi_{outside} = 32 °C $$
+
 ## Assembly Checklist
 
 - [x] Test: `power`
