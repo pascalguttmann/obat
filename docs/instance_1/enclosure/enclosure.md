@@ -15,11 +15,11 @@ surface of the mechanical enclosure.
 
 For cooling with the peltier element with 144W and full fan speed, the
 temperature is measured as follows:
-$$ \phi_{inside} = 23 °C \quad \land \quad \phi_{outside} = 60 °C $$
+$$ \vartheta_{inside} = 23 °C \quad \land \quad \vartheta_{outside} = 60 °C $$
 
 For heating with the heater (50W), the peltier element (144W) and full fan speed, the
 temperature is measured as follows:
-$$ \phi_{inside} = 72 °C \quad \land \quad \phi_{outside} = 32 °C $$
+$$ \vartheta_{inside} = 72 °C \quad \land \quad \vartheta_{outside} = 32 °C $$
 
 ## Assembly Checklist
 
