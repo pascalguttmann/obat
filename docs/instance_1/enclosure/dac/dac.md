@@ -1,4 +1,4 @@
-# Configuration
+# Digital-Analog-Converter
 
 ## Tests
 
