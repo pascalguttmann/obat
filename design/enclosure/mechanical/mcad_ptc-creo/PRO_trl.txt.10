@@ -1,0 +1,61 @@
+﻿!UI trail file version 1
+!Application name  `PRO`
+! UITools Msg Dialog Future: warning
+!                          : Die Konfigurationsoption mdl_tree_cfg_file ist so eingestellt, dass Einstellungen aus der Datei tree.cfg
+!                          : auf den Modellbaum angewendet werden. Sie wird jedoch ignoriert.
+!                          : 
+!                          : In Creo Parametric 6.0.0.0 und höher werden Ihre Änderungen am Modellbaum automatisch nach
+!                          : Modelltyp in Ihrem Profil gespeichert.
+!                          : 
+!                          : Sie arbeiten mit demselben Modelltyp, für den gespeicherte Modellbaumeinstellungen aus der 
+!                          : vorherigen Sitzung vorhanden sidn. Die gespeicherten Modellbaumeinstellungen werden angewendet 
+!                          : und die Konfigurationsoption mdl_tree_cfg_file wird ignoriert.
+!                          : 
+!                          : Es wird empfohlen, dass Sie die Konfigurationsoption aufheben.
+!Command ProCmdInfoNmgrLightDlg was pushed from the software.
+< 0 1.706667 2458 0 0 1440 3000 0 0 2000 13
+~ Activate `UITools Msg Dialog Future` `ok`
+~ Command `ProCmdViewSpinCntr`  0
+!%CI3D-Drehmitte wird nicht angezeigt.
+~ Command `ProCmdEnvAnnotElemDisp`  0
+!%CIAnmerkungen werden nicht angezeigt.
+~ Activate `main_dlg_cur` `igToolbar_AncestorIGT_IGT_GRP_inh397369119.proe_win|.mcs29658718_mp|select_a\
+ll_check` 0
+!%CIAchsen werden nicht angezeigt.
+!%CIBezugspunkte werden nicht angezeigt.
+!%CIKoordinatensysteme werden nicht angezeigt.
+!%CIBezugsebenen werden nicht angezeigt.
+** 0.889648 0.527083 0 1 1
+0.889648 0.444727 L 0 1.706666667 0
+~ MButtonArm `main_dlg_cur` `proe_win` 9 1894 680 0 65538 2458 1440 3000 2000 40690
+~ Move `main_dlg_cur` `proe_win` 9 1909 708 0 67074 2458 1440 3000 2000 40691
+~ Move `main_dlg_cur` `proe_win` 9 1907 712 0 67074 2458 1440 3000 2000 40718
+~ Move `main_dlg_cur` `proe_win` 9 1906 713 0 67074 2458 1440 3000 2000 40728
+~ Move `main_dlg_cur` `proe_win` 9 1906 714 0 66562 2458 1440 3000 2000 40735
+~ Move `main_dlg_cur` `proe_win` 9 1905 715 0 67074 2458 1440 3000 2000 40754
+~ Move `main_dlg_cur` `proe_win` 9 1905 716 0 66562 2458 1440 3000 2000 40787
+~ Move `main_dlg_cur` `proe_win` 9 1903 724 0 67074 2458 1440 3000 2000 40907
+~ Move `main_dlg_cur` `proe_win` 9 1902 725 0 67074 2458 1440 3000 2000 40926
+~ Move `main_dlg_cur` `proe_win` 9 1902 726 0 66562 2458 1440 3000 2000 40935
+~ Move `main_dlg_cur` `proe_win` 9 1902 727 0 66562 2458 1440 3000 2000 40952
+~ Move `main_dlg_cur` `proe_win` 9 1896 722 0 1536 2458 1440 3000 2000 41388
+~ Move `main_dlg_cur` `proe_win` 9 1896 721 0 66562 2458 1440 3000 2000 41407
+~ Move `main_dlg_cur` `proe_win` 9 1895 721 0 66050 2458 1440 3000 2000 41415
+~ Move `main_dlg_cur` `proe_win` 9 1895 720 0 66562 2458 1440 3000 2000 41425
+~ Move `main_dlg_cur` `proe_win` 9 1894 712 0 67074 2458 1440 3000 2000 41551
+~ Move `main_dlg_cur` `proe_win` 9 1894 711 0 66562 2458 1440 3000 2000 41565
+~ Move `main_dlg_cur` `proe_win` 9 1894 710 0 66562 2458 1440 3000 2000 41583
+~ Move `main_dlg_cur` `proe_win` 9 1894 709 0 66562 2458 1440 3000 2000 41591
+~ Move `main_dlg_cur` `proe_win` 9 1895 709 0 66050 2458 1440 3000 2000 41605
+~ MButtonDisarm `main_dlg_cur` `proe_win` 9 1895 709 0 65536 2458 1440 3000 2000 41905
+~ Close `main_dlg_cur` `main_dlg_cur`
+!Command ProCmdOSExit was pushed from the software.
+! Message Dialog: Warning
+!               : Creo Parametric Student Edition (for educational use only) wird beendet und nicht gespeicherte Arbeit geht verloren.
+!               : Möchten Sie das Programm wirklich beenden?
+~ Activate `UI Message Dialog` `yes`
+!%CPBaugruppe >> 001_BOX speichern ? [Ja]
+!%TR
+
+<ESC>  
+!End of Trail File

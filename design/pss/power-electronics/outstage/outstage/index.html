@@ -1,0 +1,6367 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://pascalguttmann.github.io/obat/design/pss/power-electronics/outstage/outstage/">
+      
+      
+        <link rel="prev" href="../../power-electronics/">
+      
+      
+        <link rel="next" href="../outstage-unit/">
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>Output Stage - Open Battery Tester Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#output-stage" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Open Battery Tester Docs" class="md-header__button md-logo" aria-label="Open Battery Tester Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Open Battery Tester Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Output Stage
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/pascalguttmann/obat" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pascalguttmann/obat
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../.." class="md-tabs__link">
+          
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../../overview/" class="md-tabs__link">
+          
+  
+  Design
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../instance_1/instance_1/" class="md-tabs__link">
+          
+  
+  Instance #1
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../research/mindmap/" class="md-tabs__link">
+          
+  
+  Research Mindmap
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Open Battery Tester Docs" class="md-nav__button md-logo" aria-label="Open Battery Tester Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Open Battery Tester Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pascalguttmann/obat" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pascalguttmann/obat
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to Open Battery Tester
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../git-submodules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git Submodules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Design
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Open Battery Tester
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../meeting-agreements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agreements / Decisions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Enclosure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Enclosure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../enclosure/enclosure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Enclosure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Digital Analog Converter
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Digital Analog Converter
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../enclosure/dac/dac/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Digital Analog Converter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../enclosure/dac/channel_map/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Channel Map
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_3" id="__nav_2_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Digital Interface
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Digital Interface
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../enclosure/digital-interface/digital-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Digital Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_4" id="__nav_2_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Pulse Width Modulator
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Pulse Width Modulator
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../enclosure/pwm/pwm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pulse Width Modulator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_5" id="__nav_2_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Full Bridge
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Full Bridge
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../enclosure/full-bridge/full-bridge/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Full Bridge
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_6" id="__nav_2_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Power
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Power
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../enclosure/power/power/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Power
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_7" id="__nav_2_3_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Mechanical
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Mechanical
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../enclosure/mechanical/mechanical/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mechanical
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Emergency Stop Unit
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Emergency Stop Unit
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../esu/esu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Emergency Stop Unit (ESU)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Measurement Electronics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Measurement Electronics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../meas/meas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    U / I / T Measurement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5_2" id="__nav_2_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Analog Digital Converter
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Analog Digital Converter
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../meas/adc/adc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analog Digital Converter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5_3" id="__nav_2_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Digital Interface
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Digital Interface
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../meas/digital-interface/digital-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Digital Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5_4" id="__nav_2_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Isolated DC/DC
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Isolated DC/DC
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../meas/iso-dcdc/iso-dcdc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Isolated DC/DC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5_5" id="__nav_2_5_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Current Transducer
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            Current Transducer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../meas/i-transduce/i-transduce/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Current Transducer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5_6" id="__nav_2_5_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Power
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            Power
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../meas/power/power/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Power
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Programmable Controller
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Programmable Controller
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../pc/pc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programmable Controller
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    PowerSupplySink
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            PowerSupplySink
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pss/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Power Supply Sink
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../layout/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Layout
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_3" id="__nav_2_7_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Analog Digital Converter
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            Analog Digital Converter
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../adc/adc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analog Digital Converter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_4" id="__nav_2_7_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../conf/conf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../conf/channel_map/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Channel Map
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_5" id="__nav_2_7_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Controller
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_5">
+            <span class="md-nav__icon md-icon"></span>
+            Controller
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control/control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_5_2" id="__nav_2_7_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Controller Design
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Controller Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control/controller-design/controller-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Controller Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_6" id="__nav_2_7_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Digital Interface
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_6">
+            <span class="md-nav__icon md-icon"></span>
+            Digital Interface
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../digital-interface/digital-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Digital Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_7" id="__nav_2_7_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Limit Logic
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_7">
+            <span class="md-nav__icon md-icon"></span>
+            Limit Logic
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../limit-logic/limit-logic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Limit Logic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_7_2" id="__nav_2_7_7_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Compare Logic
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            Compare Logic
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../limit-logic/compare-logic/compare-logic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compare Logic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_7_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_7_2_2" id="__nav_2_7_7_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Window Comparator
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_7_7_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_7_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Window Comparator
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../limit-logic/compare-logic/window-comparator/window-comparator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Window Comparator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_7_3" id="__nav_2_7_7_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Mode Transition
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            Mode Transition
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../limit-logic/mode-transition/mode-transition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mode Transition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../limit-logic/mode-transition/statemachine/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    State Machine
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_8" id="__nav_2_7_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Measurement
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_8">
+            <span class="md-nav__icon md-icon"></span>
+            Measurement
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../meas/meas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Measurement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_9" id="__nav_2_7_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Multiplexer
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_9">
+            <span class="md-nav__icon md-icon"></span>
+            Multiplexer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mux/mux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multiplexer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_10" id="__nav_2_7_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Power
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_10">
+            <span class="md-nav__icon md-icon"></span>
+            Power
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../power/power/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Power
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_11" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_11" id="__nav_2_7_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Power Electronics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_11_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_7_11">
+            <span class="md-nav__icon md-icon"></span>
+            Power Electronics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../power-electronics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Power Electronics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_11_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_11_2" id="__nav_2_7_11_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Output Stage
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_11_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_7_11_2">
+            <span class="md-nav__icon md-icon"></span>
+            Output Stage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Output Stage
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Output Stage
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#interface-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interface &amp; Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#circuit-selection-and-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Circuit Selection and Design
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Circuit Selection and Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transistor-technology-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transistor Technology Selection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transistor-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transistor Type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancing-short-circuit-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Balancing &amp; Short Circuit Protection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Load Balancing & Short Circuit Protection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#emitter-ballast-resistor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Emitter (Ballast) Resistor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-circuit-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Short Circuit Protection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thermal-resistance-consideration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thermal Resistance Consideration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Thermal Resistance Consideration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#combination-of-heatsinks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Combination of Heatsinks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package Selection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#component-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Component Selection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Component Selection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complementary-power-transistors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complementary Power Transistors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heatsink" class="md-nav__link">
+    <span class="md-ellipsis">
+      Heatsink
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#current-limiting-transistor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current Limiting Transistor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ballast-resistor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ballast Resistor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base-resistor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Base Resistor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hardware-tests-in-laboratory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware tests in Laboratory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout-and-assembly-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layout and Assembly Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layout and Assembly Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pcb-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      PCB Layout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assembly
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commissioning-and-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commissioning and Testing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commissioning and Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Distribution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-circuit-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Short Circuit Test
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outstage-unit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Outstage Unit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_11_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_11_3" id="__nav_2_7_11_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Bias Stage
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_11_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_11_3">
+            <span class="md-nav__icon md-icon"></span>
+            Bias Stage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bias/bias/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bias Stage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_12" id="__nav_2_7_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Relay
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_12">
+            <span class="md-nav__icon md-icon"></span>
+            Relay
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../relay/relay/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Relay
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Safety Research
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Safety Research
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../safety/safety/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Safety Research
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Instance #1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Instance #1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/instance_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instance #1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Enclosure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Enclosure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/enclosure/enclosure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Enclosure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Digital Analog Converter
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Digital Analog Converter
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/enclosure/dac/dac/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Digital-Analog-Converter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Digital Interface
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Digital Interface
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/enclosure/digital-interface/digital-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Digital Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_4" id="__nav_3_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Pulse Width Modulator
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Pulse Width Modulator
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/enclosure/pwm/pwm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pulse Width Modulator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Full Bridge
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Full Bridge
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/enclosure/full-bridge/full-bridge/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Full Bridge
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_6" id="__nav_3_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Power
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Power
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/enclosure/power/power/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Power
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Measurement Electronics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Measurement Electronics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/meas/meas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    U / I / T Measurement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_2" id="__nav_3_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Analog Digital Converter
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Analog Digital Converter
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/meas/adc/adc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analog Digital Converter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_3" id="__nav_3_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Digital Interface
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Digital Interface
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/meas/digital-interface/digital-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Digital Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_4" id="__nav_3_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Isolated DC/DC
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Isolated DC/DC
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/meas/iso-dcdc/iso-dcdc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Isolated DC/DC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_5" id="__nav_3_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Current Transducer
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Current Transducer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/meas/i-transduce/i-transduce/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Current Transducer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_6" id="__nav_3_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Power
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Power
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/meas/power/power/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Power
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    PowerSupplySink
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            PowerSupplySink
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/pss/pss/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PowerSupplySink
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_2" id="__nav_3_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Analog Digital Converter
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Analog Digital Converter
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/pss/adc/adc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analog Digital Converter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_3" id="__nav_3_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/pss/conf/conf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_4" id="__nav_3_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Controller
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Controller
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/pss/control/control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_5" id="__nav_3_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Digital Interface
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Digital Interface
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/pss/digital-interface/digital-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Digital Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_6" id="__nav_3_4_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Limit Logic
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            Limit Logic
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/pss/limit-logic/limit-logic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Limit-Logic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_6_2" id="__nav_3_4_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Compare Logic
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_4_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Compare Logic
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/pss/limit-logic/compare-logic/compare-logic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compare Logic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_6_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_6_2_2" id="__nav_3_4_6_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Window Comparator
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_3_4_6_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_6_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Window Comparator
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/pss/limit-logic/compare-logic/window-comparator/window-comparator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Window-Comparator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_6_3" id="__nav_3_4_6_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Mode Transition
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_4_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Mode Transition
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/pss/limit-logic/mode-transition/mode-transition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mode-Transition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_7" id="__nav_3_4_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Measurement
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            Measurement
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/pss/meas/meas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Measurement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_8" id="__nav_3_4_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Multiplexer
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            Multiplexer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/pss/mux/mux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multiplexer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_9" id="__nav_3_4_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Power
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            Power
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/pss/power/power/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Power
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_10" id="__nav_3_4_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Power Electronics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_10">
+            <span class="md-nav__icon md-icon"></span>
+            Power Electronics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/pss/power-electronics/power-electronics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Power Electronics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_10_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_10_2" id="__nav_3_4_10_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Output Stage
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_4_10_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_10_2">
+            <span class="md-nav__icon md-icon"></span>
+            Output Stage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/pss/power-electronics/outstage/outstage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Outstage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_10_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_10_3" id="__nav_3_4_10_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Bias Stage
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_4_10_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_10_3">
+            <span class="md-nav__icon md-icon"></span>
+            Bias Stage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/pss/power-electronics/bias/bias/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bias Stage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_11" id="__nav_3_4_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Relay
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_11">
+            <span class="md-nav__icon md-icon"></span>
+            Relay
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../instance_1/pss/relay/relay/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Relay
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Research Mindmap
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Research Mindmap
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../research/mindmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Research Topics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#interface-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interface &amp; Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#circuit-selection-and-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Circuit Selection and Design
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Circuit Selection and Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transistor-technology-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transistor Technology Selection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transistor-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transistor Type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancing-short-circuit-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Balancing &amp; Short Circuit Protection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Load Balancing & Short Circuit Protection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#emitter-ballast-resistor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Emitter (Ballast) Resistor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-circuit-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Short Circuit Protection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thermal-resistance-consideration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thermal Resistance Consideration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Thermal Resistance Consideration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#combination-of-heatsinks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Combination of Heatsinks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package Selection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#component-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Component Selection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Component Selection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complementary-power-transistors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complementary Power Transistors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heatsink" class="md-nav__link">
+    <span class="md-ellipsis">
+      Heatsink
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#current-limiting-transistor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current Limiting Transistor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ballast-resistor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ballast Resistor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base-resistor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Base Resistor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hardware-tests-in-laboratory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware tests in Laboratory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout-and-assembly-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layout and Assembly Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layout and Assembly Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pcb-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      PCB Layout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assembly
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commissioning-and-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commissioning and Testing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commissioning and Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Distribution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-circuit-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Short Circuit Test
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/pascalguttmann/obat/edit/main/docs/design/pss/power-electronics/outstage/outstage.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/pascalguttmann/obat/raw/main/docs/design/pss/power-electronics/outstage/outstage.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/></svg>
+    </a>
+  
+
+
+<h1 id="output-stage">Output Stage</h1>
+<p>Output stage class AB for driving the load of the powersupplysink.</p>
+<h2 id="interface-requirements">Interface &amp; Requirements</h2>
+<ol>
+<li>Voltage Inputs<ul>
+<li><span class="arithmatex">\(I_{in} \approx 500mA &lt; 1A \quad \forall \quad U_{out} \times I_{out}\)</span></li>
+<li>Voltage controlled input should be <span class="arithmatex">\(V_{IN+} (t) = V_{IN-} (t) + V_{offset}
+    \quad | V_{offset} \in \mathbb{R}_+\)</span><ul>
+<li><code>V_IN+</code></li>
+<li><code>V_IN-</code></li>
+<li><span class="arithmatex">\(V_{offset} \approx 1V to 1.5V\)</span> according to simulation for low crossover
+    distortion operation.</li>
+<li>Required input voltage swing: <span class="arithmatex">\(V_{IN} \in [-3V, +8V]\)</span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Voltage Output<ul>
+<li><span class="arithmatex">\(U_{out} \in [0V, +5V]\)</span></li>
+<li><span class="arithmatex">\(I_{out} \in [-20A, +20A]\)</span></li>
+<li>Short circuit I limit <span class="arithmatex">\(| max(I_{out}) \leq |I_{max}| \leq |1.25 max(I_{out})|\)</span></li>
+</ul>
+</li>
+<li>Supply Voltages<ul>
+<li><span class="arithmatex">\(+10V\)</span> @ <span class="arithmatex">\(250W\)</span> (<span class="arithmatex">\(25A\)</span>)</li>
+<li><span class="arithmatex">\(-5V\)</span> @ <span class="arithmatex">\(125W\)</span> (<span class="arithmatex">\(25A\)</span>)</li>
+</ul>
+</li>
+</ol>
+<h2 id="circuit-selection-and-design">Circuit Selection and Design</h2>
+<h3 id="overview">Overview</h3>
+<p><img alt="Outstage Schematic with N2 parallel transistors" src="../outstage_schematic_n2.png" />
+Outstage Schematic Simulation with N2 parallel transistors, <span class="arithmatex">\(n = 12\)</span> is used for
+total schematic.</p>
+<h3 id="transistor-technology-selection">Transistor Technology Selection</h3>
+<p>To realize the power amplification complementary bjt transistors are chosen,
+because</p>
+<ul>
+<li>their collector current can be controlled by the base current</li>
+<li>driving circuitry for FETs, IGBTs is more complex</li>
+<li>complementary parts are available to construct complementary emitter follower
+    (push pull output stage)</li>
+</ul>
+<h3 id="transistor-type">Transistor Type</h3>
+<p>With the specs it is possible to find parts like <code>MJ11032</code> and <code>MJ11033</code> as</p>
+<ul>
+<li>complementary</li>
+<li>darlington</li>
+<li>high current</li>
+<li>high power dissipation package TO−204 (TO−3)</li>
+</ul>
+<p>transistors, that could maybe be used with high efforts for cooling. Still the
+issue of scalability beyond 20A is not solved. In order to ease the requirements
+on the thermal management multiple BJTs are connected in parallel to share the
+load.</p>
+<h3 id="load-balancing-short-circuit-protection">Load Balancing &amp; Short Circuit Protection</h3>
+<p>To achieve a balanced load distribution and avoid thermal runaway due to changes
+of <span class="arithmatex">\(V_{BE}\)</span> emitter resistors are used for compensation. The voltage drop at the
+emitter resistor can additionally be utilized to deploy short circuit protection
+by current limiting. The current limit can be enforced by lowering the bias
+currents when the voltage drop across the emitter resistors is exceeding a
+predefined threshold.</p>
+<h4 id="emitter-ballast-resistor">Emitter (Ballast) Resistor</h4>
+<p>Considering a single npn transistor of the multiple paralleled transistors as
+system <span class="arithmatex">\(S\)</span> the thermal evolution of the system can be approximated by:
+$$ \frac{dQ}{dt} = P_{el} - P_{th} $$
+The thermal power dissipation <span class="arithmatex">\(P_{th}\)</span> can be approximated from the stored
+thermal energy <span class="arithmatex">\(Q\)</span> as follows:
+$$ P_{th} \approx \frac{C_{th} Q}{R_{th}} = \frac{T}{R_{th}}  $$
+Where <span class="arithmatex">\(C_{th}\)</span> is the thermal mass of the system <span class="arithmatex">\(S\)</span>, <span class="arithmatex">\(R_{th}\)</span> is the thermal
+resistance in <span class="arithmatex">\([\frac{K}{W}]\)</span> and <span class="arithmatex">\(T\)</span> is the absolute temperature.
+The delivered electrical power converted to thermal power in <span class="arithmatex">\(S\)</span> is described
+by:
+$$ P_{el} = U_{CE} I_{C} + U_{BE} I_{B} $$</p>
+<p>The temperature coefficient <span class="arithmatex">\(\gamma \quad [\frac{mV}{K}]\)</span> of a given npn
+transistor describes the change of <span class="arithmatex">\(U_{BE}\)</span> at a certain operating point for a
+given temperature change, for constant <span class="arithmatex">\(I_C\)</span>. <a href="https://web.mit.edu/klund/www/Dphysics.pdf">It is mainly derived from the
+temperature dependence of the <em>reverse bias current</em>
+<span class="arithmatex">\(I_S\)</span>.</a>
+The electrical power can therefore be described depending on the temperature by:
+$$
+    I_B =
+    \underbrace{
+    \left[ I_S \exp \left( \frac{U_{BE} - \gamma \Delta T}{U_T} \right) \right]
+    }_{I_B}
+$$</p>
+<div class="arithmatex">\[
+    P_{el} = I_B \left\{
+    \underbrace{
+        U_{BE} - \gamma \Delta T
+    }_{U_{BE}} +
+    \underbrace{
+        \beta_0
+    }_{I_{C}}
+    \underbrace{
+        \left( U_C - R_E (\beta_0 + 1) I_S \exp \left( \frac{U_{BE} - \gamma \Delta T}{U_T} \right) \right)
+    }_{U_{CE}}
+    \right\}
+\]</div>
+<p>Thermal runaway of the transistor is can be avoided by <span class="arithmatex">\(\frac{dQ}{dt} = P_{el} -
+P_{th} &lt; 0\)</span> and therefore:
+$$
+    R_E &gt; \frac{1}{I_B} \left(
+        U_C + \frac{U_{BE} - \gamma \Delta T}{\beta_0}
+        - \frac{T}{R_{th}} \frac{1}{\beta_0 I_B} \right)
+$$</p>
+<p>For the worst case of <span class="arithmatex">\(R_{th} \to \infty\)</span> and with <span class="arithmatex">\(U_C &gt;&gt; \frac{U_BE - \gamma
+\Delta T}{\beta_0}\)</span> and <span class="arithmatex">\((\beta_0 + 1) \approx \beta_0\)</span> the expression can be simplified to:
+$$
+    R_E \gtrapprox \frac{U_C}{\beta_0^2 I_B} =
+    \frac{U_C}{\beta_0^2 I_S \exp \left( \frac{U_{BE} - \gamma \Delta T}{U_T} \right)}
+$$</p>
+<p>For <span class="arithmatex">\(U_C = 15V\)</span>, <span class="arithmatex">\(\beta_0 = 25\)</span>, <span class="arithmatex">\(I_S = 10^{-15} A\)</span>, <span class="arithmatex">\(U_{BE} = 700 mV\)</span>, <span class="arithmatex">\(U_T =
+26mV\)</span>, <span class="arithmatex">\(\Delta T = 100K\)</span> and <span class="arithmatex">\(\gamma = -2 \frac{mV}{K}\)</span> the constrained for the
+ballast resistor is
+$$ R_E \gtrapprox 22 m \Omega $$</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The thermal voltage <span class="arithmatex">\(U_T\)</span> is not temperature independent as assumed in this
+calculation. The effect of the thermal voltage change on the base current is
+rather small compared to the effect of <span class="arithmatex">\(\gamma\)</span>. Additionally the thermal
+voltage is increased with temperature reducing the base current thus the
+effect counteracts the thermal runaway. Therefore when neglected the
+inequality constraint is not violated.</p>
+</div>
+<p>The selected current limiting transistor of the short circuit protection
+<code>DNLS350</code> has an base-emitter turn on voltage
+$$ V_{BE,on} \approx 700mV | I_{C} = 300mA, T = 25°C $$
+$$ V_{BE,on} \approx 600mV | I_{C} = 300mA, T = 85°C $$</p>
+<p>Therefore the range of the ballast resistor is further restricted by</p>
+<ol>
+<li>A minimum value which is required to still limit the current below the
+   allowed <span class="arithmatex">\(I_{max} / n\)</span> even at room temperature, where <span class="arithmatex">\(n = 12\)</span> is the number
+   of used power transistors paralleled.
+   $$ R_E &gt; \frac{700mV}{25A / 12} = 330 m \Omega $$</li>
+<li>A maximum value which is must not be exceeded to allow the nominal current
+   flow <span class="arithmatex">\(I_{out} / n\)</span> even at high temperature, where <span class="arithmatex">\(n = 12\)</span> is the number of
+   used power transistors paralleled.
+   $$ R_E &lt; \frac{600mV}{20A / 12} = 360 m \Omega $$</li>
+</ol>
+<p>The power rating of the resistor shall be
+$$ P_{RE} = \frac{I_{max}}{n}^2 \cdot R_E $$
+or better. In the case of the ballast resistor being limited by the nominal
+current flow at low <span class="arithmatex">\(V_{BE,on}\)</span> this would be:
+$$ P_{RE} &gt; \frac{25A}{12}^2 \cdot 360m \Omega \approx 1.6 W $$</p>
+<h4 id="short-circuit-protection">Short Circuit Protection</h4>
+<p>To limit the current in case of a short circuit a current limiting transistor
+can be connected from the base of each power transistor over the ballast
+resistor. When the voltage across the ballast resistor <span class="arithmatex">\(U_{RE}\)</span> rises to
+<span class="arithmatex">\(U_{BE}\)</span> of the limiting transistor the base current of the power transistor
+will be limited. The current limiting is applied separately for each power
+transistor.</p>
+<p>The base resistor <span class="arithmatex">\(R_B\)</span> cannot exceed a certain resistance, because it will
+increase the input resistance until the preceeding stage cannot drive enough
+current into the base of the power transistors.</p>
+<p>For an expected maximum voltage <span class="arithmatex">\(U_{in,max} = U_{SUP+} - 2V = 8V\)</span> of the
+preceeding stage the maximum tolerable <span class="arithmatex">\(R_B\)</span> is for an maximum required base
+current <span class="arithmatex">\(I_{b,pwr} = I_{out,max} / n / \beta_0\)</span> of the power transistor.
+$$
+    R_B &lt; \frac{U_{in,max} - U_{outmax} - 2* U_{BE,on}}{I_{b,pwr}} =
+    \frac{8V - 2 \cdot 1V - 5V}{\frac{20A}{12 \cdot 40}} \approx 24 \Omega \
+$$</p>
+<p>By using <span class="arithmatex">\(R_B\)</span> from E12, it can be chosen.
+$$
+    R_B = 22 \Omega
+$$</p>
+<p>The maximum collector current of the <span class="arithmatex">\(I_{C,lmt}\)</span> of the current limiting
+transistor can be calculated depending on the collector voltage <span class="arithmatex">\(U_{C,lmt} =
+U_{B,pwr}\)</span>.
+$$ I_{C,lmt} = \frac{U_{in,max} - U_{C,lmt}}{R_B} - I_{b,pwr} $$
+$$ U_{in,max} \leq 8V \quad \wedge \quad U_{C,lmt} &gt; 2 \cdot U_{BE,on} $$
+$$ \implies I_{C,lmt} \leq \frac{8V - 2 \cdot 1V}{22 \Omega} - \frac{20A}{12
+\cdot 40} \approx 230mA $$</p>
+<p>The thermal power requirement on the limiting transisor can be approximated by
+neglecting base current and base-emitter voltage as follows.
+$$ P_{lmt} \approx I_{C,lmt} \cdot U_{C,lmt} = - \frac{1}{R_B} U_{C,lmt}^2 +
+(\frac{U_{in,max}}{R_B} - I_{b,pwr}) U_{C,lmt}$$
+With $$ \frac{\partial P_{lmt}}{\partial U_{C,lmt}} = 0 \implies U_{C,lmt} = 3.56 V$$ the <span class="arithmatex">\(U_{C,lmt}\)</span> for
+maximum power dissipation in the limiting transistor can be found from which the
+maximum power dissipation in the limiting transistor can be calculated:
+$$ P_{lmt} &lt; I_{C,lmt}(3.56V) \cdot 3.56V \approx 580mW $$</p>
+<h3 id="thermal-resistance-consideration">Thermal Resistance Consideration</h3>
+<p>The current and thermal load distribution are the factors significantly
+influencing the multiplicity of paralleled transistors. As it is expected that
+thermal load will be more restrictive than current load, the multiplicity is
+derived using the thermal characteristics. From the multiplicity a requirement
+for component selection regarding the maximum current capability is established.
+From that a complementary bjt pair is selected to fulfill the requirements.</p>
+<p>The biggest thermal active power is achieved at highest voltage drop and highest
+current through the device <span class="arithmatex">\(P = U I\)</span>. The maximum voltage drop and current of
+the transistors is achieved with a short circuit of the output.</p>
+<ul>
+<li>Short circuit to <span class="arithmatex">\(0V\)</span>: maximum power dissipation in npn transistors for power
+    delivery (operational in first quadrant, supply of electrical power)</li>
+<li>Short circuit to <span class="arithmatex">\(5V\)</span>: maximum power dissipation in pnp transistors for power
+    consumption (operational in second quadrant, sink of electrical power)</li>
+</ul>
+<p>Because the supply voltages are respectively <span class="arithmatex">\(5V\)</span> higher or lower than the
+limits and the sourced and sunk currents are symmetrical both power dissipation
+cases can be treated equal. The following calculations are conducted for the npn
+transistors with a short circuit to <span class="arithmatex">\(0V\)</span>. The maximum voltages are limited by
+the available voltage of the power supply rails. The following ESD and
+protection circuitry also guarantees, that a short circuit will not be able to
+imprint voltages outside of the operational interval of <span class="arithmatex">\([0V, 5V]\)</span> to the
+output.
+Similarly the maximum current is enforced by the short circuit protection of
+this output stage. The current limit of this output stage is determining the
+maximum current, even in case of failure of preceding circuitry.</p>
+<p>The maximum thermal power dissipation due to output current is approximated by:
+$$ P_{th,max} = U I = (U_{supply} - U_{sc}) I_{max}\
+= (10V - 0V) 1.25 \cdot 20A = 250W $$</p>
+<p>This approximation is an upper bound for the power dissipation including</p>
+<ul>
+<li>the thermal dissipation by the control voltage and current at the base, in
+    case the base current is also limited by the current limiting circuitry.
+    That is the case for the short circuit protection utilizing the voltage drop
+    across the emitter resistors, because <span class="arithmatex">\(I_E = I_C + I_B\)</span> holds.  If a
+    limiting transistor is used to bypass excess base current this limiting
+    transistor must rendered inoperable before the thermal dissipation of the
+    output stage transistors is exceeded. It is assumed that the preceding stage
+    does not deliver enough power to thermally destroy the current limiting
+    transistors, while completely delivering additionally the entire short
+    circuit current <span class="arithmatex">\(I_{max}\)</span>. Destruction of the preceding stage is likely
+    before the thermal power dissipation limit for the output stage transistors
+    is exceeded.</li>
+<li>the quiescent current. The quiescent current is also contributing to the
+    limited current <span class="arithmatex">\(I_{max}\)</span>, as it flows from the collector to the emitter.</li>
+</ul>
+<h4 id="combination-of-heatsinks">Combination of Heatsinks</h4>
+<p>Because the worst case conditions for the npn and pnp transistors can only occur
+exclusively the transistors can share one combined heatsink with unchanged
+thermal requirements.
+This requires the assumption, that the preceding stage does not allow excess
+quiescent current to flow.</p>
+<h4 id="package-selection">Package Selection</h4>
+<p>To reduce the number of devices needed the thermal resistance should be low.
+Therefore only selected well established packages are compared.
+The values for thermal resistance are retrieved from <em>ROHM Co., Ltd</em> <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> unless
+noted otherwise.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Package</th>
+<th style="text-align: left;">Technology</th>
+<th style="text-align: left;"><span class="arithmatex">\(R_{th,JA} [K/W]\)</span></th>
+<th style="text-align: left;"><span class="arithmatex">\(R_{th,JC} [K/W]\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">TO-220AB</td>
+<td style="text-align: left;">THT</td>
+<td style="text-align: left;">80</td>
+<td style="text-align: left;">0.8</td>
+</tr>
+<tr>
+<td style="text-align: left;">TO-247</td>
+<td style="text-align: left;">THT</td>
+<td style="text-align: left;">30</td>
+<td style="text-align: left;">0.6</td>
+</tr>
+<tr>
+<td style="text-align: left;">TO-204 (TO-3) <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></td>
+<td style="text-align: left;">THT</td>
+<td style="text-align: left;">30</td>
+<td style="text-align: left;">0.8</td>
+</tr>
+<tr>
+<td style="text-align: left;">TO-252 (DPAK)</td>
+<td style="text-align: left;">SMD</td>
+<td style="text-align: left;">147</td>
+<td style="text-align: left;">4.9</td>
+</tr>
+<tr>
+<td style="text-align: left;">TO-263 (D2PAK)</td>
+<td style="text-align: left;">SMD</td>
+<td style="text-align: left;">80</td>
+<td style="text-align: left;">4.2</td>
+</tr>
+<tr>
+<td style="text-align: left;">HSOP8</td>
+<td style="text-align: left;">SMD</td>
+<td style="text-align: left;">41.7</td>
+<td style="text-align: left;">5.6</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Expected thermal resistance for case to heatsink with thermal grease and
+electrical isolation <span class="arithmatex">\(R_{th,CH} \approx 1 K/W\)</span>.
+Heatsinks in extruded profile shape (ger. Strangkühlkörper) can provide
+approximately <span class="arithmatex">\(R_{th,HA} \approx 1K/W ... 3K/W\)</span> for our use case. <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></p>
+</div>
+<p>If at an ambient temperature of <span class="arithmatex">\(40°C\)</span> the maximum desired junction temperature
+is considered to be <span class="arithmatex">\(100°C\)</span> (lifespan), a maximum temperature difference of
+<span class="arithmatex">\(T_{diff} = T_{j,max} - T_{a,max} = 100°C - 40°C = 60K\)</span> is estimated.
+For cooling without a heatsink this would imply a lower bound of the
+multiplicity of paralleled transistors of:
+$$ n_{th,JA} \ge \frac{P_{th,max} R_{th,JA}}{T_{diff}} $$</p>
+<p>With <span class="arithmatex">\(min(R_{th,JA}) = 30 K/W\)</span> in the case of <code>TO-247</code> packages this yields an
+uneconomical high number of required components:
+$$ n_{th,JA} \ge \frac{250W \cdot 30K/W}{60K} = 125 $$</p>
+<p>To reduce the number of required components a heatsink will be employed. For the
+most conductive SMD package <code>TO-263 (D2PAK)</code> even with an ideal heatsink
+<span class="arithmatex">\(R_{th,CA} = 0 K/W\)</span> to the PCB the number of required packages is:
+$$ n_{th,TO-263} \ge \frac{P_{th,max} (R_{th,JC} + R_{th,CA})}{T_{diff}}\
+= \frac{250W \cdot (4.2K/W + 0K/W)}{60K} = 17.5 $$
+For the real application dissipating 250W into the PCB will yield high thermal
+stress and require a significant area on the PCB. Therefore one of the THT
+mounted packages is preferred. With an ideal heatsink the number of components
+is:
+$$ n_{th,TO220AB} \ge \frac{250W \cdot (0.8K/W + 0K/W)}{60K} \approx 3.3 $$
+$$ n_{th,TO247} \ge \frac{250W \cdot (0.6K/W + 0K/W)}{60K} = 2.5 $$
+$$ n_{th,TO204} \ge \frac{250W \cdot (0.8K/W + 0K/W)}{60K} \approx 3.3 $$</p>
+<h3 id="component-selection">Component Selection</h3>
+<h4 id="complementary-power-transistors">Complementary Power Transistors</h4>
+<p><em>Search on Mouser with filters</em></p>
+<ul>
+<li><span class="arithmatex">\(I_{C,max} &gt; 4 A\)</span></li>
+<li><span class="arithmatex">\(V_{CE,max} &gt; 20 V\)</span></li>
+<li><span class="arithmatex">\(P_{tot} &gt; 30 W\)</span></li>
+<li>THT-Package</li>
+</ul>
+<p><em>Procedure</em></p>
+<ul>
+<li>Get data from datasheet</li>
+<li>Calculate the power which can be dissipated <span class="arithmatex">\(P_{real} [W]\)</span> at<ul>
+<li><span class="arithmatex">\(R_{CA} = 2.4 K/W\)</span>, (<span class="arithmatex">\(0.4 K/W\)</span> from isolation <code>WS 220</code>, <span class="arithmatex">\(2 K/W\)</span> from <code>SK662 200</code>)</li>
+<li><span class="arithmatex">\(T_{J,safety} = 30K\)</span></li>
+<li><span class="arithmatex">\(T_{amb} = 25°C\)</span></li>
+</ul>
+</li>
+<li>Get sensible collector current <span class="arithmatex">\(I_{C,real} [A]\)</span> and corresponding dc gain <span class="arithmatex">\(\beta_0\)</span> from datasheet</li>
+<li>Calculate minimum number of required components (NPN and PNP) with<ul>
+<li><span class="arithmatex">\(n = 2 \cdot \max ( \lceil P_{th,max} / P_{real} \rceil, \lceil I_{max} / I_{C,real} \rceil)\)</span></li>
+</ul>
+</li>
+<li>Calculate the total price <span class="arithmatex">\(\text{Price total} = n \cdot \text{Price p. unit}\)</span></li>
+</ul>
+<p><em>Result</em></p>
+<p>See table below with results, which are exported from excel.</p>
+<ul>
+<li><em>BD433/5/7, BD434/6/8</em> is rejected in favor of a <em>TO-220</em> package, because for
+    high number of components it is easier to mount.</li>
+<li>
+<p><em>MJE3055T, MJE2955T</em> is rejected in favor of <em>TIP42C, TIP42C</em>, because the
+    price for the complementary part is higher with approx 1 Eur than visible in
+    the list.</p>
+</li>
+<li>
+<p><em>TIP41C, TIP42C</em> is favored for the design.</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Part Number</th>
+<th>Package</th>
+<th><span class="arithmatex">\(T_{J,max} [°C]\)</span></th>
+<th><span class="arithmatex">\(P_{tot} [W]\)</span></th>
+<th><span class="arithmatex">\(P_{real} [W]\)</span></th>
+<th><span class="arithmatex">\(I_{C,max} [A]\)</span></th>
+<th><span class="arithmatex">\(I_{C,real} [A]\)</span></th>
+<th><span class="arithmatex">\(\beta_0\)</span></th>
+<th><span class="arithmatex">\(I_{B,total} [A]\)</span></th>
+<th><span class="arithmatex">\(U_{BE,on} [V]\)</span></th>
+<th><span class="arithmatex">\(n\)</span></th>
+<th><span class="arithmatex">\(\text{Price p. unit} [Eur]\)</span></th>
+<th><span class="arithmatex">\(\text{Price total} [Eur]\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="https://www.mouser.de/datasheet/2/308/1/MJE2955T_D-2315820.pdf">MJE3055T, MJE2955T</a></td>
+<td>TO-220</td>
+<td>150</td>
+<td>75</td>
+<td>23.3606557377049</td>
+<td>10</td>
+<td>4</td>
+<td>20</td>
+<td>1</td>
+<td>1.8</td>
+<td>22</td>
+<td>0.69</td>
+<td>15.18</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.mouser.de/datasheet/2/389/bd437-1848935.pdf">BD433/5/7, BD434/6/8</a></td>
+<td>SOT-32</td>
+<td>150</td>
+<td>36</td>
+<td>16.1</td>
+<td>4</td>
+<td>2</td>
+<td>40</td>
+<td>0.5</td>
+<td>1.2</td>
+<td>32</td>
+<td>0.502</td>
+<td>16.064</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.mouser.de/datasheet/2/389/tip41c-1852274.pdf">TIP41C, TIP42C</a></td>
+<td>TO-220</td>
+<td>150</td>
+<td>65</td>
+<td>21.9</td>
+<td>6</td>
+<td>4</td>
+<td>30</td>
+<td>0.6</td>
+<td>2</td>
+<td>24</td>
+<td>0.72</td>
+<td>17.28</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.mouser.de/datasheet/2/308/2N5191_D-2309067.pdf">2N5191G, 2N5194</a></td>
+<td>TO-225</td>
+<td>150</td>
+<td>40</td>
+<td>17.1</td>
+<td>4</td>
+<td>2</td>
+<td>20</td>
+<td>1</td>
+<td>1.2</td>
+<td>30</td>
+<td>0.577</td>
+<td>17.31</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.mouser.de/datasheet/2/308/1/D44VH_D-2310858.pdf">D44VH10, D45VH10</a></td>
+<td>TO-220</td>
+<td>150</td>
+<td>83</td>
+<td>24.3</td>
+<td>15</td>
+<td>4</td>
+<td>20</td>
+<td>1</td>
+<td>1.2</td>
+<td>22</td>
+<td>0.83</td>
+<td>18.26</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.mouser.de/datasheet/2/389/d44h8-1848919.pdf">D44H8, D45H8</a></td>
+<td>TO-220</td>
+<td>150</td>
+<td>50</td>
+<td>19.3</td>
+<td>10</td>
+<td>4</td>
+<td>40</td>
+<td>0.5</td>
+<td>1.5</td>
+<td>26</td>
+<td>0.772</td>
+<td>20.072</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.mouser.de/datasheet/2/389/tip35cw-1852306.pdf">TIP35CW, TIP36CW</a></td>
+<td>TO-247</td>
+<td>150</td>
+<td>125</td>
+<td>27.9</td>
+<td>25</td>
+<td>3</td>
+<td>30</td>
+<td>0.6</td>
+<td>2</td>
+<td>18</td>
+<td>1.87</td>
+<td>33.66</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.mouser.de/datasheet/2/308/1/NJW3281_D-2318020.pdf">NJW3281G, NJW1302G</a></td>
+<td>TO-3P</td>
+<td>150</td>
+<td>200</td>
+<td>31.4</td>
+<td>15</td>
+<td>8</td>
+<td>45</td>
+<td>0.4</td>
+<td>1.5</td>
+<td>16</td>
+<td>3.65</td>
+<td>58.4</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.mouser.de/datasheet/2/308/1/MJW21195_D-2315975.pdf">MJW21196, MJW21195</a></td>
+<td>TO-247</td>
+<td>150</td>
+<td>200</td>
+<td>31.4</td>
+<td>16</td>
+<td>8</td>
+<td>20</td>
+<td>1</td>
+<td>2</td>
+<td>16</td>
+<td>4.11</td>
+<td>65.76</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.mouser.de/datasheet/2/308/1/MJ15022_D-2316114.pdf">MJ15022, MJ15023</a></td>
+<td>TO-3</td>
+<td>200</td>
+<td>250</td>
+<td>46.7</td>
+<td>16</td>
+<td>10</td>
+<td>15</td>
+<td>1.3</td>
+<td>2.2</td>
+<td>12</td>
+<td>6.29</td>
+<td>75.48</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.mouser.de/datasheet/2/308/1/MJW21193_D-2315789.pdf">MJW21194, MJW21193</a></td>
+<td>TO-247</td>
+<td>150</td>
+<td>200</td>
+<td>31.4</td>
+<td>16</td>
+<td>8</td>
+<td>20</td>
+<td>1</td>
+<td>2.2</td>
+<td>16</td>
+<td>4.81</td>
+<td>76.96</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.mouser.de/datasheet/2/308/1/MJL21195_D-2316291.pdf">MJL21196, MJL21195</a></td>
+<td>TO-264</td>
+<td>150</td>
+<td>200</td>
+<td>31.4</td>
+<td>16</td>
+<td>8</td>
+<td>25</td>
+<td>0.8</td>
+<td>2.2</td>
+<td>16</td>
+<td>4.9</td>
+<td>78.4</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.mouser.de/datasheet/2/308/1/MJ4502_D-2316036.pdf">MJ802, MJ4502G</a></td>
+<td>TO-3</td>
+<td>200</td>
+<td>200</td>
+<td>44.2</td>
+<td>30</td>
+<td>7.5</td>
+<td>25</td>
+<td>0.8</td>
+<td>1.3</td>
+<td>12</td>
+<td>7.43</td>
+<td>89.16</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.mouser.de/datasheet/2/308/1/MJL4281A_D-2315934.pdf">MJL4281AG, MJL4302AG</a></td>
+<td>TO-264</td>
+<td>150</td>
+<td>230</td>
+<td>32.2</td>
+<td>15</td>
+<td>8</td>
+<td>50</td>
+<td>0.4</td>
+<td>1.5</td>
+<td>16</td>
+<td>5.59</td>
+<td>89.44</td>
+</tr>
+</tbody>
+</table>
+<h4 id="heatsink">Heatsink</h4>
+<p>The heatsink is searched in catalogue of company <em>Fischer Elektronik</em>.</p>
+<ul>
+<li>Low thermal resistance <span class="arithmatex">\(R_{th} &lt; 4 K/W\)</span>, smaller is better as it reduces cost
+    by not needing more transistors.</li>
+<li>Mounting style, clip mounting for assembly of heatsink after soldering and
+    easier repair.</li>
+<li>"Double sided mounting" at PCB for reduction of size. (PNP and NPN can be
+    mounted on same heatsink)</li>
+</ul>
+<p><em>Result</em></p>
+<ul>
+<li>2x <code>SK499 120</code> available at <a href="https://www.audiotube24.de/product_id-00017850">AudioTube</a></li>
+<li>30x <a href="https://www.audiotube24.de/product_id-00017487">THFU2</a> Clip</li>
+<li>30x <a href="https://mou.sr/3K4ou7F">Silicon Insulator</a></li>
+<li>Fan for forced convection: <a href="https://mou.sr/3yeFHsr">https://mou.sr/3yeFHsr</a></li>
+</ul>
+<p>Alternatives:</p>
+<ul>
+<li>2x <code>SK662 100</code> with <span class="arithmatex">\(2 K/W\)</span></li>
+<li>2x <code>SK593 100</code> with <span class="arithmatex">\(2 K/W\)</span> (bigger)</li>
+<li><code>SK50</code> (mounting with custom CNC, probably expensive)</li>
+</ul>
+<p>Mounting clip: <code>THFU 2</code>
+Isolation washer: <code>WS 220</code></p>
+<h4 id="current-limiting-transistor">Current Limiting Transistor</h4>
+<p><em>Search on Mouser with filters</em></p>
+<ul>
+<li><span class="arithmatex">\(I_{C,max} &gt; 2 A\)</span></li>
+<li><span class="arithmatex">\(P_{tot} &gt; 1 W\)</span></li>
+<li>Sort by price ascending</li>
+<li>Check that complementary type is available</li>
+</ul>
+<p><em>Results</em></p>
+<table>
+<thead>
+<tr>
+<th>Part. No</th>
+<th>Package</th>
+<th>Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.diodes.com/assets/Datasheets/ds31231.pdf">DNLS350, DPLS350E</a></td>
+<td>SOT223</td>
+<td>Provides the desired performance for low price</td>
+</tr>
+<tr>
+<td><a href="https://www.mouser.de/datasheet/2/916/PBSS4350X-2938389.pdf">PBSS4350X, PBSS5350X</a></td>
+<td>SOT89</td>
+<td>Power dissipation, critical for SOT89, big footprint required</td>
+</tr>
+<tr>
+<td><a href="https://www.mouser.de/datasheet/2/916/PBSS5350D-2909976.pdf">PBSS5350D, PBSS4350D</a></td>
+<td>SOT4547</td>
+<td>Power dissipation to high</td>
+</tr>
+</tbody>
+</table>
+<p>Select <a href="https://www.diodes.com/assets/Datasheets/ds31231.pdf">DNLS350, DPLS350E</a> for easier thermal management in favor of the other
+options.</p>
+<h4 id="ballast-resistor">Ballast Resistor</h4>
+<p><em>Search on Mouser</em></p>
+<p>To achieve <span class="arithmatex">\(R_E \approx 330 m \Omega\)</span> with <span class="arithmatex">\(P_{RE} = 3W &gt;&gt; 1.6 W\)</span> the following
+options have been found through mouser search:</p>
+<table>
+<thead>
+<tr>
+<th>Part. No.</th>
+<th>Resistance <span class="arithmatex">\([m \Omega]\)</span></th>
+<th>Power Rating <span class="arithmatex">\([W]\)</span></th>
+<th>Price p. P. [Eur]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.mouser.de/ProductDetail/TE-Connectivity-Holsworthy/RR03JR33TB?qs=sGAEpiMZZMtlubZbdhIBIL1jfe5%2FyPTLGVSKJynZY2s%3D">RR03JR33TB</a></td>
+<td>330</td>
+<td>3</td>
+<td>0.157</td>
+</tr>
+<tr>
+<td><a href="https://www.mouser.de/ProductDetail/TE-Connectivity-Holsworthy/RR02JR68TB?qs=sGAEpiMZZMtlubZbdhIBIJxdTG9LhrplYzQM53Fdd2M%3D">RR02JR68TB</a></td>
+<td>680</td>
+<td>2</td>
+<td>0.14</td>
+</tr>
+</tbody>
+</table>
+<p><em>Result</em></p>
+<p><a href="https://www.mouser.de/ProductDetail/TE-Connectivity-Holsworthy/RR02JR68TB?qs=sGAEpiMZZMtlubZbdhIBIJxdTG9LhrplYzQM53Fdd2M%3D">RR02JR68TB</a></p>
+<p>While the <em>RR03JR33TB</em> is cheaper in total, because only one component is
+required per transistor except two as for <em>RR02JR68TB</em>, <em>RR02JR68TB</em> is
+preferred as for the parallel expected value <span class="arithmatex">\(R = 680 / 2 m \Omega\)</span> is expected
+to be better in the desired range of <span class="arithmatex">\(330 m \Omega\)</span> to <span class="arithmatex">\(350 m \Omega\)</span>, when the
+tolerance is also of concern. For quantities <span class="arithmatex">\(100\)</span> or bigger the price drops
+also to <span class="arithmatex">\(0.07 Eur\)</span>.</p>
+<h4 id="base-resistor">Base Resistor</h4>
+<p>The base resistor faces voltage drop up to <span class="arithmatex">\(6V\)</span> therefore its power rating
+should be <span class="arithmatex">\(P &gt;&gt; (6V)^2 / 22 \Omega \approx 1.6 W\)</span>.</p>
+<p><em>Search</em></p>
+<p>Searching on Mouser for:</p>
+<ul>
+<li><span class="arithmatex">\(R = 22 \Omega\)</span></li>
+<li><span class="arithmatex">\(P &gt; 3W\)</span></li>
+</ul>
+<p><em>Result</em></p>
+<p><a href="https://www.mouser.de/ProductDetail/TE-Connectivity-Holsworthy/RR03J22RTB?qs=sGAEpiMZZMtlubZbdhIBIIenWIH7rhEv%252B4gI1ku6TGs%3D">RR03J22RTB</a> for <span class="arithmatex">\(0.157 Eur p. P.\)</span></p>
+<h2 id="simulation">Simulation</h2>
+<p>See <code>./outstage.asc</code> and <code>./outstage.asy</code>.</p>
+<h2 id="hardware-tests-in-laboratory">Hardware tests in Laboratory</h2>
+<h2 id="layout-and-assembly-considerations">Layout and Assembly Considerations</h2>
+<h3 id="pcb-layout">PCB Layout</h3>
+<ul>
+<li>Add testpins for ballast resistor voltage measurement (measurement)</li>
+<li>Add testpins for input voltages (measurement, test source)</li>
+<li>Add testpin for output (measurement, load) <sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
+<li>Current limiting Transistor footprint, include bigger pad as thermal relieve</li>
+<li>Pull up/down for inputs, when stage is isolated, to run other tests.</li>
+</ul>
+<h3 id="assembly">Assembly</h3>
+<ul>
+<li>The power transistors should be mounted thermally coupled on the same heatsink
+    to reduce thermal drift of individual transistors.</li>
+<li>Additionally one heatsink can be shared by the npn and pnp power transistor,
+    because they are not subject to simultaneous heating.</li>
+<li>Apply thermal grease and electrical insulation from transistors to heatsink.</li>
+</ul>
+<h2 id="commissioning-and-testing">Commissioning and Testing</h2>
+<h3 id="load-distribution">Load Distribution</h3>
+<p>Test ID: <code>v1.1.0/pss/power-electronics/outstage/load-distribution/&lt;suffix&gt;</code></p>
+<div class="admonition info">
+<p class="admonition-title">Separation of outstage in individual units</p>
+<p>If the output stage is split into multiple equivalent units which will be
+used in parallel the test can be conducted with proportionally reduced
+currents.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">$100 m \Omega</p>
+<p>The resistance can be obtained by using a copper wire:</p>
+<ul>
+<li><span class="arithmatex">\(A = 4 mm^2, l \approx 24m\)</span> or</li>
+<li><span class="arithmatex">\(A = 1.5 mm^2, l \approx 9m\)</span></li>
+</ul>
+</div>
+<ol>
+<li>Connect<ol>
+<li>Positive Rail (test id suffix: <code>positive</code>)<ul>
+<li>Output with <span class="arithmatex">\(R = 100 m \Omega\)</span> to <em>GND</em> (<span class="arithmatex">\(P = 10W\)</span>)</li>
+<li>positive Input <span class="arithmatex">\(U_{IN+} = 2V\)</span></li>
+<li>negative Input <span class="arithmatex">\(U_{IN-} = 0V\)</span></li>
+</ul>
+</li>
+<li>Negative Rail (test id suffix: <code>negative</code>)<ul>
+<li>Output with <span class="arithmatex">\(R = 100 m \Omega\)</span> to <em>GND</em> (<span class="arithmatex">\(P = 10W\)</span>)</li>
+<li>positive Input <span class="arithmatex">\(U_{IN+} = 0V\)</span></li>
+<li>negative Input <span class="arithmatex">\(U_{IN-} = -2V\)</span></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Power on supply voltage</li>
+<li>Measure Voltages<ol>
+<li>Positive Rail<ul>
+<li>Voltage across positive ballast resistors <span class="arithmatex">\(U_{RE+}\)</span></li>
+</ul>
+</li>
+<li>Negative Rail<ul>
+<li>Voltage across negative ballast resistors <span class="arithmatex">\(U_{RE-}\)</span></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Power off supply voltage</li>
+<li>Test passed if<ul>
+<li><span class="arithmatex">\(U_{RE} \neq 0V \quad \wedge \quad U_{RE} \in \overline{U_{RE}} ( 1 \pm 10 \%) \quad \forall \quad U_{RE}\)</span></li>
+</ul>
+</li>
+</ol>
+<h3 id="short-circuit-test">Short Circuit Test</h3>
+<p>Test ID: <code>v1.1.0/pss/power-electronics/outstage/short-circuit/&lt;suffix&gt;</code></p>
+<div class="admonition info">
+<p class="admonition-title">Separation of outstage in individual units</p>
+<p>If the output stage is split into multiple equivalent units which will be
+used in parallel the test can be conducted with proportionally reduced
+currents.</p>
+</div>
+<ol>
+<li>Connect<ol>
+<li>Positive Rail (test id suffix: <code>positive</code>)<ul>
+<li>Output with <span class="arithmatex">\(R \to 0 \Omega\)</span> to <em>GND</em> (<span class="arithmatex">\(I = 20A\)</span>)</li>
+<li>positive Input <span class="arithmatex">\(U_{IN+} = 2V\)</span></li>
+<li>negative Input <span class="arithmatex">\(U_{IN-} = 0V\)</span></li>
+</ul>
+</li>
+<li>Negative Rail (test id suffix: <code>negative</code>)<ul>
+<li>Output with <span class="arithmatex">\(R \to 0 \Omega\)</span> to <em>5V</em> (<span class="arithmatex">\(I = 20A\)</span>)</li>
+<li>positive Input <span class="arithmatex">\(U_{IN+} = 0V\)</span></li>
+<li>negative Input <span class="arithmatex">\(U_{IN-} = -2V\)</span></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Power on supply voltage</li>
+<li>Measure<ol>
+<li>Positive Rail<ul>
+<li>Voltage across positive ballast resistors <span class="arithmatex">\(U_{RE+}\)</span></li>
+<li>Output current <span class="arithmatex">\(I_{Output}\)</span></li>
+</ul>
+</li>
+<li>Negative Rail<ul>
+<li>Voltage across negative ballast resistors <span class="arithmatex">\(U_{RE-}\)</span></li>
+<li>Output current <span class="arithmatex">\(I_{Output}\)</span></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Power off supply voltage<ul>
+<li><span class="arithmatex">\(U_{RE} \neq 0V \quad \wedge \quad U_{RE} \in \overline{U_{RE}} ( 1 \pm 10 \%) \quad \forall \quad U_{RE}\)</span></li>
+<li><span class="arithmatex">\(20A \leq |I_{Output}| \leq 25 A\)</span></li>
+</ul>
+</li>
+</ol>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://rohmfs-rohm-com-cn.oss-cn-shanghai.aliyuncs.com/en/products/databook/applinote/common/list_of_transistor_package_thermal_resistance_an-e.pdf">2023, ROHM Co., Ltd.,
+"List of Transistor Package Thermal Resistance",
+accessed at 06.04.2024</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://blog.mbedded.ninja/pcb-design/component-packages/to-3-component-package/">2021, Hunter, G.,
+"TO-3 Component Package",
+accessed at 07.04.2024</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://www.fischerelektronik.de/service/kataloge-up-to-date/">https://www.fischerelektronik.de/service/kataloge-up-to-date/</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>Screw terminal can be used for up to <span class="arithmatex">\(|I| = 20 A\)</span>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">May 6, 2025 00:28:31</span>
+  </span>
+
+    
+    
+    
+      
+  
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Contributors">
+      
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+      
+    </span>
+    <nav>
+      
+        <a href="mailto:93226660+pascalguttmann@users.noreply.github.com">pascalguttmann</a>
+    </nav>
+  </span>
+
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../power-electronics/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Power Electronics">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Power Electronics
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../outstage-unit/" class="md-footer__link md-footer__link--next" aria-label="Next: Outstage Unit">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Outstage Unit
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.path", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
