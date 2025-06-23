@@ -1,0 +1,35 @@
+Version 4
+SymbolType CELL
+LINE Normal 0 -16 -32 0
+LINE Normal 32 0 0 -16
+LINE Normal 0 16 32 0
+LINE Normal -32 0 0 16
+LINE Normal -32 32 -32 0
+LINE Normal 0 16 -32 32
+LINE Normal 32 32 0 16
+LINE Normal 32 0 32 32
+LINE Normal 32 -32 32 0
+LINE Normal 0 -16 32 -32
+LINE Normal -32 -32 0 -16
+LINE Normal -32 0 -32 -32
+LINE Normal -64 0 -32 0
+LINE Normal 64 0 32 0
+LINE Normal 0 -48 0 -16
+RECTANGLE Normal 64 48 -64 -48
+SYMATTR Prefix X
+SYMATTR Value CD4066
+PIN 0 -48 TOP 8
+PINATTR PinName E
+PINATTR SpiceOrder 1
+PIN -64 0 LEFT 8
+PINATTR PinName Y
+PINATTR SpiceOrder 2
+PIN 64 0 RIGHT 8
+PINATTR PinName Z
+PINATTR SpiceOrder 3
+PIN 48 -48 TOP 8
+PINATTR PinName Vdd
+PINATTR SpiceOrder 4
+PIN 48 48 BOTTOM 8
+PINATTR PinName Vss
+PINATTR SpiceOrder 5
